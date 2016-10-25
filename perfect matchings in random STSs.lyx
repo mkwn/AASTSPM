@@ -1,0 +1,8604 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\date{}
+
+\usepackage{appendix}
+
+% for better spacing on boldsymbol
+\usepackage{bm}
+
+% cleveref allows \ref{thm:asdf} instead of Theorem~\ref{thm:asdf}
+\usepackage[nameinlink,capitalise,noabbrev]{cleveref}
+\AtBeginDocument{\renewcommand{\ref}[1]{\cref{#1}}}
+\crefname{appsec}{Appendix}{Appendices}
+\creflabelformat{enumi}{#2textup{#1}#3}
+
+%\usepackage[parfill]{parskip}
+%\setlength{\parskip}{\bigskipamount}
+
+%have space before theorems
+%\begingroup
+%    \makeatletter
+%    \@for\theoremstyle:=definition,remark,plain\do{%
+%        \expandafter\g@addto@macro\csname th@\theoremstyle\endcsname{%
+%            \addtolength\thm@preskip\parskip
+%            }%
+%        }
+%\endgroup
+
+% LyX won't let me include cleveref before theorem declarations so I need to redefine everything as a hack
+\theoremstyle{plain}
+\newtheorem{mythm}{\protect\theoremname}[section]
+\renewenvironment{thm}{\begin{mythm}}{\end{mythm}}
+\crefname{mythm}{Theorem}{Theorems}
+\theoremstyle{definition}
+\newtheorem{mydefn}[mythm]{\protect\definitionname}
+\renewenvironment{defn}{\begin{mydefn}}{\end{mydefn}}
+\theoremstyle{definition}
+\newtheorem{myfact}[mythm]{\protect\factname}
+\renewenvironment{fact}{\begin{myfact}}{\end{myfact}}
+\theoremstyle{definition}
+\newtheorem{myexample}[mythm]{\protect\examplename}
+\renewenvironment{example}{\begin{myexample}}{\end{myexample}}
+\theoremstyle{plain}
+\newtheorem{myprop}[mythm]{\protect\propositionname}
+\renewenvironment{prop}{\begin{myprop}}{\end{myprop}}
+\theoremstyle{plain}
+\newtheorem{mycor}[mythm]{\protect\corollaryname}
+\renewenvironment{cor}{\begin{mycor}}{\end{mycor}}
+\theoremstyle{plain}
+\newtheorem{mylem}[mythm]{\protect\lemmaname}
+\renewenvironment{lem}{\begin{mylem}}{\end{mylem}}
+\crefname{mylem}{Lemma}{Lemmas}
+\theoremstyle{plain}
+\newtheorem{myconjecture}{\protect\conjecturename}
+\renewenvironment{conjecture}{\begin{myconjecture}}{\end{myconjecture}}
+\theoremstyle{definition}
+\newtheorem{myrem}[mythm]{\protect\remarkname}
+\renewenvironment{rem}{\begin{myrem}}{\end{myrem}}
+\theoremstyle{remark}
+\newtheorem{myclaim}[mythm]{\protect\claimname}
+\renewenvironment{claim}{\begin{myclaim}}{\end{myclaim}}
+\theoremstyle{plain}
+\newtheorem{myfakethm}[mythm]{``Theorem''}
+\renewenvironment{sol}{\begin{myfakethm}}{\end{myfakethm}}
+% equation cref format
+\crefformat{equation}{#2(#1)#3}
+
+% \left(\right) should behave the same as ()
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+\usepackage{pgfplots}
+\usetikzlibrary{pgfplots.groupplots}
+\usepackage{verbatim}
+
+%make sure tildes in url are vertically centered
+\makeatletter
+\renewcommand*{\UrlTildeSpecial}{%
+  \do\~{%
+    \mbox{%
+      \fontfamily{ptm}\selectfont
+      \textasciitilde
+    }%
+  }%  
+}%    
+\let\Url@force@Tilde\UrlTildeSpecial
+\makeatother
+
+%graph drawing
+\usepackage{tikz}
+%\usetikzlibrary{external}
+%\usetikzlibrary{decorations.markings}
+%\usetikzlibrary{arrows.meta}
+%\tikzexternalize
+\tikzstyle{vertex}=[circle,draw=black,fill=black,inner sep=0,minimum size=0.2cm,text=white,font=\footnotesize]
+%\tikzset{arc/.style={
+%        decoration={markings,
+%            mark= at position 0.5 with {\arrow{Latex[length=2mm,width=2mm]}} ,
+%        },
+%        postaction={decorate}
+%    }
+%}
+\tikzset{every loop/.style={min distance=50,in=50,out=130,looseness=7}}
+
+%caption labels
+\usepackage[labelfont=bf,labelsep=period]{caption}
+
+\usepackage{enumitem}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+theorems-sec
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "cmr" "default"
+\font_sans "cmss" "default"
+\font_typewriter "cmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\branch Folded
+\selected 1
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Almost all Steiner Triple Systems have perfect matchings
+\end_layout
+
+\begin_layout Author
+Matthew Kwan 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Department of Mathematics, ETH, 8092 Zürich.
+ Email: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{mailto:matthew.kwan@math.ethz.ch} {
+\backslash
+nolinkurl{matthew.kwan@math.ethz.ch}}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\RR}{\mathbb{R}}
+{\boldsymbol{\mathbb{R}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\QQ}{\mathbb{Q}}
+{\boldsymbol{\mathbb{Q}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\HH}{\mathbb{H}}
+{\boldsymbol{\mathbb{H}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\E}{\mathbb{E}}
+{\boldsymbol{\mathbb{E}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Var}{\operatorname{Var}}
+{\mathbf{Var}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\CC}{\mathbb{C}}
+{\boldsymbol{\mathbb{C}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\NN}{\mathbb{N}}
+{\boldsymbol{\mathbb{N}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ZZ}{\mathbb{Z}}
+{\boldsymbol{\mathbb{Z}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\GG}{\mathbb{G}}
+{\boldsymbol{\mathbb{G}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\BB}{\mathbb{B}}
+{\boldsymbol{\mathbb{B}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\DD}{\mathbb{D}}
+{\boldsymbol{\mathbb{D}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\cL}{\mathcal{L}}
+{\boldsymbol{\mathcal{L}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\supp}{\operatorname{supp}}
+{\mathbf{supp}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\one}{\boldsymbol{1}}
+{\boldsymbol{\boldsymbol{1}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\range}[1]{\left[#1\right]}
+{\boldsymbol{\left[#1\right]}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\d}{\operatorname{d}}
+{\mathbf{d}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\falling}[2]{\left(#1\right)_{#2}}
+{\boldsymbol{\left(#1\right)_{#2}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\f}{\mathbf{f}}
+{\boldsymbol{\mathbf{f}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\im}{\operatorname{im}}
+{\mathbf{im}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\sp}{\operatorname{span}}
+{\mathbf{span}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\rank}{\operatorname{rank}}
+{\mathbf{rank}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\sign}{\operatorname{sign}}
+{\mathbf{sign}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\mod}{\operatorname{mod}}
+{\mathbf{mod}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\id}{\operatorname{id}}
+{\mathbf{id}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\disc}{\operatorname{disc}}
+{\mathbf{disc}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\lindisc}{\operatorname{lindisc}}
+{\mathbf{lindisc}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\tr}{\operatorname{tr}}
+{\mathbf{tr}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\adj}{\operatorname{adj}}
+{\mathbf{adj}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Unif}{\operatorname{Unif}}
+{\mathbf{Unif}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Po}{\operatorname{Po}}
+{\mathbf{Po}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Bin}{\operatorname{Bin}}
+{\mathbf{Bin}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Ber}{\operatorname{Ber}}
+{\mathbf{Ber}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Geom}{\operatorname{Geom}}
+{\mathbf{Geom}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\sat}{\operatorname{sat}}
+{\mathbf{sat}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Hom}{\operatorname{Hom}}
+{\mathbf{Hom}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\vol}{\operatorname{vol}}
+{\mathbf{vol}\,}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\floor}[1]{\left\lfloor #1\right\rfloor }
+{\boldsymbol{\left\lfloor #1\right\rfloor }}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ceil}[1]{\left\lceil #1\right\rceil }
+{\boldsymbol{\left\lceil #1\right\rceil }}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\cond}{\,\middle|\,}
+{\boldsymbol{|}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+let
+\backslash
+polishL
+\backslash
+L
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\L}{\mathcal{L}}
+{\boldsymbol{\mathcal{L}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+DeclareRobustCommand{
+\backslash
+L}{
+\backslash
+ifmmode{
+\backslash
+mathcal{L}}
+\backslash
+else
+\backslash
+polishL
+\backslash
+fi}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\randS}{\boldsymbol{S}}
+{\boldsymbol{\boldsymbol{S}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\S}{\mathcal{S}}
+{\boldsymbol{\mathcal{S}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Sm}[1]{\mathcal{S}_{#1}}
+{\boldsymbol{\mathcal{S}_{#1}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ord}{\mathcal{O}}
+{\boldsymbol{\mathcal{O}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ordm}[1]{\mathcal{O}_{#1}}
+{\boldsymbol{\mathcal{O}_{#1}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\cordm}[2]{\mathcal{O}_{#2}^{#1}}
+{\boldsymbol{\mathcal{O}_{#2}^{#1}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\cSm}[2]{\mathcal{S}_{#2}^{#1}}
+{\boldsymbol{\mathcal{S}_{#2}^{#1}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ext}[1]{\mathcal{O}^{\mathrm{ext}}\left(#1\right)}
+{\boldsymbol{\mathcal{O}^{\mathrm{ext}}\left(#1\right)}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\randN}{\boldsymbol{N}}
+{\boldsymbol{\boldsymbol{N}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\randX}{\boldsymbol{X}}
+{\boldsymbol{\boldsymbol{X}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\rg}[2]{\RR\left(#1,#2\right)}
+{\boldsymbol{\RR\left(#1,#2\right)}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Gnp}[2]{\GG\left(#1,#2\right)}
+{\boldsymbol{\GG\left(#1,#2\right)}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\GSnp}[2]{\GG^{*}\left(#1,#2\right)}
+{\boldsymbol{\GG^{*}\left(#1,#2\right)}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\randG}{\boldsymbol{G}}
+{\boldsymbol{\boldsymbol{G}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\randY}{\boldsymbol{Y}}
+{\boldsymbol{\boldsymbol{Y}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\randZ}{\boldsymbol{Z}}
+{\boldsymbol{\boldsymbol{Z}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\randM}{\boldsymbol{M}}
+{\boldsymbol{\boldsymbol{M}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\randL}{\boldsymbol{L}}
+{\boldsymbol{\boldsymbol{L}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Folded
+status open
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{comment}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+t
+\end_layout
+
+\begin_layout Corollary
+c
+\end_layout
+
+\begin_layout Lemma
+l
+\end_layout
+
+\begin_layout Proposition
+p
+\end_layout
+
+\begin_layout Conjecture
+c
+\end_layout
+
+\begin_layout Definition
+d
+\end_layout
+
+\begin_layout Example
+e
+\end_layout
+
+\begin_layout Remark
+r
+\end_layout
+
+\begin_layout Claim
+c
+\end_layout
+
+\begin_layout Fact
+f
+\end_layout
+
+\begin_layout Solution
+s
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{comment}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+We show that almost all Steiner triple systems have perfect matchings.
+ In fact, we prove a general upper bound on the number of perfect matchings
+ in a Steiner triple system and show that almost all Steiner triple systems
+ essentially attain this maximum.
+ We accomplish this via a general theorem comparing a uniformly random Steiner
+ system to the outcome of a random clique removal process, which we hope
+ will be useful for other problems.
+ We believe our methods can be easily adapted to other types of designs,
+ for example to show that almost all Latin squares have transversals.
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+A 
+\emph on
+Steiner system
+\emph default
+ of order 
+\begin_inset Formula $n$
+\end_inset
+
+ with parameters 
+\begin_inset Formula $\left(q,r\right)$
+\end_inset
+
+, 
+\begin_inset Formula $q>r$
+\end_inset
+
+, is a collection 
+\begin_inset Formula $S$
+\end_inset
+
+ of size-
+\begin_inset Formula $q$
+\end_inset
+
+ subsets of 
+\begin_inset Formula $\range n=\left\{ 1,\dots,n\right\} $
+\end_inset
+
+ (that is, a 
+\begin_inset Formula $q$
+\end_inset
+
+-uniform hypergraph on the vertex set 
+\begin_inset Formula $\range n$
+\end_inset
+
+), such that every size-
+\begin_inset Formula $r$
+\end_inset
+
+ subset of 
+\begin_inset Formula $\range n$
+\end_inset
+
+ is included in exactly one element (hyperedge) of 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Steiner systems are among the most fundamental types of combinatorial designs,
+ and have strong connections to a wide range of different subjects, ranging
+ from group theory, to finite geometry, to experimental design, to the theory
+ of error-correcting codes.
+ See 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Chapter~19"
+key "VW01"
+
+\end_inset
+
+ for an introduction to the subject.
+\end_layout
+
+\begin_layout Standard
+A 
+\begin_inset Formula $\left(q,1\right)$
+\end_inset
+
+-Steiner system is a partition of 
+\begin_inset Formula $\range n$
+\end_inset
+
+ into subsets of size 
+\begin_inset Formula $q$
+\end_inset
+
+.
+ In the language of hypergraphs, it is precisely a 
+\begin_inset Formula $q$
+\end_inset
+
+-uniform perfect matching.
+ Steiner systems with all other combinations of parameters are notoriously
+ difficult to study.
+ The simplest case is that of 
+\begin_inset Formula $\left(3,2\right)$
+\end_inset
+
+-Steiner systems, commonly known as 
+\emph on
+Steiner triple systems
+\emph default
+.
+ A Steiner triple system is actually nothing more than a triangle-decomposition
+ of the edges of the complete graph 
+\begin_inset Formula $K_{n}$
+\end_inset
+
+, so Steiner triple systems are natural 
+\begin_inset Quotes eld
+\end_inset
+
+symmetric
+\begin_inset Quotes erd
+\end_inset
+
+ counterparts to 
+\emph on
+Latin squares
+\emph default
+, which can be defined as triangle-decompositions of the complete tripartite
+ graph 
+\begin_inset Formula $K_{n,n,n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In 1974 Wilson 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wil74"
+
+\end_inset
+
+ used estimates for the number of Latin squares to prove a coarse estimate
+ for the number of Steiner triple systems.
+ Babai 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bab80"
+
+\end_inset
+
+ used this estimate to prove that a 
+\begin_inset Formula $\left(1-o\left(1\right)\right)$
+\end_inset
+
+-proportion of Steiner triple systems have trivial automorphism group (equivalen
+tly, a uniformly random order-
+\begin_inset Formula $n$
+\end_inset
+
+ Steiner triple system a.a.s.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+By 
+\begin_inset Quotes eld
+\end_inset
+
+asymptotically almost surely
+\begin_inset Quotes erd
+\end_inset
+
+, or 
+\begin_inset Quotes eld
+\end_inset
+
+a.a.s.
+\begin_inset Quotes erd
+\end_inset
+
+, we mean that the probability of an event is 
+\begin_inset Formula $1-o\left(1\right)$
+\end_inset
+
+.
+ Here and for the rest of the paper, asymptotics are as 
+\begin_inset Formula $n\to\infty$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ has trivial automorphism group).
+ We believe this is the only nontrivial property known to hold a.a.s.
+ for random Steiner systems with any combination of parameters.
+ Following Erd
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+H 
+\end_layout
+
+\end_inset
+
+os and R
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'
+\end_layout
+
+\end_inset
+
+enyi's seminal paper 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ER59"
+
+\end_inset
+
+ on random graphs and Erd
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+H 
+\end_layout
+
+\end_inset
+
+os' popularization of the probabilistic method, there have been great developmen
+ts in the theory of random combinatorial structures of all kinds, but essentiall
+y none of the tools developed seem to be applicable to Steiner systems.
+ Steiner systems lack independence or any kind of recursive structure, which
+ rules out many of the techniques used to study Erd
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+H 
+\end_layout
+
+\end_inset
+
+os-R
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'
+\end_layout
+
+\end_inset
+
+enyi random graphs and random permutations, and there is basically no freedom
+ to make local changes, which precludes the use of 
+\begin_inset Quotes eld
+\end_inset
+
+switching
+\begin_inset Quotes erd
+\end_inset
+
+ techniques often used in the study of random regular graphs (see for example
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KSVW01"
+
+\end_inset
+
+).
+ It is not even clear how to study random Steiner systems empirically; in
+ an attempt to find an efficient algorithm to generate a random Steiner
+ triple system, Cameron 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cam02"
+
+\end_inset
+
+ designed a Markov chain on Steiner triple systems, but he was not able
+ to determine whether this chain was connected.
+\end_layout
+
+\begin_layout Standard
+In a huge breakthrough that will surely revolutionize design theory, Keevash
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kee14"
+
+\end_inset
+
+ very recently proved that 
+\begin_inset Quotes eld
+\end_inset
+
+partial
+\begin_inset Quotes erd
+\end_inset
+
+ Steiner systems satisfying a certain 
+\begin_inset Quotes eld
+\end_inset
+
+quasirandomness
+\begin_inset Quotes erd
+\end_inset
+
+ condition can be completed into Steiner systems.
+ He used this to settle a longstanding existence question for Steiner systems,
+ and shortly afterwards 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kee15"
+
+\end_inset
+
+ he proved new estimates for the number of Steiner systems with each combination
+ of parameters.
+ In particular he proved that there are
+\begin_inset Formula 
+\[
+\left(n/e^{2}+o\left(n\right)\right)^{n^{2}/6}
+\]
+
+\end_inset
+
+Steiner triple systems of order 
+\begin_inset Formula $n$
+\end_inset
+
+, as long as 
+\begin_inset Formula $n$
+\end_inset
+
+ satisfies necessary divisibility conditions (Steiner triple systems can
+ only exist if 
+\begin_inset Formula $n$
+\end_inset
+
+ is 1 or 3 mod 6; we will implicitly assume this for the rest of the paper).
+\end_layout
+
+\begin_layout Standard
+Of course, this new estimate makes it possible, in theory, to prove new
+ a.a.s.
+ properties of random Steiner triple systems just by giving asymptotically
+ smaller estimates on the number of Steiner triple systems not satisfying
+ a certain property.
+ However, for most properties it is not at all clear how to prove such estimates.
+ Instead, we introduce a way to use Keevash's methods to show that a uniformly
+ random Steiner triple system can in some sense be approximated by the outcome
+ of a random process called the 
+\emph on
+triangle removal process
+\emph default
+.
+ We remark that actually Keevash's lower bound is proved via a randomized
+ construction that involves the triangle removal process, so many properties
+ that hold a.a.s.
+ in the triangle removal process trivially hold a.a.s.
+ in this random construction.
+ Such results have been proved in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Proposition~3.1"
+key "LL15"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LLR15"
+
+\end_inset
+
+.
+ However, the Steiner triple systems obtainable by Keevash's construction
+ comprise a negligible proportion of the set of Steiner triple systems,
+ so a more delicate approach is required to study a uniformly random Steiner
+ triple system.
+ We give the details in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:outline"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+As an application of our new method, we prove that almost all Steiner triple
+ systems have many perfect matchings.
+ The existence of perfect matchings is one of the most central questions
+ in the theory of graphs and hypergraphs.
+ In particular, one of the most celebrated recent developments in the field
+ is the Fulkerson-prize-winning work of Johansson, Kahn and Vu 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JKV08"
+
+\end_inset
+
+ on the number of hyperedges a random hypergraph should have for there to
+ a.a.s.
+ be a perfect matching.
+ We remark that Alon, Kim and Spencer 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AKS97"
+
+\end_inset
+
+ proved that actually every Steiner triple system has an almost-perfect
+ matching covering all but 
+\begin_inset Formula $o\left(\sqrt{n}\log^{3/2}n\right)$
+\end_inset
+
+ vertices.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:PM-in-STS"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\randS$
+\end_inset
+
+ be a uniformly random order-
+\begin_inset Formula $n$
+\end_inset
+
+ Steiner triple system.
+ Then a.a.s.
+ 
+\begin_inset Formula $\randS$
+\end_inset
+
+ contains
+\begin_inset Formula 
+\[
+\left(\left(1-o\left(1\right)\right)\frac{n}{2e^{2}}\right)^{n/3}
+\]
+
+\end_inset
+
+perfect matchings.
+\end_layout
+
+\begin_layout Standard
+We prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:PM-in-STS"
+
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:absorbers"
+
+\end_inset
+
+ using our new method combined with the so-called 
+\emph on
+absorbing method
+\emph default
+, which was introduced as a general method by R
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+"
+\end_layout
+
+\end_inset
+
+odl, Ruci
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'
+\end_layout
+
+\end_inset
+
+nski and Szemer
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'
+\end_layout
+
+\end_inset
+
+edi 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RRS09"
+
+\end_inset
+
+ (though the basic idea had been used earlier, for example by Krivelevich
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kri97"
+
+\end_inset
+
+).
+ Basically, we prove the existence of certain small substructures that allow
+ us to complete an almost-perfect matching into a perfect one.
+\end_layout
+
+\begin_layout Standard
+Up to the error term, a random Steiner triple system actually has the maximum
+ possible number of perfect matchings: we also prove the following upper
+ bound.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:maximum-PMs"
+
+\end_inset
+
+Any Steiner triple system has at most
+\begin_inset Formula 
+\[
+\left(\left(1+o\left(1\right)\right)\frac{n}{2e^{2}}\right)^{n/3}
+\]
+
+\end_inset
+
+perfect matchings.
+\end_layout
+
+\begin_layout Standard
+We give a short proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:maximum-PMs"
+
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:max-num-matchings"
+
+\end_inset
+
+, using the so-called 
+\emph on
+entropy method
+\emph default
+ due to Radhakrishnan 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rad97"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Latin squares
+\end_layout
+
+\begin_layout Standard
+An order-
+\begin_inset Formula $n$
+\end_inset
+
+ Latin square is usually defined as an 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ array of the numbers between 1 and 
+\begin_inset Formula $n$
+\end_inset
+
+ (we call these 
+\emph on
+symbols
+\emph default
+), such that each row and column contains each symbol exactly once.
+ As mentioned earlier, this is equivalent to a 3-uniform hypergraph whose
+ triples comprise a triangle-decomposition of the edges of the complete
+ tripartite graph 
+\begin_inset Formula $K_{n,n,n}$
+\end_inset
+
+ (the three parts correspond to the rows, columns and symbols, and so a
+ triangle 
+\begin_inset Formula $\left(i,j,k\right)$
+\end_inset
+
+ corresponds to putting the symbol 
+\begin_inset Formula $k$
+\end_inset
+
+ in the cell 
+\begin_inset Formula $\left(i,j\right)$
+\end_inset
+
+).
+ A perfect matching in a Latin square is called a 
+\emph on
+transversal 
+\emph default
+and the property of containing a transversal is of great interest.
+ In particular, the famous Ryser-Brualdi-Stein conjecture speculates that
+ every odd-order Latin square has a transversal, and every even-order Latin
+ square has a partial transversal (matching) of size 
+\begin_inset Formula $n-1$
+\end_inset
+
+.
+ See the survey of Wanless 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wan11"
+
+\end_inset
+
+ for more information.
+\end_layout
+
+\begin_layout Standard
+We are quite confident that our methods can be adapted to the setting of
+ Latin squares.
+ The main obstacle is that Keevash's completion results have not yet been
+ adapted to Latin squares, and it would be well outside the scope of this
+ paper to include such an adaptation here.
+ Actually, the author is currently working with Nina Kam
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+v 
+\end_layout
+
+\end_inset
+
+cev, D
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'
+\end_layout
+
+\end_inset
+
+aniel Kor
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'
+\end_layout
+
+\end_inset
+
+andi, Zur Luria, Frank Mousset and Alexey Pokrovskiy, on adapting Keevash's
+ methods to (a class of designs generalizing) Latin squares, which would
+ settle this issue.
+ In any case, modulo a Keevash-type completion result we can prove the following
+ theorem, answering a question of Glebov and Luria 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GL16"
+
+\end_inset
+
+ and proving that the Ryser-Brualdi-Stein conjecture holds for almost all
+ Latin squares.
+\end_layout
+
+\begin_layout Solution
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:latin"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\randL$
+\end_inset
+
+ be a uniformly random order-
+\begin_inset Formula $n$
+\end_inset
+
+ Latin square.
+ Then a.a.s.
+ 
+\begin_inset Formula $\randL$
+\end_inset
+
+ contains
+\begin_inset Formula 
+\begin{equation}
+\left(\left(1-o\left(1\right)\right)\frac{n}{e^{2}}\right)^{n}\label{eq:num-STS}
+\end{equation}
+
+\end_inset
+
+transversals.
+\end_layout
+
+\begin_layout Standard
+We note that the counterpart of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:maximum-PMs"
+
+\end_inset
+
+ for Latin squares (that a Latin square can have at most 
+\begin_inset Formula $\left(\left(1+o\left(1\right)\right)n/e^{2}\right)^{n}$
+\end_inset
+
+ transversals) was first proved by Taranenko 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Tar15"
+
+\end_inset
+
+.
+ In 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:latin"
+
+\end_inset
+
+ we outline how the proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:PM-in-STS"
+
+\end_inset
+
+ can be adapted to prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:latin"
+
+\end_inset
+
+, conditional on a Keevash-type completion result.
+\end_layout
+
+\begin_layout Subsection
+Structure of the paper
+\end_layout
+
+\begin_layout Standard
+The structure of this paper is as follows.
+ In 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:outline"
+
+\end_inset
+
+ we explain our method for studying random Steiner triple systems (in fact,
+ we do everything in the general setting of 
+\begin_inset Formula $\left(q,r\right)$
+\end_inset
+
+-Steiner systems, because this does not introduce any difficulties).
+ In 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:absorbers"
+
+\end_inset
+
+ we define absorbers and prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:PM-in-STS"
+
+\end_inset
+
+, in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:max-num-matchings"
+
+\end_inset
+
+ we prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:maximum-PMs"
+
+\end_inset
+
+, and in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:latin"
+
+\end_inset
+
+ we sketch how 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:latin"
+
+\end_inset
+
+ may be proved.
+ We have some concluding remarks, including a long list of open problems,
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:concluding"
+
+\end_inset
+
+.
+ Finally, we have two appendices; in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:keevash"
+
+\end_inset
+
+ we provide a straightforward but necessary adaptation of Keevash's methods,
+ to estimate the number of completions of a partial Steiner system, and
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Random-triangle-removal"
+
+\end_inset
+
+ we have a very simple analysis of a clique removal process generalizing
+ the triangle removal process.
+\end_layout
+
+\begin_layout Subsection
+Acknowledgements
+\end_layout
+
+\begin_layout Standard
+The author would like to thank Asaf Ferber and Benny Sudakov for fruitful
+ discussions about random designs and the intricacies of the absorbing method.
+ Asaf and Benny could both have deservedly been coauthors on this paper,
+ but graciously declined the opportunity.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:outline"
+
+\end_inset
+
+Random Steiner systems via clique removal processes
+\end_layout
+
+\begin_layout Standard
+In this section we describe our method for comparing random Steiner triple
+ systems with the outcome of the triangle removal process.
+ Actually, the situation for general 
+\begin_inset Formula $\left(q,r\right)$
+\end_inset
+
+-Steiner systems is essentially the same, so we state everything in general
+ terms in case this is useful in the future.
+ For this entire section, 
+\begin_inset Formula $q$
+\end_inset
+
+ and 
+\begin_inset Formula $r$
+\end_inset
+
+ should be considered fixed, and whenever we say 
+\begin_inset Quotes eld
+\end_inset
+
+Steiner system
+\begin_inset Quotes erd
+\end_inset
+
+ we mean 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\left(q,r\right)$
+\end_inset
+
+-Steiner system
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $Q={q \choose r}$
+\end_inset
+
+ and let 
+\begin_inset Formula $N={n \choose r}/Q=\left(1+o\left(1\right)\right)\left(\left(q-r\right)!/q!\right)n^{r}$
+\end_inset
+
+ be the number of hyperedges in a Steiner system.
+\end_layout
+
+\begin_layout Standard
+Before we can state our general theorem for comparing random Steiner systems
+ with clique removal processes, we need several definitions.
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+partial Steiner systems
+\end_layout
+
+\end_inset
+
+A 
+\emph on
+partial Steiner system
+\emph default
+ (or 
+\emph on
+partial system
+\emph default
+ for short) is a 
+\begin_inset Formula $q$
+\end_inset
+
+-uniform hypergraph on 
+\begin_inset Formula $\range n$
+\end_inset
+
+ in which every 
+\begin_inset Formula $r$
+\end_inset
+
+-set of vertices is included in no more than one hyperedge.
+ Let 
+\begin_inset Formula $\Sm m$
+\end_inset
+
+ be the set of partial systems with 
+\begin_inset Formula $m$
+\end_inset
+
+ hyperedges.
+ We will also want to consider partial systems with ordered hyperedges.
+ Let 
+\begin_inset Formula $\ord$
+\end_inset
+
+ be the set of ordered Steiner systems, and let 
+\begin_inset Formula $\ordm m$
+\end_inset
+
+ be the set of ordered partial systems with 
+\begin_inset Formula $m$
+\end_inset
+
+ hyperedges.
+ For 
+\begin_inset Formula $S\in\ordm m$
+\end_inset
+
+ and 
+\begin_inset Formula $i\le m$
+\end_inset
+
+, let 
+\begin_inset Formula $S_{i}$
+\end_inset
+
+ be the partial system consisting of the first 
+\begin_inset Formula $i$
+\end_inset
+
+ hyperedges of 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ For a (possibly ordered) partial system 
+\begin_inset Formula $S$
+\end_inset
+
+, let 
+\begin_inset Formula $G\left(S\right)$
+\end_inset
+
+ be the 
+\begin_inset Formula $r$
+\end_inset
+
+-uniform hypergraph with an edge for every pair of vertices which does not
+\emph on
+ 
+\emph default
+appear in any hyperedge of 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ So, if 
+\begin_inset Formula $S$
+\end_inset
+
+ has 
+\begin_inset Formula $m$
+\end_inset
+
+ hyperedges, then 
+\begin_inset Formula $G\left(S\right)$
+\end_inset
+
+ has 
+\begin_inset Formula ${n \choose r}-Qm$
+\end_inset
+
+ edges.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+quasirandomness
+\end_layout
+
+\end_inset
+
+For an 
+\begin_inset Formula $r$
+\end_inset
+
+-graph 
+\begin_inset Formula $G$
+\end_inset
+
+ with 
+\begin_inset Formula $m$
+\end_inset
+
+ edges, let 
+\begin_inset Formula $d\left(G\right)=m/{n \choose r}$
+\end_inset
+
+ denote its density.
+ For an 
+\begin_inset Formula $\left(r-1\right)$
+\end_inset
+
+-set of vertices 
+\begin_inset Formula $W$
+\end_inset
+
+ in an 
+\begin_inset Formula $r$
+\end_inset
+
+-graph 
+\begin_inset Formula $G$
+\end_inset
+
+, the 
+\emph on
+neighbourhood
+\emph default
+ 
+\begin_inset Formula $N_{G}\left(W\right)$
+\end_inset
+
+ is the set of vertices 
+\begin_inset Formula $v$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left\{ v\right\} \cup W$
+\end_inset
+
+ is an edge of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ We say 
+\begin_inset Formula $G$
+\end_inset
+
+ is 
+\emph on
+
+\begin_inset Formula $\left(\varepsilon,h\right)$
+\end_inset
+
+-quasirandom
+\emph default
+ if for every set 
+\begin_inset Formula $A$
+\end_inset
+
+ of 
+\begin_inset Formula $\left(r-1\right)$
+\end_inset
+
+-sets of vertices with 
+\begin_inset Formula $\left|A\right|\le h$
+\end_inset
+
+, we have 
+\begin_inset Formula $\left|\bigcap_{W\in A}N_{G}\left(W\right)\right|=\left(1\pm\varepsilon\right)d\left(G\right)^{\left|A\right|}n$
+\end_inset
+
+.
+ (The notation 
+\begin_inset Formula $f=1\pm\varepsilon$
+\end_inset
+
+ means 
+\begin_inset Formula $1-\varepsilon\le f\le1+\varepsilon$
+\end_inset
+
+).
+ Let 
+\begin_inset Formula $\cSm{\varepsilon,h}m\subseteq\Sm m$
+\end_inset
+
+ be the set of partial systems 
+\begin_inset Formula $S\in\Sm m$
+\end_inset
+
+ such that 
+\begin_inset Formula $G\left(S\right)$
+\end_inset
+
+ is 
+\begin_inset Formula $\left(\varepsilon,h\right)$
+\end_inset
+
+-quasirandom, and let 
+\begin_inset Formula $\cordm{\varepsilon,h}m\subseteq\ordm m$
+\end_inset
+
+ be the set of ordered partial systems 
+\begin_inset Formula $S\in\ordm m$
+\end_inset
+
+ such that 
+\begin_inset Formula $S_{i}\in\cSm{\varepsilon,h}i$
+\end_inset
+
+ for each 
+\begin_inset Formula $i\le m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+the clique removal processs
+\end_layout
+
+\end_inset
+
+The clique removal process is defined as follows.
+ Start with the complete 
+\begin_inset Formula $r$
+\end_inset
+
+-graph 
+\begin_inset Formula $K_{n}^{\left(r\right)}$
+\end_inset
+
+ and iteratively delete a copy of 
+\begin_inset Formula $K_{q}^{\left(r\right)}$
+\end_inset
+
+ chosen uniformly at random from all copies of 
+\begin_inset Formula $K_{q}^{\left(r\right)}$
+\end_inset
+
+ in the remaining 
+\begin_inset Formula $r$
+\end_inset
+
+-graph.
+ If we continue this process for 
+\begin_inset Formula $m$
+\end_inset
+
+ steps, the deleted copies of 
+\begin_inset Formula $K_{q}^{\left(r\right)}$
+\end_inset
+
+ (in order) can be interpreted as an ordered partial system in 
+\begin_inset Formula $\ordm m$
+\end_inset
+
+.
+ It is also possible that the process aborts (because there are no copies
+ of 
+\begin_inset Formula $K_{q}^{\left(r\right)}$
+\end_inset
+
+ left) before 
+\begin_inset Formula $m$
+\end_inset
+
+ steps, in which case we say it returns the value 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $*$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ We denote by 
+\begin_inset Formula $\rg nm$
+\end_inset
+
+ the resulting distribution on 
+\begin_inset Formula $\ordm m\cup\left\{ *\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now, our general theorem is as follows.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:triangle-removal-transfer"
+
+\end_inset
+
+There is 
+\begin_inset Formula $h_{0}\in\NN$
+\end_inset
+
+ such that for fixed 
+\begin_inset Formula $h\ge h_{0}$
+\end_inset
+
+ and sufficiently small 
+\begin_inset Formula $a$
+\end_inset
+
+ there is 
+\begin_inset Formula $b\left(a\right)>0$
+\end_inset
+
+ such that the following holds.
+ Fix 
+\begin_inset Formula $\alpha\in\left(0,1\right)$
+\end_inset
+
+, let 
+\begin_inset Formula $\mathcal{P}\subseteq\ordm{\alpha N}$
+\end_inset
+
+ be a property of ordered partial systems, let 
+\begin_inset Formula $\mathcal{Q}\supseteq\cordm{n^{-a},h}{\alpha N}$
+\end_inset
+
+, let 
+\begin_inset Formula $\randS\in\ord$
+\end_inset
+
+ be uniformly random and let 
+\begin_inset Formula $\randS'\in\rg n{\alpha N}$
+\end_inset
+
+.
+ If
+\begin_inset Formula 
+\[
+\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)<\exp\left(-n^{r-b}\right)
+\]
+
+\end_inset
+
+then
+\begin_inset Formula 
+\[
+\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right)=\exp\left(-\Omega\left(n^{1-2a}\right)\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that (as we prove in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Random-triangle-removal"
+
+\end_inset
+
+), the clique removal process is likely to produce quasirandom graphs; that
+ is, 
+\begin_inset Formula $\Pr\left(\randS'\in\mathcal{Q}\right)=1-o\left(1\right)$
+\end_inset
+
+.
+ However, as we will see in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:absorbers"
+
+\end_inset
+
+, the conditioning in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+ can still be useful because the probabilities under consideration are so
+ small (it is certainly not true that 
+\begin_inset Formula $\Pr\left(\randS'\notin\mathcal{Q}\right)$
+\end_inset
+
+ is anywhere near as small as 
+\begin_inset Formula $\exp\left(-\Omega\left(n^{2}\right)\right)$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{comment}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO: work out the dependence on 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ so 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+ can be used for 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ non-constant
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{comment}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+ follows from a sequence of several lemmas.
+ The most important is the following: we can use Keevash's methods to estimate
+ the number of ways to complete any 
+\begin_inset Formula $S\in\cordm{\varepsilon,h}{\alpha N}$
+\end_inset
+
+, and show that it does not vary too much between choices of 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:num-extensions"
+
+\end_inset
+
+There is 
+\begin_inset Formula $h\in\NN$
+\end_inset
+
+ such that for any fixed 
+\begin_inset Formula $a>0$
+\end_inset
+
+, there is 
+\begin_inset Formula $b=b\left(a\right)>0$
+\end_inset
+
+ such that the following holds.
+ For any fixed 
+\begin_inset Formula $\alpha\in\left(0,1\right)$
+\end_inset
+
+, any 
+\begin_inset Formula $\varepsilon\le n^{-a}$
+\end_inset
+
+, and any 
+\begin_inset Formula $S,S'\in\cordm{\varepsilon,h}{\alpha N}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\frac{\left|\ext S\right|}{\left|\ext{S'}\right|}=\exp\left(n^{r-b}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:num-extensions"
+
+\end_inset
+
+ can be proved with only very slight adaptations to the proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:num-STS"
+
+\end_inset
+
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kee15"
+
+\end_inset
+
+.
+ The details are in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:keevash"
+
+\end_inset
+
+.
+ The point of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:num-extensions"
+
+\end_inset
+
+ is that if we can prove some property holds with extremely high probability
+ (say 
+\begin_inset Formula $1-\exp\left(-\Omega\left(n^{2}\right)\right)$
+\end_inset
+
+) in a uniformly random 
+\begin_inset Formula $\randS\in\cordm{\varepsilon,h}{\alpha N}$
+\end_inset
+
+, then it also holds with essentially the same probability in 
+\begin_inset Formula $\randS_{\alpha N}$
+\end_inset
+
+, for a uniformly random 
+\begin_inset Formula $\randS\in\ord$
+\end_inset
+
+ conditioned on the event 
+\begin_inset Formula $\randS_{\alpha N}\in\cordm{\varepsilon,h}{\alpha N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The next step is to show that the event 
+\begin_inset Formula $\randS_{\alpha N}\in\cordm{\varepsilon,h}{\alpha N}$
+\end_inset
+
+ is very likely.
+ In fact, this event occurs a.a.s.
+ for a random ordering of any given Steiner system.
+ We prove the following lemma in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:random-is-typical"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:random-is-typical"
+
+\end_inset
+
+The following holds for any fixed 
+\begin_inset Formula $h\in\NN$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha\in\left(0,1\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $a\in\left(0,1/2\right)$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\varepsilon=n^{-a}$
+\end_inset
+
+, consider any Steiner system 
+\begin_inset Formula $S$
+\end_inset
+
+, and uniformly at random order its hyperedges to obtain an ordered Steiner
+ system 
+\begin_inset Formula $\randS\in\ord$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\Pr\left(\randS_{\alpha N}\notin\cordm{\varepsilon,h}{\alpha N}\right)=\exp\left(-\Omega\left(n^{1-2a}\right)\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Therefore, if we can prove a property holds with extremely high probability
+ in a uniformly random 
+\begin_inset Formula $\randS\in\cordm{\varepsilon,h}{\alpha N}$
+\end_inset
+
+ for sufficiently small 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ and sufficiently large 
+\begin_inset Formula $h$
+\end_inset
+
+, then that property also holds a.a.s.
+ in the first 
+\begin_inset Formula $\alpha N$
+\end_inset
+
+ edges of a uniformly random 
+\begin_inset Formula $\randS\in\ord$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Next, the following lemma says that each 
+\begin_inset Formula $S\in\cordm{\varepsilon,h}{\alpha N}$
+\end_inset
+
+ is roughly equally likely to be produced by the clique removal process,
+ so that 
+\begin_inset Formula $\RR\left(n,\alpha N\right)$
+\end_inset
+
+ approximates the uniform distribution on 
+\begin_inset Formula $S\in\cordm{\varepsilon,h}{\alpha N}$
+\end_inset
+
+.
+ It is proved in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:greedy-random-approx-uniform"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:greedy-random-approx-uniform"
+
+\end_inset
+
+For any 
+\begin_inset Formula $a>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha\in\left[0,1\right]$
+\end_inset
+
+, and for 
+\begin_inset Formula $S,S'\in\cordm{n^{-a},q-1}{\alpha N}$
+\end_inset
+
+ and 
+\begin_inset Formula $\randS\in\rg n{\alpha N}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\frac{\Pr\left(\randS=S\right)}{\Pr\left(\randS=S'\right)}\le\exp\left(O\left(n^{r-a}\right)\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can finally combine everything to prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+We have
+\begin_inset Formula 
+\begin{align*}
+\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right) & \le\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\cond\randS_{\alpha N}\in\cordm{n^{-a},h}{\alpha N}\right)+\Pr\left(\randS_{\alpha N}\notin\cordm{n^{-a},h}{\alpha N}\right)\\
+ & \le\exp\left(O\left(n^{r-c}\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{n^{-a},h}{\alpha N}\right)+\exp\left(-\Omega\left(n^{1-2a}\right)\right),
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $c=b\left(a\right)$
+\end_inset
+
+ in the notation of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:num-extensions"
+
+\end_inset
+
+.
+ But, if 
+\begin_inset Formula $a$
+\end_inset
+
+ is small enough then 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-analysis"
+
+\end_inset
+
+ guarantees that 
+\begin_inset Formula $\Pr\left(\randS'\in\cordm{n^{-a},h}{\alpha N}\right)=1-o\left(1\right)$
+\end_inset
+
+ so
+\begin_inset Formula 
+\[
+\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{n^{-a},h}{\alpha N}\right)\le\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)\frac{\Pr\left(\randS'\in\mathcal{Q}\right)}{\Pr\left(\randS'\in\cordm{n^{-a},h}{\alpha N}\right)}=\left(1+o\left(1\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right).
+\]
+
+\end_inset
+
+If 
+\begin_inset Formula $b<c$
+\end_inset
+
+ this completes the proof.
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:random-is-typical"
+
+\end_inset
+
+ we prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:random-is-typical"
+
+\end_inset
+
+ and in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:greedy-random-approx-uniform"
+
+\end_inset
+
+ we prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:greedy-random-approx-uniform"
+
+\end_inset
+
+.
+ Also, in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:bite-transfer"
+
+\end_inset
+
+ we prove some lemmas which are useful tools for applying 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+ in practice.
+\end_layout
+
+\begin_layout Subsection
+Randomly ordered Steiner systems
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:random-is-typical"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this subsection we prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:random-is-typical"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Fix 
+\begin_inset Formula $m\le\alpha N$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $\randS_{m}$
+\end_inset
+
+ (as an unordered partial system) is a uniformly random subset of 
+\begin_inset Formula $m$
+\end_inset
+
+ hyperedges of 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ We can obtain an almost equivalent random partial system by including each
+ hyperedge of 
+\begin_inset Formula $S$
+\end_inset
+
+ with independent probability 
+\begin_inset Formula $m/N$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\randS'$
+\end_inset
+
+ denote the partial system so obtained, and let 
+\begin_inset Formula $\randG'=G\left(\randS'\right)$
+\end_inset
+
+.
+ Now, fix a set 
+\begin_inset Formula $A$
+\end_inset
+
+ of 
+\begin_inset Formula $\left(r-1\right)$
+\end_inset
+
+-sets of vertices with 
+\begin_inset Formula $\left|A\right|\le h$
+\end_inset
+
+.
+ It suffices to prove
+\begin_inset Formula 
+\begin{align}
+\left|\bigcap_{W\in A}N_{\randG'}\left(W\right)\right| & =\left(1+O\left(n^{-a}\right)\right)\left(1-\frac{m}{N}\right)^{\left|A\right|}n,\label{eq:degree-random-binomial}
+\end{align}
+
+\end_inset
+
+with probability 
+\begin_inset Formula $1-\exp\left(-\Omega\left(n^{1-2a}\right)\right)$
+\end_inset
+
+.
+ Indeed, the so-called Pittel inequality (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "p.~17"
+key "JLR00"
+
+\end_inset
+
+) would imply that the same estimate holds with essentially the same probability
+ if we replace 
+\begin_inset Formula $\randS'$
+\end_inset
+
+ with 
+\begin_inset Formula $\randS_{m}$
+\end_inset
+
+, and then we can apply the union bound over all 
+\begin_inset Formula $m\le\alpha N$
+\end_inset
+
+ and all choices of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Note that there are at most 
+\begin_inset Formula ${\left|A\right| \choose 2}=O\left(1\right)$
+\end_inset
+
+ hyperedges of 
+\begin_inset Formula $S$
+\end_inset
+
+ that include more than one set in 
+\begin_inset Formula $A$
+\end_inset
+
+ (this follows from the Steiner property, because the intersection of two
+ sets in 
+\begin_inset Formula $A$
+\end_inset
+
+ has size at least 
+\begin_inset Formula $r$
+\end_inset
+
+).
+ Let 
+\begin_inset Formula $U$
+\end_inset
+
+ be the set of vertices involved in these atypical hyperedges, plus the
+ vertices that appear in sets in 
+\begin_inset Formula $A$
+\end_inset
+
+, so that 
+\begin_inset Formula $\left|U\right|=O\left(1\right)$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\randN=\left|\left(\bigcap_{W\in A}N_{\randG'}\left(W\right)\right)\backslash U\right|$
+\end_inset
+
+.
+ For every 
+\begin_inset Formula $v\notin U$
+\end_inset
+
+ and 
+\begin_inset Formula $W\in A$
+\end_inset
+
+ there is exactly one hyperedge 
+\begin_inset Formula $e_{v}^{W}$
+\end_inset
+
+ in 
+\begin_inset Formula $S$
+\end_inset
+
+ containing 
+\begin_inset Formula $v$
+\end_inset
+
+ and 
+\begin_inset Formula $W$
+\end_inset
+
+, whose presence in 
+\begin_inset Formula $\randS'$
+\end_inset
+
+ would prevent 
+\begin_inset Formula $v$
+\end_inset
+
+ from contributing to 
+\begin_inset Formula $\randN$
+\end_inset
+
+.
+ For each 
+\begin_inset Formula $v\notin U$
+\end_inset
+
+ the hyperedges 
+\begin_inset Formula $e_{v}^{W}$
+\end_inset
+
+ are distinct, so
+\begin_inset Formula 
+\[
+\Pr\left(v\in\bigcap_{W\in A}N_{\randG'}\left(W\right)\right)=\left(1-\frac{m}{N}\right)^{\left|A\right|},
+\]
+
+\end_inset
+
+and by linearity of expectation 
+\begin_inset Formula $\E\randN=\left(1-m/N\right)^{\left|A\right|}\left(n-O\left(1\right)\right)$
+\end_inset
+
+.
+ Now, 
+\begin_inset Formula $\randN$
+\end_inset
+
+ is determined by the presence of at most 
+\begin_inset Formula $\left(n-\left|U\right|\right)\left|A\right|=O\left(n\right)$
+\end_inset
+
+ hyperedges in 
+\begin_inset Formula $\randS'$
+\end_inset
+
+, and changing the presence of each affects 
+\begin_inset Formula $\randN$
+\end_inset
+
+ by at most 
+\begin_inset Formula $q-1=O\left(1\right)$
+\end_inset
+
+.
+ So, by the Azuma-Hoeffding inequality (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Section~2.4"
+key "JLR00"
+
+\end_inset
+
+),
+\begin_inset Formula 
+\begin{align*}
+\Pr\left(\left|\randN-\left(1-\frac{m}{N}\right)^{\left|A\right|}n\right|>n^{-a}\left(1-\frac{m}{N}\right)^{\left|A\right|}n\right) & \le\exp\left(-\Omega\left(\frac{\left(n^{-a}\left(1-\alpha\right)^{h}n\right)^{2}}{n}\right)\right)\\
+ & =\exp\left(-\Omega\left(n^{1-2a}\right)\right).
+\end{align*}
+
+\end_inset
+
+Finally, we recall that 
+\begin_inset Formula $\left|\left(\bigcap_{x\in X}N_{\randG'}\left(x\right)\right)\right|=\randN+O\left(1\right)$
+\end_inset
+
+, which completes the proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:degree-random-binomial"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Approximate uniformity of the clique removal process
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:greedy-random-approx-uniform"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this subsection we prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:greedy-random-approx-uniform"
+
+\end_inset
+
+.
+ We first make a simple observation about small subgraph statistics in quasirand
+om hypergraphs, which we will use at several points in the paper.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:H-count"
+
+\end_inset
+
+Let 
+\begin_inset Formula $H$
+\end_inset
+
+ be a fixed 
+\begin_inset Formula $r$
+\end_inset
+
+-graph with an identified vertex subset 
+\begin_inset Formula $U$
+\end_inset
+
+, and let 
+\begin_inset Formula $\left|\operatorname{Aut}\left(H,U\right)\right|$
+\end_inset
+
+ be the number of automorphisms of 
+\begin_inset Formula $H$
+\end_inset
+
+ fixing 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be an 
+\begin_inset Formula $\left(\varepsilon,v\left(H\right)-1\right)$
+\end_inset
+
+-quasirandom 
+\begin_inset Formula $r$
+\end_inset
+
+-graph on 
+\begin_inset Formula $n$
+\end_inset
+
+ vertices, and let 
+\begin_inset Formula $F$
+\end_inset
+
+ be a copy of the induced 
+\begin_inset Formula $r$
+\end_inset
+
+-graph 
+\begin_inset Formula $H\left[U\right]$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Then, the number of completions of 
+\begin_inset Formula $F$
+\end_inset
+
+ to a copy of 
+\begin_inset Formula $H$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)}\frac{n^{q-\left|U\right|}}{\left|\operatorname{Aut}\left(H,U\right)\right|}.
+\]
+
+\end_inset
+
+In particular, the number of copies of 
+\begin_inset Formula $H$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)}\frac{n^{q}}{\left|\operatorname{Aut}\left(H\right)\right|}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+It suffices to show that the number of embeddings of 
+\begin_inset Formula $H$
+\end_inset
+
+ (as a labelled object) into 
+\begin_inset Formula $G$
+\end_inset
+
+ extending 
+\begin_inset Formula $F$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)}n^{q-\left|V\right|}.
+\]
+
+\end_inset
+
+We prove this by induction on the number of vertices in 
+\begin_inset Formula $V\left(H\right)\backslash U$
+\end_inset
+
+.
+ The base case is where 
+\begin_inset Formula $U=V\left(H\right)$
+\end_inset
+
+, which is trivial.
+ Fix a vertex 
+\begin_inset Formula $v\in V\left(H\right)\backslash U$
+\end_inset
+
+; by induction there are
+\begin_inset Formula 
+\[
+\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)-d_{H}\left(v\right)}n^{q-\left|V\right|-1}
+\]
+
+\end_inset
+
+embeddings of 
+\begin_inset Formula $H-v$
+\end_inset
+
+ extending 
+\begin_inset Formula $F$
+\end_inset
+
+, where 
+\begin_inset Formula $d_{H}\left(v\right)$
+\end_inset
+
+ is the number of edges of 
+\begin_inset Formula $H$
+\end_inset
+
+ containing 
+\begin_inset Formula $v$
+\end_inset
+
+.
+ For each such embedding, by 
+\begin_inset Formula $\left(\varepsilon,v\left(H\right)-1\right)$
+\end_inset
+
+-quasirandomness, there are 
+\begin_inset Formula $\left(1\pm\varepsilon\right)\left(1-\frac{i}{N}\right)^{d_{H}\left(v\right)}n$
+\end_inset
+
+ ways to choose a vertex of 
+\begin_inset Formula $G$
+\end_inset
+
+ with the right adjacencies to complete the embedding of 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:greedy-random-approx-uniform"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Each 
+\begin_inset Formula $G\left(S_{i}\right)$
+\end_inset
+
+ has 
+\begin_inset Formula 
+\[
+\left(1\pm O\left(n^{-a}\right)\right)\left(1-\frac{i}{N}\right)^{Q}\frac{n^{q}}{q!}
+\]
+
+\end_inset
+
+ copies of 
+\begin_inset Formula $K_{q}^{\left(r\right)}$
+\end_inset
+
+, by 
+\begin_inset Formula $\left(n^{-a},q-1\right)$
+\end_inset
+
+-quasirandomness and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:H-count"
+
+\end_inset
+
+.
+ We therefore have
+\begin_inset Formula 
+\[
+\Pr\left(\randS=S\right)=\prod_{i=0}^{\alpha N-1}\frac{1}{\left(1\pm O\left(n^{-a}\right)\right)\left(1-i/N\right)^{Q}n^{q}/q!},
+\]
+
+\end_inset
+
+and a similar expression holds for 
+\begin_inset Formula $\Pr\left(\randS=S'\right)$
+\end_inset
+
+.
+ Taking quotients term-by-term gives
+\begin_inset Formula 
+\begin{align*}
+\frac{\Pr\left(\randS=S\right)}{\Pr\left(\randS=S'\right)} & \le\left(1+O\left(n^{-a}\right)\right)^{\alpha N}\\
+ & \le\exp\left(O\left(n^{r-a}\right)\right)
+\end{align*}
+
+\end_inset
+
+as desired.
+\end_layout
+
+\begin_layout Subsection
+A coupling lemma and a concentration inequality
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:nibble-TRP-coupling"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this subsection we prove two lemmas that will be useful in combination
+ with 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+.
+ First, after some necessary definitions we will show how to couple the
+ clique removal process with a simpler random hypergraph distribution.
+\end_layout
+
+\begin_layout Definition
+For a partial system 
+\begin_inset Formula $S$
+\end_inset
+
+, let 
+\begin_inset Formula $\Gnp Sp$
+\end_inset
+
+ be the random distribution on 
+\begin_inset Formula $q$
+\end_inset
+
+-uniform hypergraphs where each hyperedge not conflicting with 
+\begin_inset Formula $S$
+\end_inset
+
+ (that is, not intersecting a hyperedge of 
+\begin_inset Formula $S$
+\end_inset
+
+ in more than 
+\begin_inset Formula $r-1$
+\end_inset
+
+ vertices) is included with probability 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ So, if 
+\begin_inset Formula $\varnothing$
+\end_inset
+
+ is the empty order-
+\begin_inset Formula $n$
+\end_inset
+
+ partial systems, then 
+\begin_inset Formula $\Gnp{\varnothing}p:=\Gnp np$
+\end_inset
+
+ is the standard binomial random 
+\begin_inset Formula $r$
+\end_inset
+
+-graph.
+ Let 
+\begin_inset Formula $\GSnp Sp$
+\end_inset
+
+ be the distribution on partial systems obtained from 
+\begin_inset Formula $\Gnp Sp$
+\end_inset
+
+ by considering all hyperedges which intersect another hyperedge in more
+ than 
+\begin_inset Formula $r-1$
+\end_inset
+
+ vertices, and deleting all these hyperedges.
+ Let 
+\begin_inset Formula $\rg Sm$
+\end_inset
+
+ be the partial system distribution obtained with 
+\begin_inset Formula $m$
+\end_inset
+
+ steps of the clique removal process starting from 
+\begin_inset Formula $G\left(S\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $P=n^{r-q}\left(q-r\right)!$
+\end_inset
+
+ so that 
+\begin_inset Formula ${n \choose q}P=\left(1+o\left(1\right)\right)N$
+\end_inset
+
+.
+ For small 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+, we can view 
+\begin_inset Formula $\GSnp S{\alpha P}$
+\end_inset
+
+ as a 
+\begin_inset Quotes eld
+\end_inset
+
+bite
+\begin_inset Quotes erd
+\end_inset
+
+ of a 
+\begin_inset Quotes eld
+\end_inset
+
+nibbling
+\begin_inset Quotes erd
+\end_inset
+
+ process (see for example 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Section~4.7"
+key "AS04"
+
+\end_inset
+
+), that should be similar to 
+\begin_inset Formula $\rg S{\alpha N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:bite-transfer"
+
+\end_inset
+
+let 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ be a property of unordered partial systems that is monotone increasing
+ in the sense that 
+\begin_inset Formula $S\in\mathcal{P}$
+\end_inset
+
+ and 
+\begin_inset Formula $S'\supseteq S$
+\end_inset
+
+ implies 
+\begin_inset Formula $S'\in\mathcal{P}$
+\end_inset
+
+.
+ For fixed 
+\begin_inset Formula $h\ge q-1$
+\end_inset
+
+ and 
+\begin_inset Formula $a\in\left(0,1\right)$
+\end_inset
+
+ there is 
+\begin_inset Formula $b\left(a,h\right)>0$
+\end_inset
+
+ such that the following holds.
+ Fix 
+\begin_inset Formula $\alpha\in\left(0,1\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $S\in\cordm{n^{-a},h}m$
+\end_inset
+
+ for some 
+\begin_inset Formula $m\le N-\alpha N$
+\end_inset
+
+ and let 
+\begin_inset Formula $\mathcal{Q}=\left\{ S\in\cordm{n^{-b},h}{\alpha N+m}:S_{m}\in\cordm{n^{-a},h}m\right\} \supseteq\cordm{n^{-a},h}{\alpha N+m}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\randS\in\rg S{\alpha N}$
+\end_inset
+
+ and 
+\begin_inset Formula $\randS^{*}\in\GSnp S{\alpha P}$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+\Pr\left(S\cup\randS\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\right)=O\left(1\right)\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\randS^{*}\in\GSnp S{\alpha P}$
+\end_inset
+
+ be obtained from 
+\begin_inset Formula $\randG\in\Gnp S{\alpha P}$
+\end_inset
+
+.
+ Note that conditioning on the number of edges in 
+\begin_inset Formula $\randG$
+\end_inset
+
+, its edges comprise a uniformly random subset of its size, of the set of
+ all possible edges.
+ With probability 
+\begin_inset Formula $\Omega\left(1\right)$
+\end_inset
+
+ the number of edges in 
+\begin_inset Formula $\randG$
+\end_inset
+
+ is at most 
+\begin_inset Formula ${n \choose q}\alpha P\le\alpha N$
+\end_inset
+
+, in which case 
+\begin_inset Formula $\randS^{*}$
+\end_inset
+
+ can be coupled as a subset of 
+\begin_inset Formula $\randS$
+\end_inset
+
+.
+ Indeed, a random ordering of 
+\begin_inset Formula $\randG$
+\end_inset
+
+ can be viewed as the first few elements of a random ordering of the set
+ of all possible edges, and the clique removal process with this ordering
+ produces a superset of 
+\begin_inset Formula $\randS^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Now, let 
+\begin_inset Formula $b$
+\end_inset
+
+ be 
+\begin_inset Formula $a\,b\left(a,h\right)$
+\end_inset
+
+ in the notation of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-analysis"
+
+\end_inset
+
+, so that 
+\begin_inset Formula $\Pr\left(S\cup\randS\in\mathcal{Q}\right)=1-o\left(1\right)$
+\end_inset
+
+.
+ We have
+\begin_inset Formula 
+\begin{align*}
+\Pr\left(S\cup\randS\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\right) & \le\Pr\left(S\cup\randS^{*}\left(S\right)\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\text{ and }e\left(\randG\right)\le\alpha N\right)\\
+ & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right)/\Pr\left(S\cup\randS\in\mathcal{Q}\text{ and }e\left(\randG\right)\le\alpha N\right)\\
+ & =\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right)/\Omega\left(1\right).\tag*{\qedhere}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this subsection we also state and prove a bounded-differences inequality
+ with Bernstein-type tails which can be used to analyse 
+\begin_inset Formula $\GSnp S{\alpha P}$
+\end_inset
+
+.
+ Standard bounded-difference inequalities such as the Azuma-Hoeffding inequality
+ do not provide strong enough tail bounds to apply 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:bernstein-type"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\boldsymbol{\omega}=\left(\boldsymbol{\omega}_{1},\dots,\boldsymbol{\omega}_{n}\right)$
+\end_inset
+
+ be a sequence of independent, identically distributed random variables
+ with 
+\begin_inset Formula $\Pr\left(\boldsymbol{\omega}_{i}=1\right)=p$
+\end_inset
+
+ and 
+\begin_inset Formula $\Pr\left(\boldsymbol{\omega}_{i}=0\right)=1-p$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $f\left(\boldsymbol{\omega}\right)$
+\end_inset
+
+ satisfy the Lipschitz condition 
+\begin_inset Formula $\left|f\left(\boldsymbol{\omega}\right)-f\left(\boldsymbol{\omega}'\right)\right|\le K$
+\end_inset
+
+ for all pairs 
+\begin_inset Formula $\boldsymbol{\omega},\boldsymbol{\omega}'\in\left\{ 0,1\right\} ^{n}$
+\end_inset
+
+ differing in exactly one coordinate.
+ Then
+\begin_inset Formula 
+\[
+\Pr\left(\left|f\left(\boldsymbol{\omega}\right)-\E f\left(\boldsymbol{\omega}\right)\right|>t\right)\le\exp\left(-\frac{t^{2}}{4K^{2}np+2Kt}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We use Freedman's inequality (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:freedman"
+
+\end_inset
+
+), with the Doob martingale 
+\begin_inset Formula $\randX\left(0\right),\dots,\randX\left(n\right)$
+\end_inset
+
+ defined by 
+\begin_inset Formula $\boldsymbol{X}\left(i\right)=\E\left[f\left(\boldsymbol{\omega}\right)\cond\boldsymbol{\omega}_{1},\dots,\boldsymbol{\omega}_{i}\right]$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $\boldsymbol{X}\left(0\right)=\E f\left(\boldsymbol{\omega}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\randX\left(n\right)=f\left(\boldsymbol{\omega}\right)$
+\end_inset
+
+.
+ It suffices to show that 
+\begin_inset Formula $V\left(n\right)=\sum_{i=0}^{n-1}\E\left[\left(\Delta\randX\left(i\right)\right)^{2}\cond\boldsymbol{\omega}_{1},\dots,\boldsymbol{\omega}_{i}\right]\le2K^{2}np$
+\end_inset
+
+ with probability 1.
+\end_layout
+
+\begin_layout Proof
+Condition on 
+\begin_inset Formula $\boldsymbol{\omega}_{1},\dots,\boldsymbol{\omega}_{i}$
+\end_inset
+
+ (thereby conditioning on 
+\begin_inset Formula $\randX\left(i\right)$
+\end_inset
+
+).
+ Let 
+\begin_inset Formula $X^{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $X^{1}$
+\end_inset
+
+ be the values of 
+\begin_inset Formula $\randX\left(i+1\right)$
+\end_inset
+
+ in the cases 
+\begin_inset Formula $\boldsymbol{\omega}_{i+1}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{\omega}_{i+1}=1$
+\end_inset
+
+, respectively.
+ We have 
+\begin_inset Formula 
+\begin{align*}
+\randX\left(i\right) & =pX^{1}+\left(1-p\right)X^{0},\\
+\left|\randX\left(i\right)-X^{0}\right| & =p\left|X^{1}-X^{0}\right|\le Kp.
+\end{align*}
+
+\end_inset
+
+So, 
+\begin_inset Formula 
+\begin{align*}
+\E\left[\left(\Delta\randX\left(i\right)\right)^{2}\cond\boldsymbol{\omega}_{1},\dots,\boldsymbol{\omega}_{i}\right] & =p\left(\randX\left(i\right)-X^{1}\right)^{2}+\left(1-p\right)\left(\randX\left(i\right)-X^{0}\right)^{2}\\
+ & \le K^{2}p+\left(1-p\right)K^{2}p^{2}\\
+ & \le2K^{2}p.
+\end{align*}
+
+\end_inset
+
+The desired bound on 
+\begin_inset Formula $V\left(n\right)$
+\end_inset
+
+ follows.
+\end_layout
+
+\begin_layout Section
+Perfect matchings via absorbers
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:absorbers"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section we introduce our absorbers, discuss how they can be used
+ to find perfect matchings, and prove that absorbers can be found in the
+ partial Steiner triple system produced by the triangle removal process.
+ This will culminate in the proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:PM-in-STS"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:absorber"
+
+\end_inset
+
+An 
+\emph on
+absorber
+\emph default
+ for an ordered triple 
+\begin_inset Formula $\left(x,y,z\right)$
+\end_inset
+
+ is a set of edges of the form
+\begin_inset Formula 
+\[
+\left\{ \left\{ x,x_{1},x_{2}\right\} ,\left\{ y,y_{1},y_{2}\right\} ,\left\{ z,z_{1},z_{2}\right\} ,\left\{ w_{x},w_{y},w_{z}\right\} \right\} \cup\left\{ \left\{ x_{1},y_{2},w_{z}\right\} ,\left\{ y_{1},z_{2},w_{x}\right\} ,\left\{ z_{1},x_{2},w_{y}\right\} \right\} .
+\]
+
+\end_inset
+
+We call 
+\begin_inset Formula $x,y,z$
+\end_inset
+
+ the 
+\emph on
+rooted 
+\emph default
+vertices and we call the other 9 vertices the 
+\emph on
+external 
+\emph default
+vertices.
+ Note that an absorber already has a perfect matching on its 12 vertices
+ (the first 4 edges; we call this the 
+\emph on
+covering 
+\emph default
+matching), but it also has a perfect matching on its 9 vertices not including
+ 
+\begin_inset Formula $x,y,z$
+\end_inset
+
+ (the last 3 edges; we call this the 
+\emph on
+non-covering 
+\emph default
+matching).
+ See 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:absorber"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=1.8]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+def
+\backslash
+rot{0}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+def
+\backslash
+dir{-1}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+foreach 
+\backslash
+x in {1,...,3}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (
+\backslash
+x-2) at ({
+\backslash
+rot+
+\backslash
+dir*360/3 * (
+\backslash
+x - 1)}:1) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (
+\backslash
+x-2-l) at ({
+\backslash
+rot+
+\backslash
+dir*360/3 * (
+\backslash
+x - 1)}:0.7) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (
+\backslash
+x-1) at ({
+\backslash
+rot+
+\backslash
+dir*360/3 * (
+\backslash
+x - 1)}:1.5) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (
+\backslash
+x-1-l) at ({
+\backslash
+rot+
+\backslash
+dir*360/3 * (
+\backslash
+x - 1-0.1)}:1.5) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (
+\backslash
+x-0) at ({
+\backslash
+rot+
+\backslash
+dir*360/3 * (
+\backslash
+x - 1)}:2) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (
+\backslash
+x-0-l) at ({
+\backslash
+rot+
+\backslash
+dir*360/3 * (
+\backslash
+x - 1-0.07)}:2) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (
+\backslash
+x-w) at ({
+\backslash
+rot+
+\backslash
+dir*360/3 * (
+\backslash
+x + 0.5)}:1) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+coordinate (
+\backslash
+x-w-l) at ({
+\backslash
+rot+
+\backslash
+dir*360/3 * (
+\backslash
+x + 0.5)}:1.3) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node [vertex] at (
+\backslash
+x-2) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node [vertex] at (
+\backslash
+x-1) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node [vertex] at (
+\backslash
+x-0) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node [vertex] at (
+\backslash
+x-w) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{scope}[opacity=0.25, transparency group]
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+fill (1-w) circle (1.37mm);
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+fill (2-w) circle (1.37mm);
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+fill (3-w) circle (1.37mm);
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+fill (0,0) circle (1.37mm);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[line width=5mm,line join=round,line cap=round] (1-w) -- (0,0) -- (2-w);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[line width=5mm,line join=round,line cap=round] (3-w) -- (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (1-2-l) {$x_2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (2-2-l) {$y_2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (3-2-l) {$z_2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (1-1-l) {$x_1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (2-1-l) {$y_1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (3-1-l) {$z_1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (1-0-l) {$x$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (2-0-l) {$y$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (3-0-l) {$z$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (1-w-l) {$w_x$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (2-w-l) {$w_y$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (3-w-l) {$w_z$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[draw opacity=0.55,line width=5mm,line cap=round,line join=round] (2-1)
+ -- (1-w) -- (3-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[draw opacity=0.55,line width=5mm,line cap=round,line join=round] (3-1)
+ -- (2-w) -- (1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[draw opacity=0.55,line width=5mm,line cap=round,line join=round] (1-1)
+ -- (3-w) -- (2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[draw opacity=0.25,line width=5mm,line cap=round,line join=round] (1-0)
+ -- (1-1) -- (1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[draw opacity=0.25,line width=5mm,line cap=round,line join=round] (2-0)
+ -- (2-1) -- (2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[draw opacity=0.25,line width=5mm,line cap=round,line join=round] (3-0)
+ -- (3-1) -- (3-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:absorber"
+
+\end_inset
+
+An illustration of an absorber for 
+\begin_inset Formula $\left(x,y,z\right)$
+\end_inset
+
+.
+ The light edges are the covering matching and the dark edges are the non-coveri
+ng matching.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we explain how absorbers are put together.
+ The relative positions of the absorbers will be determined by a 
+\begin_inset Quotes eld
+\end_inset
+
+template
+\begin_inset Quotes erd
+\end_inset
+
+ structure, as follows.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:resilient-template"
+
+\end_inset
+
+For any sufficiently large 
+\begin_inset Formula $n$
+\end_inset
+
+, there exists a 3-uniform hypergraph 
+\begin_inset Formula $T$
+\end_inset
+
+ with 
+\begin_inset Formula $10n$
+\end_inset
+
+ vertices, at most 
+\begin_inset Formula $160n$
+\end_inset
+
+ hyperedges and a 
+\begin_inset Quotes eld
+\end_inset
+
+flexible set
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $Z$
+\end_inset
+
+ of 
+\begin_inset Formula $2n$
+\end_inset
+
+ vertices, such that if we remove any 
+\begin_inset Formula $n$
+\end_inset
+
+ vertices from 
+\begin_inset Formula $Z$
+\end_inset
+
+, the resulting hypergraph has a perfect matching.
+ We call this 
+\begin_inset Formula $H$
+\end_inset
+
+ a 
+\emph on
+resilient template
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+To prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:resilient-template"
+
+\end_inset
+
+ we use the following lemma of Montgomery 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Lemma~2.8"
+key "Mon14"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:montgomery"
+
+\end_inset
+
+For any sufficiently large 
+\begin_inset Formula $n$
+\end_inset
+
+, there exists a bipartite graph 
+\begin_inset Formula $H$
+\end_inset
+
+ on vertex classes 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y\sqcup Z$
+\end_inset
+
+ with 
+\begin_inset Formula $\left|X\right|=3n$
+\end_inset
+
+, 
+\begin_inset Formula $\left|Y\right|=\left|Z\right|=2n$
+\end_inset
+
+, and maximum degree 40, such that if we remove any 
+\begin_inset Formula $n$
+\end_inset
+
+ vertices from 
+\begin_inset Formula $Z$
+\end_inset
+
+, the resulting bipartite graph has a perfect matching.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:resilient-template"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Consider the bipartite graph 
+\begin_inset Formula $H$
+\end_inset
+
+ from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:montgomery"
+
+\end_inset
+
+ on the vertex set 
+\begin_inset Formula $X\sqcup Y\sqcup Z$
+\end_inset
+
+.
+ Add a set 
+\begin_inset Formula $W$
+\end_inset
+
+ of 
+\begin_inset Formula $\left|X\right|$
+\end_inset
+
+ new vertices and put a perfect matching between 
+\begin_inset Formula $W$
+\end_inset
+
+ and 
+\begin_inset Formula $X$
+\end_inset
+
+, to obtain a 
+\begin_inset Formula $10n$
+\end_inset
+
+-vertex tripartite graph 
+\begin_inset Formula $H'$
+\end_inset
+
+.
+ Now, define our resilient template with flexible set 
+\begin_inset Formula $Z$
+\end_inset
+
+ by putting a hyperedge with the vertices of each of the (at most 
+\begin_inset Formula $160n$
+\end_inset
+
+) paths of length 2 in 
+\begin_inset Formula $H'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now we can describe our absorbing structure in its entirety.
+\end_layout
+
+\begin_layout Definition
+An 
+\emph on
+absorbing structure
+\emph default
+ is a 3-uniform hypergraph of the following form.
+ Consider a resilient template and put externally vertex-disjoint absorbers
+ on each edge of the template, introducing 9 new vertices for each.
+ (Note that the template just describes the relative positions of the absorbers,
+ its edges are not actually in the absorbing structure).
+\end_layout
+
+\begin_layout Standard
+Note that an absorbing structure with a flexible set of size 
+\begin_inset Formula $n$
+\end_inset
+
+ has 
+\begin_inset Formula $10n+9\times160n=O\left(n\right)$
+\end_inset
+
+ vertices and at most 
+\begin_inset Formula $7\times160n=O\left(n\right)$
+\end_inset
+
+ edges.
+ Now, we show how absorbers can be used to find perfect matchings.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:PM-via-absorbers"
+
+\end_inset
+
+Consider a 3-uniform hypergraph 
+\begin_inset Formula $S$
+\end_inset
+
+ (with vertex set 
+\begin_inset Formula $V$
+\end_inset
+
+, 
+\begin_inset Formula $\left|V\right|=n$
+\end_inset
+
+) satisfying the following properties for some 
+\begin_inset Formula $\delta=\delta\left(n\right)=o\left(1\right)$
+\end_inset
+
+ and fixed 
+\begin_inset Formula $\beta>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+There is an absorbing structure 
+\begin_inset Formula $H$
+\end_inset
+
+ in 
+\begin_inset Formula $S$
+\end_inset
+
+ with at most 
+\begin_inset Formula $\delta n$
+\end_inset
+
+ vertices and a flexible set 
+\begin_inset Formula $Z$
+\end_inset
+
+ of size 
+\begin_inset Formula $\delta^{2}n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+For at most 
+\begin_inset Formula $\delta n$
+\end_inset
+
+ of the vertices 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, we have 
+\begin_inset Formula $\left|\left\{ \left\{ x,y\right\} \subseteq Z:\left\{ v,x,y\right\} \in S\right\} \right|<2\delta^{3}n$
+\end_inset
+
+.
+ That is to say, few vertices have low degree into the flexible set 
+\begin_inset Formula $Z$
+\end_inset
+
+, in 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Every vertex subset 
+\begin_inset Formula $W\subseteq V$
+\end_inset
+
+ with 
+\begin_inset Formula $\left|W\right|\ge\delta^{3}n$
+\end_inset
+
+ induces at least 
+\begin_inset Formula $\left(1-\beta\right)\left|W\right|^{3}/\left(6n\right)$
+\end_inset
+
+ hyperedges
+\end_layout
+
+\end_deeper
+\begin_layout Lemma
+Then 
+\begin_inset Formula $S$
+\end_inset
+
+ has 
+\begin_inset Formula 
+\[
+\left(\frac{n}{2e^{2}}\left(1-\beta-O\left(\delta\log n\right)\right)\right)^{n/3}
+\]
+
+\end_inset
+
+perfect matchings.
+\end_layout
+
+\begin_layout Proof
+We can assume 
+\begin_inset Formula $\delta<1/4$
+\end_inset
+
+, so that we can greedily choose a 
+\begin_inset Formula $\delta n$
+\end_inset
+
+-vertex matching in 
+\begin_inset Formula $V\backslash V'$
+\end_inset
+
+ containing each of the vertices violating the second condition.
+ There are 
+\begin_inset Formula $n'=n-v\left(H\right)-\delta n\ge\left(1-2\delta\right)n$
+\end_inset
+
+ vertices in 
+\begin_inset Formula $V\backslash V\left(H\right)$
+\end_inset
+
+ remaining unmatched.
+\end_layout
+
+\begin_layout Proof
+Next, repeatedly choose an edge in the remaining unmatched vertices in 
+\begin_inset Formula $V\backslash V\left(H\right)$
+\end_inset
+
+ until there are only 
+\begin_inset Formula $\delta^{3}n$
+\end_inset
+
+ such vertices remaining unmatched.
+ (This means we take a matching with 
+\begin_inset Formula $m=\left(n'-\delta^{2}n\right)/3=n/3-O\left(\delta n\right)$
+\end_inset
+
+ edges).
+ The number of ways to make this ordered sequence of choices is at least
+\begin_inset Formula 
+\begin{align}
+\prod_{i=1}^{m}\left(1-\beta\right)\frac{\left(n'-3i\right)^{3}}{6n} & =\left(\frac{1-\beta}{6n}\right)^{m}\exp\left(\sum_{i=1}^{m}\log\left(n'-3i\right)^{3}\right)\label{eq:num-matchings}\\
+ & =\left(\frac{\left(1-\beta\right)\left(n'\right)^{3}}{6n}\right)^{m}\exp\left(n'\sum_{i=1}^{m}\frac{3}{n'}\log\left(1-3\frac{i}{n'}\right)\right).\nonumber 
+\end{align}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\log\left(1-3t\right)$
+\end_inset
+
+ is a decreasing function of 
+\begin_inset Formula $t$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+\sum_{i=1}^{m}\frac{1}{n'}\log\left(1-3\frac{i}{n'}\right)\le\int_{0}^{m/n'}3\log\left(1-3t\right)\d t\le\sum_{i=1}^{n'/3}\frac{1}{n'}\log\left(1-3\frac{i-1}{n'}\right).
+\]
+
+\end_inset
+
+Noting that
+\begin_inset Formula 
+\begin{align*}
+\sum_{i=1}^{m}\left(\log\left(1-3\frac{i-1}{n'}\right)-\log\left(1-3\frac{i}{n'}\right)\right) & =\sum_{i=1}^{m}\left(\log\left(1+\frac{3}{n'-3i}\right)\right)\\
+ & \le3\sum_{i=1}^{m}\frac{1}{n'-3i}=O\left(\log n\right)
+\end{align*}
+
+\end_inset
+
+and that 
+\begin_inset Formula $\int\log s\d s=s\left(\log s-1\right)$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+\sum_{i=1}^{n'/3}\frac{3}{n'}\log\left(1-3\frac{i}{n'}\right) & =\int_{0}^{1/3-O\left(\delta\right)}3\log\left(1-3t\right)\d t+O\left(\frac{\log n}{n}\right)\\
+ & =\int_{O\left(\delta\right)}^{1}\log s\d s+O\left(\frac{\log n}{n}\right)\\
+ & =-1-O\left(\delta\log\left(n\right)\right).
+\end{align*}
+
+\end_inset
+
+So, the expression in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:num-matchings"
+
+\end_inset
+
+ is equal to
+\begin_inset Formula 
+\begin{align*}
+\left(\left(1-\beta\right)\frac{n^{2}}{6}\right)^{n'/3}e^{-n}n^{O\left(\delta n\right)} & =\left(\frac{n^{2}}{6e^{3}}\right)^{n/3}n^{O\left(\delta n\right)}.
+\end{align*}
+
+\end_inset
+
+Dividing by 
+\begin_inset Formula $m!=\left(n/\left(3e\right)\right)^{n/3}n^{O\left(\delta n\right)}$
+\end_inset
+
+ (because we were counting ordered matchings), there are at least
+\begin_inset Formula $\left(n/\left(2e^{2}\right)\right)^{n/3}n^{O\left(\delta n\right)}$
+\end_inset
+
+ ways to choose a matching in 
+\begin_inset Formula $V\backslash V\left(H\right)$
+\end_inset
+
+ covering all but 
+\begin_inset Formula $\delta^{3}n$
+\end_inset
+
+ vertices, none of which violate the second condition.
+ We can greedily extend such a matching to cover half of 
+\begin_inset Formula $Z$
+\end_inset
+
+ using the second and third conditions.
+ By the defining property of a resilient template, there is a perfect matching
+ in the subgraph of the template induced by the vertices uncovered so far.
+ For each hyperedge of this perfect matching, use the covering matching
+ of the corresponding absorber; for each other hyperedge in the template
+ use the non-covering matching.
+\end_layout
+
+\begin_layout Subsection
+Absorbing properties in the triangle removal process
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:absorbers-in-TRP"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section we prove that the properties in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:PM-via-absorbers"
+
+\end_inset
+
+ (for say 
+\begin_inset Formula $\delta=1/\log^{2}n$
+\end_inset
+
+ and arbitrarily small 
+\begin_inset Formula $\beta$
+\end_inset
+
+) hold in the triangle removal process, conditioned on a certain quasirandomess
+ event, with probability 
+\begin_inset Formula $1-\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right)$
+\end_inset
+
+.
+ (A tilde above asymptotic nation indicates that polylogarithmic factors
+ are being ignored).
+ This will allow us to use 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+ to deduce that the same is true for a uniformly random Steiner triple system,
+ proving 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:PM-in-STS"
+
+\end_inset
+
+.
+ Recall that Steiner triple systems have 
+\begin_inset Formula $q=3$
+\end_inset
+
+ and 
+\begin_inset Formula $r=2$
+\end_inset
+
+, so in the notation of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:outline"
+
+\end_inset
+
+ (and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:nibble-TRP-coupling"
+
+\end_inset
+
+) we have 
+\begin_inset Formula $Q=3$
+\end_inset
+
+, 
+\begin_inset Formula $N={n \choose 2}/3=\left(1+o\left(1\right)\right)n^{2}/6$
+\end_inset
+
+ and 
+\begin_inset Formula $P=1/n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Fix a large constant 
+\begin_inset Formula $h\in\NN$
+\end_inset
+
+ (we will see later exactly how large it should be), and consider arbitrarily
+ small 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+.
+ We will treat 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ as a constant, but asymptotics in this section will be mostly uniform over
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:absorbers"
+
+\end_inset
+
+Absorbers
+\end_layout
+
+\begin_layout Standard
+First we find absorbers.
+ Note that 
+\begin_inset Formula $K_{n}$
+\end_inset
+
+ is 
+\begin_inset Formula $\left(n^{1/2},h\right)$
+\end_inset
+
+-quasirandom, and let 
+\begin_inset Formula $a=a\,b\left(1/2,h\right)$
+\end_inset
+
+ in the notation of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-analysis"
+
+\end_inset
+
+, so that 
+\begin_inset Formula $\cordm{n^{-a},h}{\alpha N}$
+\end_inset
+
+ is nonempty.
+ Let 
+\begin_inset Formula $b=b\left(a\right)$
+\end_inset
+
+ in the notation of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:bite-transfer"
+
+\end_inset
+
+.
+ As in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:bite-transfer"
+
+\end_inset
+
+, let 
+\begin_inset Formula $\mathcal{Q}=\left\{ S\in\cordm{n^{-b},h}{2\alpha N}:S_{\alpha N}\in\cordm{n^{-a},h}{\alpha N}\right\} \supseteq\cordm{n^{-a},h}{2\alpha N}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\randS\in\rg n{2\alpha n}$
+\end_inset
+
+, conditioned on the event 
+\begin_inset Formula $\randS\in\mathcal{Q}$
+\end_inset
+
+, and condition on any 
+\begin_inset Formula $\randS_{\alpha N}=S\in\cordm{n^{-a},h}{\alpha N}$
+\end_inset
+
+.
+ We will use 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:bite-transfer"
+
+\end_inset
+
+ to analyse 
+\begin_inset Formula $\randS\backslash\randS_{\alpha N}\in\rg S{\alpha N}$
+\end_inset
+
+ via 
+\begin_inset Formula $\GSnp S{\alpha/N}$
+\end_inset
+
+.
+ So, let 
+\begin_inset Formula $\randS^{*}\in\GSnp S{\alpha/N}$
+\end_inset
+
+ be obtained from 
+\begin_inset Formula $\randG\in\Gnp S{\alpha/N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+By quasirandomness, every vertex has degree 
+\begin_inset Formula $\left(1\pm n^{-a}\right)\left(1-\alpha\right)n$
+\end_inset
+
+ 
+\begin_inset Formula $\left(1\pm n^{-a}\right)\alpha n/2=\Omega\left(\alpha n\right)$
+\end_inset
+
+ in 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Consider vertices 
+\begin_inset Formula $x,y,z$
+\end_inset
+
+.
+ Say an 
+\emph on
+absorber-extension
+\emph default
+ is a collection of 4 hyperedges which forms an absorber on 
+\begin_inset Formula $x,y,z$
+\end_inset
+
+ when combined with three edges of 
+\begin_inset Formula $S$
+\end_inset
+
+ incident to 
+\begin_inset Formula $x,y,z$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\randY$
+\end_inset
+
+ be the maximum size of an edge-disjoint collection of absorber-extensions
+ in 
+\begin_inset Formula $\randS^{*}$
+\end_inset
+
+.
+ That is, it is the maximal size of a collection of hyperedge-disjoint isolated
+ absorber-extensions in 
+\begin_inset Formula $\randG$
+\end_inset
+
+, where we say a subgraph of 
+\begin_inset Formula $\randG$
+\end_inset
+
+ is 
+\emph on
+isolated
+\emph default
+ if none of its hyperedges intersect another hyperedge of 
+\begin_inset Formula $\randG$
+\end_inset
+
+ in more than one vertex.
+ Now, adding a hyperedge to a hypergraph can invalidate at most three absorber-e
+xtensions in a maximal collection, and removing a hyperedge can remove at
+ most one absorber-extension in a maximal collection.
+ So, changing the presence of one edge of 
+\begin_inset Formula $\randG$
+\end_inset
+
+ can change 
+\begin_inset Formula $\randY$
+\end_inset
+
+ by at most 3.
+ By 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:bernstein-type"
+
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\Pr\left(\randY\le\E\randY-t\right)\le\exp\left(-\Omega\left(\frac{t^{2}}{3^{2}{n \choose 3}\alpha/n+3t}\right)\right)=\exp\left(-\Omega\left(\frac{t^{2}}{\alpha n^{2}+t}\right)\right).\label{eq:disjoint-absorber-bite-tail}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\randX$
+\end_inset
+
+ be the number of isolated absorber-extensions in 
+\begin_inset Formula $\randG$
+\end_inset
+
+ and let 
+\begin_inset Formula $\randZ$
+\end_inset
+
+ be the number of pairs of hyperedge-intersecting absorber-extensions in
+ 
+\begin_inset Formula $\randG$
+\end_inset
+
+.
+ We can obtain a collection of disjoint isolated absorber-extensions by
+ considering the collection of all isolated absorber-extensions and deleting
+ one from each intersecting pair, so 
+\begin_inset Formula $\randY\ge\randX-\randZ$
+\end_inset
+
+ and 
+\begin_inset Formula $\E\randY\ge\E\randX-\E\randZ$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $h$
+\end_inset
+
+ is large enough and 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is small enough, there are 
+\begin_inset Formula $\Theta\left(\alpha^{3}n^{6}\right)$
+\end_inset
+
+ possible absorber-extensions not conflicting with 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Indeed, to choose such a candidate absorber-extension, first choose three
+ hyperedges 
+\begin_inset Formula $e_{x},e_{y},e_{z}$
+\end_inset
+
+ incident to 
+\begin_inset Formula $x,y,z$
+\end_inset
+
+ (there are 
+\begin_inset Formula $\left(\alpha n\right)^{3}$
+\end_inset
+
+ ways to do this).
+ Then, consider the graph 
+\begin_inset Formula $H$
+\end_inset
+
+ obtained by removing the three rooted hyperedges of an absorber and replacing
+ the remaining hyperedges with triangles.
+ The number of ways to complete our candidate absorber-extension is precisely
+ the number of copies of 
+\begin_inset Formula $H$
+\end_inset
+
+ rooted on the vertices of 
+\begin_inset Formula $e_{x},e_{y},e_{z}$
+\end_inset
+
+ in the obvious way, in 
+\begin_inset Formula $G\left(S\right)$
+\end_inset
+
+.
+ By 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:H-count"
+
+\end_inset
+
+ this number is 
+\begin_inset Formula $\left(1-\alpha\right)^{O\left(1\right)}n^{3}=\Theta\left(n^{3}\right)$
+\end_inset
+
+.
+ The probability each possible absorber-extension occurs and is isolated
+ in 
+\begin_inset Formula $\randG$
+\end_inset
+
+ is 
+\begin_inset Formula $\Theta\left(\left(\alpha/n\right)^{4}\left(1-\alpha/n\right)^{O\left(n\right)}\right)=\Theta\left(\alpha^{4}n^{-4}\right)$
+\end_inset
+
+.
+ So, 
+\begin_inset Formula $\E\randX=\Theta\left(\alpha^{7}n^{2}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now, there are several possibilities for a hyperedge-intersecting pair of
+ distinct absorber-extensions.
+\end_layout
+
+\begin_layout Itemize
+they could intersect in the unfixed hyperedge of the covering matching of
+ the absorber.
+ There are 
+\begin_inset Formula $\Theta\left(\left(\alpha n\right)^{6}n^{3}\right)$
+\end_inset
+
+ possibilities for such a pair of absorber-extensions, and each occurs with
+ probability 
+\begin_inset Formula $\Theta\left(\left(\alpha/n\right)^{7}\right)$
+\end_inset
+
+, so the expected number of such is 
+\begin_inset Formula $\Theta\left(\alpha^{13}n^{2}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+They could intersect in the unfixed hyperedge of the covering matching as
+ above, and also in one hyperedge of the non-covering matching
+\begin_inset Quotes erd
+\end_inset
+
+.
+ There are 
+\begin_inset Formula $\Theta\left(\left(\alpha n\right)^{4}n^{3}\right)$
+\end_inset
+
+ possible such pairs, and each occurs with probability 
+\begin_inset Formula $\Theta\left(\left(\alpha/n\right)^{6}\right)$
+\end_inset
+
+, so the expected number of such is 
+\begin_inset Formula $\Theta\left(\alpha^{10}n\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+They could intersect in one edge of the non-covering matching.
+ There are 
+\begin_inset Formula $\Theta\left(\left(\alpha n\right)^{4}n^{5}\right)$
+\end_inset
+
+ possible such pairs, and each occurs with probability 
+\begin_inset Formula $\Theta\left(\left(\alpha/n\right)^{7}\right)$
+\end_inset
+
+, so the expected number of such is 
+\begin_inset Formula $\Theta\left(\alpha^{11}n^{2}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+They could intersect in two edges of the non-covering matching.
+ There are 
+\begin_inset Formula $\Theta\left(\left(\alpha n\right)^{3}n^{4}\right)$
+\end_inset
+
+ possible such pairs, and each occurs with probability 
+\begin_inset Formula $\Theta\left(\left(\alpha/n\right)^{6}\right)$
+\end_inset
+
+, so the expected number of such is 
+\begin_inset Formula $\Theta\left(\alpha^{9}n\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In summary (for small 
+\begin_inset Formula $\alpha$
+\end_inset
+
+), we have 
+\begin_inset Formula $\E\randZ=O\left(\alpha^{11}n^{2}\right)$
+\end_inset
+
+, so 
+\begin_inset Formula $\E\randY=\Theta\left(\alpha^{7}n^{2}\right)$
+\end_inset
+
+.
+ Considering 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ as fixed, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:disjoint-absorber-bite-tail"
+
+\end_inset
+
+ gives 
+\begin_inset Formula $\randY=\Omega\left(n^{2}\right)$
+\end_inset
+
+ with probability 
+\begin_inset Formula $1-\exp\left(-\Omega\left(n^{2}\right)\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Note that if there are 
+\begin_inset Formula $\Omega\left(n^{2}\right)$
+\end_inset
+
+ edge-disjoint absorber-extensions then there must in fact be 
+\begin_inset Formula $\Omega\left(n\right)$
+\end_inset
+
+ vertex-disjoint absorber-extensions.
+ We can find these greedily; the degree in 
+\begin_inset Formula $\randS$
+\end_inset
+
+ of each vertex is 
+\begin_inset Formula $O\left(n\right)$
+\end_inset
+
+, so deleting 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ vertices can delete at most 
+\begin_inset Formula $O\left(n\right)$
+\end_inset
+
+ edges.
+ By the union bound and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:bite-transfer"
+
+\end_inset
+
+, it follows that with probability 
+\begin_inset Formula $1-\exp\left(-\Omega\left(n^{2}\right)\right)$
+\end_inset
+
+, every triple of vertices has 
+\begin_inset Formula $\Omega\left(n\right)$
+\end_inset
+
+ externally vertex-disjoint absorbers in 
+\begin_inset Formula $\randS$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\randS$
+\end_inset
+
+ has this property, then we can greedily build our absorbing structure,
+ as follows.
+ Recalling that 
+\begin_inset Formula $\delta=o\left(1\right)$
+\end_inset
+
+, choose a resilient template 
+\begin_inset Formula $H$
+\end_inset
+
+ with 
+\begin_inset Formula $O\left(\delta^{2}n\right)$
+\end_inset
+
+ hyperedges, on 
+\begin_inset Formula $O\left(\delta^{2}n\right)$
+\end_inset
+
+ vertices of 
+\begin_inset Formula $\randS$
+\end_inset
+
+, such that the flexible set is 
+\begin_inset Formula $Z=\range{\delta^{2}n}$
+\end_inset
+
+ for some fixed 
+\begin_inset Formula $c>0$
+\end_inset
+
+.
+ Noting that an absorber has 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ non-rooted vertices, we can greedily find an absorber in 
+\begin_inset Formula $\randS$
+\end_inset
+
+ on each edge of 
+\begin_inset Formula $H$
+\end_inset
+
+, in an externally vertex-disjoint fashion.
+ The entire absorbing structure then has 
+\begin_inset Formula $O\left(\delta^{2}n\right)\le\delta n$
+\end_inset
+
+ vertices.
+ This proves that the first property of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:PM-via-absorbers"
+
+\end_inset
+
+ holds with probability 
+\begin_inset Formula $1-\exp\left(-\Omega\left(n^{2}\right)\right)$
+\end_inset
+
+ in 
+\begin_inset Formula $\randS$
+\end_inset
+
+ (conditioned on 
+\begin_inset Formula $\mathcal{Q}$
+\end_inset
+
+), and by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+ it therefore holds a.a.s.
+ in a uniformly random Steiner triple system.
+ (Actually, what we have proved is slightly stronger, because we can specify
+ the location of the flexible set of the absorbing structure).
+\end_layout
+
+\begin_layout Subsubsection
+High degree into the flexible set
+\end_layout
+
+\begin_layout Standard
+Recall that 
+\begin_inset Formula $\delta=1/\log^{2}n=\tilde{\Theta}\left(1\right)$
+\end_inset
+
+.
+ With 
+\begin_inset Formula $\randS^{*}\in\GSnp n{\alpha/N}$
+\end_inset
+
+ obtained from 
+\begin_inset Formula $\randG\in\Gnp n{\alpha/N}$
+\end_inset
+
+, fix a set 
+\begin_inset Formula $W$
+\end_inset
+
+ with 
+\begin_inset Formula $\delta n$
+\end_inset
+
+ vertices and let 
+\begin_inset Formula $\randY$
+\end_inset
+
+ be the number of edges of 
+\begin_inset Formula $\randS^{*}$
+\end_inset
+
+ with one vertex in 
+\begin_inset Formula $W$
+\end_inset
+
+ and two vertices in the set 
+\begin_inset Formula $Z=\range{\delta^{2}n}$
+\end_inset
+
+.
+ That is, 
+\begin_inset Formula $\randY$
+\end_inset
+
+ the number of such edges in 
+\begin_inset Formula $\randG$
+\end_inset
+
+ that are 
+\begin_inset Quotes eld
+\end_inset
+
+isolated
+\begin_inset Quotes erd
+\end_inset
+
+.
+ There are 
+\begin_inset Formula $\Theta\left(\left(\delta n\right)^{2}n\right)=\Theta\left(n^{3}\log^{-O\left(1\right)}n\right)$
+\end_inset
+
+ possible edges and each is present and isolated with probability 
+\begin_inset Formula $\left(\alpha/n\right)\left(1-\alpha/n\right)^{O\left(n\right)}=\Theta\left(n^{-1}\right)$
+\end_inset
+
+, so 
+\begin_inset Formula $\E\randY=\tilde{\Theta}\left(n^{2}\right)$
+\end_inset
+
+ and just as in the preceding argument, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:bernstein-type"
+
+\end_inset
+
+ shows that for some 
+\begin_inset Formula $\delta$
+\end_inset
+
+, with probability 
+\begin_inset Formula $1-\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right)$
+\end_inset
+
+ we have 
+\begin_inset Formula $\randY\ge2\delta^{3}n^{2}/4$
+\end_inset
+
+.
+ This is not possible unless there is a vertex 
+\begin_inset Formula $v$
+\end_inset
+
+ in 
+\begin_inset Formula $W$
+\end_inset
+
+ with degree 
+\begin_inset Formula $2\delta^{3}n$
+\end_inset
+
+ in 
+\begin_inset Formula $Z$
+\end_inset
+
+, in 
+\begin_inset Formula $\randS^{*}$
+\end_inset
+
+.
+ Since there are fewer than 
+\begin_inset Formula $2^{n}=e^{o\left(n^{2}\right)}$
+\end_inset
+
+ choices for 
+\begin_inset Formula $W$
+\end_inset
+
+, the union bound and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:bite-transfer"
+
+\end_inset
+
+ prove that with probability 
+\begin_inset Formula $1-\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right)$
+\end_inset
+
+ every set 
+\begin_inset Formula $W$
+\end_inset
+
+ has such a vertex (and therefore the second condition of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:PM-via-absorbers"
+
+\end_inset
+
+ holds), in an instance of the triangle removal process 
+\begin_inset Formula $\rg n{\alpha N}$
+\end_inset
+
+.
+ Applying 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+ with 
+\begin_inset Formula $S=\varnothing$
+\end_inset
+
+ proves that the same holds a.a.s.
+ in a uniformly random Steiner triple system.
+\end_layout
+
+\begin_layout Subsubsection
+Density in subsets
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:density"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fix a set 
+\begin_inset Formula $W\subseteq V$
+\end_inset
+
+ with 
+\begin_inset Formula $\left|W\right|\ge\delta^{3}n$
+\end_inset
+
+.
+ With 
+\begin_inset Formula $\randS^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $\randG$
+\end_inset
+
+ as in the previous subsection, redefine 
+\begin_inset Formula $\randY$
+\end_inset
+
+ to be the number of edges of 
+\begin_inset Formula $\randS^{*}$
+\end_inset
+
+ included in 
+\begin_inset Formula $W$
+\end_inset
+
+.
+ There are 
+\begin_inset Formula $\left(1+o\left(1\right)\right)\left|W\right|^{3}/6$
+\end_inset
+
+ possible edges, and each is present and isolated in 
+\begin_inset Formula $\randG$
+\end_inset
+
+ with probability 
+\begin_inset Formula $\left(\alpha/n\right)\left(1-\alpha/n\right)^{O\left(n\right)}=\left(\alpha/n\right)\left(1-O\left(\alpha\right)\right)$
+\end_inset
+
+, so with the same reasoning as in the previous two sections, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:bernstein-type"
+
+\end_inset
+
+ shows that with probability 
+\begin_inset Formula $1-\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right)$
+\end_inset
+
+ we have 
+\begin_inset Formula $\randY\ge\alpha\left(1-O\left(\alpha\right)\right)\left|W\right|^{3}/\left(6n\right)$
+\end_inset
+
+.
+ The union bound and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:bite-transfer"
+
+\end_inset
+
+ proves that this holds for any 
+\begin_inset Formula $W$
+\end_inset
+
+ with probability 
+\begin_inset Formula $1-\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right)$
+\end_inset
+
+, in an instance of the triangle removal process 
+\begin_inset Formula $\rg n{\alpha N}$
+\end_inset
+
+.
+ Therefore by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+ it holds a.a.s.
+ in 
+\begin_inset Formula $\randS_{\alpha N}$
+\end_inset
+
+ for a uniformly random 
+\begin_inset Formula $\randS\in\S$
+\end_inset
+
+.
+ By symmetry, this property also holds a.a.s.
+ in 
+\begin_inset Formula $\randS_{k\alpha N}\backslash\randS_{\left(k-1\right)\alpha N}$
+\end_inset
+
+ for any 
+\begin_inset Formula $k\le1/\alpha$
+\end_inset
+
+ (we impose that 
+\begin_inset Formula $1/\alpha$
+\end_inset
+
+ is an integer).
+ So the total number of edges in 
+\begin_inset Formula $\randS$
+\end_inset
+
+ induced by any 
+\begin_inset Formula $W$
+\end_inset
+
+ is 
+\begin_inset Formula $\left(1-O\left(\alpha\right)\right)\left|W\right|^{3}/\left(6n\right)$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $\beta$
+\end_inset
+
+ a large multiple of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, the third condition in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:PM-via-absorbers"
+
+\end_inset
+
+ is then satisfied.
+\end_layout
+
+\begin_layout Section
+An upper bound for the number of perfect matchings
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:max-num-matchings"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\randl}{\boldsymbol{\lambda}}
+{\boldsymbol{\boldsymbol{\lambda}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\randz}{\boldsymbol{z}}
+{\boldsymbol{\boldsymbol{z}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\randR}{\boldsymbol{R}}
+{\boldsymbol{\boldsymbol{R}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\rande}{\boldsymbol{e}}
+{\boldsymbol{\boldsymbol{e}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\randQ}{\boldsymbol{Q}}
+{\boldsymbol{\boldsymbol{Q}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section we prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:maximum-PMs"
+
+\end_inset
+
+, with the entropy method.
+ See 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LL13"
+
+\end_inset
+
+ for a brief introduction to the notion of entropy as necessary for proving
+ upper bounds of this type.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+ be the set of perfect matchings in 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Consider a uniformly random 
+\begin_inset Formula $\randM\in\mathcal{M}$
+\end_inset
+
+ and let 
+\begin_inset Formula $H\left(\randM\right)=\log\left|\mathcal{M}\right|$
+\end_inset
+
+ be the entropy of 
+\begin_inset Formula $\randM$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\randM_{v}$
+\end_inset
+
+ be the hyperedge of 
+\begin_inset Formula $\randM$
+\end_inset
+
+ containing the vertex 
+\begin_inset Formula $v$
+\end_inset
+
+, so that the sequence 
+\begin_inset Formula $\left(\randM_{v}\right)_{v\in\range n}$
+\end_inset
+
+ determines 
+\begin_inset Formula $\randM$
+\end_inset
+
+.
+ For any ordering on the vertices of 
+\begin_inset Formula $S$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+H\left(M\right)=\sum_{v\in V}H\left(\randM_{v}\cond\randM_{v'}:v'<v\right).
+\]
+
+\end_inset
+
+Now, a sequence 
+\begin_inset Formula $\lambda\in\left[0,1\right]^{n}$
+\end_inset
+
+ with all 
+\begin_inset Formula $\lambda_{v}$
+\end_inset
+
+ distinct induces an ordering on 
+\begin_inset Formula $\range n$
+\end_inset
+
+, with 
+\begin_inset Formula $v'<v$
+\end_inset
+
+ when 
+\begin_inset Formula $\lambda_{v'}>\lambda_{v}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\randR_{v}\left(\lambda\right)$
+\end_inset
+
+ be 1 plus the number of 3-edges 
+\begin_inset Formula $e\ne\randM_{v}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lambda_{v'}<\lambda_{v}$
+\end_inset
+
+ for all 
+\begin_inset Formula $v'\in\bigcup_{x\in X}\randM_{x}$
+\end_inset
+
+.
+ (So, 
+\begin_inset Formula $\randR_{v}\left(\lambda\right)=1$
+\end_inset
+
+ if 
+\begin_inset Formula $\lambda_{v'}>\lambda_{v}$
+\end_inset
+
+ for some 
+\begin_inset Formula $v'\in\randM_{v}\backslash\left\{ v\right\} $
+\end_inset
+
+).
+ This is an upper bound on the number of possible values for 
+\begin_inset Formula $\randM_{v}$
+\end_inset
+
+ given the information  
+\begin_inset Formula $\left(\randM_{v'}\,\colon\,\lambda_{v'}>\lambda_{v}\right)$
+\end_inset
+
+.
+ Let
+\begin_inset Formula 
+\[
+R_{v}^{M,\lambda}=\E\left[\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v}=\lambda,\,\lambda_{v'}<\lambda_{v}\text{ for all }v'\in\randM_{v}\backslash\left\{ v\right\} \right].
+\]
+
+\end_inset
+
+(Note that 
+\begin_inset Formula $\randl_{v}=\lambda$
+\end_inset
+
+ occurs with probability zero, so formally we should condition on 
+\begin_inset Formula $\randl_{e}=\lambda\pm\d\lambda$
+\end_inset
+
+ and take limits in what follows, but there are no continuity issues so
+ we will ignore this detail).
+ By linearity of expectation, we have
+\begin_inset Formula 
+\[
+R_{v}^{M,\lambda}=\left(\left(n-1\right)/2-1\right)\lambda^{6},
+\]
+
+\end_inset
+
+because there are 
+\begin_inset Formula $\left(n-1\right)/2$
+\end_inset
+
+ edges in 
+\begin_inset Formula $S$
+\end_inset
+
+ containing 
+\begin_inset Formula $v$
+\end_inset
+
+, and for each such edge 
+\begin_inset Formula $e$
+\end_inset
+
+ other than 
+\begin_inset Formula $\randM_{v}$
+\end_inset
+
+ the two non-
+\begin_inset Formula $v$
+\end_inset
+
+ vertices must be matched to different 3-edges in 
+\begin_inset Formula $\randM$
+\end_inset
+
+ (if they were matched to the same edge that edge would intersect 
+\begin_inset Formula $e$
+\end_inset
+
+ in two vertices, violating the defining property of a Steiner triple system).
+ By Jensen's inequality,
+\begin_inset Formula 
+\[
+\E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v}=\lambda,\,\lambda_{v'}<\lambda_{v}\text{ for all }v'\in\randM_{v}\backslash\left\{ v\right\} \right]\le\log R_{v}^{M,\lambda},
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\Pr\left(\lambda_{v'}<\lambda_{v}\text{ for all }v'\in\randM_{v}\backslash\left\{ v\right\} \right)=\lambda^{2}
+\]
+
+\end_inset
+
+so
+\begin_inset Formula 
+\[
+\E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v}=\lambda\right]\le\lambda^{2}\log R_{v}^{M,\lambda}.
+\]
+
+\end_inset
+
+For any 
+\begin_inset Formula $M\in\mathcal{M}$
+\end_inset
+
+ we then have
+\begin_inset Formula 
+\begin{align*}
+\E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M\right] & \le\E\left[\randl_{v}^{2}\log R_{v}^{M,\randl_{i}}\right]\\
+ & =\int_{0}^{1}\lambda^{2}\log\left(\left(\left(n-1\right)/2-1\right)\lambda^{6}\right)\d\lambda\\
+ & =\frac{1}{3}\left(\log\left(\left(1+o\left(1\right)\right)n/2\right)-2\right),
+\end{align*}
+
+\end_inset
+
+using the fact that 
+\begin_inset Formula $\int_{0}^{1}\lambda^{A-1}\log\left(C\lambda^{B}\right)\d t=A^{-1}\log C-A^{-2}B$
+\end_inset
+
+ for any 
+\begin_inset Formula $A,B,C>0$
+\end_inset
+
+.
+ We conclude that
+\begin_inset Formula 
+\begin{align*}
+\log\left|\mathcal{M}\right| & \le H\left(\randM\right)\\
+ & \le\sum_{i\in\range n}\E\left[\log\randR_{i}\left(\randl\right)\right]\\
+ & \le\frac{n}{3}\left(\log\left(\left(1+o\left(1\right)\right)n/2\right)-2\right)
+\end{align*}
+
+\end_inset
+
+which is equivalent to the theorem statement.
+\end_layout
+
+\begin_layout Section
+Latin squares
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:latin"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section we briefly sketch how one should adapt the methods in this
+ paper to prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:latin"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The main difference from the case of Steiner triple systems is that instead
+ of considering triangles in graphs (subgraphs of 
+\begin_inset Formula $K_{n}$
+\end_inset
+
+), we consider triangles in subgraphs of the complete tripartite graph 
+\begin_inset Formula $K_{n,n,n}$
+\end_inset
+
+.
+ In this section we use the notation 
+\begin_inset Formula $V=V_{1}\sqcup V_{2}\sqcup V_{3}$
+\end_inset
+
+ for the vertex partition of 
+\begin_inset Formula $K_{n,n,n}$
+\end_inset
+
+.
+ We say a subgraph 
+\begin_inset Formula $G\subseteq K_{n,n,n}$
+\end_inset
+
+ with 
+\begin_inset Formula $m$
+\end_inset
+
+ edges between each pair of parts is 
+\begin_inset Formula $\left(\varepsilon,h\right)$
+\end_inset
+
+-quasirandom if for each 
+\begin_inset Formula $i\in\left\{ 1,2,3\right\} $
+\end_inset
+
+, every set 
+\begin_inset Formula $A\subseteq V\backslash V_{i}$
+\end_inset
+
+ with 
+\begin_inset Formula $\left|A\right|\le h$
+\end_inset
+
+ has 
+\begin_inset Formula $\left(1\pm\varepsilon\right)\left(m/n^{2}\right)^{\left|A\right|}n$
+\end_inset
+
+ common neighbours in 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+.
+ We believe that the following result should follow from a slight adaptation
+ of the proof in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kee15"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Conjecture
+There are 
+\begin_inset Formula $h\in\NN$
+\end_inset
+
+, 
+\begin_inset Formula $\varepsilon_{0},a\in\left(0,1\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{0},\ell\in\NN$
+\end_inset
+
+ such that if 
+\begin_inset Formula $n\ge n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $m/n^{2}\ge n^{-a}$
+\end_inset
+
+ and 
+\begin_inset Formula $\varepsilon\le\varepsilon_{0}\left(m/n^{2}\right){}^{\ell}$
+\end_inset
+
+, and 
+\begin_inset Formula $G\subseteq K_{n,n,n}$
+\end_inset
+
+ is 
+\begin_inset Formula $\left(\varepsilon,h\right)$
+\end_inset
+
+-quasirandom with 
+\begin_inset Formula $m$
+\end_inset
+
+ edges between each pair of parts, then the edges of 
+\begin_inset Formula $G$
+\end_inset
+
+ can be decomposed into triangles.
+\end_layout
+
+\begin_layout Standard
+Redefining 
+\begin_inset Formula $\ord$
+\end_inset
+
+, 
+\begin_inset Formula $\ordm m$
+\end_inset
+
+ and 
+\begin_inset Formula $\cordm{\varepsilon,h}m$
+\end_inset
+
+ in the obvious way for ordered (partial) Latin squares and redefining 
+\begin_inset Formula $\RR\left(n,m\right)$
+\end_inset
+
+ to be the distribution on 
+\begin_inset Formula $\ordm m$
+\end_inset
+
+ obtained with 
+\begin_inset Formula $m$
+\end_inset
+
+ steps of the triangle removal process starting from 
+\begin_inset Formula $K_{n,n,n}$
+\end_inset
+
+, we can then prove a counterpart to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+ for random Latin squares, with virtually the same proof.
+\end_layout
+
+\begin_layout Solution
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:latin-transfer"
+
+\end_inset
+
+There is 
+\begin_inset Formula $h_{0}\in\NN$
+\end_inset
+
+ such that for fixed 
+\begin_inset Formula $h\ge h_{0}$
+\end_inset
+
+ and sufficiently small 
+\begin_inset Formula $a$
+\end_inset
+
+ there is 
+\begin_inset Formula $b\left(a\right)>0$
+\end_inset
+
+ such that the following holds.
+ Fix 
+\begin_inset Formula $\alpha\in\left(0,1\right)$
+\end_inset
+
+, let 
+\begin_inset Formula $\mathcal{P}\subseteq\ordm{\alpha N}$
+\end_inset
+
+ be a property of ordered partial Latin squares, let 
+\begin_inset Formula $\mathcal{Q}\supseteq\cordm{n^{-a},h}{\alpha N}$
+\end_inset
+
+, let 
+\begin_inset Formula $\randS\in\ord$
+\end_inset
+
+ be uniformly random and let 
+\begin_inset Formula $\randS'\in\rg n{\alpha N}$
+\end_inset
+
+.
+ If
+\begin_inset Formula 
+\[
+\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)<\exp\left(-n^{2-b}\right)
+\]
+
+\end_inset
+
+then
+\begin_inset Formula 
+\[
+\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right)=\exp\left(-\Omega\left(n^{1-2a}\right)\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we outline what should be adapted from the arguments in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:absorbers"
+
+\end_inset
+
+ for the Latin squares case.
+ The definition of an absorber can remain the same, noting that the hypergraph
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:absorber"
+
+\end_inset
+
+ is tripartite (if 
+\begin_inset Formula $x,y,z$
+\end_inset
+
+ are in different parts, then an absorber on 
+\begin_inset Formula $\left(x,y,z\right)$
+\end_inset
+
+ can be chosen with each 3-edge having a vertex in each part).
+ The definition of a resilient template should be adapted slightly: a resilient
+ template is a tripartite hypergraph 
+\begin_inset Formula $H$
+\end_inset
+
+ with a flexible set 
+\begin_inset Formula $Z$
+\end_inset
+
+ satisfying 
+\begin_inset Formula $\left|Z\cap V_{1}\right|=\left|Z\cap V_{2}\right|=\left|Z\cap V_{3}\right|$
+\end_inset
+
+, such that if half the vertices are removed from each 
+\begin_inset Formula $Z\cap V_{i}$
+\end_inset
+
+ the remaining hypergraph has a perfect matching.
+ To prove a counterpart of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:resilient-template"
+
+\end_inset
+
+ we can just use three copies (one for each 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+) of the construction in the proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:resilient-template"
+
+\end_inset
+
+.
+ The counterpart of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:PM-via-absorbers"
+
+\end_inset
+
+ is as follows (with virtually the same proof).
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:absorbers-latin"
+
+\end_inset
+
+Consider a 3-uniform tripartite hypergraph 
+\begin_inset Formula $L\subseteq K_{n,n,n}^{\left(3\right)}$
+\end_inset
+
+ satisfying the following properties for some 
+\begin_inset Formula $\delta=\delta\left(n\right)=o\left(1\right)$
+\end_inset
+
+ and fixed 
+\begin_inset Formula $\beta>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+There is an absorbing structure 
+\begin_inset Formula $H$
+\end_inset
+
+ in 
+\begin_inset Formula $L$
+\end_inset
+
+ with at most 
+\begin_inset Formula $\delta n$
+\end_inset
+
+ vertices and a flexible set 
+\begin_inset Formula $Z$
+\end_inset
+
+ intersecting each 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ in 
+\begin_inset Formula $\delta^{2}n$
+\end_inset
+
+ vertices.
+\end_layout
+
+\begin_layout Enumerate
+For at most 
+\begin_inset Formula $\delta n$
+\end_inset
+
+ of the vertices 
+\begin_inset Formula $v\in V_{1}$
+\end_inset
+
+, we have 
+\begin_inset Formula $\left|\left\{ \left(x,y\right)\in V_{2}\times V_{3}:\left(v,x,y\right)\in L\right\} \right|<3\delta^{3}n$
+\end_inset
+
+, and similarly most 
+\begin_inset Formula $v\in V_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $v\in V_{3}$
+\end_inset
+
+ have high degree into 
+\begin_inset Formula $V_{1}\times V_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $V_{1}\times V_{2}$
+\end_inset
+
+ respectively.
+\end_layout
+
+\begin_layout Enumerate
+For any choice of 
+\begin_inset Formula $W_{i}\subseteq V_{i}$
+\end_inset
+
+ such that each 
+\begin_inset Formula $\left|W_{i}\right|\ge\delta^{3}n$
+\end_inset
+
+, there are at least 
+\begin_inset Formula $\left(1-\beta\right)\left|W_{1}\right|\left|W_{2}\right|\left|W_{3}\right|/n$
+\end_inset
+
+ hyperedges in 
+\begin_inset Formula $W_{1}\times W_{2}\times W_{3}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Lemma
+Then 
+\begin_inset Formula $L$
+\end_inset
+
+ has 
+\begin_inset Formula 
+\[
+\left(\frac{n}{e^{2}}\left(1-\beta-O\left(\delta\log n\right)\right)\right)^{n}
+\]
+
+\end_inset
+
+transversals.
+\end_layout
+
+\begin_layout Standard
+One can then use 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:absorbers-latin"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:latin-transfer"
+
+\end_inset
+
+ to prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:latin"
+
+\end_inset
+
+ in basically the same way as the proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:PM-in-STS"
+
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:absorbers-in-TRP"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Concluding remarks
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:concluding"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this paper we introduced a new method for analysing random Steiner systems,
+ and we used it to prove that almost all Steiner triple systems have many
+ perfect matchings.
+ There are many interesting open questions about random Steiner (triple)
+ systems and perfect matchings that remain.
+\end_layout
+
+\begin_layout Itemize
+We believe the most interesting problem that seems approachable by our methods
+ is to prove that almost all Steiner triple systems (and Latin squares)
+ can be decomposed, or at least approximately decomposed, into disjoint
+ perfect matchings (transversals).
+ The proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:PM-in-STS"
+
+\end_inset
+
+ can be easily modified to prove that almost all Steiner triple systems
+ have 
+\begin_inset Formula $\Omega\left(n^{2}\right)$
+\end_inset
+
+ disjoint perfect matchings, but to find 
+\begin_inset Formula $\left(1-o\left(1\right)\right)n/2$
+\end_inset
+
+ disjoint perfect matchings would require a new idea.
+ For Latin squares, the property of being decomposable into transversals
+ is equivalent to the important property of having an 
+\emph on
+orthogonal mate
+\emph default
+, which has a long history dating back to Euler.
+ More details can be found in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wan11"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+There is the obvious question of proving that 
+\begin_inset Formula $\left(q,r\right)$
+\end_inset
+
+-Steiner systems a.a.s.
+ have perfect matchings, for all choices of 
+\begin_inset Formula $\left(q,r\right)$
+\end_inset
+
+.
+ We believe this should be possible using the methods in this paper, and
+ the main difficulty probably lies in coming up with a suitable absorber.
+ If 
+\begin_inset Formula $r>2$
+\end_inset
+
+ then there is the more general question of whether 
+\begin_inset Formula $\left(q,r\right)$
+\end_inset
+
+-Steiner systems typically contain 
+\begin_inset Formula $\left(q,r'\right)$
+\end_inset
+
+-Steiner systems, for all 
+\begin_inset Formula $r'<r$
+\end_inset
+
+.
+ It might even be true that almost all 
+\begin_inset Formula $\left(q,r\right)$
+\end_inset
+
+-Steiner systems can be 
+\begin_inset Quotes eld
+\end_inset
+
+completely decomposed
+\begin_inset Quotes erd
+\end_inset
+
+ in the sense that they can be partitioned into disjoint 
+\begin_inset Formula $\left(q,r-1\right)$
+\end_inset
+
+-Steiner systems, which can be partitioned into 
+\begin_inset Formula $\left(q,r-2\right)$
+\end_inset
+
+-Steiner systems, and so on.
+ A similar phenomenon occurs for random regular graphs (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Section~9.5"
+key "JLR00"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+Another interesting question about random Steiner triple systems is whether
+ they contain Steiner triple subsystems on fewer vertices.
+ McKay and Wanless 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MW99"
+
+\end_inset
+
+ proved that almost all Latin squares have many small Latin subsquares,
+ but it was conjectured by Quackenbush 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Qua80"
+
+\end_inset
+
+ that most Steiner triple systems do not have proper subsystems.
+ It seems unlikely that the methods in this paper will be able to prove
+ or disprove this conjecture without substantial new ideas, because the
+ expected number of 7-vertex Steiner triple systems (Fano planes) in the
+ 3-uniform random hypergraph 
+\begin_inset Formula $\Gnp n{1/n}$
+\end_inset
+
+ is 
+\begin_inset Formula $\Theta\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+We could ask more generally about containment and enumeration of subgraphs.
+ Is it true that every fixed hypergraph 
+\begin_inset Formula $H$
+\end_inset
+
+ whose every subgraph has more vertices than edges, appears a.a.s.
+ in a random Steiner triple system? Can we show that moreover the number
+ of copies of 
+\begin_inset Formula $H$
+\end_inset
+
+ is concentrated? The methods in this paper can probably be used to prove
+ a lower bound for the number of copies of 
+\begin_inset Formula $H$
+\end_inset
+
+ when every subgraph of 
+\begin_inset Formula $H$
+\end_inset
+
+ has at least 2 more vertices than edges, but due to the 
+\begin_inset Quotes eld
+\end_inset
+
+infamous upper tail
+\begin_inset Quotes erd
+\end_inset
+
+ issue (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JR02"
+
+\end_inset
+
+), an upper bound for the number of copies of 
+\begin_inset Formula $H$
+\end_inset
+
+ is likely to be more difficult.
+\end_layout
+
+\begin_layout Itemize
+One of the most fundamental properties of random graphs and hypergraphs
+ is that they have low 
+\emph on
+discrepancy
+\emph default
+, meaning that every sufficiently large subset of vertices has about the
+ expected number of edges.
+ In 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:density"
+
+\end_inset
+
+ we effectively proved a very weak discrepancy bound, but it is not clear
+ how to use our methods to reach anywhere near optimal discrepancy.
+ See 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LL15"
+
+\end_inset
+
+ for some conjectures about discrepancy of Latin squares and their high-dimensio
+nal relatives.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "references"
+options "amsplain_initials"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{appendices}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+crefalias{section}{appsec}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:keevash"
+
+\end_inset
+
+Counting completions of Steiner systems
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\coG}{G}
+{\boldsymbol{G}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Sext}[1]{\mathcal{S}^{\mathrm{ext}}\left(#1\right)}
+{\boldsymbol{\mathcal{S}^{\mathrm{ext}}\left(#1\right)}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\randl}{\boldsymbol{\lambda}}
+{\boldsymbol{\boldsymbol{\lambda}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\randz}{\boldsymbol{z}}
+{\boldsymbol{\boldsymbol{z}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\randR}{\boldsymbol{R}}
+{\boldsymbol{\boldsymbol{R}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section we prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:num-extensions"
+
+\end_inset
+
+.
+ This is accomplished with minor adaptations of a proof by Keevash 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kee15"
+
+\end_inset
+
+.
+ As in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:outline"
+
+\end_inset
+
+, we consider 
+\begin_inset Formula $q$
+\end_inset
+
+ and 
+\begin_inset Formula $r$
+\end_inset
+
+ to be fixed, let 
+\begin_inset Formula $Q={q \choose r}$
+\end_inset
+
+ and let 
+\begin_inset Formula $N={n \choose r}/Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For a partial system 
+\begin_inset Formula $S\in\S_{\alpha N}^{n^{-a}}$
+\end_inset
+
+, let 
+\begin_inset Formula $\Sext S$
+\end_inset
+
+ be the number of Steiner systems that contain 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ We want to determine 
+\begin_inset Formula $\left|\ext S\right|=\left(N-\alpha N\right)!\left|\Sext S\right|$
+\end_inset
+
+ up to a factor of 
+\begin_inset Formula $e^{n^{2-b}}$
+\end_inset
+
+ (for some 
+\begin_inset Formula $b$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+First, we can get an upper bound via the entropy method.
+ This proof is almost exactly the same to the proof of 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Theorem~6.1"
+key "Kee15"
+
+\end_inset
+
+, and is very similar to the proof that appears in a paper by Linial and
+ Luria 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LL13"
+
+\end_inset
+
+ about Steiner triple systems.
+ The reader may refer to that paper for more detailed exposition and a brief
+ introduction to the notion of entropy.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:number-of-completions-upper"
+
+\end_inset
+
+For any 
+\begin_inset Formula $a>0$
+\end_inset
+
+, any 
+\begin_inset Formula $\alpha\in\left[0,1\right]$
+\end_inset
+
+, and any 
+\begin_inset Formula $S^{*}\in\cSm{n^{-a},q-1}{\alpha N}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\left|\Sext{S^{*}}\right|\le\left(\left(1+O\left(n^{-a}\right)\right)\left(\frac{1-\alpha}{e}\right)^{Q-1}{n-r \choose q-r}\right)^{N\left(1-\alpha\right)}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\randS\in\Sext{S^{*}}$
+\end_inset
+
+ be a uniformly random completion of 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $H\left(\randS\right)=\log\left|\Sext{S^{*}}\right|$
+\end_inset
+
+ be the entropy of 
+\begin_inset Formula $\randS$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\coG=G\left(S^{*}\right)$
+\end_inset
+
+.
+ For each 
+\begin_inset Formula $e\in\coG$
+\end_inset
+
+, let 
+\begin_inset Formula $\randS_{e}$
+\end_inset
+
+ be the 
+\begin_inset Formula $q$
+\end_inset
+
+-edge that includes 
+\begin_inset Formula $e$
+\end_inset
+
+ in 
+\begin_inset Formula $\randS$
+\end_inset
+
+.
+ So, the sequence 
+\begin_inset Formula $\left(\randS_{e}\right)_{e\in\coG}$
+\end_inset
+
+ determines 
+\begin_inset Formula $\randS$
+\end_inset
+
+.
+ For any ordering on the 
+\begin_inset Formula $r$
+\end_inset
+
+-edges of 
+\begin_inset Formula $\coG$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+H\left(\randS\right)=\sum_{e\in\coG}H\left(\randS_{e}\cond\left(\randS_{e'}\,\colon\,e'<e\right)\right).
+\]
+
+\end_inset
+
+Now, a sequence 
+\begin_inset Formula $\lambda\in\left[0,1\right]^{E\left(\coG\right)}$
+\end_inset
+
+ with all 
+\begin_inset Formula $\lambda_{e}$
+\end_inset
+
+ distinct induces an ordering on the 
+\begin_inset Formula $r$
+\end_inset
+
+-edges of 
+\begin_inset Formula $\coG$
+\end_inset
+
+, with 
+\begin_inset Formula $e'<e$
+\end_inset
+
+ when 
+\begin_inset Formula $\lambda_{e'}>\lambda_{e}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\randR_{e}\left(\lambda\right)$
+\end_inset
+
+ be an upper bound on the number of possible values for 
+\begin_inset Formula $\randS_{e}$
+\end_inset
+
+ given the information 
+\begin_inset Formula $\left(\randS_{e'}\,\colon\,\lambda_{e'}>\lambda_{e}\right)$
+\end_inset
+
+, defined as follows.
+ 
+\begin_inset Formula $\randR_{e}=1$
+\end_inset
+
+ if 
+\begin_inset Formula $\lambda_{e'}>\lambda_{e}$
+\end_inset
+
+ for any of the 
+\begin_inset Formula $r$
+\end_inset
+
+-subsets 
+\begin_inset Formula $e'\subseteq\randS_{e}$
+\end_inset
+
+ (because in this case 
+\begin_inset Formula $\randS_{e}$
+\end_inset
+
+ is determined), and otherwise 
+\begin_inset Formula $\randR_{e}$
+\end_inset
+
+ is 1 plus the number of 
+\begin_inset Formula $q$
+\end_inset
+
+-sets of vertices 
+\begin_inset Formula $X\ne\randS_{e}$
+\end_inset
+
+ containing 
+\begin_inset Formula $e$
+\end_inset
+
+ such that 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $f\in\coG$
+\end_inset
+
+ for each 
+\begin_inset Formula $r$
+\end_inset
+
+-subset 
+\begin_inset Formula $f\subseteq X$
+\end_inset
+
+, and
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\lambda_{e'}<\lambda_{e}$
+\end_inset
+
+ for each of the 
+\begin_inset Formula $r$
+\end_inset
+
+-edges 
+\begin_inset Formula $e'\in\coG$
+\end_inset
+
+ included in any of the 
+\begin_inset Formula $q$
+\end_inset
+
+-edges of 
+\begin_inset Formula $\randS$
+\end_inset
+
+ that include the 
+\begin_inset Formula $r$
+\end_inset
+
+-subsets in 
+\begin_inset Formula $\left\{ f:f\subseteq X,\left|f\right|=r\right\} \backslash\randS_{e}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Note that the number of edges 
+\begin_inset Formula $e'$
+\end_inset
+
+ considered by the second bullet point is 
+\begin_inset Formula $Q\left(Q-1\right)$
+\end_inset
+
+ unless 
+\begin_inset Formula $\left|X\cap B\right|>r$
+\end_inset
+
+ for some 
+\begin_inset Formula $q$
+\end_inset
+
+-edge 
+\begin_inset Formula $B$
+\end_inset
+
+ in 
+\begin_inset Formula $\randS$
+\end_inset
+
+ (in this case we say 
+\begin_inset Formula $X$
+\end_inset
+
+ is 
+\begin_inset Quotes eld
+\end_inset
+
+bad
+\begin_inset Quotes erd
+\end_inset
+
+).
+ By 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:H-count"
+
+\end_inset
+
+, the number of choices for 
+\begin_inset Formula $X$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}\frac{n^{q-r}}{\left(q-r\right)!}=\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}
+\]
+
+\end_inset
+
+ and the number of those that are bad is at most 
+\begin_inset Formula $\sum_{i=r+1}^{q}N{n \choose q-r-i}=O\left(n^{q-r-1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Now, note that for any 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\[
+H\left(\randS_{e}\cond\left(\randS_{e'}\,\colon\,\lambda_{e'}>\lambda_{e'}\right)\right)\le\E\left[\log\randR_{e}\left(\lambda\right)\right].
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $\randl=\left(\randl_{e}\right)_{e\in\coG}$
+\end_inset
+
+ be a sequence of independent random variables, where each 
+\begin_inset Formula $\randl_{e}$
+\end_inset
+
+ has the uniform distribution in 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+.
+ (Note that almost surely each 
+\begin_inset Formula $\randl_{e}$
+\end_inset
+
+ is distinct).
+ By linearity of expectation and the tower law, 
+\begin_inset Formula 
+\[
+H\left(\randS\right)=\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right].
+\]
+
+\end_inset
+
+Next, for any 
+\begin_inset Formula $S\in\Sext{S^{*}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda\in\left[0,1\right]$
+\end_inset
+
+, let 
+\begin_inset Formula 
+\[
+R_{e}^{S,\lambda}=\E\left[\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{e'}<\randl_{e}\textrm{ for all }e'\subseteq\randS_{e}\backslash\left\{ e\right\} \right].
+\]
+
+\end_inset
+
+By the discussion above, and linearity of expectation, we have 
+\begin_inset Formula 
+\begin{align*}
+R_{e}^{S,\lambda} & =\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}-O\left(n^{q-r-1}\right)\right)\lambda^{Q\left(Q-1\right)}\\
+ & =\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}\lambda^{Q\left(Q-1\right)}.
+\end{align*}
+
+\end_inset
+
+Now, by Jensen's inequality,
+\begin_inset Formula 
+\[
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{e}=\lambda,\,\randl_{e'}<\randl_{e}\textrm{ for all }e'\subseteq\randS_{e}\backslash\left\{ e\right\} \right]\le\log R_{e}^{S,\lambda},
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+\Pr\left(\randl_{e}=\lambda,\,\randl_{e'}<\randl_{e}\textrm{ for all }e'\subseteq\randS_{e}\backslash\left\{ e\right\} \cond\randl_{e}=\lambda\right)=\lambda^{Q-1},
+\]
+
+\end_inset
+
+so
+\begin_inset Formula 
+\[
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda\right]\le\lambda^{Q-1}\log R_{e}^{S,\lambda}+\left(1-\lambda^{Q-1}\right)\log1=\lambda^{2}\log R_{e}^{S,\lambda}.
+\]
+
+\end_inset
+
+For any 
+\begin_inset Formula $S\in\Sext{S^{*}}$
+\end_inset
+
+, we then have 
+\begin_inset Formula 
+\begin{align*}
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S\right] & \le\E\left[\lambda^{Q-1}\log R_{e}^{S,\randl_{e}}\right]\\
+ & =\int_{0}^{1}\lambda^{Q-1}\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}\lambda^{Q\left(Q-1\right)}\right)\d\lambda\\
+ & =\frac{1}{Q}\left(\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}\right)-\left(Q-1\right)\right),
+\end{align*}
+
+\end_inset
+
+using the fact that 
+\begin_inset Formula $\int_{0}^{1}\lambda^{A-1}\log\left(C\lambda^{B}\right)\d t=A^{-1}\log C-A^{-2}B$
+\end_inset
+
+ for any 
+\begin_inset Formula $A,B,C>0$
+\end_inset
+
+.
+ We conclude 
+\begin_inset Formula 
+\begin{align*}
+\log\left|\Sext{S^{*}}\right| & \le H\left(\randS\right)\\
+ & \le\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right]\\
+ & \le\left(N-\alpha N\right)\frac{1}{Q}\left(\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}\right)-\left(Q-1\right)\right),
+\end{align*}
+
+\end_inset
+
+which is equivalent to the theorem statement.
+\end_layout
+
+\begin_layout Standard
+For the lower bound, we will count ordered Steiner systems.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:number-of-completions-lower"
+
+\end_inset
+
+There is 
+\begin_inset Formula $h\in\NN$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $a>0$
+\end_inset
+
+, there is 
+\begin_inset Formula $b=b\left(a\right)$
+\end_inset
+
+ such that the following holds.
+ For any 
+\begin_inset Formula $\alpha\in\left(0,1\right)$
+\end_inset
+
+ and any 
+\begin_inset Formula $S^{*}\in\cordm{n^{-a},h}{\alpha N}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\left|\ext{S^{*}}\right|\le\left|\Sext{S^{*}}\right|\le\left(\left(1+O\left(n^{-a}\right)\right)\left(\frac{1-\alpha}{e}\right)^{Q-1}{n-r \choose q-r}\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:number-of-completions-lower"
+
+\end_inset
+
+ we will need an analysis of the clique removal process (see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Random-triangle-removal"
+
+\end_inset
+
+) and the following immediate consequence of 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Theorem~2.1"
+key "Kee15"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:keevash"
+
+\end_inset
+
+There are 
+\begin_inset Formula $h\in\NN$
+\end_inset
+
+, 
+\begin_inset Formula $\varepsilon_{0},a\in\left(0,1\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{0},\ell\in\NN$
+\end_inset
+
+ such that if 
+\begin_inset Formula $S\in\cSm{\varepsilon,h}m$
+\end_inset
+
+ is a partial system with 
+\begin_inset Formula $n\ge n_{0}$
+\end_inset
+
+, with 
+\begin_inset Formula $d\left(G\left(S\right)\right)=1-m/N\ge n^{-a}$
+\end_inset
+
+ and 
+\begin_inset Formula $\varepsilon\le\varepsilon_{0}d\left(G\right)^{\ell}$
+\end_inset
+
+, then 
+\begin_inset Formula $S$
+\end_inset
+
+ can be completed to an Steiner system.
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\extm}[2]{\mathcal{O}_{#1}^{\mathrm{ext}}\left(#2\right)}
+{\boldsymbol{\mathcal{O}_{#1}^{\mathrm{ext}}\left(#2\right)}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Sketch of proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:number-of-completions-lower"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $h$
+\end_inset
+
+ be as in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:keevash"
+
+\end_inset
+
+.
+ Fix small 
+\begin_inset Formula $c$
+\end_inset
+
+ (smaller than 
+\begin_inset Formula $a\,b\left(a,h\right)$
+\end_inset
+
+ in the notation of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-analysis"
+
+\end_inset
+
+), let 
+\begin_inset Formula $\varepsilon=n^{-c}$
+\end_inset
+
+ and let 
+\begin_inset Formula $M=\left(1-\varepsilon\right)N$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\randS\in\RR\left(S,M-m\right)$
+\end_inset
+
+ be the result of running the clique removal process on 
+\begin_inset Formula $G\left(S\right)$
+\end_inset
+
+ to build a partial system extending 
+\begin_inset Formula $S$
+\end_inset
+
+, until there are 
+\begin_inset Formula $M$
+\end_inset
+
+ hyperedges.
+ Let 
+\begin_inset Formula $\ord^{*}$
+\end_inset
+
+ be the set of 
+\begin_inset Formula $M$
+\end_inset
+
+-hyperedge 
+\begin_inset Formula $\left(\varepsilon,h\right)$
+\end_inset
+
+-quasirandom ordered partial systems 
+\begin_inset Formula $S\in\cordm{\varepsilon,h}M$
+\end_inset
+
+ extending 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ By 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:H-count"
+
+\end_inset
+
+, for each 
+\begin_inset Formula $S\in\ord^{*}$
+\end_inset
+
+, the number of copies of 
+\begin_inset Formula $K_{q}^{\left(r\right)}$
+\end_inset
+
+ in each 
+\begin_inset Formula $G\left(S_{i}\right)$
+\end_inset
+
+ is 
+\begin_inset Formula $\left(1\pm O\left(n^{-c}\right)\right)\left(1-i/N\right)^{Q}n^{q}/q!$
+\end_inset
+
+ by quasirandomness.
+ So,
+\begin_inset Formula 
+\[
+\Pr\left(\randS=S\right)\le\prod_{i=\alpha N}^{M}\frac{1}{\left(1-O\left(n^{-c}\right)\right)\left(1-i/N\right)^{Q}n^{q}/q!}.
+\]
+
+\end_inset
+
+By 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-analysis"
+
+\end_inset
+
+ we have 
+\begin_inset Formula 
+\[
+\sum_{S\in\ord^{*}}\Pr\left(\randS=S\right)=1-o\left(1\right),
+\]
+
+\end_inset
+
+so 
+\begin_inset Formula 
+\begin{align*}
+\left|\ord^{*}\right| & \ge\left(1-o\left(1\right)\right)\prod_{i=\alpha N}^{M}\left(1-O\left(n^{-c}\right)\right)\left(1-\frac{i}{N}\right)^{Q}n^{q}/q!.\\
+ & =\left(\left(1-O\left(n^{-c}\right)\right)\frac{n^{q}}{q!}\right)^{\left(1-\alpha\right)N}\exp\left(Q\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right).
+\end{align*}
+
+\end_inset
+
+Now, note that 
+\begin_inset Formula 
+\[
+\sum_{i=\alpha N}^{M}\frac{1}{N}\log\left(1-\frac{i+1}{N}\right)\le\int_{\alpha}^{\left(1-\varepsilon\right)}\log\left(1-t\right)\d t\le\sum_{i=\alpha N}^{M}\frac{1}{N}\log\left(1-\frac{i}{N}\right).
+\]
+
+\end_inset
+
+We compute
+\begin_inset Formula 
+\begin{align*}
+\sum_{i=\alpha N}^{M}\left(\log\left(1-\frac{i}{N}\right)-\log\left(1-\frac{i+1}{N}\right)\right) & =\sum_{i=\alpha N}^{M}\log\left(1+\frac{1}{N-\left(i+1\right)}\right)\\
+ & \le\sum_{i=\alpha N}^{M}\frac{1}{N-\left(i+1\right)}\\
+ & =O\left(\log n\right).
+\end{align*}
+
+\end_inset
+
+so, noting that 
+\begin_inset Formula $\int\log p\d p=p\left(\log p-1\right)$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+Q\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right) & =QN\int_{\alpha}^{\left(1-\varepsilon\right)}\log\left(1-t\right)\d t+O\left(\log n\right)\\
+ & =QN\int_{\varepsilon}^{\left(1-\alpha\right)}\log p\d p+O\left(\log n\right)\\
+ & =QN\left(\left(1-\alpha\right)\left(\log\left(1-\alpha\right)-1\right)-\varepsilon\left(\log\varepsilon-1\right)\right)+O\left(\log n\right),\\
+\exp\left(Q\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right) & =\left(\left(1+O\left(n^{-c}\log n\right)\right)\frac{1-\alpha}{e}\right)^{QN\left(1-\alpha\right)}.
+\end{align*}
+
+\end_inset
+
+For 
+\begin_inset Formula $b<c$
+\end_inset
+
+, it follows that
+\begin_inset Formula 
+\begin{align*}
+\left|\ord^{*}\right| & \ge\left(\left(1-O\left(n^{-b}\right)\right)\frac{n^{q}\left(1-\alpha\right)^{Q}}{q!e^{Q}}\right)^{\left(1-\alpha\right)N}\\
+ & =\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{Q-1}{n-r \choose q-r}\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!
+\end{align*}
+
+\end_inset
+
+By 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:keevash"
+
+\end_inset
+
+ (assuming 
+\begin_inset Formula $b$
+\end_inset
+
+ is small enough) it follows that
+\begin_inset Formula 
+\[
+\left|\ext{S^{*}}\right|\ge\left(\frac{n\left(1-\alpha\right)^{2}}{e^{2}}\left(1-O\left(n^{-b}\right)\right)\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!.\tag*{\qedhere}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:num-extensions"
+
+\end_inset
+
+ then immediately follows from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:number-of-completions-upper"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:number-of-completions-lower"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Random-triangle-removal"
+
+\end_inset
+
+Random clique removal
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\randQ}{\boldsymbol{R}}
+{\boldsymbol{\boldsymbol{R}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\randY}{\boldsymbol{Y}}
+{\boldsymbol{\boldsymbol{Y}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\randT}{\boldsymbol{T}}
+{\boldsymbol{\boldsymbol{T}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\randP}{\boldsymbol{P}}
+{\boldsymbol{\boldsymbol{P}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\randZ}{\boldsymbol{Z}}
+{\boldsymbol{\boldsymbol{Z}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section we give a very simple analysis of the clique removal process.
+ The analysis here is rather crude and quite standard, but we could not
+ find an existing source for precisely the result we need.
+ As in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:outline"
+
+\end_inset
+
+, we consider 
+\begin_inset Formula $q$
+\end_inset
+
+ and 
+\begin_inset Formula $r$
+\end_inset
+
+ to be fixed, let 
+\begin_inset Formula $Q={q \choose r}$
+\end_inset
+
+ and let 
+\begin_inset Formula $N={n \choose r}/Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+As introduced in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:outline"
+
+\end_inset
+
+, the clique removal process is defined as follows.
+ We start with a graph 
+\begin_inset Formula $G$
+\end_inset
+
+ with say 
+\begin_inset Formula $N-Qm$
+\end_inset
+
+ edges, then iteratively delete (the edges of) a copy of 
+\begin_inset Formula $K_{q}^{\left(r\right)}$
+\end_inset
+
+ chosen uniformly at random from all copies of 
+\begin_inset Formula $K_{q}^{\left(r\right)}$
+\end_inset
+
+ in the remaining graph.
+ Let 
+\begin_inset Formula 
+\[
+G=\randG\left(m\right),\randG\left(m+1\right),\dots
+\]
+
+\end_inset
+
+be the sequence of random graphs generated by this process.
+ This process cannot continue forever, but we 
+\begin_inset Quotes eld
+\end_inset
+
+freeze
+\begin_inset Quotes erd
+\end_inset
+
+ the process instead of aborting it; if 
+\begin_inset Formula $\randG\left(\randM\right)$
+\end_inset
+
+ is the first graph in the sequence with no copies of 
+\begin_inset Formula $K_{q}^{\left(r\right)}$
+\end_inset
+
+, then let 
+\begin_inset Formula $\randG\left(i\right)=\randG\left(\randM\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $i\ge\randM$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Our objective in this section is to show that if 
+\begin_inset Formula $G$
+\end_inset
+
+ is quasirandom then the clique removal process is likely to maintain quasirando
+mness and unlikely to freeze until nearly all edges are gone.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:triangle-removal-analysis"
+
+\end_inset
+
+For all 
+\begin_inset Formula $h\ge2$
+\end_inset
+
+ and 
+\begin_inset Formula $a>0$
+\end_inset
+
+ there is 
+\begin_inset Formula $b\left(a,h\right)>0$
+\end_inset
+
+ such that the following holds.
+ Let 
+\begin_inset Formula $n^{-a}\le\varepsilon<1/2$
+\end_inset
+
+ and suppose 
+\begin_inset Formula $G$
+\end_inset
+
+ is a 
+\begin_inset Formula $\left(\varepsilon,h\right)$
+\end_inset
+
+-quasirandom graph with 
+\begin_inset Formula $N-3m=N-3\alpha N$
+\end_inset
+
+ edges.
+ Then a.a.s.
+ 
+\begin_inset Formula $\randM\ge\left(1-n^{-b}\right)N$
+\end_inset
+
+ and moreover for each 
+\begin_inset Formula $N-m\le i\le\left(1-\varepsilon^{b}\right)N$
+\end_inset
+
+, 
+\begin_inset Formula $\randG\left(i\right)$
+\end_inset
+
+ is 
+\begin_inset Formula $\left(\varepsilon^{b},h\right)$
+\end_inset
+
+-quasirandom.
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Formula $K_{n}^{\left(r\right)}$
+\end_inset
+
+ is 
+\begin_inset Formula $\left(O\left(1/n\right),h\right)$
+\end_inset
+
+-quasirandom for any 
+\begin_inset Formula $h$
+\end_inset
+
+, so in particular when we start the clique removal process from 
+\begin_inset Formula $G=K_{n}^{\left(r\right)}$
+\end_inset
+
+ it typically runs almost to completion.
+\end_layout
+
+\begin_layout Standard
+To prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-analysis"
+
+\end_inset
+
+, it will be convenient to use Freedman's inequality 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Theorem~1.6"
+key "Fre75"
+
+\end_inset
+
+, as follows.
+ (This was originally stated for martingales, but it also holds for supermarting
+ales with the same proof).
+ Here and in what follows, we write 
+\begin_inset Formula $\Delta X\left(i\right)$
+\end_inset
+
+ for the one-step change 
+\begin_inset Formula $X\left(i+1\right)-X\left(i\right)$
+\end_inset
+
+ in a variable 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:freedman"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\randX\left(0\right),\randX\left(1\right),\dots$
+\end_inset
+
+ be a supermartingale with respect to a filtration 
+\begin_inset Formula $\left(\mathcal{F}_{i}\right)$
+\end_inset
+
+.
+ Suppose that 
+\begin_inset Formula $\Delta\randX\left(i\right)\le K$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+, and let 
+\begin_inset Formula $V\left(i\right)=\sum_{j=0}^{i-1}\E\left[\left(\Delta\randX\left(j\right)\right)^{2}\cond\mathcal{F}_{j}\right]$
+\end_inset
+
+.
+ Then for any 
+\begin_inset Formula $t,v>0$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\Pr\left(\randX\left(i\right)\ge\randX\left(0\right)+t\mbox{ and }V\left(i\right)\le v\mbox{ for some }i\right)\le\exp\left(-\frac{t^{2}}{2\left(v+Kt\right)}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-analysis"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+For a set 
+\begin_inset Formula $A$
+\end_inset
+
+ of 
+\begin_inset Formula $\left(r-1\right)$
+\end_inset
+
+-sets of vertices with 
+\begin_inset Formula $\left|A\right|\le h$
+\end_inset
+
+, let 
+\begin_inset Formula $\randY_{A}\left(i\right)=\left|\bigcap_{W\in A}N_{\randG\left(i\right)}\left(W\right)\right|$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $p\left(i\right)=\left(1-i/N\right)$
+\end_inset
+
+ (and let 
+\begin_inset Formula $p^{k}\left(i\right)=\left(1-i/N\right)^{k}$
+\end_inset
+
+), so that 
+\begin_inset Formula $p^{\left|A\right|}\left(i\right)n$
+\end_inset
+
+ is the predicted trajectory of each 
+\begin_inset Formula $\randY_{A}\left(i\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Fix some large 
+\begin_inset Formula $C$
+\end_inset
+
+ and small 
+\begin_inset Formula $c$
+\end_inset
+
+ to be determined.
+ We will choose 
+\begin_inset Formula $b<c/\left(C+1\right)$
+\end_inset
+
+ so that 
+\begin_inset Formula $e\left(i\right):=p\left(i\right)^{-C}\varepsilon^{c}\le\varepsilon^{b}$
+\end_inset
+
+ for 
+\begin_inset Formula $i\le N\left(1-\varepsilon^{b}\right)$
+\end_inset
+
+.
+ This means that if the conditions
+\begin_inset Formula 
+\begin{align*}
+\randY_{A}\left(i\right) & \ge p^{\left|A\right|}\left(i\right)n\left(1+e\left(i\right)\right),\\
+\randY_{A}\left(i\right) & \le p^{\left|A\right|}\left(i\right)n\left(1-e\left(i\right)\right)
+\end{align*}
+
+\end_inset
+
+are satisfied for all 
+\begin_inset Formula $A$
+\end_inset
+
+, then 
+\begin_inset Formula $\randG\left(i\right)$
+\end_inset
+
+ is 
+\begin_inset Formula $\left(e\left(i\right),h\right)$
+\end_inset
+
+-quasirandom (therefore 
+\begin_inset Formula $\left(\varepsilon^{b},h\right)$
+\end_inset
+
+-quasirandom).
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\randT'$
+\end_inset
+
+ be the smallest index 
+\begin_inset Formula $i\ge m$
+\end_inset
+
+ such that for some 
+\begin_inset Formula $A$
+\end_inset
+
+, the above equations are violated (let 
+\begin_inset Formula $\randT'=\infty$
+\end_inset
+
+ if this never happens).
+ Let 
+\begin_inset Formula $\randT=\randT'\land N\left(1-\varepsilon^{b}\right)$
+\end_inset
+
+.
+ Define the stopped processes 
+\begin_inset Formula 
+\begin{align*}
+\randY_{A}^{+}\left(i\right) & =\randY_{A}\left(i\land\randT\right)-p^{\left|A\right|}\left(i\land\randT\right)n\left(1+e\left(i\land\randT\right)\right),\\
+\randY_{A}^{-}\left(i\right) & =-\randY_{A}\left(i\land\randT\right)+p^{\left|A\right|}\left(i\land\randT\right)n\left(1-e\left(i\land\randT\right)\right).
+\end{align*}
+
+\end_inset
+
+We want to show that for each 
+\begin_inset Formula $A$
+\end_inset
+
+ and each 
+\begin_inset Formula $s\in\left\{ +,-\right\} $
+\end_inset
+
+, the process 
+\begin_inset Formula $\randY_{A}^{s}=\left(\randY_{A}^{s}\left(i\right),\randY_{A}^{s}\left(i+1\right),\dots\right)$
+\end_inset
+
+ is a supermartingale, and then we want to use 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:freedman"
+
+\end_inset
+
+ and the union bound to show that a.a.s.
+ each 
+\begin_inset Formula $\randY_{A}^{s}$
+\end_inset
+
+ only takes negative values.
+\end_layout
+
+\begin_layout Proof
+To see that this suffices to prove 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-analysis"
+
+\end_inset
+
+, note that if 
+\begin_inset Formula $i<\randT$
+\end_inset
+
+ then by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:H-count"
+
+\end_inset
+
+ the number of copies of 
+\begin_inset Formula $K_{q}^{\left(r\right)}$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+\randQ\left(i\right)=\left(1\pm O\left(e\left(i\right)\right)\right)p^{Q}\left(i\right)n^{q}/q!>0.
+\]
+
+\end_inset
+
+This means 
+\begin_inset Formula $\randT\le\randM$
+\end_inset
+
+, so the event that each 
+\begin_inset Formula $\randY_{A}^{s}$
+\end_inset
+
+ only takes negative values contains the event that each 
+\begin_inset Formula $\randG\left(i\right)$
+\end_inset
+
+ is non-frozen and sufficiently quasirandom for 
+\begin_inset Formula $i\le N\left(1-\varepsilon^{b}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $N_{A}\left(i\right)=\bigcap_{W\in A}N_{\randG\left(i\right)}\left(W\right)$
+\end_inset
+
+, so that 
+\begin_inset Formula $\randY_{A}\left(i\right)=\left|N_{A}\left(i\right)\right|$
+\end_inset
+
+.
+ Fix 
+\begin_inset Formula $A$
+\end_inset
+
+, and consider 
+\begin_inset Formula $x\in N_{A}\left(i\right)$
+\end_inset
+
+, for 
+\begin_inset Formula $i<\randT$
+\end_inset
+
+.
+ The only way we can have 
+\begin_inset Formula $x\notin N_{A}\left(i+1\right)$
+\end_inset
+
+ is if we remove a copy of 
+\begin_inset Formula $K_{q}^{\left(r\right)}$
+\end_inset
+
+ containing an 
+\begin_inset Formula $r$
+\end_inset
+
+-edge 
+\begin_inset Formula $\left\{ x\right\} \cup W$
+\end_inset
+
+ for some 
+\begin_inset Formula $W\in A$
+\end_inset
+
+.
+ Now, for each 
+\begin_inset Formula $W\in A$
+\end_inset
+
+, the number of copies of 
+\begin_inset Formula $K_{q}^{\left(r\right)}$
+\end_inset
+
+ in 
+\begin_inset Formula $\randG\left(i\right)$
+\end_inset
+
+ containing the edge 
+\begin_inset Formula $\left\{ x\right\} \cup W$
+\end_inset
+
+ is 
+\begin_inset Formula $\left(1\pm O\left(e\left(i\right)\right)\right)p^{Q-1}\left(i\right)n^{q-r}/\left(q-r\right)!$
+\end_inset
+
+ by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:H-count"
+
+\end_inset
+
+.
+ The number of copies of 
+\begin_inset Formula $K_{q}^{\left(r\right)}$
+\end_inset
+
+ containing 
+\begin_inset Formula $\left\{ x\right\} \cup W$
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ x\right\} \cup W'$
+\end_inset
+
+ for two different 
+\begin_inset Formula $W,W'\in A$
+\end_inset
+
+ is at most 
+\begin_inset Formula $O\left(n^{q-r-1}\right)$
+\end_inset
+
+.
+ So,
+\begin_inset Formula 
+\begin{align*}
+\Pr\left(x\notin N_{A}\left(i+1\right)\right) & =\frac{1}{\randQ\left(i\right)}\left(\sum_{W\in A}\left(1\pm O\left(e\left(i\right)\right)\right)p^{Q-1}\left(i\right)n^{q-r}/\left(q-r\right)!-O\left(n^{q-r-1}\right)\right)\\
+ & =\left|A\right|\left(1\pm O\left(e\left(i\right)\right)\right)p^{-1}\left(i\right)/N.
+\end{align*}
+
+\end_inset
+
+For 
+\begin_inset Formula $i<\randT$
+\end_inset
+
+ we have 
+\begin_inset Formula $\left|N_{A}\left(i\right)\right|=\left(1\pm e\left(i\right)\right)p^{\left|A\right|}\left(i\right)n$
+\end_inset
+
+, so by linearity of expectation
+\begin_inset Formula 
+\begin{align*}
+\E\left[\Delta\randY_{A}\left(i\right)\cond\randG\left(i\right)\right] & =-\left|A\right|\left(1\pm O\left(e\left(i\right)\right)\right)p^{\left|A\right|-1}\left(i\right)n/N\\
+ & =-\left|A\right|p^{\left|A\right|-1}\left(i\right)n/N+O\left(e\left(i\right)p^{\left|A\right|-1}\left(i\right)/n\right).
+\end{align*}
+
+\end_inset
+
+Note also that we have the bound 
+\begin_inset Formula $\Delta\randY_{A}\left(i\right)\le q-1=O\left(1\right)$
+\end_inset
+
+ (with probability 1).
+ Also, for fixed 
+\begin_inset Formula $k$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\begin{align*}
+\Delta p^{k}\left(i\right) & =\left(1-\frac{i+1}{N}\right)^{k}-\left(1-\frac{i}{N}\right)^{k}\\
+ & =\left(1-\frac{i}{N}\right)^{k}\left(\left(\frac{N-i-1}{N-i}\right)^{k}-1\right)\\
+ & =p^{k}\left(i\right)\left(\left(1-\frac{1}{N-i}\right)^{k}-1\right)\\
+ & =p^{k}\left(i\right)\left(-\frac{k}{N-i}+O\left(\frac{1}{\left(N-i\right)^{2}}\right)\right)\\
+ & =-\frac{kp^{k-1}\left(i\right)}{N}\left(1+O\left(\frac{1}{N}p\left(i\right)\right)\right)\\
+ & =-\frac{kp^{k-1}\left(i\right)}{N}+o\left(e\left(i\right)p^{k-1}\left(i\right)/N\right),
+\end{align*}
+
+\end_inset
+
+and with 
+\begin_inset Formula $ep^{k}$
+\end_inset
+
+denoting the pointwise product 
+\begin_inset Formula $i\mapsto e\left(i\right)p^{k}\left(i\right)$
+\end_inset
+
+, for 
+\begin_inset Formula $C$
+\end_inset
+
+ much larger than 
+\begin_inset Formula $k$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\begin{align*}
+\Delta\left(ep^{k}\right)\left(i\right) & =\varepsilon^{c}\Delta p^{k-C}\left(i\right)=-\varepsilon^{c}\Theta\left(Cp^{k-C-1}\left(i\right)/N\right)\\
+ & =\Theta\left(Ce\left(i\right)p^{k-1}\left(i\right)/N\right).
+\end{align*}
+
+\end_inset
+
+For large 
+\begin_inset Formula $C$
+\end_inset
+
+ it follows that
+\begin_inset Formula 
+\begin{align*}
+\E\left[\Delta\randY_{A}^{+}\left(i\right)\cond\randG\left(i\right)\right] & =\E\left[\Delta\randY_{A}\left(i\right)\cond\randG\left(i\right)\right]-\Delta p^{\left|A\right|}\left(i\right)n-\Delta\left(ep^{\left|A\right|}\right)\left(i\right)n\le0,
+\end{align*}
+
+\end_inset
+
+and similarly
+\begin_inset Formula 
+\[
+\E\left[\Delta\randY_{A}^{-}\left(i\right)\cond\randG\left(i\right)\right]\le0
+\]
+
+\end_inset
+
+for 
+\begin_inset Formula $i<\randT$
+\end_inset
+
+.
+ (For 
+\begin_inset Formula $i\ge\randT$
+\end_inset
+
+ we trivially have 
+\begin_inset Formula $\Delta\randY_{A}^{s}\left(i\right)=0$
+\end_inset
+
+) Since each 
+\begin_inset Formula $\randY_{A}^{s}$
+\end_inset
+
+ is a Markov process, it follows that each is a supermartingale.
+ Now, we need to bound 
+\begin_inset Formula $\Delta\randY_{A}^{s}\left(i\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\E\left[\left(\Delta\randY_{A}^{s}\left(i\right)\right)^{2}\cond\randG\left(i\right)\right]$
+\end_inset
+
+, which is easy given the preceding calculations.
+ First, recalling that 
+\begin_inset Formula $\Delta\randY_{A}\left(i\right)=O\left(1\right)$
+\end_inset
+
+ and noting that 
+\begin_inset Formula $\Delta p^{k}\left(i\right),\Delta\left(ep^{k}\right)\left(i\right)=O\left(1/N\right)$
+\end_inset
+
+ we immediately have 
+\begin_inset Formula $\left|\Delta\randY_{A}^{s}\left(i\right)\right|=O\left(1\right)$
+\end_inset
+
+.
+ Noting in addition that 
+\begin_inset Formula $\E\left[\Delta\randY_{A}\left(i\right)\cond\randG\left(i\right)\right]=O\left(1/n\right)$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+\E\left[\left(\Delta\randY_{A}^{s}\left(i\right)\right)^{2}\cond\randG\left(i\right)\right] & =O\left(\E\left[\Delta\randY_{A}^{s}\left(i\right)\cond\randG\left(i\right)\right]\right)=O\left(\frac{n}{N}\right).
+\end{align*}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\randT\le N$
+\end_inset
+
+, it follows that
+\begin_inset Formula 
+\[
+\sum_{i=0}^{\infty}\E\left[\left(\Delta\randY_{A}^{s}\left(i\right)\right)^{2}\cond\randG\left(i\right)\right]=O\left(N\frac{n}{N}\right)=O\left(n\right).
+\]
+
+\end_inset
+
+Provided 
+\begin_inset Formula $c<1$
+\end_inset
+
+ (and recalling that 
+\begin_inset Formula $\varepsilon<1/2$
+\end_inset
+
+), applying 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:freedman"
+
+\end_inset
+
+ with 
+\begin_inset Formula $t=e\left(m\right)p^{\left|A\right|}\left(m\right)n-\varepsilon p^{\left|A\right|}\left(m\right)n=\Omega\left(n\varepsilon^{c}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $v=O\left(n\right)$
+\end_inset
+
+ then gives
+\begin_inset Formula 
+\[
+\Pr\left(\randY_{A}^{s}\left(i\right)>0\mbox{ for some }i\right)\le\exp\left(-O\left(n\varepsilon^{2c}\right)\right).
+\]
+
+\end_inset
+
+So, if 
+\begin_inset Formula $2c<\log_{\varepsilon}n\le a$
+\end_inset
+
+, the union bound over all 
+\begin_inset Formula $A,s$
+\end_inset
+
+ finishes the proof.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{appendices}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
