@@ -903,7 +903,16 @@ end{comment}
 \end_layout
 
 \begin_layout Abstract
-We show that almost all Steiner triple systems have perfect matchings.
+We show that for any 
+\begin_inset Formula $n$
+\end_inset
+
+ divisible by 3, almost all order-
+\begin_inset Formula $n$
+\end_inset
+
+ Steiner triple systems have a perfect matching (also known as a parallel
+ class).
  In fact, we prove a general upper bound on the number of perfect matchings
  in a Steiner triple system and show that almost all Steiner triple systems
  essentially attain this maximum.
@@ -1008,7 +1017,7 @@ A
 \begin_inset Formula $\left(3,2\right)$
 \end_inset
 
--Steiner systems, commonly known as 
+-Steiner systems, known as 
 \emph on
 Steiner triple systems
 \emph default
@@ -1247,9 +1256,9 @@ key "Kee15"
  of parameters.
  In particular he proved that there are
 \begin_inset Formula 
-\[
-\left(n/e^{2}+o\left(n\right)\right)^{n^{2}/6}
-\]
+\begin{equation}
+\left(n/e^{2}+o\left(n\right)\right)^{n^{2}/6}\label{eq:num-STS}
+\end{equation}
 
 \end_inset
 
@@ -1261,20 +1270,26 @@ Steiner triple systems of order
 \begin_inset Formula $n$
 \end_inset
 
- satisfies necessary divisibility conditions (Steiner triple systems can
+ satisfies a necessary divisibility condition (Steiner triple systems can
  only exist if 
 \begin_inset Formula $n$
 \end_inset
 
- is 1 or 3 mod 6; we will implicitly assume this for the rest of the paper).
+ is 1 or 3 mod 6).
 \end_layout
 
 \begin_layout Standard
 Of course, this new estimate makes it possible, in theory, to prove new
  a.a.s.
- properties of random Steiner triple systems just by giving asymptotically
- smaller estimates on the number of Steiner triple systems not satisfying
- a certain property.
+ properties of random Steiner triple systems just by giving an estimate
+ asymptotically smaller than 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:num-STS"
+
+\end_inset
+
+ for the number of Steiner triple systems not satisfying a certain property.
  However, for most properties it is not at all clear how to prove such estimates.
  Instead, we introduce a way to use Keevash's methods to show that a uniformly
  random Steiner triple system can in some sense be approximated by the outcome
@@ -1319,34 +1334,81 @@ reference "sec:outline"
 \end_layout
 
 \begin_layout Standard
-As an application of our new method, we prove that almost all Steiner triple
- systems have many perfect matchings.
+As an application of our new method, we prove that if 
+\begin_inset Formula $3\mid n$
+\end_inset
+
+ (that is, if 
+\begin_inset Formula $n\equiv3\mod6$
+\end_inset
+
+) then almost all order-
+\begin_inset Formula $n$
+\end_inset
+
+ Steiner triple systems have many perfect matchings.
  The existence of perfect matchings is one of the most central questions
- in the theory of graphs and hypergraphs.
- In particular, one of the most celebrated recent developments in the field
- is the Fulkerson-prize-winning work of Johansson, Kahn and Vu 
+ in the theory of graphs and hypergraphs; in particular, one of the most
+ celebrated recent developments in the field is the Fulkerson-prize-winning
+ work of Johansson, Kahn and Vu 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "JKV08"
 
 \end_inset
 
- on the number of hyperedges a random hypergraph should have for there to
- a.a.s.
- be a perfect matching.
- We remark that Alon, Kim and Spencer 
+ on perfect matchings in random hypergraphs.
+ A perfect matching in a Steiner triple system is also called a
+\emph on
+ parallel class
+\emph default
+, and has particular significance.
+ One of the oldest problems in combinatorics, famously solved by Ray-Chaudhuri
+ and Wilson 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RW71"
+
+\end_inset
+
+, asks whether for all 
+\begin_inset Formula $n\equiv3\mod6$
+\end_inset
+
+ there exists an order-
+\begin_inset Formula $n$
+\end_inset
+
+ Steiner triple system which can be partitioned into hyperedge-disjoint
+ perfect matchings (a 
+\emph on
+Kirkman triple system
+\emph default
+).
+ Alon, Kim and Spencer 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "AKS97"
 
 \end_inset
 
- proved that actually every Steiner triple system has an almost-perfect
- matching covering all but 
+ proved that every Steiner triple system has an almost-perfect matching
+ covering all but 
 \begin_inset Formula $o\left(\sqrt{n}\log^{3/2}n\right)$
 \end_inset
 
- vertices.
+ vertices, and Bryant and Horsley 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "BH15"
+
+\end_inset
+
+ proved that for infinitely many 
+\begin_inset Formula $n\equiv3\mod6$
+\end_inset
+
+ there exist Steiner triple systems with no perfect matching.
 \end_layout
 
 \begin_layout Theorem
@@ -1357,6 +1419,10 @@ name "thm:PM-in-STS"
 \end_inset
 
 Let 
+\begin_inset Formula $n\equiv3\mod6$
+\end_inset
+
+ and let 
 \begin_inset Formula $\randS$
 \end_inset
 
@@ -1379,6 +1445,24 @@ Let
 \end_inset
 
 perfect matchings.
+\end_layout
+
+\begin_layout Standard
+We remark that if 
+\begin_inset Formula $3\nmid n$
+\end_inset
+
+ (that is, if 
+\begin_inset Formula $n\equiv1\mod6$
+\end_inset
+
+) then obviously no order-
+\begin_inset Formula $n$
+\end_inset
+
+ Steiner triple system can have a perfect matching, but exactly the same
+ proof can be used to show that there is a matching covering all but one
+ vertex.
 \end_layout
 
 \begin_layout Standard
@@ -1455,8 +1539,9 @@ key "Kri97"
 \end_inset
 
 ).
- Basically, we prove the existence of certain small substructures that allow
- us to complete an almost-perfect matching into a perfect one.
+ Basically, we prove the a.a.s.
+ existence of certain small substructures that allow us to complete an almost-pe
+rfect matching into a perfect one.
 \end_layout
 
 \begin_layout Standard
@@ -1540,8 +1625,8 @@ symbols
 \begin_inset Formula $K_{n,n,n}$
 \end_inset
 
- (the three parts correspond to the rows, columns and symbols, and so a
- triangle 
+ (the three parts correspond to the rows, columns and symbols, so a triangle
+ 
 \begin_inset Formula $\left(i,j,k\right)$
 \end_inset
 
@@ -1580,52 +1665,11 @@ key "Wan11"
 We are quite confident that our methods can be adapted to the setting of
  Latin squares.
  The main obstacle is that Keevash's completion results have not yet been
- adapted to Latin squares, and it would be well outside the scope of this
- paper to include such an adaptation here.
- Actually, the author is currently working with Nina Kam
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-v 
-\end_layout
-
-\end_inset
-
-cev, D
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-'
-\end_layout
-
-\end_inset
-
-aniel Kor
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-'
-\end_layout
-
-\end_inset
-
-andi, Zur Luria, Frank Mousset and Alexey Pokrovskiy, on adapting Keevash's
- methods to (a class of designs generalizing) Latin squares, which would
- settle this issue.
- In any case, modulo a Keevash-type completion result we can prove the following
- theorem, answering a question of Glebov and Luria 
+ adapted to Latin squares.
+ We believe such an adaptation should be quite straightforward, but it would
+ be well outside the scope of this paper to include the details here.
+ Modulo a Keevash-type completion result we can prove the following theorem,
+ answering a question of Glebov and Luria 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "GL16"
@@ -1659,9 +1703,9 @@ Let
 
  contains
 \begin_inset Formula 
-\begin{equation}
-\left(\left(1-o\left(1\right)\right)\frac{n}{e^{2}}\right)^{n}\label{eq:num-STS}
-\end{equation}
+\[
+\left(\left(1-o\left(1\right)\right)\frac{n}{e^{2}}\right)^{n}
+\]
 
 \end_inset
 
@@ -1774,15 +1818,14 @@ reference "thm:latin"
 \end_inset
 
  may be proved.
- We have some concluding remarks, including a long list of open problems,
- in 
+ In 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:concluding"
 
 \end_inset
 
-.
+ we have some concluding remarks, including a long list of open problems.
  Finally, we have two appendices; in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1790,8 +1833,15 @@ reference "sec:keevash"
 
 \end_inset
 
- we provide a straightforward but necessary adaptation of Keevash's methods,
- to estimate the number of completions of a partial Steiner system, and
+ we provide a straightforward but necessary adaptation of Keevash's proof
+ of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:num-STS"
+
+\end_inset
+
+, to estimate the number of completions of a partial Steiner system, and
  in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1808,7 +1858,7 @@ Acknowledgements
 \end_layout
 
 \begin_layout Standard
-The author would like to thank Asaf Ferber and Benny Sudakov for fruitful
+The author would like to thank Asaf Ferber and Benny Sudakov for very helpful
  discussions about random designs and the intricacies of the absorbing method.
  Asaf and Benny could both have deservedly been coauthors on this paper,
  but graciously declined the opportunity.
@@ -1871,11 +1921,32 @@ Steiner system
 \end_inset
 
  be the number of hyperedges in a Steiner system.
+ We also assume 
+\begin_inset Formula $n$
+\end_inset
+
+ satisfies the condition that 
+\begin_inset Formula ${q-i \choose r-i}$
+\end_inset
+
+ divides 
+\begin_inset Formula ${n-i \choose r-i}$
+\end_inset
+
+ for every 
+\begin_inset Formula $0\le i\le r-1$
+\end_inset
+
+, which is necessary for the existence of an order-
+\begin_inset Formula $n$
+\end_inset
+
+ Steiner system.
 \end_layout
 
 \begin_layout Standard
-Before we can state our general theorem for comparing random Steiner systems
- with clique removal processes, we need several definitions.
+We will shortly state a general theorem for comparing random Steiner systems
+ with clique removal processes, but first we need several definitions.
 \end_layout
 
 \begin_layout Definition
@@ -1918,7 +1989,8 @@ partial system
 \end_inset
 
  hyperedges.
- We will also want to consider partial systems with ordered hyperedges.
+ We will also want to consider partial systems equipped with an ordering
+ on their hyperedges.
  Let 
 \begin_inset Formula $\ord$
 \end_inset
@@ -2274,7 +2346,7 @@ There is
  If
 \begin_inset Formula 
 \[
-\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)<\exp\left(-n^{r-b}\right)
+\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)\le\exp\left(-n^{r-b}\right)
 \]
 
 \end_inset
@@ -2282,7 +2354,7 @@ There is
 then
 \begin_inset Formula 
 \[
-\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right)=\exp\left(-\Omega\left(n^{1-2a}\right)\right).
+\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right)\le\exp\left(-\Omega\left(n^{1-2a}\right)\right).
 \]
 
 \end_inset
@@ -2439,7 +2511,7 @@ There is
 ,
 \begin_inset Formula 
 \[
-\frac{\left|\ext S\right|}{\left|\ext{S'}\right|}=\exp\left(n^{r-b}\right).
+\frac{\left|\ext S\right|}{\left|\ext{S'}\right|}\le\exp\left(n^{r-b}\right).
 \]
 
 \end_inset
@@ -2486,7 +2558,7 @@ reference "prop:num-extensions"
 
  is that if we can prove some property holds with extremely high probability
  (say 
-\begin_inset Formula $1-\exp\left(-\Omega\left(n^{2}\right)\right)$
+\begin_inset Formula $1-\exp\left(-\Omega\left(n^{r}\right)\right)$
 \end_inset
 
 ) in a uniformly random 
@@ -3252,29 +3324,17 @@ embeddings of
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-Proof of 
+Now we are ready to prove 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:greedy-random-approx-uniform"
 
 \end_inset
 
-
+.
 \end_layout
 
-\end_inset
-
+\begin_layout Proof
 Each 
 \begin_inset Formula $G\left(S_{i}\right)$
 \end_inset
@@ -3391,7 +3451,7 @@ For a partial system
 \begin_inset Formula $n$
 \end_inset
 
- partial systems, then 
+ partial system, then 
 \begin_inset Formula $\Gnp{\varnothing}p:=\Gnp np$
 \end_inset
 
@@ -3627,7 +3687,7 @@ reference "lem:triangle-removal-analysis"
  We have
 \begin_inset Formula 
 \begin{align*}
-\Pr\left(S\cup\randS\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\right) & \le\Pr\left(S\cup\randS^{*}\left(S\right)\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\text{ and }e\left(\randG\right)\le\alpha N\right)\\
+\Pr\left(S\cup\randS\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\right) & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\text{ and }e\left(\randG\right)\le\alpha N\right)\\
  & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right)/\Pr\left(S\cup\randS\in\mathcal{Q}\text{ and }e\left(\randG\right)\le\alpha N\right)\\
  & =\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right)/\Omega\left(1\right).\tag*{\qedhere}
 \end{align*}
@@ -5249,8 +5309,8 @@ Now, there are several possibilities for a hyperedge-intersecting pair of
 \end_layout
 
 \begin_layout Itemize
-they could intersect in the unfixed hyperedge of the covering matching of
- the absorber.
+they could intersect in the unrooted hyperedge of the covering matching
+ of the absorber.
  There are 
 \begin_inset Formula $\Theta\left(\left(\alpha n\right)^{6}n^{3}\right)$
 \end_inset
@@ -5268,8 +5328,8 @@ they could intersect in the unfixed hyperedge of the covering matching of
 \end_layout
 
 \begin_layout Itemize
-They could intersect in the unfixed hyperedge of the covering matching as
- above, and also in one hyperedge of the non-covering matching
+They could intersect in the unrooted hyperedge of the covering matching
+ as above, and also in one hyperedge of the non-covering matching
 \begin_inset Quotes erd
 \end_inset
 
@@ -6619,7 +6679,7 @@ reference "thm:PM-in-STS"
 
  can be easily modified to prove that almost all Steiner triple systems
  have 
-\begin_inset Formula $\Omega\left(n^{2}\right)$
+\begin_inset Formula $\Omega\left(n\right)$
 \end_inset
 
  disjoint perfect matchings, but to find 
@@ -6644,12 +6704,11 @@ key "Wan11"
 \end_layout
 
 \begin_layout Itemize
-There is the obvious question of proving that 
+There is the obvious question of proving that almost all 
 \begin_inset Formula $\left(q,r\right)$
 \end_inset
 
--Steiner systems a.a.s.
- have perfect matchings, for all choices of 
+-Steiner systems have perfect matchings, for all choices of 
 \begin_inset Formula $\left(q,r\right)$
 \end_inset
 
@@ -6660,7 +6719,8 @@ There is the obvious question of proving that
 \begin_inset Formula $r>2$
 \end_inset
 
- then there is the more general question of whether 
+ then there is the more general (and much more difficult) question of whether
+ 
 \begin_inset Formula $\left(q,r\right)$
 \end_inset
 
@@ -6694,7 +6754,8 @@ completely decomposed
 \end_inset
 
 -Steiner systems, and so on.
- A similar phenomenon occurs for random regular graphs (see 
+ A similar phenomenon occurs for regular subgraphs of random regular graphs
+ (see 
 \begin_inset CommandInset citation
 LatexCommand cite
 after "Section~9.5"
@@ -6702,7 +6763,7 @@ key "JLR00"
 
 \end_inset
 
-)
+).
 \end_layout
 
 \begin_layout Itemize
@@ -6725,17 +6786,17 @@ key "Qua80"
 
  that most Steiner triple systems do not have proper subsystems.
  It seems unlikely that the methods in this paper will be able to prove
- or disprove this conjecture without substantial new ideas, because the
- expected number of 7-vertex Steiner triple systems (Fano planes) in the
- 3-uniform random hypergraph 
+ or disprove this conjecture without substantial new ideas; actually by
+ consideration of the random 3-graph 
 \begin_inset Formula $\Gnp n{1/n}$
 \end_inset
 
- is 
+ we suspect the expected number of 7-vertex Steiner triple systems (Fano
+ planes) in a random Steiner triple system is 
 \begin_inset Formula $\Theta\left(1\right)$
 \end_inset
 
-.
+, and that the distribution of this number is asymptotically Poisson.
 \end_layout
 
 \begin_layout Itemize
@@ -6934,8 +6995,20 @@ reference "sec:outline"
 \begin_inset Formula $Q={q \choose r}$
 \end_inset
 
- and let 
+, let 
 \begin_inset Formula $N={n \choose r}/Q$
+\end_inset
+
+ and impose that 
+\begin_inset Formula ${q-i \choose r-i}$
+\end_inset
+
+ divides 
+\begin_inset Formula ${n-i \choose r-i}$
+\end_inset
+
+ for every 
+\begin_inset Formula $0\le i\le r-1$
 \end_inset
 
 .
@@ -7846,8 +7919,20 @@ reference "sec:outline"
 \begin_inset Formula $Q={q \choose r}$
 \end_inset
 
- and let 
+, let 
 \begin_inset Formula $N={n \choose r}/Q$
+\end_inset
+
+ and impose that 
+\begin_inset Formula ${q-i \choose r-i}$
+\end_inset
+
+ divides 
+\begin_inset Formula ${n-i \choose r-i}$
+\end_inset
+
+ for every 
+\begin_inset Formula $0\le i\le r-1$
 \end_inset
 
 .
