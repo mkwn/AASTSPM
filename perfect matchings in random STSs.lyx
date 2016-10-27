@@ -917,8 +917,8 @@ We show that for any
  in a Steiner triple system and show that almost all Steiner triple systems
  essentially attain this maximum.
  We accomplish this via a general theorem comparing a uniformly random Steiner
- system to the outcome of a random clique removal process, which we hope
- will be useful for other problems.
+ triple system to the outcome of the triangle removal process, which we
+ hope will be useful for other problems.
  We believe our methods can be easily adapted to other types of designs,
  for example to show that almost all Latin squares have transversals.
 \end_layout
@@ -930,26 +930,18 @@ Introduction
 \begin_layout Standard
 A 
 \emph on
-Steiner system
+Steiner triple system
 \emph default
  of order 
 \begin_inset Formula $n$
 \end_inset
 
- with parameters 
-\begin_inset Formula $\left(q,r\right)$
-\end_inset
-
-, 
-\begin_inset Formula $q>r$
-\end_inset
-
-, is a collection 
+ is a collection 
 \begin_inset Formula $S$
 \end_inset
 
  of size-
-\begin_inset Formula $q$
+\begin_inset Formula $3$
 \end_inset
 
  subsets of 
@@ -957,73 +949,33 @@ Steiner system
 \end_inset
 
  (that is, a 
-\begin_inset Formula $q$
+\begin_inset Formula $3$
 \end_inset
 
 -uniform hypergraph on the vertex set 
 \begin_inset Formula $\range n$
 \end_inset
 
-), such that every size-
-\begin_inset Formula $r$
-\end_inset
-
- subset of 
-\begin_inset Formula $\range n$
-\end_inset
-
- is included in exactly one element (hyperedge) of 
+), such that every pair of vertices is included in exactly one hyperedge
+ of 
 \begin_inset Formula $S$
 \end_inset
 
 .
- Steiner systems are among the most fundamental types of combinatorial designs,
- and have strong connections to a wide range of different subjects, ranging
- from group theory, to finite geometry, to experimental design, to the theory
- of error-correcting codes.
+ Steiner triple systems are among the most fundamental types of combinatorial
+ designs, and have strong connections to a wide range of different subjects,
+ ranging from group theory, to finite geometry, to experimental design,
+ to the theory of error-correcting codes.
  See 
 \begin_inset CommandInset citation
 LatexCommand cite
-after "Chapter~19"
-key "VW01"
+key "CR99"
 
 \end_inset
 
  for an introduction to the subject.
-\end_layout
-
-\begin_layout Standard
-A 
-\begin_inset Formula $\left(q,1\right)$
-\end_inset
-
--Steiner system is a partition of 
-\begin_inset Formula $\range n$
-\end_inset
-
- into subsets of size 
-\begin_inset Formula $q$
-\end_inset
-
-.
- In the language of hypergraphs, it is precisely a 
-\begin_inset Formula $q$
-\end_inset
-
--uniform perfect matching.
- Steiner systems with all other combinations of parameters are notoriously
- difficult to study.
- The simplest case is that of 
-\begin_inset Formula $\left(3,2\right)$
-\end_inset
-
--Steiner systems, known as 
-\emph on
-Steiner triple systems
-\emph default
-.
- A Steiner triple system is actually nothing more than a triangle-decomposition
- of the edges of the complete graph 
+ We note that a Steiner triple system is actually nothing more than a triangle-d
+ecomposition of the edges of the complete graph 
 \begin_inset Formula $K_{n}$
 \end_inset
 
@@ -1110,7 +1062,7 @@ a.a.s.
 
  has trivial automorphism group).
  We believe this is the only nontrivial property known to hold a.a.s.
- for random Steiner systems with any combination of parameters.
+ for random Steiner triple systems.
  Following Erd
 \begin_inset ERT
 status open
@@ -1159,9 +1111,9 @@ H
 
 os' popularization of the probabilistic method, there have been great developmen
 ts in the theory of random combinatorial structures of all kinds, but essentiall
-y none of the tools developed seem to be applicable to Steiner systems.
- Steiner systems lack independence or any kind of recursive structure, which
- rules out many of the techniques used to study Erd
+y none of the tools developed seem to be applicable to Steiner triple systems.
+ Steiner triple systems lack independence or any kind of recursive structure,
+ which rules out many of the techniques used to study Erd
 \begin_inset ERT
 status open
 
@@ -1205,8 +1157,8 @@ key "KSVW01"
 \end_inset
 
 ).
- It is not even clear how to study random Steiner systems empirically; in
- an attempt to find an efficient algorithm to generate a random Steiner
+ It is not even clear how to study random Steiner triple systems empirically;
+ in an attempt to find an efficient algorithm to generate a random Steiner
  triple system, Cameron 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1227,7 +1179,8 @@ key "Kee14"
 
 \end_inset
 
- very recently proved that 
+ very recently proved that for a large class of combinatorial designs generalizi
+ng Steiner triple systems, 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1235,7 +1188,7 @@ partial
 \begin_inset Quotes erd
 \end_inset
 
- Steiner systems satisfying a certain 
+ designs satisfying a certain 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1243,18 +1196,23 @@ quasirandomness
 \begin_inset Quotes erd
 \end_inset
 
- condition can be completed into Steiner systems.
- He used this to settle a longstanding existence question for Steiner systems,
- and shortly afterwards 
+ condition can be completed into designs.
+ Shortly afterwards 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kee15"
 
 \end_inset
 
- he proved new estimates for the number of Steiner systems with each combination
- of parameters.
- In particular he proved that there are
+, he showed that his results could be used for approximate enumeration;
+ in particular, matching an upper bound due to Linial and Luria 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LL13"
+
+\end_inset
+
+ he proved that there are
 \begin_inset Formula 
 \begin{equation}
 \left(n/e^{2}+o\left(n\right)\right)^{n^{2}/6}\label{eq:num-STS}
@@ -1346,7 +1304,13 @@ As an application of our new method, we prove that if
 \begin_inset Formula $n$
 \end_inset
 
- Steiner triple systems have many perfect matchings.
+ Steiner triple systems have many 
+\emph on
+perfect matchings
+\emph default
+.
+ A perfect matching in a hypergraph is a collection of disjoint hyperedges
+ partitioning the vertex set.
  The existence of perfect matchings is one of the most central questions
  in the theory of graphs and hypergraphs; in particular, one of the most
  celebrated recent developments in the field is the Fulkerson-prize-winning
@@ -1379,7 +1343,7 @@ key "RW71"
 \begin_inset Formula $n$
 \end_inset
 
- Steiner triple system which can be partitioned into hyperedge-disjoint
+  Steiner triple system which can be partitioned into hyperedge-disjoint
  perfect matchings (a 
 \emph on
 Kirkman triple system
@@ -1769,12 +1733,7 @@ reference "sec:outline"
 
 \end_inset
 
- we explain our method for studying random Steiner triple systems (in fact,
- we do everything in the general setting of 
-\begin_inset Formula $\left(q,r\right)$
-\end_inset
-
--Steiner systems, because this does not introduce any difficulties).
+ we explain our method for studying random Steiner triple systems.
  In 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1841,16 +1800,15 @@ reference "eq:num-STS"
 
 \end_inset
 
-, to estimate the number of completions of a partial Steiner system, and
- in 
+, to estimate the number of completions of a partial Steiner triple system,
+ and in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Random-triangle-removal"
 
 \end_inset
 
- we have a very simple analysis of a clique removal process generalizing
- the triangle removal process.
+ we have a very simple analysis of the triangle removal process.
 \end_layout
 
 \begin_layout Subsection
@@ -1871,82 +1829,27 @@ name "sec:outline"
 
 \end_inset
 
-Random Steiner systems via clique removal processes
+Random Steiner triple systems via the triangle removal process
 \end_layout
 
 \begin_layout Standard
 In this section we describe our method for comparing random Steiner triple
  systems with the outcome of the triangle removal process.
- Actually, the situation for general 
-\begin_inset Formula $\left(q,r\right)$
-\end_inset
-
--Steiner systems is essentially the same, so we state everything in general
- terms in case this is useful in the future.
- For this entire section, 
-\begin_inset Formula $q$
-\end_inset
-
- and 
-\begin_inset Formula $r$
-\end_inset
-
- should be considered fixed, and whenever we say 
-\begin_inset Quotes eld
-\end_inset
-
-Steiner system
-\begin_inset Quotes erd
-\end_inset
-
- we mean 
-\begin_inset Quotes eld
-\end_inset
-
-
-\begin_inset Formula $\left(q,r\right)$
-\end_inset
-
--Steiner system
-\begin_inset Quotes erd
-\end_inset
-
-.
  Let 
-\begin_inset Formula $Q={q \choose r}$
+\begin_inset Formula $N={n \choose 2}/3=\left(1+o\left(1\right)\right)n^{2}/6$
 \end_inset
 
- and let 
-\begin_inset Formula $N={n \choose r}/Q=\left(1+o\left(1\right)\right)\left(\left(q-r\right)!/q!\right)n^{r}$
-\end_inset
-
- be the number of hyperedges in a Steiner system.
- We also assume 
+ be the number of hyperedges in a Steiner triple system.
+ We also assume throughout this section that 
 \begin_inset Formula $n$
 \end_inset
 
- satisfies the condition that 
-\begin_inset Formula ${q-i \choose r-i}$
-\end_inset
-
- divides 
-\begin_inset Formula ${n-i \choose r-i}$
-\end_inset
-
- for every 
-\begin_inset Formula $0\le i\le r-1$
-\end_inset
-
-, which is necessary for the existence of an order-
-\begin_inset Formula $n$
-\end_inset
-
- Steiner system.
+ is 1 or 3 mod 6.
 \end_layout
 
 \begin_layout Standard
-We will shortly state a general theorem for comparing random Steiner systems
- with clique removal processes, but first we need several definitions.
+We will shortly state a general theorem for comparing Steiner triple systems
+ with the triangle removal processes, but first we need several definitions.
 \end_layout
 
 \begin_layout Definition
@@ -1954,32 +1857,28 @@ We will shortly state a general theorem for comparing random Steiner systems
 status open
 
 \begin_layout Plain Layout
-partial Steiner systems
+partial systems
 \end_layout
 
 \end_inset
 
 A 
 \emph on
-partial Steiner system
+partial Steiner triple system
 \emph default
  (or 
 \emph on
 partial system
 \emph default
  for short) is a 
-\begin_inset Formula $q$
+\begin_inset Formula $3$
 \end_inset
 
 -uniform hypergraph on 
 \begin_inset Formula $\range n$
 \end_inset
 
- in which every 
-\begin_inset Formula $r$
-\end_inset
-
--set of vertices is included in no more than one hyperedge.
+ in which every pair of vertices is included in no more than one hyperedge.
  Let 
 \begin_inset Formula $\Sm m$
 \end_inset
@@ -1995,7 +1894,7 @@ partial system
 \begin_inset Formula $\ord$
 \end_inset
 
- be the set of ordered Steiner systems, and let 
+ be the set of ordered Steiner triple systems, and let 
 \begin_inset Formula $\ordm m$
 \end_inset
 
@@ -2033,11 +1932,7 @@ partial system
 \begin_inset Formula $G\left(S\right)$
 \end_inset
 
- be the 
-\begin_inset Formula $r$
-\end_inset
-
--uniform hypergraph with an edge for every pair of vertices which does not
+ be the graph with an edge for every pair of vertices which does not
 \emph on
  
 \emph default
@@ -2059,7 +1954,7 @@ appear in any hyperedge of
 \end_inset
 
  has 
-\begin_inset Formula ${n \choose r}-Qm$
+\begin_inset Formula ${n \choose 2}-3m$
 \end_inset
 
  edges.
@@ -2082,11 +1977,7 @@ quasirandomness
 
 \end_inset
 
-For an 
-\begin_inset Formula $r$
-\end_inset
-
--graph 
+For a graph 
 \begin_inset Formula $G$
 \end_inset
 
@@ -2095,47 +1986,10 @@ For an
 \end_inset
 
  edges, let 
-\begin_inset Formula $d\left(G\right)=m/{n \choose r}$
+\begin_inset Formula $d\left(G\right)=m/{n \choose 2}$
 \end_inset
 
  denote its density.
- For an 
-\begin_inset Formula $\left(r-1\right)$
-\end_inset
-
--set of vertices 
-\begin_inset Formula $W$
-\end_inset
-
- in an 
-\begin_inset Formula $r$
-\end_inset
-
--graph 
-\begin_inset Formula $G$
-\end_inset
-
-, the 
-\emph on
-neighbourhood
-\emph default
- 
-\begin_inset Formula $N_{G}\left(W\right)$
-\end_inset
-
- is the set of vertices 
-\begin_inset Formula $v$
-\end_inset
-
- such that 
-\begin_inset Formula $\left\{ v\right\} \cup W$
-\end_inset
-
- is an edge of 
-\begin_inset Formula $G$
-\end_inset
-
-.
  We say 
 \begin_inset Formula $G$
 \end_inset
@@ -2152,16 +2006,12 @@ neighbourhood
 \begin_inset Formula $A$
 \end_inset
 
- of 
-\begin_inset Formula $\left(r-1\right)$
+ of at most 
+\begin_inset Formula $h$
 \end_inset
 
--sets of vertices with 
-\begin_inset Formula $\left|A\right|\le h$
-\end_inset
-
-, we have 
-\begin_inset Formula $\left|\bigcap_{W\in A}N_{G}\left(W\right)\right|=\left(1\pm\varepsilon\right)d\left(G\right)^{\left|A\right|}n$
+ vertices, we have 
+\begin_inset Formula $\left|\bigcap_{w\in A}N_{G}\left(w\right)\right|=\left(1\pm\varepsilon\right)d\left(G\right)^{\left|A\right|}n$
 \end_inset
 
 .
@@ -2221,51 +2071,29 @@ neighbourhood
 status open
 
 \begin_layout Plain Layout
-the clique removal processs
+the triangle removal processs
 \end_layout
 
 \end_inset
 
-The clique removal process is defined as follows.
- Start with the complete 
-\begin_inset Formula $r$
+The triangle removal process is defined as follows.
+ Start with the complete graph 
+\begin_inset Formula $K_{n}$
 \end_inset
 
--graph 
-\begin_inset Formula $K_{n}^{\left(r\right)}$
-\end_inset
-
- and iteratively delete a copy of 
-\begin_inset Formula $K_{q}^{\left(r\right)}$
-\end_inset
-
- chosen uniformly at random from all copies of 
-\begin_inset Formula $K_{q}^{\left(r\right)}$
-\end_inset
-
- in the remaining 
-\begin_inset Formula $r$
-\end_inset
-
--graph.
+ and iteratively delete a triangle chosen uniformly at random from all triangles
+ in the remaining graph.
  If we continue this process for 
 \begin_inset Formula $m$
 \end_inset
 
- steps, the deleted copies of 
-\begin_inset Formula $K_{q}^{\left(r\right)}$
-\end_inset
-
- (in order) can be interpreted as an ordered partial system in 
+ steps, the deleted triangles (in order) can be interpreted as an ordered
+ partial system in 
 \begin_inset Formula $\ordm m$
 \end_inset
 
 .
- It is also possible that the process aborts (because there are no copies
- of 
-\begin_inset Formula $K_{q}^{\left(r\right)}$
-\end_inset
-
+ It is also possible that the process aborts (because there are no triangles
  left) before 
 \begin_inset Formula $m$
 \end_inset
@@ -2346,7 +2174,7 @@ There is
  If
 \begin_inset Formula 
 \[
-\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)\le\exp\left(-n^{r-b}\right)
+\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)\le\exp\left(-n^{2-b}\right)
 \]
 
 \end_inset
@@ -2370,8 +2198,8 @@ reference "sec:Random-triangle-removal"
 
 \end_inset
 
-), the clique removal process is likely to produce quasirandom graphs; that
- is, 
+), the triangle removal process is likely to produce quasirandom graphs;
+ that is, 
 \begin_inset Formula $\Pr\left(\randS'\in\mathcal{Q}\right)=1-o\left(1\right)$
 \end_inset
 
@@ -2511,7 +2339,7 @@ There is
 ,
 \begin_inset Formula 
 \[
-\frac{\left|\ext S\right|}{\left|\ext{S'}\right|}\le\exp\left(n^{r-b}\right).
+\frac{\left|\ext S\right|}{\left|\ext{S'}\right|}\le\exp\left(n^{2-b}\right).
 \]
 
 \end_inset
@@ -2558,7 +2386,7 @@ reference "prop:num-extensions"
 
  is that if we can prove some property holds with extremely high probability
  (say 
-\begin_inset Formula $1-\exp\left(-\Omega\left(n^{r}\right)\right)$
+\begin_inset Formula $1-\exp\left(-\Omega\left(n^{2}\right)\right)$
 \end_inset
 
 ) in a uniformly random 
@@ -2587,7 +2415,7 @@ The next step is to show that the event
 
  is very likely.
  In fact, this event occurs a.a.s.
- for a random ordering of any given Steiner system.
+ for a random ordering of any given Steiner triple system.
  We prove the following lemma in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2622,12 +2450,12 @@ The following holds for any fixed
 \begin_inset Formula $\varepsilon=n^{-a}$
 \end_inset
 
-, consider any Steiner system 
+, consider any Steiner triple system 
 \begin_inset Formula $S$
 \end_inset
 
 , and uniformly at random order its hyperedges to obtain an ordered Steiner
- system 
+ triple system 
 \begin_inset Formula $\randS\in\ord$
 \end_inset
 
@@ -2670,7 +2498,7 @@ Next, the following lemma says that each
 \begin_inset Formula $S\in\cordm{\varepsilon,h}{\alpha N}$
 \end_inset
 
- is roughly equally likely to be produced by the clique removal process,
+ is roughly equally likely to be produced by the triangle removal process,
  so that 
 \begin_inset Formula $\RR\left(n,\alpha N\right)$
 \end_inset
@@ -2706,7 +2534,7 @@ For any
 \end_inset
 
 , and for 
-\begin_inset Formula $S,S'\in\cordm{n^{-a},q-1}{\alpha N}$
+\begin_inset Formula $S,S'\in\cordm{n^{-a},2}{\alpha N}$
 \end_inset
 
  and 
@@ -2716,7 +2544,7 @@ For any
 ,
 \begin_inset Formula 
 \[
-\frac{\Pr\left(\randS=S\right)}{\Pr\left(\randS=S'\right)}\le\exp\left(O\left(n^{r-a}\right)\right).
+\frac{\Pr\left(\randS=S\right)}{\Pr\left(\randS=S'\right)}\le\exp\left(O\left(n^{2-a}\right)\right).
 \]
 
 \end_inset
@@ -2756,7 +2584,7 @@ We have
 \begin_inset Formula 
 \begin{align*}
 \Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right) & \le\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\cond\randS_{\alpha N}\in\cordm{n^{-a},h}{\alpha N}\right)+\Pr\left(\randS_{\alpha N}\notin\cordm{n^{-a},h}{\alpha N}\right)\\
- & \le\exp\left(O\left(n^{r-c}\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{n^{-a},h}{\alpha N}\right)+\exp\left(-\Omega\left(n^{1-2a}\right)\right),
+ & \le\exp\left(O\left(n^{2-c}\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{n^{-a},h}{\alpha N}\right)+\exp\left(-\Omega\left(n^{1-2a}\right)\right),
 \end{align*}
 
 \end_inset
@@ -2851,7 +2679,7 @@ reference "lem:triangle-removal-transfer"
 \end_layout
 
 \begin_layout Subsection
-Randomly ordered Steiner systems
+Randomly ordered Steiner triple systems
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:random-is-typical"
@@ -2914,19 +2742,15 @@ Fix
 \begin_inset Formula $A$
 \end_inset
 
- of 
-\begin_inset Formula $\left(r-1\right)$
+ of at most 
+\begin_inset Formula $h$
 \end_inset
 
--sets of vertices with 
-\begin_inset Formula $\left|A\right|\le h$
-\end_inset
-
-.
+ vertices.
  It suffices to prove
 \begin_inset Formula 
 \begin{align}
-\left|\bigcap_{W\in A}N_{\randG'}\left(W\right)\right| & =\left(1+O\left(n^{-a}\right)\right)\left(1-\frac{m}{N}\right)^{\left|A\right|}n,\label{eq:degree-random-binomial}
+\left|\bigcap_{w\in A}N_{\randG'}\left(w\right)\right| & =\left(1+O\left(n^{-a}\right)\right)\left(1-\frac{m}{N}\right)^{\left|A\right|}n,\label{eq:degree-random-binomial}
 \end{align}
 
 \end_inset
@@ -2973,20 +2797,11 @@ Note that there are at most
 \begin_inset Formula $S$
 \end_inset
 
- that include more than one set in 
+ that include more than one vertex in 
 \begin_inset Formula $A$
 \end_inset
 
- (this follows from the Steiner property, because the intersection of two
- sets in 
-\begin_inset Formula $A$
-\end_inset
-
- has size at least 
-\begin_inset Formula $r$
-\end_inset
-
-).
+ (by the defining property of a Steiner triple system).
  Let 
 \begin_inset Formula $U$
 \end_inset
@@ -3002,7 +2817,7 @@ Note that there are at most
 
 .
  Let 
-\begin_inset Formula $\randN=\left|\left(\bigcap_{W\in A}N_{\randG'}\left(W\right)\right)\backslash U\right|$
+\begin_inset Formula $\randN=\left|\left(\bigcap_{w\in A}N_{\randG'}\left(w\right)\right)\backslash U\right|$
 \end_inset
 
 .
@@ -3011,11 +2826,11 @@ Note that there are at most
 \end_inset
 
  and 
-\begin_inset Formula $W\in A$
+\begin_inset Formula $w\in A$
 \end_inset
 
  there is exactly one hyperedge 
-\begin_inset Formula $e_{v}^{W}$
+\begin_inset Formula $e_{v}^{w}$
 \end_inset
 
  in 
@@ -3027,7 +2842,7 @@ Note that there are at most
 \end_inset
 
  and 
-\begin_inset Formula $W$
+\begin_inset Formula $w$
 \end_inset
 
 , whose presence in 
@@ -3048,13 +2863,13 @@ Note that there are at most
 \end_inset
 
  the hyperedges 
-\begin_inset Formula $e_{v}^{W}$
+\begin_inset Formula $e_{v}^{w}$
 \end_inset
 
  are distinct, so
 \begin_inset Formula 
 \[
-\Pr\left(v\in\bigcap_{W\in A}N_{\randG'}\left(W\right)\right)=\left(1-\frac{m}{N}\right)^{\left|A\right|},
+\Pr\left(v\in\bigcap_{w\in A}N_{\randG'}\left(w\right)\right)=\left(1-\frac{m}{N}\right)^{\left|A\right|},
 \]
 
 \end_inset
@@ -3081,7 +2896,7 @@ and by linearity of expectation
 \end_inset
 
  by at most 
-\begin_inset Formula $q-1=O\left(1\right)$
+\begin_inset Formula $2=O\left(1\right)$
 \end_inset
 
 .
@@ -3117,7 +2932,7 @@ reference "eq:degree-random-binomial"
 \end_layout
 
 \begin_layout Subsection
-Approximate uniformity of the clique removal process
+Approximate uniformity of the triangle removal process
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:greedy-random-approx-uniform"
@@ -3151,11 +2966,7 @@ Let
 \begin_inset Formula $H$
 \end_inset
 
- be a fixed 
-\begin_inset Formula $r$
-\end_inset
-
--graph with an identified vertex subset 
+ be a fixed graph with an identified vertex subset 
 \begin_inset Formula $U$
 \end_inset
 
@@ -3180,11 +2991,7 @@ Let
 \begin_inset Formula $\left(\varepsilon,v\left(H\right)-1\right)$
 \end_inset
 
--quasirandom 
-\begin_inset Formula $r$
-\end_inset
-
--graph on 
+-quasirandom graph on 
 \begin_inset Formula $n$
 \end_inset
 
@@ -3192,11 +2999,7 @@ Let
 \begin_inset Formula $F$
 \end_inset
 
- be a copy of the induced 
-\begin_inset Formula $r$
-\end_inset
-
--graph 
+ be a copy of the induced graph 
 \begin_inset Formula $H\left[U\right]$
 \end_inset
 
@@ -3216,7 +3019,7 @@ Let
  is 
 \begin_inset Formula 
 \[
-\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)}\frac{n^{q-\left|U\right|}}{\left|\operatorname{Aut}\left(H,U\right)\right|}.
+\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)}\frac{n^{v\left(H\right)-\left|U\right|}}{\left|\operatorname{Aut}\left(H,U\right)\right|}.
 \]
 
 \end_inset
@@ -3232,7 +3035,7 @@ In particular, the number of copies of
  is 
 \begin_inset Formula 
 \[
-\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)}\frac{n^{q}}{\left|\operatorname{Aut}\left(H\right)\right|}.
+\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)}\frac{n^{v\left(H\right)}}{\left|\operatorname{Aut}\left(H\right)\right|}.
 \]
 
 \end_inset
@@ -3256,7 +3059,7 @@ It suffices to show that the number of embeddings of
  is
 \begin_inset Formula 
 \[
-\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)}n^{q-\left|V\right|}.
+\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)}n^{v\left(H\right)-\left|U\right|}.
 \]
 
 \end_inset
@@ -3278,7 +3081,7 @@ We prove this by induction on the number of vertices in
 ; by induction there are
 \begin_inset Formula 
 \[
-\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)-d_{H}\left(v\right)}n^{q-\left|V\right|-1}
+\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)-d_{H}\left(v\right)}n^{v\left(H\right)-\left|U\right|-1}
 \]
 
 \end_inset
@@ -3289,18 +3092,6 @@ embeddings of
 
  extending 
 \begin_inset Formula $F$
-\end_inset
-
-, where 
-\begin_inset Formula $d_{H}\left(v\right)$
-\end_inset
-
- is the number of edges of 
-\begin_inset Formula $H$
-\end_inset
-
- containing 
-\begin_inset Formula $v$
 \end_inset
 
 .
@@ -3342,17 +3133,13 @@ Each
  has 
 \begin_inset Formula 
 \[
-\left(1\pm O\left(n^{-a}\right)\right)\left(1-\frac{i}{N}\right)^{Q}\frac{n^{q}}{q!}
+\left(1\pm O\left(n^{-a}\right)\right)\left(1-\frac{i}{N}\right)^{3}\frac{n^{3}}{6}
 \]
 
 \end_inset
 
- copies of 
-\begin_inset Formula $K_{q}^{\left(r\right)}$
-\end_inset
-
-, by 
-\begin_inset Formula $\left(n^{-a},q-1\right)$
+triangles, by 
+\begin_inset Formula $\left(n^{-a},2\right)$
 \end_inset
 
 -quasirandomness and 
@@ -3366,7 +3153,7 @@ reference "lem:H-count"
  We therefore have
 \begin_inset Formula 
 \[
-\Pr\left(\randS=S\right)=\prod_{i=0}^{\alpha N-1}\frac{1}{\left(1\pm O\left(n^{-a}\right)\right)\left(1-i/N\right)^{Q}n^{q}/q!},
+\Pr\left(\randS=S\right)=\prod_{i=0}^{\alpha N-1}\frac{1}{\left(1\pm O\left(n^{-a}\right)\right)\left(1-i/N\right)^{3}n^{3}/6},
 \]
 
 \end_inset
@@ -3380,7 +3167,7 @@ and a similar expression holds for
 \begin_inset Formula 
 \begin{align*}
 \frac{\Pr\left(\randS=S\right)}{\Pr\left(\randS=S'\right)} & \le\left(1+O\left(n^{-a}\right)\right)^{\alpha N}\\
- & \le\exp\left(O\left(n^{r-a}\right)\right)
+ & \le\exp\left(O\left(n^{2-a}\right)\right)
 \end{align*}
 
 \end_inset
@@ -3410,7 +3197,7 @@ reference "lem:triangle-removal-transfer"
 
 .
  First, after some necessary definitions we will show how to couple the
- clique removal process with a simpler random hypergraph distribution.
+ triangle removal process with a simpler random hypergraph distribution.
 \end_layout
 
 \begin_layout Definition
@@ -3423,7 +3210,7 @@ For a partial system
 \end_inset
 
  be the random distribution on 
-\begin_inset Formula $q$
+\begin_inset Formula $3$
 \end_inset
 
 -uniform hypergraphs where each hyperedge not conflicting with 
@@ -3435,7 +3222,7 @@ For a partial system
 \end_inset
 
  in more than 
-\begin_inset Formula $r-1$
+\begin_inset Formula $2$
 \end_inset
 
  vertices) is included with probability 
@@ -3455,11 +3242,7 @@ For a partial system
 \begin_inset Formula $\Gnp{\varnothing}p:=\Gnp np$
 \end_inset
 
- is the standard binomial random 
-\begin_inset Formula $r$
-\end_inset
-
--graph.
+ is the standard binomial random 3-graph.
  Let 
 \begin_inset Formula $\GSnp Sp$
 \end_inset
@@ -3470,7 +3253,7 @@ For a partial system
 
  by considering all hyperedges which intersect another hyperedge in more
  than 
-\begin_inset Formula $r-1$
+\begin_inset Formula $2$
 \end_inset
 
  vertices, and deleting all these hyperedges.
@@ -3482,7 +3265,7 @@ For a partial system
 \begin_inset Formula $m$
 \end_inset
 
- steps of the clique removal process starting from 
+ steps of the triangle removal process starting from 
 \begin_inset Formula $G\left(S\right)$
 \end_inset
 
@@ -3490,12 +3273,8 @@ For a partial system
 \end_layout
 
 \begin_layout Standard
-Let 
-\begin_inset Formula $P=n^{r-q}\left(q-r\right)!$
-\end_inset
-
- so that 
-\begin_inset Formula ${n \choose q}P=\left(1+o\left(1\right)\right)N$
+Note that 
+\begin_inset Formula ${n \choose 3}/n=\left(1+o\left(1\right)\right)N$
 \end_inset
 
 .
@@ -3504,7 +3283,7 @@ Let
 \end_inset
 
 , we can view 
-\begin_inset Formula $\GSnp S{\alpha P}$
+\begin_inset Formula $\GSnp S{\alpha/n}$
 \end_inset
 
  as a 
@@ -3564,7 +3343,7 @@ let
 
 .
  For fixed 
-\begin_inset Formula $h\ge q-1$
+\begin_inset Formula $h\ge2$
 \end_inset
 
  and 
@@ -3598,7 +3377,7 @@ let
 \end_inset
 
  and 
-\begin_inset Formula $\randS^{*}\in\GSnp S{\alpha P}$
+\begin_inset Formula $\randS^{*}\in\GSnp S{\alpha/n}$
 \end_inset
 
 .
@@ -3615,11 +3394,11 @@ let
 
 \begin_layout Proof
 Let 
-\begin_inset Formula $\randS^{*}\in\GSnp S{\alpha P}$
+\begin_inset Formula $\randS^{*}\in\GSnp S{\alpha/n}$
 \end_inset
 
  be obtained from 
-\begin_inset Formula $\randG\in\Gnp S{\alpha P}$
+\begin_inset Formula $\randG\in\Gnp S{\alpha/n}$
 \end_inset
 
 .
@@ -3638,7 +3417,7 @@ Let
 \end_inset
 
  is at most 
-\begin_inset Formula ${n \choose q}\alpha P\le\alpha N$
+\begin_inset Formula ${n \choose 3}\alpha/n\le\alpha N$
 \end_inset
 
 , in which case 
@@ -3655,7 +3434,7 @@ Let
 \end_inset
 
  can be viewed as the first few elements of a random ordering of the set
- of all possible edges, and the clique removal process with this ordering
+ of all possible edges, and the triangle removal process with this ordering
  produces a superset of 
 \begin_inset Formula $\randS^{*}$
 \end_inset
@@ -3700,7 +3479,7 @@ reference "lem:triangle-removal-analysis"
 \begin_layout Standard
 In this subsection we also state and prove a bounded-differences inequality
  with Bernstein-type tails which can be used to analyse 
-\begin_inset Formula $\GSnp S{\alpha P}$
+\begin_inset Formula $\GSnp S{\alpha/n}$
 \end_inset
 
 .
@@ -4933,41 +4712,6 @@ reference "lem:triangle-removal-transfer"
 LatexCommand ref
 reference "thm:PM-in-STS"
 
-\end_inset
-
-.
- Recall that Steiner triple systems have 
-\begin_inset Formula $q=3$
-\end_inset
-
- and 
-\begin_inset Formula $r=2$
-\end_inset
-
-, so in the notation of 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:outline"
-
-\end_inset
-
- (and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:nibble-TRP-coupling"
-
-\end_inset
-
-) we have 
-\begin_inset Formula $Q=3$
-\end_inset
-
-, 
-\begin_inset Formula $N={n \choose 2}/3=\left(1+o\left(1\right)\right)n^{2}/6$
-\end_inset
-
- and 
-\begin_inset Formula $P=1/n$
 \end_inset
 
 .
@@ -6658,11 +6402,10 @@ name "sec:concluding"
 \end_layout
 
 \begin_layout Standard
-In this paper we introduced a new method for analysing random Steiner systems,
- and we used it to prove that almost all Steiner triple systems have many
- perfect matchings.
- There are many interesting open questions about random Steiner (triple)
- systems and perfect matchings that remain.
+In this paper we introduced a new method for analysing random Steiner triple
+ systems, and we used it to prove that almost all Steiner triple systems
+ have many perfect matchings.
+ There are many interesting open questions that remain.
 \end_layout
 
 \begin_layout Itemize
@@ -6704,18 +6447,36 @@ key "Wan11"
 \end_layout
 
 \begin_layout Itemize
-There is the obvious question of proving that almost all 
+A 
 \begin_inset Formula $\left(q,r\right)$
 \end_inset
 
--Steiner systems have perfect matchings, for all choices of 
-\begin_inset Formula $\left(q,r\right)$
+-Steiner system (
+\begin_inset Formula $q>r$
 \end_inset
 
-.
- We believe this should be possible using the methods in this paper, and
- the main difficulty probably lies in coming up with a suitable absorber.
- If 
+) is a 
+\begin_inset Formula $q$
+\end_inset
+
+-uniform hypergraph such that every 
+\begin_inset Formula $r$
+\end_inset
+
+-set of vertices is included in exactly one hyperedge (so, a Steiner triple
+ system is a 
+\begin_inset Formula $\left(3,2\right)$
+\end_inset
+
+-Steiner system).
+ We believe that our results should generalize to Steiner systems with any
+ combination of parameters, and the main difficulty probably lies in coming
+ up with a suitable absorber.
+ Note that a perfect matching is actually a 
+\begin_inset Formula $\left(q,1\right)$
+\end_inset
+
+-Steiner system, so if 
 \begin_inset Formula $r>2$
 \end_inset
 
@@ -6911,7 +6672,7 @@ name "sec:keevash"
 
 \end_inset
 
-Counting completions of Steiner systems
+Counting completions of Steiner triple systems
 \end_layout
 
 \begin_layout Standard
@@ -6968,7 +6729,15 @@ reference "prop:num-extensions"
 \end_inset
 
 .
- This is accomplished with minor adaptations of a proof by Keevash 
+ This is accomplished with minor adaptations of proofs by Linial and Luria
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LL13"
+
+\end_inset
+
+ and Keevash 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kee15"
@@ -6983,35 +6752,15 @@ reference "sec:outline"
 
 \end_inset
 
-, we consider 
-\begin_inset Formula $q$
-\end_inset
-
- and 
-\begin_inset Formula $r$
-\end_inset
-
- to be fixed, let 
-\begin_inset Formula $Q={q \choose r}$
-\end_inset
-
 , let 
-\begin_inset Formula $N={n \choose r}/Q$
+\begin_inset Formula $N={n \choose 2}/3$
 \end_inset
 
- and impose that 
-\begin_inset Formula ${q-i \choose r-i}$
+ and assume that 
+\begin_inset Formula $n$
 \end_inset
 
- divides 
-\begin_inset Formula ${n-i \choose r-i}$
-\end_inset
-
- for every 
-\begin_inset Formula $0\le i\le r-1$
-\end_inset
-
-.
+ is 1 or 3 mod 6.
 \end_layout
 
 \begin_layout Standard
@@ -7023,7 +6772,7 @@ For a partial system
 \begin_inset Formula $\Sext S$
 \end_inset
 
- be the number of Steiner systems that contain 
+ be the number of Steiner triple systems that contain 
 \begin_inset Formula $S$
 \end_inset
 
@@ -7044,26 +6793,16 @@ For a partial system
 \end_layout
 
 \begin_layout Standard
-First, we can get an upper bound via the entropy method.
- This proof is almost exactly the same to the proof of 
-\begin_inset CommandInset citation
-LatexCommand cite
-after "Theorem~6.1"
-key "Kee15"
-
-\end_inset
-
-, and is very similar to the proof that appears in a paper by Linial and
- Luria 
+First, we can get an upper bound via the method of Linial and Luria 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "LL13"
 
 \end_inset
 
- about Steiner triple systems.
- The reader may refer to that paper for more detailed exposition and a brief
- introduction to the notion of entropy.
+.
+ The reader should refer to that paper for more detailed exposition and
+ a brief introduction to the notion of entropy.
 \end_layout
 
 \begin_layout Theorem
@@ -7082,13 +6821,13 @@ For any
 \end_inset
 
 , and any 
-\begin_inset Formula $S^{*}\in\cSm{n^{-a},q-1}{\alpha N}$
+\begin_inset Formula $S^{*}\in\cSm{n^{-a},2}{\alpha N}$
 \end_inset
 
 ,
 \begin_inset Formula 
 \[
-\left|\Sext{S^{*}}\right|\le\left(\left(1+O\left(n^{-a}\right)\right)\left(\frac{1-\alpha}{e}\right)^{Q-1}{n-r \choose q-r}\right)^{N\left(1-\alpha\right)}.
+\left|\Sext{S^{*}}\right|\le\left(\left(1+O\left(n^{-a}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}.
 \]
 
 \end_inset
@@ -7124,18 +6863,14 @@ Let
 
 .
  For each 
-\begin_inset Formula $e\in\coG$
+\begin_inset Formula $e=\left\{ x,y\right\} \in\coG$
 \end_inset
 
 , let 
-\begin_inset Formula $\randS_{e}$
+\begin_inset Formula $\left\{ x,y,\randz_{e}\right\} $
 \end_inset
 
- be the 
-\begin_inset Formula $q$
-\end_inset
-
--edge that includes 
+ be the hyperedge that includes 
 \begin_inset Formula $e$
 \end_inset
 
@@ -7145,7 +6880,7 @@ Let
 
 .
  So, the sequence 
-\begin_inset Formula $\left(\randS_{e}\right)_{e\in\coG}$
+\begin_inset Formula $\left(\randz_{e}\right)_{e\in\coG}$
 \end_inset
 
  determines 
@@ -7153,18 +6888,14 @@ Let
 \end_inset
 
 .
- For any ordering on the 
-\begin_inset Formula $r$
-\end_inset
-
--edges of 
+ For any ordering on the edges of 
 \begin_inset Formula $\coG$
 \end_inset
 
 , we have
 \begin_inset Formula 
 \[
-H\left(\randS\right)=\sum_{e\in\coG}H\left(\randS_{e}\cond\left(\randS_{e'}\,\colon\,e'<e\right)\right).
+H\left(\randS\right)=\sum_{e\in\coG}H\left(\randz_{e}\cond\left(\randz_{e'}\,\colon\,e'<e\right)\right).
 \]
 
 \end_inset
@@ -7177,11 +6908,7 @@ Now, a sequence
 \begin_inset Formula $\lambda_{e}$
 \end_inset
 
- distinct induces an ordering on the 
-\begin_inset Formula $r$
-\end_inset
-
--edges of 
+ distinct induces an ordering on the edges of 
 \begin_inset Formula $\coG$
 \end_inset
 
@@ -7199,11 +6926,11 @@ Now, a sequence
 \end_inset
 
  be an upper bound on the number of possible values for 
-\begin_inset Formula $\randS_{e}$
+\begin_inset Formula $\randz_{e}$
 \end_inset
 
  given the information 
-\begin_inset Formula $\left(\randS_{e'}\,\colon\,\lambda_{e'}>\lambda_{e}\right)$
+\begin_inset Formula $\left(\randz_{e'}\,\colon\,\lambda_{e'}>\lambda_{e}\right)$
 \end_inset
 
 , defined as follows.
@@ -7212,147 +6939,47 @@ Now, a sequence
 \end_inset
 
  if 
-\begin_inset Formula $\lambda_{e'}>\lambda_{e}$
+\begin_inset Formula $\lambda_{\left\{ x,\randz_{e}\right\} }>\lambda_{e}$
 \end_inset
 
- for any of the 
-\begin_inset Formula $r$
-\end_inset
-
--subsets 
-\begin_inset Formula $e'\subseteq\randS_{e}$
+ or 
+\begin_inset Formula $\lambda_{\left\{ y,\randz_{e}\right\} }>\lambda_{e}$
 \end_inset
 
  (because in this case 
-\begin_inset Formula $\randS_{e}$
+\begin_inset Formula $\randz_{e}$
 \end_inset
 
  is determined), and otherwise 
 \begin_inset Formula $\randR_{e}$
 \end_inset
 
- is 1 plus the number of 
-\begin_inset Formula $q$
-\end_inset
-
--sets of vertices 
-\begin_inset Formula $X\ne\randS_{e}$
-\end_inset
-
- containing 
-\begin_inset Formula $e$
+ is 1 plus the number of vertices 
+\begin_inset Formula $v\notin\left\{ x,y,\randz_{e}\right\} $
 \end_inset
 
  such that 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-\begin_inset Formula $f\in\coG$
+\begin_inset Formula $\left\{ x,v\right\} ,\left\{ y,v\right\} \in\coG$
 \end_inset
 
- for each 
-\begin_inset Formula $r$
-\end_inset
-
--subset 
-\begin_inset Formula $f\subseteq X$
-\end_inset
-
-, and
-\end_layout
-
-\begin_layout Itemize
+ and 
 \begin_inset Formula $\lambda_{e'}<\lambda_{e}$
 \end_inset
 
- for each of the 
-\begin_inset Formula $r$
-\end_inset
-
--edges 
+ for each of the 6 edges 
 \begin_inset Formula $e'\in\coG$
 \end_inset
 
- included in any of the 
-\begin_inset Formula $q$
+ included in the hyperedges that include 
+\begin_inset Formula $\left\{ x,v\right\} $
 \end_inset
 
--edges of 
-\begin_inset Formula $\randS$
-\end_inset
-
- that include the 
-\begin_inset Formula $r$
-\end_inset
-
--subsets in 
-\begin_inset Formula $\left\{ f:f\subseteq X,\left|f\right|=r\right\} \backslash\randS_{e}$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Proof
-Note that the number of edges 
-\begin_inset Formula $e'$
-\end_inset
-
- considered by the second bullet point is 
-\begin_inset Formula $Q\left(Q-1\right)$
-\end_inset
-
- unless 
-\begin_inset Formula $\left|X\cap B\right|>r$
-\end_inset
-
- for some 
-\begin_inset Formula $q$
-\end_inset
-
--edge 
-\begin_inset Formula $B$
+ and 
+\begin_inset Formula $\left\{ y,v\right\} $
 \end_inset
 
  in 
 \begin_inset Formula $\randS$
-\end_inset
-
- (in this case we say 
-\begin_inset Formula $X$
-\end_inset
-
- is 
-\begin_inset Quotes eld
-\end_inset
-
-bad
-\begin_inset Quotes erd
-\end_inset
-
-).
- By 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:H-count"
-
-\end_inset
-
-, the number of choices for 
-\begin_inset Formula $X$
-\end_inset
-
- is 
-\begin_inset Formula 
-\[
-\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}\frac{n^{q-r}}{\left(q-r\right)!}=\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}
-\]
-
-\end_inset
-
- and the number of those that are bad is at most 
-\begin_inset Formula $\sum_{i=r+1}^{q}N{n \choose q-r-i}=O\left(n^{q-r-1}\right)$
 \end_inset
 
 .
@@ -7366,7 +6993,7 @@ Now, note that for any
  we have
 \begin_inset Formula 
 \[
-H\left(\randS_{e}\cond\left(\randS_{e'}\,\colon\,\lambda_{e'}>\lambda_{e'}\right)\right)\le\E\left[\log\randR_{e}\left(\lambda\right)\right].
+H\left(\randz_{e}\cond\left(\randz_{e'}\,\colon\,\lambda_{e'}>\lambda_{e'}\right)\right)\le\E\left[\log\randR_{e}\left(\lambda\right)\right].
 \]
 
 \end_inset
@@ -7408,24 +7035,40 @@ Next, for any
 , let 
 \begin_inset Formula 
 \[
-R_{e}^{S,\lambda}=\E\left[\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{e'}<\randl_{e}\textrm{ for all }e'\subseteq\randS_{e}\backslash\left\{ e\right\} \right].
+R_{e}^{S,\lambda}=\E\left[\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\right].
 \]
 
 \end_inset
 
-By the discussion above, and linearity of expectation, we have 
+Now, in 
+\begin_inset Formula $\coG$
+\end_inset
+
+, by quasirandomness 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ have 
+\begin_inset Formula $\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}n$
+\end_inset
+
+ common neighbours.
+ By the discussion above, and linearity of expectation, we have 
 \begin_inset Formula 
-\begin{align*}
-R_{e}^{S,\lambda} & =\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}-O\left(n^{q-r-1}\right)\right)\lambda^{Q\left(Q-1\right)}\\
- & =\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}\lambda^{Q\left(Q-1\right)}.
-\end{align*}
+\[
+R_{e}^{S,\lambda}=\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}\lambda^{6}n.
+\]
 
 \end_inset
 
 Now, by Jensen's inequality,
 \begin_inset Formula 
 \[
-\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{e}=\lambda,\,\randl_{e'}<\randl_{e}\textrm{ for all }e'\subseteq\randS_{e}\backslash\left\{ e\right\} \right]\le\log R_{e}^{S,\lambda},
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\right]\le\log R_{e}^{S,\lambda},
 \]
 
 \end_inset
@@ -7433,7 +7076,7 @@ Now, by Jensen's inequality,
 and 
 \begin_inset Formula 
 \[
-\Pr\left(\randl_{e}=\lambda,\,\randl_{e'}<\randl_{e}\textrm{ for all }e'\subseteq\randS_{e}\backslash\left\{ e\right\} \cond\randl_{e}=\lambda\right)=\lambda^{Q-1},
+\Pr\left(\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\cond\randl_{e}=\lambda\right)=\lambda^{2},
 \]
 
 \end_inset
@@ -7441,7 +7084,7 @@ and
 so
 \begin_inset Formula 
 \[
-\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda\right]\le\lambda^{Q-1}\log R_{e}^{S,\lambda}+\left(1-\lambda^{Q-1}\right)\log1=\lambda^{2}\log R_{e}^{S,\lambda}.
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda\right]\le\lambda^{2}\log R_{e}^{S,\lambda}+\left(1-\lambda^{2}\right)\log1=\lambda^{2}\log R_{e}^{S,\lambda}.
 \]
 
 \end_inset
@@ -7453,9 +7096,9 @@ For any
 , we then have 
 \begin_inset Formula 
 \begin{align*}
-\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S\right] & \le\E\left[\lambda^{Q-1}\log R_{e}^{S,\randl_{e}}\right]\\
- & =\int_{0}^{1}\lambda^{Q-1}\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}\lambda^{Q\left(Q-1\right)}\right)\d\lambda\\
- & =\frac{1}{Q}\left(\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}\right)-\left(Q-1\right)\right),
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S\right] & \le\E\left[\lambda^{2}\log R_{e}^{S,\randl_{e}}\right]\\
+ & =\int_{0}^{1}\lambda^{2}\log\left(\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}\lambda^{6}n\right)\d\lambda\\
+ & =\frac{1}{3}\left(\log\left(\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}n\right)-2\right)
 \end{align*}
 
 \end_inset
@@ -7474,7 +7117,7 @@ using the fact that
 \begin{align*}
 \log\left|\Sext{S^{*}}\right| & \le H\left(\randS\right)\\
  & \le\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right]\\
- & \le\left(N-\alpha N\right)\frac{1}{Q}\left(\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}\right)-\left(Q-1\right)\right),
+ & \le\left(N-\alpha N\right)\frac{1}{3}\left(\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}n\right)-2\right),
 \end{align*}
 
 \end_inset
@@ -7483,7 +7126,7 @@ which is equivalent to the theorem statement.
 \end_layout
 
 \begin_layout Standard
-For the lower bound, we will count ordered Steiner systems.
+For the lower bound, we will count ordered Steiner triple systems.
 \end_layout
 
 \begin_layout Theorem
@@ -7517,7 +7160,7 @@ There is
 ,
 \begin_inset Formula 
 \[
-\left|\ext{S^{*}}\right|\le\left|\Sext{S^{*}}\right|\le\left(\left(1+O\left(n^{-a}\right)\right)\left(\frac{1-\alpha}{e}\right)^{Q-1}{n-r \choose q-r}\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
+\left|\ext{S^{*}}\right|\le\left|\Sext{S^{*}}\right|\le\left(\left(1+O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
 \]
 
 \end_inset
@@ -7533,7 +7176,7 @@ reference "thm:number-of-completions-lower"
 
 \end_inset
 
- we will need an analysis of the clique removal process (see 
+ we will need an analysis of the triangle removal process (see 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Random-triangle-removal"
@@ -7590,7 +7233,7 @@ There are
 \begin_inset Formula $S$
 \end_inset
 
- can be completed to an Steiner system.
+ can be completed to a Steiner triple system.
 \end_layout
 
 \begin_layout Standard
@@ -7631,12 +7274,8 @@ reference "thm:keevash"
 \end_inset
 
 .
- Fix small 
-\begin_inset Formula $c$
-\end_inset
-
- (smaller than 
-\begin_inset Formula $a\,b\left(a,h\right)$
+ Let 
+\begin_inset Formula $c=a\,b\left(a,h\right)$
 \end_inset
 
  in the notation of 
@@ -7646,7 +7285,7 @@ reference "lem:triangle-removal-analysis"
 
 \end_inset
 
-), let 
+, let 
 \begin_inset Formula $\varepsilon=n^{-c}$
 \end_inset
 
@@ -7659,7 +7298,7 @@ reference "lem:triangle-removal-analysis"
 \begin_inset Formula $\randS\in\RR\left(S,M-m\right)$
 \end_inset
 
- be the result of running the clique removal process on 
+ be the result of running the triangle removal process on 
 \begin_inset Formula $G\left(S\right)$
 \end_inset
 
@@ -7704,23 +7343,19 @@ reference "lem:H-count"
 \begin_inset Formula $S\in\ord^{*}$
 \end_inset
 
-, the number of copies of 
-\begin_inset Formula $K_{q}^{\left(r\right)}$
-\end_inset
-
- in each 
+, the number of triangles in each 
 \begin_inset Formula $G\left(S_{i}\right)$
 \end_inset
 
  is 
-\begin_inset Formula $\left(1\pm O\left(n^{-c}\right)\right)\left(1-i/N\right)^{Q}n^{q}/q!$
+\begin_inset Formula $\left(1\pm O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6$
 \end_inset
 
  by quasirandomness.
  So,
 \begin_inset Formula 
 \[
-\Pr\left(\randS=S\right)\le\prod_{i=\alpha N}^{M}\frac{1}{\left(1-O\left(n^{-c}\right)\right)\left(1-i/N\right)^{Q}n^{q}/q!}.
+\Pr\left(\randS=S\right)\le\prod_{i=\alpha N}^{M}\frac{1}{\left(1-O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6}.
 \]
 
 \end_inset
@@ -7743,8 +7378,8 @@ reference "lem:triangle-removal-analysis"
 so 
 \begin_inset Formula 
 \begin{align*}
-\left|\ord^{*}\right| & \ge\left(1-o\left(1\right)\right)\prod_{i=\alpha N}^{M}\left(1-O\left(n^{-c}\right)\right)\left(1-\frac{i}{N}\right)^{Q}n^{q}/q!.\\
- & =\left(\left(1-O\left(n^{-c}\right)\right)\frac{n^{q}}{q!}\right)^{\left(1-\alpha\right)N}\exp\left(Q\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right).
+\left|\ord^{*}\right| & \ge\left(1-o\left(1\right)\right)\prod_{i=\alpha N}^{M}\left(1-O\left(n^{-c}\right)\right)\left(1-\frac{i}{N}\right)^{3}n^{3}/6.\\
+ & =\left(\left(1-O\left(n^{-c}\right)\right)\frac{n^{3}}{6}\right)^{\left(1-\alpha\right)N}\exp\left(3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right).
 \end{align*}
 
 \end_inset
@@ -7774,10 +7409,10 @@ so, noting that
 ,
 \begin_inset Formula 
 \begin{align*}
-Q\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right) & =QN\int_{\alpha}^{\left(1-\varepsilon\right)}\log\left(1-t\right)\d t+O\left(\log n\right)\\
- & =QN\int_{\varepsilon}^{\left(1-\alpha\right)}\log p\d p+O\left(\log n\right)\\
- & =QN\left(\left(1-\alpha\right)\left(\log\left(1-\alpha\right)-1\right)-\varepsilon\left(\log\varepsilon-1\right)\right)+O\left(\log n\right),\\
-\exp\left(Q\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right) & =\left(\left(1+O\left(n^{-c}\log n\right)\right)\frac{1-\alpha}{e}\right)^{QN\left(1-\alpha\right)}.
+3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right) & =3N\int_{\alpha}^{\left(1-\varepsilon\right)}\log\left(1-t\right)\d t+O\left(\log n\right)\\
+ & =3N\int_{\varepsilon}^{\left(1-\alpha\right)}\log p\d p+O\left(\log n\right)\\
+ & =3N\left(\left(1-\alpha\right)\left(\log\left(1-\alpha\right)-1\right)-\varepsilon\left(\log\varepsilon-1\right)\right)+O\left(\log n\right),\\
+\exp\left(3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right) & =\left(\left(1+O\left(n^{-c}\log n\right)\right)\frac{1-\alpha}{e}\right)^{3N\left(1-\alpha\right)}.
 \end{align*}
 
 \end_inset
@@ -7789,8 +7424,8 @@ For
 , it follows that
 \begin_inset Formula 
 \begin{align*}
-\left|\ord^{*}\right| & \ge\left(\left(1-O\left(n^{-b}\right)\right)\frac{n^{q}\left(1-\alpha\right)^{Q}}{q!e^{Q}}\right)^{\left(1-\alpha\right)N}\\
- & =\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{Q-1}{n-r \choose q-r}\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!
+\left|\ord^{*}\right| & \ge\left(\left(1-O\left(n^{-b}\right)\right)\frac{n^{3}\left(1-\alpha\right)^{3}}{6e^{3}}\right)^{\left(1-\alpha\right)N}\\
+ & =\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!
 \end{align*}
 
 \end_inset
@@ -7809,7 +7444,7 @@ reference "thm:keevash"
  is small enough) it follows that
 \begin_inset Formula 
 \[
-\left|\ext{S^{*}}\right|\ge\left(\frac{n\left(1-\alpha\right)^{2}}{e^{2}}\left(1-O\left(n^{-b}\right)\right)\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!.\tag*{\qedhere}
+\left|\ext{S^{*}}\right|\ge\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!.\tag*{\qedhere}
 \]
 
 \end_inset
@@ -7848,7 +7483,7 @@ name "sec:Random-triangle-removal"
 
 \end_inset
 
-Random clique removal
+Random triangle removal
 \end_layout
 
 \begin_layout Standard
@@ -7897,7 +7532,7 @@ Random clique removal
 \end_layout
 
 \begin_layout Standard
-In this section we give a very simple analysis of the clique removal process.
+In this section we give a very simple analysis of the triangle removal process.
  The analysis here is rather crude and quite standard, but we could not
  find an existing source for precisely the result we need.
  As in 
@@ -7907,35 +7542,15 @@ reference "sec:outline"
 
 \end_inset
 
-, we consider 
-\begin_inset Formula $q$
-\end_inset
-
- and 
-\begin_inset Formula $r$
-\end_inset
-
- to be fixed, let 
-\begin_inset Formula $Q={q \choose r}$
-\end_inset
-
 , let 
-\begin_inset Formula $N={n \choose r}/Q$
+\begin_inset Formula $N={n \choose 2}/3$
 \end_inset
 
- and impose that 
-\begin_inset Formula ${q-i \choose r-i}$
+ and assume that 
+\begin_inset Formula $n$
 \end_inset
 
- divides 
-\begin_inset Formula ${n-i \choose r-i}$
-\end_inset
-
- for every 
-\begin_inset Formula $0\le i\le r-1$
-\end_inset
-
-.
+ is 1 or 3 mod 6.
 \end_layout
 
 \begin_layout Standard
@@ -7946,24 +7561,17 @@ reference "sec:outline"
 
 \end_inset
 
-, the clique removal process is defined as follows.
+, the triangle removal process is defined as follows.
  We start with a graph 
 \begin_inset Formula $G$
 \end_inset
 
  with say 
-\begin_inset Formula $N-Qm$
+\begin_inset Formula $N-3m$
 \end_inset
 
- edges, then iteratively delete (the edges of) a copy of 
-\begin_inset Formula $K_{q}^{\left(r\right)}$
-\end_inset
-
- chosen uniformly at random from all copies of 
-\begin_inset Formula $K_{q}^{\left(r\right)}$
-\end_inset
-
- in the remaining graph.
+ edges, then iteratively delete (the edges of) a triangle chosen uniformly
+ at random from all triangles in the remaining graph.
  Let 
 \begin_inset Formula 
 \[
@@ -7985,11 +7593,7 @@ freeze
 \begin_inset Formula $\randG\left(\randM\right)$
 \end_inset
 
- is the first graph in the sequence with no copies of 
-\begin_inset Formula $K_{q}^{\left(r\right)}$
-\end_inset
-
-, then let 
+ is the first graph in the sequence with no triangles, then let 
 \begin_inset Formula $\randG\left(i\right)=\randG\left(\randM\right)$
 \end_inset
 
@@ -8005,8 +7609,8 @@ Our objective in this section is to show that if
 \begin_inset Formula $G$
 \end_inset
 
- is quasirandom then the clique removal process is likely to maintain quasirando
-mness and unlikely to freeze until nearly all edges are gone.
+ is quasirandom then the triangle removal process is likely to maintain
+ quasirandomness and unlikely to freeze until nearly all edges are gone.
 \end_layout
 
 \begin_layout Theorem
@@ -8068,7 +7672,7 @@ For all
 
 \begin_layout Standard
 Note that 
-\begin_inset Formula $K_{n}^{\left(r\right)}$
+\begin_inset Formula $K_{n}$
 \end_inset
 
  is 
@@ -8079,8 +7683,8 @@ Note that
 \begin_inset Formula $h$
 \end_inset
 
-, so in particular when we start the clique removal process from 
-\begin_inset Formula $G=K_{n}^{\left(r\right)}$
+, so in particular when we start the triangle removal process from 
+\begin_inset Formula $G=K_{n}$
 \end_inset
 
  it typically runs almost to completion.
@@ -8185,16 +7789,12 @@ For a set
 \begin_inset Formula $A$
 \end_inset
 
- of 
-\begin_inset Formula $\left(r-1\right)$
+ of at most 
+\begin_inset Formula $h$
 \end_inset
 
--sets of vertices with 
-\begin_inset Formula $\left|A\right|\le h$
-\end_inset
-
-, let 
-\begin_inset Formula $\randY_{A}\left(i\right)=\left|\bigcap_{W\in A}N_{\randG\left(i\right)}\left(W\right)\right|$
+ vertices, let 
+\begin_inset Formula $\randY_{A}\left(i\right)=\left|\bigcap_{w\in A}N_{\randG\left(i\right)}\left(w\right)\right|$
 \end_inset
 
 .
@@ -8346,14 +7946,14 @@ reference "lem:H-count"
 
 \end_inset
 
- the number of copies of 
-\begin_inset Formula $K_{q}^{\left(r\right)}$
+ the number of triangles in 
+\begin_inset Formula $\randG\left(i\right)$
 \end_inset
 
  is
 \begin_inset Formula 
 \[
-\randQ\left(i\right)=\left(1\pm O\left(e\left(i\right)\right)\right)p^{Q}\left(i\right)n^{q}/q!>0.
+\randQ\left(i\right)=\left(1\pm O\left(e\left(i\right)\right)\right)p^{3}\left(i\right)n^{3}/6>0.
 \]
 
 \end_inset
@@ -8379,7 +7979,7 @@ This means
 
 \begin_layout Proof
 Let 
-\begin_inset Formula $N_{A}\left(i\right)=\bigcap_{W\in A}N_{\randG\left(i\right)}\left(W\right)$
+\begin_inset Formula $N_{A}\left(i\right)=\bigcap_{w\in A}N_{\randG\left(i\right)}\left(w\right)$
 \end_inset
 
 , so that 
@@ -8404,41 +8004,29 @@ Let
 \begin_inset Formula $x\notin N_{A}\left(i+1\right)$
 \end_inset
 
- is if we remove a copy of 
-\begin_inset Formula $K_{q}^{\left(r\right)}$
-\end_inset
-
- containing an 
-\begin_inset Formula $r$
-\end_inset
-
--edge 
-\begin_inset Formula $\left\{ x\right\} \cup W$
+ is if we remove a triangle containing an edge 
+\begin_inset Formula $\left\{ x,w\right\} $
 \end_inset
 
  for some 
-\begin_inset Formula $W\in A$
+\begin_inset Formula $w\in A$
 \end_inset
 
 .
  Now, for each 
-\begin_inset Formula $W\in A$
+\begin_inset Formula $w\in A$
 \end_inset
 
-, the number of copies of 
-\begin_inset Formula $K_{q}^{\left(r\right)}$
-\end_inset
-
- in 
+, the number of triangles in 
 \begin_inset Formula $\randG\left(i\right)$
 \end_inset
 
  containing the edge 
-\begin_inset Formula $\left\{ x\right\} \cup W$
+\begin_inset Formula $\left\{ x,v\right\} $
 \end_inset
 
  is 
-\begin_inset Formula $\left(1\pm O\left(e\left(i\right)\right)\right)p^{Q-1}\left(i\right)n^{q-r}/\left(q-r\right)!$
+\begin_inset Formula $\left(1\pm O\left(e\left(i\right)\right)\right)p^{2}\left(i\right)n$
 \end_inset
 
  by 
@@ -8449,31 +8037,23 @@ reference "lem:H-count"
 \end_inset
 
 .
- The number of copies of 
-\begin_inset Formula $K_{q}^{\left(r\right)}$
+ The number of triangles containing 
+\begin_inset Formula $x$
 \end_inset
 
- containing 
-\begin_inset Formula $\left\{ x\right\} \cup W$
+ and more than one vertex of 
+\begin_inset Formula $A$
 \end_inset
 
- and 
-\begin_inset Formula $\left\{ x\right\} \cup W'$
-\end_inset
-
- for two different 
-\begin_inset Formula $W,W'\in A$
-\end_inset
-
- is at most 
-\begin_inset Formula $O\left(n^{q-r-1}\right)$
+ is 
+\begin_inset Formula $O\left(1\right)$
 \end_inset
 
 .
  So,
 \begin_inset Formula 
 \begin{align*}
-\Pr\left(x\notin N_{A}\left(i+1\right)\right) & =\frac{1}{\randQ\left(i\right)}\left(\sum_{W\in A}\left(1\pm O\left(e\left(i\right)\right)\right)p^{Q-1}\left(i\right)n^{q-r}/\left(q-r\right)!-O\left(n^{q-r-1}\right)\right)\\
+\Pr\left(x\notin N_{A}\left(i+1\right)\right) & =\frac{1}{\randQ\left(i\right)}\left(\sum_{w\in A}\left(1\pm O\left(e\left(i\right)\right)\right)p^{2}\left(i\right)n-O\left(1\right)\right)\\
  & =\left|A\right|\left(1\pm O\left(e\left(i\right)\right)\right)p^{-1}\left(i\right)/N.
 \end{align*}
 
@@ -8497,7 +8077,7 @@ For
 \end_inset
 
 Note also that we have the bound 
-\begin_inset Formula $\Delta\randY_{A}\left(i\right)\le q-1=O\left(1\right)$
+\begin_inset Formula $\Delta\randY_{A}\left(i\right)\le2=O\left(1\right)$
 \end_inset
 
  (with probability 1).

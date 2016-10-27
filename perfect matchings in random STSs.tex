@@ -333,35 +333,29 @@ triple systems have a perfect matching (also known as a parallel class).
 In fact, we prove a general upper bound on the number of perfect matchings
 in a Steiner triple system and show that almost all Steiner triple
 systems essentially attain this maximum. We accomplish this via a
-general theorem comparing a uniformly random Steiner system to the
-outcome of a random clique removal process, which we hope will be
-useful for other problems. We believe our methods can be easily adapted
-to other types of designs, for example to show that almost all Latin
-squares have transversals.
+general theorem comparing a uniformly random Steiner triple system
+to the outcome of the triangle removal process, which we hope will
+be useful for other problems. We believe our methods can be easily
+adapted to other types of designs, for example to show that almost
+all Latin squares have transversals.
 \end{abstract}
 
 \section{Introduction}
 
-A \emph{Steiner system} of order $n$ with parameters $\left(q,r\right)$,
-$q>r$, is a collection $S$ of size-$q$ subsets of $\range n=\left\{ 1,\dots,n\right\} $
-(that is, a $q$-uniform hypergraph on the vertex set $\range n$),
-such that every size-$r$ subset of $\range n$ is included in exactly
-one element (hyperedge) of $S$. Steiner systems are among the most
-fundamental types of combinatorial designs, and have strong connections
-to a wide range of different subjects, ranging from group theory,
-to finite geometry, to experimental design, to the theory of error-correcting
-codes. See \cite[Chapter~19]{VW01} for an introduction to the subject.
-
-A $\left(q,1\right)$-Steiner system is a partition of $\range n$
-into subsets of size $q$. In the language of hypergraphs, it is precisely
-a $q$-uniform perfect matching. Steiner systems with all other combinations
-of parameters are notoriously difficult to study. The simplest case
-is that of $\left(3,2\right)$-Steiner systems, known as \emph{Steiner
-triple systems}. A Steiner triple system is actually nothing more
-than a triangle-decomposition of the edges of the complete graph $K_{n}$,
-so Steiner triple systems are natural ``symmetric'' counterparts
-to \emph{Latin squares}, which can be defined as triangle-decompositions
-of the complete tripartite graph $K_{n,n,n}$.
+A \emph{Steiner triple system} of order $n$ is a collection $S$
+of size-$3$ subsets of $\range n=\left\{ 1,\dots,n\right\} $ (that
+is, a $3$-uniform hypergraph on the vertex set $\range n$), such
+that every pair of vertices is included in exactly one hyperedge of
+$S$. Steiner triple systems are among the most fundamental types
+of combinatorial designs, and have strong connections to a wide range
+of different subjects, ranging from group theory, to finite geometry,
+to experimental design, to the theory of error-correcting codes. See
+\cite{CR99} for an introduction to the subject. We note that a Steiner
+triple system is actually nothing more than a triangle-decomposition
+of the edges of the complete graph $K_{n}$, so Steiner triple systems
+are natural ``symmetric'' counterparts to \emph{Latin squares},
+which can be defined as triangle-decompositions of the complete tripartite
+graph $K_{n,n,n}$.
 
 In 1974 Wilson \cite{Wil74} used estimates for the number of Latin
 squares to prove a coarse estimate for the number of Steiner triple
@@ -370,30 +364,31 @@ of Steiner triple systems have trivial automorphism group (equivalently,
 a uniformly random order-$n$ Steiner triple system a.a.s.\footnote{By ``asymptotically almost surely'', or ``a.a.s.'', we mean that
 the probability of an event is $1-o\left(1\right)$. Here and for
 the rest of the paper, asymptotics are as $n\to\infty$.} has trivial automorphism group). We believe this is the only nontrivial
-property known to hold a.a.s. for random Steiner systems with any
-combination of parameters. Following Erd\H os and R\'enyi's seminal
-paper \cite{ER59} on random graphs and Erd\H os' popularization
-of the probabilistic method, there have been great developments in
-the theory of random combinatorial structures of all kinds, but essentially
-none of the tools developed seem to be applicable to Steiner systems.
-Steiner systems lack independence or any kind of recursive structure,
-which rules out many of the techniques used to study Erd\H os-R\'enyi
-random graphs and random permutations, and there is basically no freedom
-to make local changes, which precludes the use of ``switching''
-techniques often used in the study of random regular graphs (see for
-example \cite{KSVW01}). It is not even clear how to study random
-Steiner systems empirically; in an attempt to find an efficient algorithm
-to generate a random Steiner triple system, Cameron \cite{Cam02}
-designed a Markov chain on Steiner triple systems, but he was not
-able to determine whether this chain was connected.
+property known to hold a.a.s. for random Steiner triple systems. Following
+Erd\H os and R\'enyi's seminal paper \cite{ER59} on random graphs
+and Erd\H os' popularization of the probabilistic method, there have
+been great developments in the theory of random combinatorial structures
+of all kinds, but essentially none of the tools developed seem to
+be applicable to Steiner triple systems. Steiner triple systems lack
+independence or any kind of recursive structure, which rules out many
+of the techniques used to study Erd\H os-R\'enyi random graphs and
+random permutations, and there is basically no freedom to make local
+changes, which precludes the use of ``switching'' techniques often
+used in the study of random regular graphs (see for example \cite{KSVW01}).
+It is not even clear how to study random Steiner triple systems empirically;
+in an attempt to find an efficient algorithm to generate a random
+Steiner triple system, Cameron \cite{Cam02} designed a Markov chain
+on Steiner triple systems, but he was not able to determine whether
+this chain was connected.
 
 In a huge breakthrough that will surely revolutionize design theory,
-Keevash \cite{Kee14} very recently proved that ``partial'' Steiner
-systems satisfying a certain ``quasirandomness'' condition can be
-completed into Steiner systems. He used this to settle a longstanding
-existence question for Steiner systems, and shortly afterwards \cite{Kee15}
-he proved new estimates for the number of Steiner systems with each
-combination of parameters. In particular he proved that there are
+Keevash \cite{Kee14} very recently proved that for a large class
+of combinatorial designs generalizing Steiner triple systems, ``partial''
+designs satisfying a certain ``quasirandomness'' condition can be
+completed into designs. Shortly afterwards \cite{Kee15}, he showed
+that his results could be used for approximate enumeration; in particular,
+matching an upper bound due to Linial and Luria \cite{LL13} he proved
+that there are
 \begin{equation}
 \left(n/e^{2}+o\left(n\right)\right)^{n^{2}/6}\label{eq:num-STS}
 \end{equation}
@@ -421,22 +416,23 @@ Steiner triple system. We give the details in \ref{sec:outline}.
 
 As an application of our new method, we prove that if $3\mid n$ (that
 is, if $n\equiv3\mod6$) then almost all order-$n$ Steiner triple
-systems have many perfect matchings. The existence of perfect matchings
-is one of the most central questions in the theory of graphs and hypergraphs;
-in particular, one of the most celebrated recent developments in the
-field is the Fulkerson-prize-winning work of Johansson, Kahn and Vu
-\cite{JKV08} on perfect matchings in random hypergraphs. A perfect
-matching in a Steiner triple system is also called a\emph{ parallel
-class}, and has particular significance. One of the oldest problems
-in combinatorics, famously solved by Ray-Chaudhuri and Wilson \cite{RW71},
-asks whether for all $n\equiv3\mod6$ there exists an order-$n$ Steiner
-triple system which can be partitioned into hyperedge-disjoint perfect
-matchings (a \emph{Kirkman triple system}). Alon, Kim and Spencer
-\cite{AKS97} proved that every Steiner triple system has an almost-perfect
-matching covering all but $o\left(\sqrt{n}\log^{3/2}n\right)$ vertices,
-and Bryant and Horsley \cite{BH15} proved that for infinitely many
-$n\equiv3\mod6$ there exist Steiner triple systems with no perfect
-matching.
+systems have many \emph{perfect matchings}. A perfect matching in
+a hypergraph is a collection of disjoint hyperedges partitioning the
+vertex set. The existence of perfect matchings is one of the most
+central questions in the theory of graphs and hypergraphs; in particular,
+one of the most celebrated recent developments in the field is the
+Fulkerson-prize-winning work of Johansson, Kahn and Vu \cite{JKV08}
+on perfect matchings in random hypergraphs. A perfect matching in
+a Steiner triple system is also called a\emph{ parallel class}, and
+has particular significance. One of the oldest problems in combinatorics,
+famously solved by Ray-Chaudhuri and Wilson \cite{RW71}, asks whether
+for all $n\equiv3\mod6$ there exists an order-$n$  Steiner triple
+system which can be partitioned into hyperedge-disjoint perfect matchings
+(a \emph{Kirkman triple system}). Alon, Kim and Spencer \cite{AKS97}
+proved that every Steiner triple system has an almost-perfect matching
+covering all but $o\left(\sqrt{n}\log^{3/2}n\right)$ vertices, and
+Bryant and Horsley \cite{BH15} proved that for infinitely many $n\equiv3\mod6$
+there exist Steiner triple systems with no perfect matching.
 \begin{thm}
 \label{thm:PM-in-STS}Let $n\equiv3\mod6$ and let $\randS$ be a
 uniformly random order-$n$ Steiner triple system. Then a.a.s. $\randS$
@@ -514,18 +510,16 @@ prove \ref{thm:latin}, conditional on a Keevash-type completion result.
 \subsection{Structure of the paper}
 
 The structure of this paper is as follows. In \ref{sec:outline} we
-explain our method for studying random Steiner triple systems (in
-fact, we do everything in the general setting of $\left(q,r\right)$-Steiner
-systems, because this does not introduce any difficulties). In \ref{sec:absorbers}
-we define absorbers and prove \ref{thm:PM-in-STS}, in \ref{sec:max-num-matchings}
-we prove \ref{thm:maximum-PMs}, and in \ref{sec:latin} we sketch
-how \ref{thm:latin} may be proved. In \ref{sec:concluding} we have
-some concluding remarks, including a long list of open problems. Finally,
-we have two appendices; in \ref{sec:keevash} we provide a straightforward
-but necessary adaptation of Keevash's proof of \ref{eq:num-STS},
-to estimate the number of completions of a partial Steiner system,
-and in \ref{sec:Random-triangle-removal} we have a very simple analysis
-of a clique removal process generalizing the triangle removal process.
+explain our method for studying random Steiner triple systems. In
+\ref{sec:absorbers} we define absorbers and prove \ref{thm:PM-in-STS},
+in \ref{sec:max-num-matchings} we prove \ref{thm:maximum-PMs}, and
+in \ref{sec:latin} we sketch how \ref{thm:latin} may be proved.
+In \ref{sec:concluding} we have some concluding remarks, including
+a long list of open problems. Finally, we have two appendices; in
+\ref{sec:keevash} we provide a straightforward but necessary adaptation
+of Keevash's proof of \ref{eq:num-STS}, to estimate the number of
+completions of a partial Steiner triple system, and in \ref{sec:Random-triangle-removal}
+we have a very simple analysis of the triangle removal process.
 
 \subsection{Acknowledgements}
 
@@ -534,47 +528,38 @@ helpful discussions about random designs and the intricacies of the
 absorbing method. Asaf and Benny could both have deservedly been coauthors
 on this paper, but graciously declined the opportunity.
 
-\section{\label{sec:outline}Random Steiner systems via clique removal processes}
+\section{\label{sec:outline}Random Steiner triple systems via the triangle
+removal process}
 
 In this section we describe our method for comparing random Steiner
-triple systems with the outcome of the triangle removal process. Actually,
-the situation for general $\left(q,r\right)$-Steiner systems is essentially
-the same, so we state everything in general terms in case this is
-useful in the future. For this entire section, $q$ and $r$ should
-be considered fixed, and whenever we say ``Steiner system'' we mean
-``$\left(q,r\right)$-Steiner system''. Let $Q={q \choose r}$ and
-let $N={n \choose r}/Q=\left(1+o\left(1\right)\right)\left(\left(q-r\right)!/q!\right)n^{r}$
-be the number of hyperedges in a Steiner system. We also assume $n$
-satisfies the condition that ${q-i \choose r-i}$ divides ${n-i \choose r-i}$
-for every $0\le i\le r-1$, which is necessary for the existence of
-an order-$n$ Steiner system.
+triple systems with the outcome of the triangle removal process. Let
+$N={n \choose 2}/3=\left(1+o\left(1\right)\right)n^{2}/6$ be the
+number of hyperedges in a Steiner triple system. We also assume throughout
+this section that $n$ is 1 or 3 mod 6.
 
-We will shortly state a general theorem for comparing random Steiner
-systems with clique removal processes, but first we need several definitions.
-\begin{defn}[partial Steiner systems]
-A \emph{partial Steiner system} (or \emph{partial system} for short)
-is a $q$-uniform hypergraph on $\range n$ in which every $r$-set
-of vertices is included in no more than one hyperedge. Let $\Sm m$
+We will shortly state a general theorem for comparing Steiner triple
+systems with the triangle removal processes, but first we need several
+definitions.
+\begin{defn}[partial systems]
+A \emph{partial Steiner triple system} (or \emph{partial system}
+for short) is a $3$-uniform hypergraph on $\range n$ in which every
+pair of vertices is included in no more than one hyperedge. Let $\Sm m$
 be the set of partial systems with $m$ hyperedges. We will also want
 to consider partial systems equipped with an ordering on their hyperedges.
-Let $\ord$ be the set of ordered Steiner systems, and let $\ordm m$
-be the set of ordered partial systems with $m$ hyperedges. For $S\in\ordm m$
-and $i\le m$, let $S_{i}$ be the partial system consisting of the
-first $i$ hyperedges of $S$. For a (possibly ordered) partial system
-$S$, let $G\left(S\right)$ be the $r$-uniform hypergraph with an
-edge for every pair of vertices which does not\emph{ }appear in any
-hyperedge of $S$. So, if $S$ has $m$ hyperedges, then $G\left(S\right)$
-has ${n \choose r}-Qm$ edges.
+Let $\ord$ be the set of ordered Steiner triple systems, and let
+$\ordm m$ be the set of ordered partial systems with $m$ hyperedges.
+For $S\in\ordm m$ and $i\le m$, let $S_{i}$ be the partial system
+consisting of the first $i$ hyperedges of $S$. For a (possibly ordered)
+partial system $S$, let $G\left(S\right)$ be the graph with an edge
+for every pair of vertices which does not\emph{ }appear in any hyperedge
+of $S$. So, if $S$ has $m$ hyperedges, then $G\left(S\right)$
+has ${n \choose 2}-3m$ edges.
 \end{defn}
 %
 \begin{defn}[quasirandomness]
-For an $r$-graph $G$ with $m$ edges, let $d\left(G\right)=m/{n \choose r}$
-denote its density. For an $\left(r-1\right)$-set of vertices $W$
-in an $r$-graph $G$, the \emph{neighbourhood} $N_{G}\left(W\right)$
-is the set of vertices $v$ such that $\left\{ v\right\} \cup W$
-is an edge of $G$. We say $G$ is \emph{$\left(\varepsilon,h\right)$-quasirandom}
-if for every set $A$ of $\left(r-1\right)$-sets of vertices with
-$\left|A\right|\le h$, we have $\left|\bigcap_{W\in A}N_{G}\left(W\right)\right|=\left(1\pm\varepsilon\right)d\left(G\right)^{\left|A\right|}n$.
+For a graph $G$ with $m$ edges, let $d\left(G\right)=m/{n \choose 2}$
+denote its density. We say $G$ is \emph{$\left(\varepsilon,h\right)$-quasirandom}
+if for every set $A$ of at most $h$ vertices, we have $\left|\bigcap_{w\in A}N_{G}\left(w\right)\right|=\left(1\pm\varepsilon\right)d\left(G\right)^{\left|A\right|}n$.
 (The notation $f=1\pm\varepsilon$ means $1-\varepsilon\le f\le1+\varepsilon$).
 Let $\cSm{\varepsilon,h}m\subseteq\Sm m$ be the set of partial systems
 $S\in\Sm m$ such that $G\left(S\right)$ is $\left(\varepsilon,h\right)$-quasirandom,
@@ -583,15 +568,13 @@ partial systems $S\in\ordm m$ such that $S_{i}\in\cSm{\varepsilon,h}i$
 for each $i\le m$.
 \end{defn}
 %
-\begin{defn}[the clique removal processs]
-The clique removal process is defined as follows. Start with the
-complete $r$-graph $K_{n}^{\left(r\right)}$ and iteratively delete
-a copy of $K_{q}^{\left(r\right)}$ chosen uniformly at random from
-all copies of $K_{q}^{\left(r\right)}$ in the remaining $r$-graph.
-If we continue this process for $m$ steps, the deleted copies of
-$K_{q}^{\left(r\right)}$ (in order) can be interpreted as an ordered
-partial system in $\ordm m$. It is also possible that the process
-aborts (because there are no copies of $K_{q}^{\left(r\right)}$ left)
+\begin{defn}[the triangle removal processs]
+The triangle removal process is defined as follows. Start with the
+complete graph $K_{n}$ and iteratively delete a triangle chosen uniformly
+at random from all triangles in the remaining graph. If we continue
+this process for $m$ steps, the deleted triangles (in order) can
+be interpreted as an ordered partial system in $\ordm m$. It is also
+possible that the process aborts (because there are no triangles left)
 before $m$ steps, in which case we say it returns the value ``$*$''.
 We denote by $\rg nm$ the resulting distribution on $\ordm m\cup\left\{ *\right\} $.
 \end{defn}
@@ -605,7 +588,7 @@ partial systems, let $\mathcal{Q}\supseteq\cordm{n^{-a},h}{\alpha N}$,
 let $\randS\in\ord$ be uniformly random and let $\randS'\in\rg n{\alpha N}$.
 If
 \[
-\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)\le\exp\left(-n^{r-b}\right)
+\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)\le\exp\left(-n^{2-b}\right)
 \]
 then
 \[
@@ -613,12 +596,13 @@ then
 \]
 \end{thm}
 Note that (as we prove in \ref{sec:Random-triangle-removal}), the
-clique removal process is likely to produce quasirandom graphs; that
-is, $\Pr\left(\randS'\in\mathcal{Q}\right)=1-o\left(1\right)$. However,
-as we will see in \ref{subsec:absorbers}, the conditioning in \ref{lem:triangle-removal-transfer}
-can still be useful because the probabilities under consideration
-are so small (it is certainly not true that $\Pr\left(\randS'\notin\mathcal{Q}\right)$
-is anywhere near as small as $\exp\left(-\Omega\left(n^{2}\right)\right)$).
+triangle removal process is likely to produce quasirandom graphs;
+that is, $\Pr\left(\randS'\in\mathcal{Q}\right)=1-o\left(1\right)$.
+However, as we will see in \ref{subsec:absorbers}, the conditioning
+in \ref{lem:triangle-removal-transfer} can still be useful because
+the probabilities under consideration are so small (it is certainly
+not true that $\Pr\left(\randS'\notin\mathcal{Q}\right)$ is anywhere
+near as small as $\exp\left(-\Omega\left(n^{2}\right)\right)$).
 
 \begin{comment}
 
@@ -637,27 +621,28 @@ fixed $a>0$, there is $b=b\left(a\right)>0$ such that the following
 holds. For any fixed $\alpha\in\left(0,1\right)$, any $\varepsilon\le n^{-a}$,
 and any $S,S'\in\cordm{\varepsilon,h}{\alpha N}$,
 \[
-\frac{\left|\ext S\right|}{\left|\ext{S'}\right|}\le\exp\left(n^{r-b}\right).
+\frac{\left|\ext S\right|}{\left|\ext{S'}\right|}\le\exp\left(n^{2-b}\right).
 \]
 \end{lem}
 \ref{prop:num-extensions} can be proved with only very slight adaptations
 to the proof of \ref{eq:num-STS} in \cite{Kee15}. The details are
 in \ref{sec:keevash}. The point of \ref{prop:num-extensions} is
 that if we can prove some property holds with extremely high probability
-(say $1-\exp\left(-\Omega\left(n^{r}\right)\right)$) in a uniformly
+(say $1-\exp\left(-\Omega\left(n^{2}\right)\right)$) in a uniformly
 random $\randS\in\cordm{\varepsilon,h}{\alpha N}$, then it also holds
 with essentially the same probability in $\randS_{\alpha N}$, for
 a uniformly random $\randS\in\ord$ conditioned on the event $\randS_{\alpha N}\in\cordm{\varepsilon,h}{\alpha N}$.
 
 The next step is to show that the event $\randS_{\alpha N}\in\cordm{\varepsilon,h}{\alpha N}$
 is very likely. In fact, this event occurs a.a.s. for a random ordering
-of any given Steiner system. We prove the following lemma in \ref{sec:random-is-typical}.
+of any given Steiner triple system. We prove the following lemma in
+\ref{sec:random-is-typical}.
 \begin{lem}
 \label{lem:random-is-typical}The following holds for any fixed $h\in\NN$,
 $\alpha\in\left(0,1\right)$ and $a\in\left(0,1/2\right)$. Let $\varepsilon=n^{-a}$,
-consider any Steiner system $S$, and uniformly at random order its
-hyperedges to obtain an ordered Steiner system $\randS\in\ord$. Then
-$\Pr\left(\randS_{\alpha N}\notin\cordm{\varepsilon,h}{\alpha N}\right)=\exp\left(-\Omega\left(n^{1-2a}\right)\right)$.
+consider any Steiner triple system $S$, and uniformly at random order
+its hyperedges to obtain an ordered Steiner triple system $\randS\in\ord$.
+Then $\Pr\left(\randS_{\alpha N}\notin\cordm{\varepsilon,h}{\alpha N}\right)=\exp\left(-\Omega\left(n^{1-2a}\right)\right)$.
 \end{lem}
 Therefore, if we can prove a property holds with extremely high probability
 in a uniformly random $\randS\in\cordm{\varepsilon,h}{\alpha N}$
@@ -666,14 +651,14 @@ then that property also holds a.a.s. in the first $\alpha N$ edges
 of a uniformly random $\randS\in\ord$.
 
 Next, the following lemma says that each $S\in\cordm{\varepsilon,h}{\alpha N}$
-is roughly equally likely to be produced by the clique removal process,
+is roughly equally likely to be produced by the triangle removal process,
 so that $\RR\left(n,\alpha N\right)$ approximates the uniform distribution
 on $S\in\cordm{\varepsilon,h}{\alpha N}$. It is proved in \ref{sec:greedy-random-approx-uniform}.
 \begin{lem}
 \label{lem:greedy-random-approx-uniform}For any $a>0$ and $\alpha\in\left[0,1\right]$,
-and for $S,S'\in\cordm{n^{-a},q-1}{\alpha N}$ and $\randS\in\rg n{\alpha N}$,
+and for $S,S'\in\cordm{n^{-a},2}{\alpha N}$ and $\randS\in\rg n{\alpha N}$,
 \[
-\frac{\Pr\left(\randS=S\right)}{\Pr\left(\randS=S'\right)}\le\exp\left(O\left(n^{r-a}\right)\right).
+\frac{\Pr\left(\randS=S\right)}{\Pr\left(\randS=S'\right)}\le\exp\left(O\left(n^{2-a}\right)\right).
 \]
 \end{lem}
 We can finally combine everything to prove \ref{lem:triangle-removal-transfer}.
@@ -681,7 +666,7 @@ We can finally combine everything to prove \ref{lem:triangle-removal-transfer}.
 We have
 \begin{align*}
 \Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right) & \le\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\cond\randS_{\alpha N}\in\cordm{n^{-a},h}{\alpha N}\right)+\Pr\left(\randS_{\alpha N}\notin\cordm{n^{-a},h}{\alpha N}\right)\\
- & \le\exp\left(O\left(n^{r-c}\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{n^{-a},h}{\alpha N}\right)+\exp\left(-\Omega\left(n^{1-2a}\right)\right),
+ & \le\exp\left(O\left(n^{2-c}\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{n^{-a},h}{\alpha N}\right)+\exp\left(-\Omega\left(n^{1-2a}\right)\right),
 \end{align*}
 where $c=b\left(a\right)$ in the notation of \ref{prop:num-extensions}.
 But, if $a$ is small enough then \ref{lem:triangle-removal-analysis}
@@ -697,7 +682,7 @@ and in \ref{sec:greedy-random-approx-uniform} we prove \ref{lem:greedy-random-ap
 Also, in \ref{lem:bite-transfer} we prove some lemmas which are useful
 tools for applying \ref{lem:triangle-removal-transfer} in practice.
 
-\subsection{Randomly ordered Steiner systems\label{sec:random-is-typical}}
+\subsection{Randomly ordered Steiner triple systems\label{sec:random-is-typical}}
 
 In this subsection we prove \ref{lem:random-is-typical}.
 \begin{proof}
@@ -706,10 +691,9 @@ system) is a uniformly random subset of $m$ hyperedges of $S$. We
 can obtain an almost equivalent random partial system by including
 each hyperedge of $S$ with independent probability $m/N$. Let $\randS'$
 denote the partial system so obtained, and let $\randG'=G\left(\randS'\right)$.
-Now, fix a set $A$ of $\left(r-1\right)$-sets of vertices with $\left|A\right|\le h$.
-It suffices to prove
+Now, fix a set $A$ of at most $h$ vertices. It suffices to prove
 \begin{align}
-\left|\bigcap_{W\in A}N_{\randG'}\left(W\right)\right| & =\left(1+O\left(n^{-a}\right)\right)\left(1-\frac{m}{N}\right)^{\left|A\right|}n,\label{eq:degree-random-binomial}
+\left|\bigcap_{w\in A}N_{\randG'}\left(w\right)\right| & =\left(1+O\left(n^{-a}\right)\right)\left(1-\frac{m}{N}\right)^{\left|A\right|}n,\label{eq:degree-random-binomial}
 \end{align}
 with probability $1-\exp\left(-\Omega\left(n^{1-2a}\right)\right)$.
 Indeed, the so-called Pittel inequality (see \cite[p.~17]{JLR00})
@@ -719,22 +703,22 @@ we can apply the union bound over all $m\le\alpha N$ and all choices
 of $A$.
 
 Note that there are at most ${\left|A\right| \choose 2}=O\left(1\right)$
-hyperedges of $S$ that include more than one set in $A$ (this follows
-from the Steiner property, because the intersection of two sets in
-$A$ has size at least $r$). Let $U$ be the set of vertices involved
-in these atypical hyperedges, plus the vertices that appear in sets
-in $A$, so that $\left|U\right|=O\left(1\right)$. Let $\randN=\left|\left(\bigcap_{W\in A}N_{\randG'}\left(W\right)\right)\backslash U\right|$.
-For every $v\notin U$ and $W\in A$ there is exactly one hyperedge
-$e_{v}^{W}$ in $S$ containing $v$ and $W$, whose presence in $\randS'$
+hyperedges of $S$ that include more than one vertex in $A$ (by the
+defining property of a Steiner triple system). Let $U$ be the set
+of vertices involved in these atypical hyperedges, plus the vertices
+that appear in sets in $A$, so that $\left|U\right|=O\left(1\right)$.
+Let $\randN=\left|\left(\bigcap_{w\in A}N_{\randG'}\left(w\right)\right)\backslash U\right|$.
+For every $v\notin U$ and $w\in A$ there is exactly one hyperedge
+$e_{v}^{w}$ in $S$ containing $v$ and $w$, whose presence in $\randS'$
 would prevent $v$ from contributing to $\randN$. For each $v\notin U$
-the hyperedges $e_{v}^{W}$ are distinct, so
+the hyperedges $e_{v}^{w}$ are distinct, so
 \[
-\Pr\left(v\in\bigcap_{W\in A}N_{\randG'}\left(W\right)\right)=\left(1-\frac{m}{N}\right)^{\left|A\right|},
+\Pr\left(v\in\bigcap_{w\in A}N_{\randG'}\left(w\right)\right)=\left(1-\frac{m}{N}\right)^{\left|A\right|},
 \]
 and by linearity of expectation $\E\randN=\left(1-m/N\right)^{\left|A\right|}\left(n-O\left(1\right)\right)$.
 Now, $\randN$ is determined by the presence of at most $\left(n-\left|U\right|\right)\left|A\right|=O\left(n\right)$
 hyperedges in $\randS'$, and changing the presence of each affects
-$\randN$ by at most $q-1=O\left(1\right)$. So, by the Azuma-Hoeffding
+$\randN$ by at most $2=O\left(1\right)$. So, by the Azuma-Hoeffding
 inequality (see \cite[Section~2.4]{JLR00}),
 \begin{align*}
 \Pr\left(\left|\randN-\left(1-\frac{m}{N}\right)^{\left|A\right|}n\right|>n^{-a}\left(1-\frac{m}{N}\right)^{\left|A\right|}n\right) & \le\exp\left(-\Omega\left(\frac{\left(n^{-a}\left(1-\alpha\right)^{h}n\right)^{2}}{n}\right)\right)\\
@@ -744,43 +728,41 @@ Finally, we recall that $\left|\left(\bigcap_{x\in X}N_{\randG'}\left(x\right)\r
 which completes the proof of \ref{eq:degree-random-binomial}.
 \end{proof}
 
-\subsection{Approximate uniformity of the clique removal process\label{sec:greedy-random-approx-uniform}}
+\subsection{Approximate uniformity of the triangle removal process\label{sec:greedy-random-approx-uniform}}
 
 In this subsection we prove \ref{lem:greedy-random-approx-uniform}.
 We first make a simple observation about small subgraph statistics
 in quasirandom hypergraphs, which we will use at several points in
 the paper.
 \begin{prop}
-\label{lem:H-count}Let $H$ be a fixed $r$-graph with an identified
-vertex subset $U$, and let $\left|\operatorname{Aut}\left(H,U\right)\right|$
+\label{lem:H-count}Let $H$ be a fixed graph with an identified vertex
+subset $U$, and let $\left|\operatorname{Aut}\left(H,U\right)\right|$
 be the number of automorphisms of $H$ fixing $U$. Let $G$ be an
-$\left(\varepsilon,v\left(H\right)-1\right)$-quasirandom $r$-graph
-on $n$ vertices, and let $F$ be a copy of the induced $r$-graph
-$H\left[U\right]$ in $G$. Then, the number of completions of $F$
-to a copy of $H$ is 
+$\left(\varepsilon,v\left(H\right)-1\right)$-quasirandom graph on
+$n$ vertices, and let $F$ be a copy of the induced graph $H\left[U\right]$
+in $G$. Then, the number of completions of $F$ to a copy of $H$
+is 
 \[
-\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)}\frac{n^{q-\left|U\right|}}{\left|\operatorname{Aut}\left(H,U\right)\right|}.
+\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)}\frac{n^{v\left(H\right)-\left|U\right|}}{\left|\operatorname{Aut}\left(H,U\right)\right|}.
 \]
 In particular, the number of copies of $H$ in $G$ is 
 \[
-\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)}\frac{n^{q}}{\left|\operatorname{Aut}\left(H\right)\right|}.
+\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)}\frac{n^{v\left(H\right)}}{\left|\operatorname{Aut}\left(H\right)\right|}.
 \]
 \end{prop}
 \begin{proof}
 It suffices to show that the number of embeddings of $H$ (as a labelled
 object) into $G$ extending $F$ is
 \[
-\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)}n^{q-\left|V\right|}.
+\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)}n^{v\left(H\right)-\left|U\right|}.
 \]
 We prove this by induction on the number of vertices in $V\left(H\right)\backslash U$.
 The base case is where $U=V\left(H\right)$, which is trivial. Fix
 a vertex $v\in V\left(H\right)\backslash U$; by induction there are
 \[
-\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)-d_{H}\left(v\right)}n^{q-\left|V\right|-1}
+\left(1\pm O\left(\varepsilon\right)\right)\left(1-\frac{i}{N}\right)^{e\left(H\right)-e\left(F\right)-d_{H}\left(v\right)}n^{v\left(H\right)-\left|U\right|-1}
 \]
-embeddings of $H-v$ extending $F$, where $d_{H}\left(v\right)$
-is the number of edges of $H$ containing $v$. For each such embedding,
-by $\left(\varepsilon,v\left(H\right)-1\right)$-quasirandomness,
+embeddings of $H-v$ extending $F$. For each such embedding, by $\left(\varepsilon,v\left(H\right)-1\right)$-quasirandomness,
 there are $\left(1\pm\varepsilon\right)\left(1-\frac{i}{N}\right)^{d_{H}\left(v\right)}n$
 ways to choose a vertex of $G$ with the right adjacencies to complete
 the embedding of $H$.
@@ -789,18 +771,18 @@ Now we are ready to prove \ref{lem:greedy-random-approx-uniform}.
 \begin{proof}
 Each $G\left(S_{i}\right)$ has 
 \[
-\left(1\pm O\left(n^{-a}\right)\right)\left(1-\frac{i}{N}\right)^{Q}\frac{n^{q}}{q!}
+\left(1\pm O\left(n^{-a}\right)\right)\left(1-\frac{i}{N}\right)^{3}\frac{n^{3}}{6}
 \]
- copies of $K_{q}^{\left(r\right)}$, by $\left(n^{-a},q-1\right)$-quasirandomness
-and \ref{lem:H-count}. We therefore have
+triangles, by $\left(n^{-a},2\right)$-quasirandomness and \ref{lem:H-count}.
+We therefore have
 \[
-\Pr\left(\randS=S\right)=\prod_{i=0}^{\alpha N-1}\frac{1}{\left(1\pm O\left(n^{-a}\right)\right)\left(1-i/N\right)^{Q}n^{q}/q!},
+\Pr\left(\randS=S\right)=\prod_{i=0}^{\alpha N-1}\frac{1}{\left(1\pm O\left(n^{-a}\right)\right)\left(1-i/N\right)^{3}n^{3}/6},
 \]
 and a similar expression holds for $\Pr\left(\randS=S'\right)$. Taking
 quotients term-by-term gives
 \begin{align*}
 \frac{\Pr\left(\randS=S\right)}{\Pr\left(\randS=S'\right)} & \le\left(1+O\left(n^{-a}\right)\right)^{\alpha N}\\
- & \le\exp\left(O\left(n^{r-a}\right)\right)
+ & \le\exp\left(O\left(n^{2-a}\right)\right)
 \end{align*}
 as desired.
 \end{proof}
@@ -809,48 +791,48 @@ as desired.
 
 In this subsection we prove two lemmas that will be useful in combination
 with \ref{lem:triangle-removal-transfer}. First, after some necessary
-definitions we will show how to couple the clique removal process
+definitions we will show how to couple the triangle removal process
 with a simpler random hypergraph distribution.
 \begin{defn}
 For a partial system $S$, let $\Gnp Sp$ be the random distribution
-on $q$-uniform hypergraphs where each hyperedge not conflicting with
-$S$ (that is, not intersecting a hyperedge of $S$ in more than $r-1$
+on $3$-uniform hypergraphs where each hyperedge not conflicting with
+$S$ (that is, not intersecting a hyperedge of $S$ in more than $2$
 vertices) is included with probability $p$. So, if $\varnothing$
 is the empty order-$n$ partial system, then $\Gnp{\varnothing}p:=\Gnp np$
-is the standard binomial random $r$-graph. Let $\GSnp Sp$ be the
-distribution on partial systems obtained from $\Gnp Sp$ by considering
-all hyperedges which intersect another hyperedge in more than $r-1$
-vertices, and deleting all these hyperedges. Let $\rg Sm$ be the
-partial system distribution obtained with $m$ steps of the clique
-removal process starting from $G\left(S\right)$.
+is the standard binomial random 3-graph. Let $\GSnp Sp$ be the distribution
+on partial systems obtained from $\Gnp Sp$ by considering all hyperedges
+which intersect another hyperedge in more than $2$ vertices, and
+deleting all these hyperedges. Let $\rg Sm$ be the partial system
+distribution obtained with $m$ steps of the triangle removal process
+starting from $G\left(S\right)$.
 \end{defn}
-Let $P=n^{r-q}\left(q-r\right)!$ so that ${n \choose q}P=\left(1+o\left(1\right)\right)N$.
-For small $\alpha>0$, we can view $\GSnp S{\alpha P}$ as a ``bite''
+Note that ${n \choose 3}/n=\left(1+o\left(1\right)\right)N$. For
+small $\alpha>0$, we can view $\GSnp S{\alpha/n}$ as a ``bite''
 of a ``nibbling'' process (see for example \cite[Section~4.7]{AS04}),
 that should be similar to $\rg S{\alpha N}$.
 \begin{lem}
 \label{lem:bite-transfer}let $\mathcal{P}$ be a property of unordered
 partial systems that is monotone increasing in the sense that $S\in\mathcal{P}$
-and $S'\supseteq S$ implies $S'\in\mathcal{P}$. For fixed $h\ge q-1$
+and $S'\supseteq S$ implies $S'\in\mathcal{P}$. For fixed $h\ge2$
 and $a\in\left(0,1\right)$ there is $b\left(a,h\right)>0$ such that
 the following holds. Fix $\alpha\in\left(0,1\right)$ and $S\in\cordm{n^{-a},h}m$
 for some $m\le N-\alpha N$ and let $\mathcal{Q}=\left\{ S\in\cordm{n^{-b},h}{\alpha N+m}:S_{m}\in\cordm{n^{-a},h}m\right\} \supseteq\cordm{n^{-a},h}{\alpha N+m}$.
-Let $\randS\in\rg S{\alpha N}$ and $\randS^{*}\in\GSnp S{\alpha P}$.
+Let $\randS\in\rg S{\alpha N}$ and $\randS^{*}\in\GSnp S{\alpha/n}$.
 Then
 \[
 \Pr\left(S\cup\randS\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\right)=O\left(1\right)\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right).
 \]
 \end{lem}
 \begin{proof}
-Let $\randS^{*}\in\GSnp S{\alpha P}$ be obtained from $\randG\in\Gnp S{\alpha P}$.
+Let $\randS^{*}\in\GSnp S{\alpha/n}$ be obtained from $\randG\in\Gnp S{\alpha/n}$.
 Note that conditioning on the number of edges in $\randG$, its edges
 comprise a uniformly random subset of its size, of the set of all
 possible edges. With probability $\Omega\left(1\right)$ the number
-of edges in $\randG$ is at most ${n \choose q}\alpha P\le\alpha N$,
+of edges in $\randG$ is at most ${n \choose 3}\alpha/n\le\alpha N$,
 in which case $\randS^{*}$ can be coupled as a subset of $\randS$.
 Indeed, a random ordering of $\randG$ can be viewed as the first
 few elements of a random ordering of the set of all possible edges,
-and the clique removal process with this ordering produces a superset
+and the triangle removal process with this ordering produces a superset
 of $\randS^{*}$.
 
 Now, let $b$ be $a\,b\left(a,h\right)$ in the notation of \ref{lem:triangle-removal-analysis},
@@ -863,7 +845,7 @@ We have
 \end{align*}
 \end{proof}
 In this subsection we also state and prove a bounded-differences inequality
-with Bernstein-type tails which can be used to analyse $\GSnp S{\alpha P}$.
+with Bernstein-type tails which can be used to analyse $\GSnp S{\alpha/n}$.
 Standard bounded-difference inequalities such as the Azuma-Hoeffding
 inequality do not provide strong enough tail bounds to apply \ref{lem:triangle-removal-transfer}.
 \begin{thm}
@@ -1097,10 +1079,7 @@ event, with probability $1-\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right)$.
 (A tilde above asymptotic nation indicates that polylogarithmic factors
 are being ignored). This will allow us to use \ref{lem:triangle-removal-transfer}
 to deduce that the same is true for a uniformly random Steiner triple
-system, proving \ref{thm:PM-in-STS}. Recall that Steiner triple systems
-have $q=3$ and $r=2$, so in the notation of \ref{sec:outline} (and
-\ref{sec:nibble-TRP-coupling}) we have $Q=3$, $N={n \choose 2}/3=\left(1+o\left(1\right)\right)n^{2}/6$
-and $P=1/n$.
+system, proving \ref{thm:PM-in-STS}.
 
 Fix a large constant $h\in\NN$ (we will see later exactly how large
 it should be), and consider arbitrarily small $\alpha>0$. We will
@@ -1422,9 +1401,9 @@ to prove \ref{thm:latin} in basically the same way as the proof of
 \section{Concluding remarks\label{sec:concluding}}
 
 In this paper we introduced a new method for analysing random Steiner
-systems, and we used it to prove that almost all Steiner triple systems
-have many perfect matchings. There are many interesting open questions
-about random Steiner (triple) systems and perfect matchings that remain.
+triple systems, and we used it to prove that almost all Steiner triple
+systems have many perfect matchings. There are many interesting open
+questions that remain.
 \begin{itemize}
 \item We believe the most interesting problem that seems approachable by
 our methods is to prove that almost all Steiner triple systems (and
@@ -1437,14 +1416,16 @@ require a new idea. For Latin squares, the property of being decomposable
 into transversals is equivalent to the important property of having
 an \emph{orthogonal mate}, which has a long history dating back to
 Euler. More details can be found in \cite{Wan11}.
-\item There is the obvious question of proving that almost all $\left(q,r\right)$-Steiner
-systems have perfect matchings, for all choices of $\left(q,r\right)$.
-We believe this should be possible using the methods in this paper,
-and the main difficulty probably lies in coming up with a suitable
-absorber. If $r>2$ then there is the more general (and much more
-difficult) question of whether $\left(q,r\right)$-Steiner systems
-typically contain $\left(q,r'\right)$-Steiner systems, for all $r'<r$.
-It might even be true that almost all $\left(q,r\right)$-Steiner
+\item A $\left(q,r\right)$-Steiner system ($q>r$) is a $q$-uniform hypergraph
+such that every $r$-set of vertices is included in exactly one hyperedge
+(so, a Steiner triple system is a $\left(3,2\right)$-Steiner system).
+We believe that our results should generalize to Steiner systems with
+any combination of parameters, and the main difficulty probably lies
+in coming up with a suitable absorber. Note that a perfect matching
+is actually a $\left(q,1\right)$-Steiner system, so if $r>2$ then
+there is the more general (and much more difficult) question of whether
+$\left(q,r\right)$-Steiner systems typically contain $\left(q,r'\right)$-Steiner
+systems, for all $r'<r$. It might even be true that almost all $\left(q,r\right)$-Steiner
 systems can be ``completely decomposed'' in the sense that they
 can be partitioned into disjoint $\left(q,r-1\right)$-Steiner systems,
 which can be partitioned into $\left(q,r-2\right)$-Steiner systems,
@@ -1484,7 +1465,7 @@ discrepancy of Latin squares and their high-dimensional relatives.
 \begin{appendices}
 \crefalias{section}{appsec}
 
-\section{\label{sec:keevash}Counting completions of Steiner systems}
+\section{\label{sec:keevash}Counting completions of Steiner triple systems}
 
 \global\long\def\coG{G}
 
@@ -1497,27 +1478,23 @@ discrepancy of Latin squares and their high-dimensional relatives.
 \global\long\def\randR{\boldsymbol{R}}
 
 In this section we prove \ref{prop:num-extensions}. This is accomplished
-with minor adaptations of a proof by Keevash \cite{Kee15}. As in
-\ref{sec:outline}, we consider $q$ and $r$ to be fixed, let $Q={q \choose r}$,
-let $N={n \choose r}/Q$ and impose that ${q-i \choose r-i}$ divides
-${n-i \choose r-i}$ for every $0\le i\le r-1$.
+with minor adaptations of proofs by Linial and Luria \cite{LL13}
+and Keevash \cite{Kee15}. As in \ref{sec:outline}, let $N={n \choose 2}/3$
+and assume that $n$ is 1 or 3 mod 6.
 
 For a partial system $S\in\S_{\alpha N}^{n^{-a}}$, let $\Sext S$
-be the number of Steiner systems that contain $S$. We want to determine
-$\left|\ext S\right|=\left(N-\alpha N\right)!\left|\Sext S\right|$
+be the number of Steiner triple systems that contain $S$. We want
+to determine $\left|\ext S\right|=\left(N-\alpha N\right)!\left|\Sext S\right|$
 up to a factor of $e^{n^{2-b}}$ (for some $b$).
 
-First, we can get an upper bound via the entropy method. This proof
-is almost exactly the same to the proof of \cite[Theorem~6.1]{Kee15},
-and is very similar to the proof that appears in a paper by Linial
-and Luria \cite{LL13} about Steiner triple systems. The reader may
-refer to that paper for more detailed exposition and a brief introduction
-to the notion of entropy.
+First, we can get an upper bound via the method of Linial and Luria
+\cite{LL13}. The reader should refer to that paper for more detailed
+exposition and a brief introduction to the notion of entropy.
 \begin{thm}
 \label{thm:number-of-completions-upper}For any $a>0$, any $\alpha\in\left[0,1\right]$,
-and any $S^{*}\in\cSm{n^{-a},q-1}{\alpha N}$,
+and any $S^{*}\in\cSm{n^{-a},2}{\alpha N}$,
 \[
-\left|\Sext{S^{*}}\right|\le\left(\left(1+O\left(n^{-a}\right)\right)\left(\frac{1-\alpha}{e}\right)^{Q-1}{n-r \choose q-r}\right)^{N\left(1-\alpha\right)}.
+\left|\Sext{S^{*}}\right|\le\left(\left(1+O\left(n^{-a}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}.
 \]
 \end{thm}
 \begin{proof}
@@ -1525,41 +1502,31 @@ Let $\randS\in\Sext{S^{*}}$ be a uniformly random completion of $S$.
 Let $H\left(\randS\right)=\log\left|\Sext{S^{*}}\right|$ be the entropy
 of $\randS$.
 
-Let $\coG=G\left(S^{*}\right)$. For each $e\in\coG$, let $\randS_{e}$
-be the $q$-edge that includes $e$ in $\randS$. So, the sequence
-$\left(\randS_{e}\right)_{e\in\coG}$ determines $\randS$. For any
-ordering on the $r$-edges of $\coG$, we have
+Let $\coG=G\left(S^{*}\right)$. For each $e=\left\{ x,y\right\} \in\coG$,
+let $\left\{ x,y,\randz_{e}\right\} $ be the hyperedge that includes
+$e$ in $\randS$. So, the sequence $\left(\randz_{e}\right)_{e\in\coG}$
+determines $\randS$. For any ordering on the edges of $\coG$, we
+have
 \[
-H\left(\randS\right)=\sum_{e\in\coG}H\left(\randS_{e}\cond\left(\randS_{e'}\,\colon\,e'<e\right)\right).
+H\left(\randS\right)=\sum_{e\in\coG}H\left(\randz_{e}\cond\left(\randz_{e'}\,\colon\,e'<e\right)\right).
 \]
 Now, a sequence $\lambda\in\left[0,1\right]^{E\left(\coG\right)}$
-with all $\lambda_{e}$ distinct induces an ordering on the $r$-edges
+with all $\lambda_{e}$ distinct induces an ordering on the edges
 of $\coG$, with $e'<e$ when $\lambda_{e'}>\lambda_{e}$. Let $\randR_{e}\left(\lambda\right)$
-be an upper bound on the number of possible values for $\randS_{e}$
-given the information $\left(\randS_{e'}\,\colon\,\lambda_{e'}>\lambda_{e}\right)$,
-defined as follows. $\randR_{e}=1$ if $\lambda_{e'}>\lambda_{e}$
-for any of the $r$-subsets $e'\subseteq\randS_{e}$ (because in this
-case $\randS_{e}$ is determined), and otherwise $\randR_{e}$ is
-1 plus the number of $q$-sets of vertices $X\ne\randS_{e}$ containing
-$e$ such that 
-\begin{itemize}
-\item $f\in\coG$ for each $r$-subset $f\subseteq X$, and
-\item $\lambda_{e'}<\lambda_{e}$ for each of the $r$-edges $e'\in\coG$
-included in any of the $q$-edges of $\randS$ that include the $r$-subsets
-in $\left\{ f:f\subseteq X,\left|f\right|=r\right\} \backslash\randS_{e}$.
-\end{itemize}
-Note that the number of edges $e'$ considered by the second bullet
-point is $Q\left(Q-1\right)$ unless $\left|X\cap B\right|>r$ for
-some $q$-edge $B$ in $\randS$ (in this case we say $X$ is ``bad'').
-By \ref{lem:H-count}, the number of choices for $X$ is 
-\[
-\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}\frac{n^{q-r}}{\left(q-r\right)!}=\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}
-\]
- and the number of those that are bad is at most $\sum_{i=r+1}^{q}N{n \choose q-r-i}=O\left(n^{q-r-1}\right)$.
+be an upper bound on the number of possible values for $\randz_{e}$
+given the information $\left(\randz_{e'}\,\colon\,\lambda_{e'}>\lambda_{e}\right)$,
+defined as follows. $\randR_{e}=1$ if $\lambda_{\left\{ x,\randz_{e}\right\} }>\lambda_{e}$
+or $\lambda_{\left\{ y,\randz_{e}\right\} }>\lambda_{e}$ (because
+in this case $\randz_{e}$ is determined), and otherwise $\randR_{e}$
+is 1 plus the number of vertices $v\notin\left\{ x,y,\randz_{e}\right\} $
+such that $\left\{ x,v\right\} ,\left\{ y,v\right\} \in\coG$ and
+$\lambda_{e'}<\lambda_{e}$ for each of the 6 edges $e'\in\coG$ included
+in the hyperedges that include $\left\{ x,v\right\} $ and $\left\{ y,v\right\} $
+in $\randS$.
 
 Now, note that for any $\lambda$ we have
 \[
-H\left(\randS_{e}\cond\left(\randS_{e'}\,\colon\,\lambda_{e'}>\lambda_{e'}\right)\right)\le\E\left[\log\randR_{e}\left(\lambda\right)\right].
+H\left(\randz_{e}\cond\left(\randz_{e'}\,\colon\,\lambda_{e'}>\lambda_{e'}\right)\right)\le\E\left[\log\randR_{e}\left(\lambda\right)\right].
 \]
 Let $\randl=\left(\randl_{e}\right)_{e\in\coG}$ be a sequence of
 independent random variables, where each $\randl_{e}$ has the uniform
@@ -1572,75 +1539,75 @@ H\left(\randS\right)=\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\ri
 Next, for any $S\in\Sext{S^{*}}$ and $\lambda\in\left[0,1\right]$,
 let 
 \[
-R_{e}^{S,\lambda}=\E\left[\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{e'}<\randl_{e}\textrm{ for all }e'\subseteq\randS_{e}\backslash\left\{ e\right\} \right].
+R_{e}^{S,\lambda}=\E\left[\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\right].
 \]
-By the discussion above, and linearity of expectation, we have 
-\begin{align*}
-R_{e}^{S,\lambda} & =\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}-O\left(n^{q-r-1}\right)\right)\lambda^{Q\left(Q-1\right)}\\
- & =\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}\lambda^{Q\left(Q-1\right)}.
-\end{align*}
+Now, in $\coG$, by quasirandomness $x$ and $y$ have $\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}n$
+common neighbours. By the discussion above, and linearity of expectation,
+we have 
+\[
+R_{e}^{S,\lambda}=\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}\lambda^{6}n.
+\]
 Now, by Jensen's inequality,
 \[
-\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{e}=\lambda,\,\randl_{e'}<\randl_{e}\textrm{ for all }e'\subseteq\randS_{e}\backslash\left\{ e\right\} \right]\le\log R_{e}^{S,\lambda},
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\right]\le\log R_{e}^{S,\lambda},
 \]
 and 
 \[
-\Pr\left(\randl_{e}=\lambda,\,\randl_{e'}<\randl_{e}\textrm{ for all }e'\subseteq\randS_{e}\backslash\left\{ e\right\} \cond\randl_{e}=\lambda\right)=\lambda^{Q-1},
+\Pr\left(\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\cond\randl_{e}=\lambda\right)=\lambda^{2},
 \]
 so
 \[
-\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda\right]\le\lambda^{Q-1}\log R_{e}^{S,\lambda}+\left(1-\lambda^{Q-1}\right)\log1=\lambda^{2}\log R_{e}^{S,\lambda}.
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda\right]\le\lambda^{2}\log R_{e}^{S,\lambda}+\left(1-\lambda^{2}\right)\log1=\lambda^{2}\log R_{e}^{S,\lambda}.
 \]
 For any $S\in\Sext{S^{*}}$, we then have 
 \begin{align*}
-\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S\right] & \le\E\left[\lambda^{Q-1}\log R_{e}^{S,\randl_{e}}\right]\\
- & =\int_{0}^{1}\lambda^{Q-1}\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}\lambda^{Q\left(Q-1\right)}\right)\d\lambda\\
- & =\frac{1}{Q}\left(\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}\right)-\left(Q-1\right)\right),
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S\right] & \le\E\left[\lambda^{2}\log R_{e}^{S,\randl_{e}}\right]\\
+ & =\int_{0}^{1}\lambda^{2}\log\left(\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}\lambda^{6}n\right)\d\lambda\\
+ & =\frac{1}{3}\left(\log\left(\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}n\right)-2\right)
 \end{align*}
 using the fact that $\int_{0}^{1}\lambda^{A-1}\log\left(C\lambda^{B}\right)\d t=A^{-1}\log C-A^{-2}B$
 for any $A,B,C>0$. We conclude 
 \begin{align*}
 \log\left|\Sext{S^{*}}\right| & \le H\left(\randS\right)\\
  & \le\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right]\\
- & \le\left(N-\alpha N\right)\frac{1}{Q}\left(\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{Q-1}{n-r \choose q-r}\right)-\left(Q-1\right)\right),
+ & \le\left(N-\alpha N\right)\frac{1}{3}\left(\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}n\right)-2\right),
 \end{align*}
 which is equivalent to the theorem statement.
 \end{proof}
-For the lower bound, we will count ordered Steiner systems.
+For the lower bound, we will count ordered Steiner triple systems.
 \begin{thm}
 \label{thm:number-of-completions-lower}There is $h\in\NN$ such that
 for any $a>0$, there is $b=b\left(a\right)$ such that the following
 holds. For any $\alpha\in\left(0,1\right)$ and any $S^{*}\in\cordm{n^{-a},h}{\alpha N}$,
 \[
-\left|\ext{S^{*}}\right|\le\left|\Sext{S^{*}}\right|\le\left(\left(1+O\left(n^{-a}\right)\right)\left(\frac{1-\alpha}{e}\right)^{Q-1}{n-r \choose q-r}\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
+\left|\ext{S^{*}}\right|\le\left|\Sext{S^{*}}\right|\le\left(\left(1+O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
 \]
 \end{thm}
 To prove \ref{thm:number-of-completions-lower} we will need an analysis
-of the clique removal process (see \ref{sec:Random-triangle-removal})
+of the triangle removal process (see \ref{sec:Random-triangle-removal})
 and the following immediate consequence of \cite[Theorem~2.1]{Kee15}.
 \begin{thm}
 \label{thm:keevash}There are $h\in\NN$, $\varepsilon_{0},a\in\left(0,1\right)$
 and $n_{0},\ell\in\NN$ such that if $S\in\cSm{\varepsilon,h}m$ is
 a partial system with $n\ge n_{0}$, with $d\left(G\left(S\right)\right)=1-m/N\ge n^{-a}$
 and $\varepsilon\le\varepsilon_{0}d\left(G\right)^{\ell}$, then $S$
-can be completed to an Steiner system.
+can be completed to a Steiner triple system.
 \end{thm}
 \global\long\def\extm#1#2{\mathcal{O}_{#1}^{\mathrm{ext}}\left(#2\right)}
 
 \begin{proof}[Sketch of proof of \ref{thm:number-of-completions-lower}]
-Let $h$ be as in \ref{thm:keevash}. Fix small $c$ (smaller than
-$a\,b\left(a,h\right)$ in the notation of \ref{lem:triangle-removal-analysis}),
-let $\varepsilon=n^{-c}$ and let $M=\left(1-\varepsilon\right)N$.
-Let $\randS\in\RR\left(S,M-m\right)$ be the result of running the
-clique removal process on $G\left(S\right)$ to build a partial system
-extending $S$, until there are $M$ hyperedges. Let $\ord^{*}$ be
-the set of $M$-hyperedge $\left(\varepsilon,h\right)$-quasirandom
+Let $h$ be as in \ref{thm:keevash}. Let $c=a\,b\left(a,h\right)$
+in the notation of \ref{lem:triangle-removal-analysis}, let $\varepsilon=n^{-c}$
+and let $M=\left(1-\varepsilon\right)N$. Let $\randS\in\RR\left(S,M-m\right)$
+be the result of running the triangle removal process on $G\left(S\right)$
+to build a partial system extending $S$, until there are $M$ hyperedges.
+Let $\ord^{*}$ be the set of $M$-hyperedge $\left(\varepsilon,h\right)$-quasirandom
 ordered partial systems $S\in\cordm{\varepsilon,h}M$ extending $S$.
-By \ref{lem:H-count}, for each $S\in\ord^{*}$, the number of copies
-of $K_{q}^{\left(r\right)}$ in each $G\left(S_{i}\right)$ is $\left(1\pm O\left(n^{-c}\right)\right)\left(1-i/N\right)^{Q}n^{q}/q!$
+By \ref{lem:H-count}, for each $S\in\ord^{*}$, the number of triangles
+in each $G\left(S_{i}\right)$ is $\left(1\pm O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6$
 by quasirandomness. So,
 \[
-\Pr\left(\randS=S\right)\le\prod_{i=\alpha N}^{M}\frac{1}{\left(1-O\left(n^{-c}\right)\right)\left(1-i/N\right)^{Q}n^{q}/q!}.
+\Pr\left(\randS=S\right)\le\prod_{i=\alpha N}^{M}\frac{1}{\left(1-O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6}.
 \]
 By \ref{lem:triangle-removal-analysis} we have 
 \[
@@ -1648,8 +1615,8 @@ By \ref{lem:triangle-removal-analysis} we have
 \]
 so 
 \begin{align*}
-\left|\ord^{*}\right| & \ge\left(1-o\left(1\right)\right)\prod_{i=\alpha N}^{M}\left(1-O\left(n^{-c}\right)\right)\left(1-\frac{i}{N}\right)^{Q}n^{q}/q!.\\
- & =\left(\left(1-O\left(n^{-c}\right)\right)\frac{n^{q}}{q!}\right)^{\left(1-\alpha\right)N}\exp\left(Q\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right).
+\left|\ord^{*}\right| & \ge\left(1-o\left(1\right)\right)\prod_{i=\alpha N}^{M}\left(1-O\left(n^{-c}\right)\right)\left(1-\frac{i}{N}\right)^{3}n^{3}/6.\\
+ & =\left(\left(1-O\left(n^{-c}\right)\right)\frac{n^{3}}{6}\right)^{\left(1-\alpha\right)N}\exp\left(3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right).
 \end{align*}
 Now, note that 
 \[
@@ -1663,25 +1630,25 @@ We compute
 \end{align*}
 so, noting that $\int\log p\d p=p\left(\log p-1\right)$,
 \begin{align*}
-Q\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right) & =QN\int_{\alpha}^{\left(1-\varepsilon\right)}\log\left(1-t\right)\d t+O\left(\log n\right)\\
- & =QN\int_{\varepsilon}^{\left(1-\alpha\right)}\log p\d p+O\left(\log n\right)\\
- & =QN\left(\left(1-\alpha\right)\left(\log\left(1-\alpha\right)-1\right)-\varepsilon\left(\log\varepsilon-1\right)\right)+O\left(\log n\right),\\
-\exp\left(Q\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right) & =\left(\left(1+O\left(n^{-c}\log n\right)\right)\frac{1-\alpha}{e}\right)^{QN\left(1-\alpha\right)}.
+3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right) & =3N\int_{\alpha}^{\left(1-\varepsilon\right)}\log\left(1-t\right)\d t+O\left(\log n\right)\\
+ & =3N\int_{\varepsilon}^{\left(1-\alpha\right)}\log p\d p+O\left(\log n\right)\\
+ & =3N\left(\left(1-\alpha\right)\left(\log\left(1-\alpha\right)-1\right)-\varepsilon\left(\log\varepsilon-1\right)\right)+O\left(\log n\right),\\
+\exp\left(3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right) & =\left(\left(1+O\left(n^{-c}\log n\right)\right)\frac{1-\alpha}{e}\right)^{3N\left(1-\alpha\right)}.
 \end{align*}
 For $b<c$, it follows that
 \begin{align*}
-\left|\ord^{*}\right| & \ge\left(\left(1-O\left(n^{-b}\right)\right)\frac{n^{q}\left(1-\alpha\right)^{Q}}{q!e^{Q}}\right)^{\left(1-\alpha\right)N}\\
- & =\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{Q-1}{n-r \choose q-r}\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!
+\left|\ord^{*}\right| & \ge\left(\left(1-O\left(n^{-b}\right)\right)\frac{n^{3}\left(1-\alpha\right)^{3}}{6e^{3}}\right)^{\left(1-\alpha\right)N}\\
+ & =\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!
 \end{align*}
 By \ref{thm:keevash} (assuming $b$ is small enough) it follows that
 \[
-\left|\ext{S^{*}}\right|\ge\left(\frac{n\left(1-\alpha\right)^{2}}{e^{2}}\left(1-O\left(n^{-b}\right)\right)\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!.\tag*{\qedhere}
+\left|\ext{S^{*}}\right|\ge\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!.\tag*{\qedhere}
 \]
 \end{proof}
 \ref{prop:num-extensions} then immediately follows from \ref{thm:number-of-completions-upper}
 and \ref{thm:number-of-completions-lower}.
 
-\section{\label{sec:Random-triangle-removal}Random clique removal}
+\section{\label{sec:Random-triangle-removal}Random triangle removal}
 
 \global\long\def\randQ{\boldsymbol{R}}
 
@@ -1693,29 +1660,27 @@ and \ref{thm:number-of-completions-lower}.
 
 \global\long\def\randZ{\boldsymbol{Z}}
 
-In this section we give a very simple analysis of the clique removal
+In this section we give a very simple analysis of the triangle removal
 process. The analysis here is rather crude and quite standard, but
 we could not find an existing source for precisely the result we need.
-As in \ref{sec:outline}, we consider $q$ and $r$ to be fixed, let
-$Q={q \choose r}$, let $N={n \choose r}/Q$ and impose that ${q-i \choose r-i}$
-divides ${n-i \choose r-i}$ for every $0\le i\le r-1$.
+As in \ref{sec:outline}, let $N={n \choose 2}/3$ and assume that
+$n$ is 1 or 3 mod 6.
 
-As introduced in \ref{sec:outline}, the clique removal process is
-defined as follows. We start with a graph $G$ with say $N-Qm$ edges,
-then iteratively delete (the edges of) a copy of $K_{q}^{\left(r\right)}$
-chosen uniformly at random from all copies of $K_{q}^{\left(r\right)}$
-in the remaining graph. Let 
+As introduced in \ref{sec:outline}, the triangle removal process
+is defined as follows. We start with a graph $G$ with say $N-3m$
+edges, then iteratively delete (the edges of) a triangle chosen uniformly
+at random from all triangles in the remaining graph. Let 
 \[
 G=\randG\left(m\right),\randG\left(m+1\right),\dots
 \]
 be the sequence of random graphs generated by this process. This process
 cannot continue forever, but we ``freeze'' the process instead of
 aborting it; if $\randG\left(\randM\right)$ is the first graph in
-the sequence with no copies of $K_{q}^{\left(r\right)}$, then let
-$\randG\left(i\right)=\randG\left(\randM\right)$ for $i\ge\randM$.
+the sequence with no triangles, then let $\randG\left(i\right)=\randG\left(\randM\right)$
+for $i\ge\randM$.
 
 Our objective in this section is to show that if $G$ is quasirandom
-then the clique removal process is likely to maintain quasirandomness
+then the triangle removal process is likely to maintain quasirandomness
 and unlikely to freeze until nearly all edges are gone.
 \begin{thm}
 \label{lem:triangle-removal-analysis}For all $h\ge2$ and $a>0$
@@ -1725,9 +1690,9 @@ graph with $N-3m=N-3\alpha N$ edges. Then a.a.s. $\randM\ge\left(1-n^{-b}\right)
 and moreover for each $N-m\le i\le\left(1-\varepsilon^{b}\right)N$,
 $\randG\left(i\right)$ is $\left(\varepsilon^{b},h\right)$-quasirandom.
 \end{thm}
-Note that $K_{n}^{\left(r\right)}$ is $\left(O\left(1/n\right),h\right)$-quasirandom
-for any $h$, so in particular when we start the clique removal process
-from $G=K_{n}^{\left(r\right)}$ it typically runs almost to completion.
+Note that $K_{n}$ is $\left(O\left(1/n\right),h\right)$-quasirandom
+for any $h$, so in particular when we start the triangle removal
+process from $G=K_{n}$ it typically runs almost to completion.
 
 To prove \ref{lem:triangle-removal-analysis}, it will be convenient
 to use Freedman's inequality \cite[Theorem~1.6]{Fre75}, as follows.
@@ -1746,8 +1711,7 @@ Then for any $t,v>0$,
 \]
 \end{lem}
 \begin{proof}[Proof of \ref{lem:triangle-removal-analysis}]
-For a set $A$ of $\left(r-1\right)$-sets of vertices with $\left|A\right|\le h$,
-let $\randY_{A}\left(i\right)=\left|\bigcap_{W\in A}N_{\randG\left(i\right)}\left(W\right)\right|$.
+For a set $A$ of at most $h$ vertices, let $\randY_{A}\left(i\right)=\left|\bigcap_{w\in A}N_{\randG\left(i\right)}\left(w\right)\right|$.
 Let $p\left(i\right)=\left(1-i/N\right)$ (and let $p^{k}\left(i\right)=\left(1-i/N\right)^{k}$),
 so that $p^{\left|A\right|}\left(i\right)n$ is the predicted trajectory
 of each $\randY_{A}\left(i\right)$.
@@ -1779,28 +1743,25 @@ takes negative values.
 
 To see that this suffices to prove \ref{lem:triangle-removal-analysis},
 note that if $i<\randT$ then by \ref{lem:H-count} the number of
-copies of $K_{q}^{\left(r\right)}$ is
+triangles in $\randG\left(i\right)$ is
 \[
-\randQ\left(i\right)=\left(1\pm O\left(e\left(i\right)\right)\right)p^{Q}\left(i\right)n^{q}/q!>0.
+\randQ\left(i\right)=\left(1\pm O\left(e\left(i\right)\right)\right)p^{3}\left(i\right)n^{3}/6>0.
 \]
 This means $\randT\le\randM$, so the event that each $\randY_{A}^{s}$
 only takes negative values contains the event that each $\randG\left(i\right)$
 is non-frozen and sufficiently quasirandom for $i\le N\left(1-\varepsilon^{b}\right)$.
 
-Let $N_{A}\left(i\right)=\bigcap_{W\in A}N_{\randG\left(i\right)}\left(W\right)$,
+Let $N_{A}\left(i\right)=\bigcap_{w\in A}N_{\randG\left(i\right)}\left(w\right)$,
 so that $\randY_{A}\left(i\right)=\left|N_{A}\left(i\right)\right|$.
 Fix $A$, and consider $x\in N_{A}\left(i\right)$, for $i<\randT$.
 The only way we can have $x\notin N_{A}\left(i+1\right)$ is if we
-remove a copy of $K_{q}^{\left(r\right)}$ containing an $r$-edge
-$\left\{ x\right\} \cup W$ for some $W\in A$. Now, for each $W\in A$,
-the number of copies of $K_{q}^{\left(r\right)}$ in $\randG\left(i\right)$
-containing the edge $\left\{ x\right\} \cup W$ is $\left(1\pm O\left(e\left(i\right)\right)\right)p^{Q-1}\left(i\right)n^{q-r}/\left(q-r\right)!$
-by \ref{lem:H-count}. The number of copies of $K_{q}^{\left(r\right)}$
-containing $\left\{ x\right\} \cup W$ and $\left\{ x\right\} \cup W'$
-for two different $W,W'\in A$ is at most $O\left(n^{q-r-1}\right)$.
-So,
+remove a triangle containing an edge $\left\{ x,w\right\} $ for some
+$w\in A$. Now, for each $w\in A$, the number of triangles in $\randG\left(i\right)$
+containing the edge $\left\{ x,v\right\} $ is $\left(1\pm O\left(e\left(i\right)\right)\right)p^{2}\left(i\right)n$
+by \ref{lem:H-count}. The number of triangles containing $x$ and
+more than one vertex of $A$ is $O\left(1\right)$. So,
 \begin{align*}
-\Pr\left(x\notin N_{A}\left(i+1\right)\right) & =\frac{1}{\randQ\left(i\right)}\left(\sum_{W\in A}\left(1\pm O\left(e\left(i\right)\right)\right)p^{Q-1}\left(i\right)n^{q-r}/\left(q-r\right)!-O\left(n^{q-r-1}\right)\right)\\
+\Pr\left(x\notin N_{A}\left(i+1\right)\right) & =\frac{1}{\randQ\left(i\right)}\left(\sum_{w\in A}\left(1\pm O\left(e\left(i\right)\right)\right)p^{2}\left(i\right)n-O\left(1\right)\right)\\
  & =\left|A\right|\left(1\pm O\left(e\left(i\right)\right)\right)p^{-1}\left(i\right)/N.
 \end{align*}
 For $i<\randT$ we have $\left|N_{A}\left(i\right)\right|=\left(1\pm e\left(i\right)\right)p^{\left|A\right|}\left(i\right)n$,
@@ -1809,7 +1770,7 @@ so by linearity of expectation
 \E\left[\Delta\randY_{A}\left(i\right)\cond\randG\left(i\right)\right] & =-\left|A\right|\left(1\pm O\left(e\left(i\right)\right)\right)p^{\left|A\right|-1}\left(i\right)n/N\\
  & =-\left|A\right|p^{\left|A\right|-1}\left(i\right)n/N+O\left(e\left(i\right)p^{\left|A\right|-1}\left(i\right)/n\right).
 \end{align*}
-Note also that we have the bound $\Delta\randY_{A}\left(i\right)\le q-1=O\left(1\right)$
+Note also that we have the bound $\Delta\randY_{A}\left(i\right)\le2=O\left(1\right)$
 (with probability 1). Also, for fixed $k$ we have
 \begin{align*}
 \Delta p^{k}\left(i\right) & =\left(1-\frac{i+1}{N}\right)^{k}-\left(1-\frac{i}{N}\right)^{k}\\
