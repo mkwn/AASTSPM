@@ -4441,7 +4441,7 @@ name "lem:PM-via-absorbers"
 
 \end_inset
 
-Consider a 3-uniform hypergraph 
+Consider a Steiner triple system 
 \begin_inset Formula $S$
 \end_inset
 
@@ -4450,11 +4450,11 @@ Consider a 3-uniform hypergraph
 \end_inset
 
 , 
-\begin_inset Formula $\left|V\right|=n$
+\begin_inset Formula $\left|V\right|=n\equiv3\mod6$
 \end_inset
 
 ) satisfying the following properties for some 
-\begin_inset Formula $\delta=\delta\left(n\right)=o\left(1\right)$
+\begin_inset Formula $\delta=\delta\left(n\right)=o\left(1/\log n\right)$
 \end_inset
 
  and fixed 
@@ -4483,7 +4483,7 @@ There is an absorbing structure
 \end_inset
 
  of size 
-\begin_inset Formula $\delta^{2}n$
+\begin_inset Formula $3\floor{\delta^{2}n}$
 \end_inset
 
 .
@@ -4495,7 +4495,7 @@ For at most
 \end_inset
 
  of the vertices 
-\begin_inset Formula $v\in V$
+\begin_inset Formula $v\in V\backslash V\left(H\right)$
 \end_inset
 
 , we have 
@@ -4538,9 +4538,9 @@ Then
 
  has 
 \begin_inset Formula 
-\[
-\left(\frac{n}{2e^{2}}\left(1-\beta-O\left(\delta\log n\right)\right)\right)^{n/3}
-\]
+\begin{equation}
+\left(\frac{n}{2e^{2}}\left(1-\beta-o\left(1\right)\right)\right)^{n/3}\label{eq:count-pm}
+\end{equation}
 
 \end_inset
 
@@ -4548,21 +4548,43 @@ perfect matchings.
 \end_layout
 
 \begin_layout Proof
-We can assume 
-\begin_inset Formula $\delta<1/4$
+It is convenient to count 
+\emph on
+ordered
+\emph default
+ perfect matchings, and then divide by 
+\begin_inset Formula $\left(n/3\right)!$
 \end_inset
 
-, so that we can greedily choose a 
-\begin_inset Formula $\delta n$
+.
+ We describe how to build an ordered perfect matching edge-by-edge.
+\end_layout
+
+\begin_layout Proof
+In a Steiner triple system every vertex is in 
+\begin_inset Formula $\left(n-1\right)/2$
 \end_inset
 
--vertex matching in 
+ hyperedges, and for small 
+\begin_inset Formula $\delta$
+\end_inset
+
+ most of those hyperedges do not involve a vertex of 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ We can therefore greedily choose a matching of size 
+\begin_inset Formula $\ceil{\delta n}$
+\end_inset
+
+ in 
 \begin_inset Formula $V\backslash V\left(H\right)$
 \end_inset
 
  containing each of the vertices violating the second condition.
  There are 
-\begin_inset Formula $n'=n-v\left(H\right)-\delta n\ge\left(1-2\delta\right)n$
+\begin_inset Formula $n'=n-v\left(H\right)-\ceil{\delta n}=\left(1-O\left(\delta\right)\right)n$
 \end_inset
 
  vertices in 
@@ -4578,12 +4600,12 @@ Next, repeatedly choose an edge in the remaining unmatched vertices in
 \end_inset
 
  until there are only 
-\begin_inset Formula $\delta^{3}n$
+\begin_inset Formula $\floor{\delta^{3}n}$
 \end_inset
 
  such vertices remaining unmatched.
  (This means we take a matching with 
-\begin_inset Formula $m=\left(n'-\delta^{2}n\right)/3=n/3-O\left(\delta n\right)$
+\begin_inset Formula $m=\left(n'-\floor{\delta^{3}n}\right)/3=n/3-O\left(\delta n\right)$
 \end_inset
 
  edges).
@@ -4630,7 +4652,7 @@ and that
 \begin{align*}
 \sum_{i=1}^{n'/3}\frac{3}{n'}\log\left(1-3\frac{i}{n'}\right) & =\int_{0}^{1/3-O\left(\delta\right)}3\log\left(1-3t\right)\d t+O\left(\frac{\log n}{n}\right)\\
  & =\int_{O\left(\delta\right)}^{1}\log s\d s+O\left(\frac{\log n}{n}\right)\\
- & =-1-O\left(\delta\log\left(n\right)\right).
+ & =-1-O\left(\delta\log n\right).
 \end{align*}
 
 \end_inset
@@ -4645,38 +4667,69 @@ reference "eq:num-matchings"
  is equal to
 \begin_inset Formula 
 \begin{align*}
-\left(\left(1-\beta\right)\frac{n^{2}}{6}\right)^{n'/3}e^{-n}n^{O\left(\delta n\right)} & =\left(\frac{n^{2}}{6e^{3}}\right)^{n/3}n^{O\left(\delta n\right)}.
+\left(\left(1-\beta\right)\frac{n^{2}}{6}\right)^{n'/3}e^{-n-o\left(n\right)} & =\left(\left(1-\beta+o\left(1\right)\right)\frac{n^{2}}{6e^{3}}\right)^{n/3}.
 \end{align*}
 
 \end_inset
 
-Dividing by 
-\begin_inset Formula $m!=\left(n/\left(3e\right)\right)^{n/3}n^{O\left(\delta n\right)}$
+Note that this expression divided by 
+\begin_inset Formula $\left(n/3\right)!=\left(\left(1+o\left(1\right)\right)n/3e\right)^{n/3}$
 \end_inset
 
- (because we were counting ordered matchings), there are at least
-\begin_inset Formula $\left(n/\left(2e^{2}\right)\right)^{n/3}n^{O\left(\delta n\right)}$
+ gives 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:count-pm"
+
 \end_inset
 
- ways to choose a matching in 
+, so it suffices to show that any matching in 
 \begin_inset Formula $V\backslash V\left(H\right)$
 \end_inset
 
  covering all but 
-\begin_inset Formula $\delta^{3}n$
+\begin_inset Formula $\floor{\delta^{3}n}$
 \end_inset
 
- vertices, none of which violate the second condition.
- We can greedily extend such a matching to cover half of 
+ vertices, none of which violate the second condition, can be completed
+ to a perfect matching.
+\end_layout
+
+\begin_layout Proof
+By the second condition, for each uncovered 
+\begin_inset Formula $v\in V\backslash V\left(H\right)$
+\end_inset
+
+ we can greedily extend our matching with a hyperedge containing 
+\begin_inset Formula $v$
+\end_inset
+
+ and two vertices of 
 \begin_inset Formula $Z$
 \end_inset
 
- using the second and third conditions.
+, disjoint from the hyperedges chosen so far.
+ We can then repeatedly apply the third condition to the uncovered vertices
+ in 
+\begin_inset Formula $Z$
+\end_inset
+
+ to extend our matching to cover half of 
+\begin_inset Formula $Z$
+\end_inset
+
+.
  By the defining property of a resilient template, there is a perfect matching
- in the subgraph of the template induced by the vertices uncovered so far.
+ in the subgraph of the template induced by the vertices unmatched so far.
  For each hyperedge of this perfect matching, use the covering matching
  of the corresponding absorber; for each other hyperedge in the template
  use the non-covering matching.
+ These edges from the absorbers allow us to complete our perfect matching
+ of 
+\begin_inset Formula $S$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -6190,7 +6243,7 @@ name "lem:absorbers-latin"
 
 \end_inset
 
-Consider a 3-uniform tripartite hypergraph 
+Consider a Latin square hypergraph 
 \begin_inset Formula $L$
 \end_inset
 
@@ -6199,7 +6252,7 @@ Consider a 3-uniform tripartite hypergraph
 \end_inset
 
 ) satisfying the following properties for some 
-\begin_inset Formula $\delta=\delta\left(n\right)=o\left(1\right)$
+\begin_inset Formula $\delta=\delta\left(n\right)=o\left(1/\log n\right)$
 \end_inset
 
  and fixed 
@@ -6299,7 +6352,7 @@ Then
  has 
 \begin_inset Formula 
 \[
-\left(\frac{n}{e^{2}}\left(1-\beta-O\left(\delta\log n\right)\right)\right)^{n}
+\left(\frac{n}{e^{2}}\left(1-\beta-o\left(1\right)\right)\right)^{n}
 \]
 
 \end_inset

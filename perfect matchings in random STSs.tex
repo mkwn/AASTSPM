@@ -1008,14 +1008,15 @@ Note that an absorbing structure with a flexible set of size $n$
 has $10n+9\times160n=O\left(n\right)$ vertices and at most $7\times160n=O\left(n\right)$
 edges. Now, we show how absorbers can be used to find perfect matchings.
 \begin{lem}
-\label{lem:PM-via-absorbers}Consider a 3-uniform hypergraph $S$
-(with vertex set $V$, $\left|V\right|=n$) satisfying the following
-properties for some $\delta=\delta\left(n\right)=o\left(1\right)$
+\label{lem:PM-via-absorbers}Consider a Steiner triple system $S$
+(with vertex set $V$, $\left|V\right|=n\equiv3\mod6$) satisfying
+the following properties for some $\delta=\delta\left(n\right)=o\left(1/\log n\right)$
 and fixed $\beta>0$.
 \begin{enumerate}
 \item There is an absorbing structure $H$ in $S$ with at most $\delta n$
-vertices and a flexible set $Z$ of size $\delta^{2}n$.
-\item For at most $\delta n$ of the vertices $v\in V$, we have $\left|\left\{ \left\{ x,y\right\} \subseteq Z:\left\{ v,x,y\right\} \in S\right\} \right|<2\delta^{3}n$.
+vertices and a flexible set $Z$ of size $3\floor{\delta^{2}n}$.
+\item For at most $\delta n$ of the vertices $v\in V\backslash V\left(H\right)$,
+we have $\left|\left\{ \left\{ x,y\right\} \subseteq Z:\left\{ v,x,y\right\} \in S\right\} \right|<2\delta^{3}n$.
 That is to say, few vertices have low degree into the flexible set
 $Z$, in $S$.
 \item Every vertex subset $W\subseteq V$ with $\left|W\right|\ge\delta^{3}n$
@@ -1023,21 +1024,27 @@ induces at least $\left(1-\beta\right)\left|W\right|^{3}/\left(6n\right)$
 hyperedges
 \end{enumerate}
 Then $S$ has 
-\[
-\left(\frac{n}{2e^{2}}\left(1-\beta-O\left(\delta\log n\right)\right)\right)^{n/3}
-\]
+\begin{equation}
+\left(\frac{n}{2e^{2}}\left(1-\beta-o\left(1\right)\right)\right)^{n/3}\label{eq:count-pm}
+\end{equation}
 perfect matchings.
 \end{lem}
 \begin{proof}
-We can assume $\delta<1/4$, so that we can greedily choose a $\delta n$-vertex
-matching in $V\backslash V\left(H\right)$ containing each of the
-vertices violating the second condition. There are $n'=n-v\left(H\right)-\delta n\ge\left(1-2\delta\right)n$
+It is convenient to count \emph{ordered} perfect matchings, and then
+divide by $\left(n/3\right)!$. We describe how to build an ordered
+perfect matching edge-by-edge.
+
+In a Steiner triple system every vertex is in $\left(n-1\right)/2$
+hyperedges, and for small $\delta$ most of those hyperedges do not
+involve a vertex of $H$. We can therefore greedily choose a matching
+of size $\ceil{\delta n}$ in $V\backslash V\left(H\right)$ containing
+each of the vertices violating the second condition. There are $n'=n-v\left(H\right)-\ceil{\delta n}=\left(1-O\left(\delta\right)\right)n$
 vertices in $V\backslash V\left(H\right)$ remaining unmatched.
 
 Next, repeatedly choose an edge in the remaining unmatched vertices
-in $V\backslash V\left(H\right)$ until there are only $\delta^{3}n$
+in $V\backslash V\left(H\right)$ until there are only $\floor{\delta^{3}n}$
 such vertices remaining unmatched. (This means we take a matching
-with $m=\left(n'-\delta^{2}n\right)/3=n/3-O\left(\delta n\right)$
+with $m=\left(n'-\floor{\delta^{3}n}\right)/3=n/3-O\left(\delta n\right)$
 edges). The number of ways to make this ordered sequence of choices
 is at least
 \begin{align}
@@ -1058,23 +1065,29 @@ and that $\int\log s\d s=s\left(\log s-1\right)$, we have
 \begin{align*}
 \sum_{i=1}^{n'/3}\frac{3}{n'}\log\left(1-3\frac{i}{n'}\right) & =\int_{0}^{1/3-O\left(\delta\right)}3\log\left(1-3t\right)\d t+O\left(\frac{\log n}{n}\right)\\
  & =\int_{O\left(\delta\right)}^{1}\log s\d s+O\left(\frac{\log n}{n}\right)\\
- & =-1-O\left(\delta\log\left(n\right)\right).
+ & =-1-O\left(\delta\log n\right).
 \end{align*}
 So, the expression in \ref{eq:num-matchings} is equal to
 \begin{align*}
-\left(\left(1-\beta\right)\frac{n^{2}}{6}\right)^{n'/3}e^{-n}n^{O\left(\delta n\right)} & =\left(\frac{n^{2}}{6e^{3}}\right)^{n/3}n^{O\left(\delta n\right)}.
+\left(\left(1-\beta\right)\frac{n^{2}}{6}\right)^{n'/3}e^{-n-o\left(n\right)} & =\left(\left(1-\beta+o\left(1\right)\right)\frac{n^{2}}{6e^{3}}\right)^{n/3}.
 \end{align*}
-Dividing by $m!=\left(n/\left(3e\right)\right)^{n/3}n^{O\left(\delta n\right)}$
-(because we were counting ordered matchings), there are at least$\left(n/\left(2e^{2}\right)\right)^{n/3}n^{O\left(\delta n\right)}$
-ways to choose a matching in $V\backslash V\left(H\right)$ covering
-all but $\delta^{3}n$ vertices, none of which violate the second
-condition. We can greedily extend such a matching to cover half of
-$Z$ using the second and third conditions. By the defining property
-of a resilient template, there is a perfect matching in the subgraph
-of the template induced by the vertices uncovered so far. For each
-hyperedge of this perfect matching, use the covering matching of the
-corresponding absorber; for each other hyperedge in the template use
-the non-covering matching.
+Note that this expression divided by $\left(n/3\right)!=\left(\left(1+o\left(1\right)\right)n/3e\right)^{n/3}$
+gives \ref{eq:count-pm}, so it suffices to show that any matching
+in $V\backslash V\left(H\right)$ covering all but $\floor{\delta^{3}n}$
+vertices, none of which violate the second condition, can be completed
+to a perfect matching.
+
+By the second condition, for each uncovered $v\in V\backslash V\left(H\right)$
+we can greedily extend our matching with a hyperedge containing $v$
+and two vertices of $Z$, disjoint from the hyperedges chosen so far.
+We can then repeatedly apply the third condition to the uncovered
+vertices in $Z$ to extend our matching to cover half of $Z$. By
+the defining property of a resilient template, there is a perfect
+matching in the subgraph of the template induced by the vertices unmatched
+so far. For each hyperedge of this perfect matching, use the covering
+matching of the corresponding absorber; for each other hyperedge in
+the template use the non-covering matching. These edges from the absorbers
+allow us to complete our perfect matching of $S$.
 \end{proof}
 
 \subsection{Absorbing properties in the triangle removal process\label{sec:absorbers-in-TRP}}
@@ -1364,9 +1377,9 @@ the proof of \ref{lem:resilient-template} (one copy for each $Z_{i}$).
 The counterpart of \ref{lem:PM-via-absorbers} is as follows (with
 virtually the same proof).
 \begin{lem}
-\label{lem:absorbers-latin}Consider a 3-uniform tripartite hypergraph
-$L$ (with tripartition $V=V_{1}\sqcup V_{2}\sqcup V_{3}$) satisfying
-the following properties for some $\delta=\delta\left(n\right)=o\left(1\right)$
+\label{lem:absorbers-latin}Consider a Latin square hypergraph $L$
+(with tripartition $V=V_{1}\sqcup V_{2}\sqcup V_{3}$) satisfying
+the following properties for some $\delta=\delta\left(n\right)=o\left(1/\log n\right)$
 and fixed $\beta>0$.
 \begin{enumerate}
 \item There is an absorbing structure $H$ in $L$ with at most $\delta n$
@@ -1381,7 +1394,7 @@ hyperedges in $W_{1}\times W_{2}\times W_{3}$.
 \end{enumerate}
 Then $L$ has 
 \[
-\left(\frac{n}{e^{2}}\left(1-\beta-O\left(\delta\log n\right)\right)\right)^{n}
+\left(\frac{n}{e^{2}}\left(1-\beta-o\left(1\right)\right)\right)^{n}
 \]
 transversals.
 \end{lem}
