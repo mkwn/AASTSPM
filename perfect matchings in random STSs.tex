@@ -169,7 +169,7 @@
 
 \title{Almost all Steiner Triple Systems have perfect matchings}
 
-\author{Matthew Kwan \thanks{Department of Mathematics, ETH, 8092 Zürich. Email: \href{mailto:matthew.kwan@math.ethz.ch} {\nolinkurl{matthew.kwan@math.ethz.ch}}.}}
+\author{Matthew Kwan \thanks{Department of Mathematics, ETH, 8092 Z\"urich. Email: \href{mailto:matthew.kwan@math.ethz.ch} {\nolinkurl{matthew.kwan@math.ethz.ch}}.}}
 
 \maketitle
 \global\long\def\RR{\mathbb{R}}
@@ -270,7 +270,7 @@
 
 \global\long\def\cSm#1#2{\mathcal{S}_{#2}^{#1}}
 
-\global\long\def\ext#1{\mathcal{O}^{\mathrm{ext}}\left(#1\right)}
+\global\long\def\ext#1{\mathcal{O}^{*}\left(#1\right)}
 
 \global\long\def\randN{\boldsymbol{N}}
 
@@ -329,15 +329,15 @@ s
 \end{comment}
 \begin{abstract}
 We show that for any $n$ divisible by 3, almost all order-$n$ Steiner
-triple systems have a perfect matching (also known as a parallel class).
-In fact, we prove a general upper bound on the number of perfect matchings
-in a Steiner triple system and show that almost all Steiner triple
-systems essentially attain this maximum. We accomplish this via a
-general theorem comparing a uniformly random Steiner triple system
-to the outcome of the triangle removal process, which we hope will
-be useful for other problems. We believe our methods can be easily
-adapted to other types of designs, for example to show that almost
-all Latin squares have transversals.
+triple systems have a perfect matching (also known as a \emph{parallel
+class} or \emph{resolution class}). In fact, we prove a general upper
+bound on the number of perfect matchings in a Steiner triple system
+and show that almost all Steiner triple systems essentially attain
+this maximum. We accomplish this via a general theorem comparing a
+uniformly random Steiner triple system to the outcome of the triangle
+removal process, which we hope will be useful for other problems.
+We believe our methods can be easily adapted to other types of designs,
+for example to show that almost all Latin squares have transversals.
 \end{abstract}
 
 \section{Introduction}
@@ -350,7 +350,7 @@ $S$. Steiner triple systems are among the most fundamental types
 of combinatorial designs, and have strong connections to a wide range
 of different subjects, ranging from group theory, to finite geometry,
 to experimental design, to the theory of error-correcting codes. See
-\cite{CR99} for an introduction to the subject. We note that a Steiner
+\cite{CR99} for an introduction to the subject. Observe that a Steiner
 triple system is actually nothing more than a triangle-decomposition
 of the edges of the complete graph $K_{n}$, so Steiner triple systems
 are natural ``symmetric'' counterparts to \emph{Latin squares},
@@ -359,9 +359,9 @@ graph $K_{n,n,n}$.
 
 In 1974 Wilson \cite{Wil74} used estimates for the number of Latin
 squares to prove a coarse estimate for the number of Steiner triple
-systems. Babai \cite{Bab80} used this estimate to prove that a $\left(1-o\left(1\right)\right)$-proportion
-of Steiner triple systems have trivial automorphism group (equivalently,
-a uniformly random order-$n$ Steiner triple system a.a.s.\footnote{By ``asymptotically almost surely'', or ``a.a.s.'', we mean that
+systems. Babai \cite{Bab80} used this estimate to prove that almost
+all Steiner triple systems have trivial automorphism group (that is
+to say, a uniformly random order-$n$ Steiner triple system a.a.s.\footnote{By ``asymptotically almost surely'', or ``a.a.s.'', we mean that
 the probability of an event is $1-o\left(1\right)$. Here and for
 the rest of the paper, asymptotics are as $n\to\infty$.} has trivial automorphism group). We believe this is the only nontrivial
 property known to hold a.a.s. for random Steiner triple systems. Following
@@ -383,7 +383,7 @@ this chain was connected.
 
 In a huge breakthrough that will surely revolutionize design theory,
 Keevash \cite{Kee14} very recently proved that for a large class
-of combinatorial designs generalizing Steiner triple systems, ``partial''
+of combinatorial designs generalising Steiner triple systems, ``partial''
 designs satisfying a certain ``quasirandomness'' condition can be
 completed into designs. Shortly afterwards \cite{Kee15}, he showed
 that his results could be used for approximate enumeration; in particular,
@@ -404,35 +404,37 @@ However, for most properties it is not at all clear how to prove such
 estimates. Instead, we introduce a way to use Keevash's methods to
 show that a uniformly random Steiner triple system can in some sense
 be approximated by the outcome of a random process called the \emph{triangle
-removal process}. We remark that actually Keevash's lower bound is
-proved via a randomized construction that involves the triangle removal
+removal process}. We remark that actually Keevash proved \ref{eq:num-STS}
+with a randomised construction that involves the triangle removal
 process, so many properties that hold a.a.s. in the triangle removal
 process trivially hold a.a.s. in this random construction. Such results
 have been proved in \cite[Proposition~3.1]{LL15} and \cite{LLR15}.
 However, the Steiner triple systems obtainable by Keevash's construction
 comprise a negligible proportion of the set of Steiner triple systems,
-so a more delicate approach is required to study a uniformly random
-Steiner triple system. We give the details in \ref{sec:outline}.
+and a somewhat more delicate approach is required to study a uniformly
+random Steiner triple system.
 
-As an application of our new method, we prove that if $3\mid n$ (that
-is, if $n\equiv3\mod6$) then almost all order-$n$ Steiner triple
-systems have many \emph{perfect matchings}. A perfect matching in
-a hypergraph is a collection of disjoint hyperedges partitioning the
-vertex set. The existence of perfect matchings is one of the most
-central questions in the theory of graphs and hypergraphs; in particular,
-one of the most celebrated recent developments in the field is the
-Fulkerson-prize-winning work of Johansson, Kahn and Vu \cite{JKV08}
-on perfect matchings in random hypergraphs. A perfect matching in
-a Steiner triple system is also called a\emph{ parallel class}, and
-has particular significance. One of the oldest problems in combinatorics,
-famously solved by Ray-Chaudhuri and Wilson \cite{RW71}, asks whether
+A \emph{perfect matching} in a hypergraph is a collection of disjoint
+hyperedges partitioning the vertex set. The existence of perfect matchings
+is one of the most central questions in the theory of graphs and hypergraphs;
+in particular, one of the most celebrated recent developments in the
+field is the Fulkerson-prize-winning work of Johansson, Kahn and Vu
+\cite{JKV08} on perfect matchings in random hypergraphs. A perfect
+matching in a Steiner triple system is also called a\emph{ parallel
+class} or \emph{resolution class}, and has particular significance.
+One of the oldest problems in combinatorics, famously solved in the
+affirmative by Ray-Chaudhuri and Wilson \cite{RW71}, asks whether
 for all $n\equiv3\mod6$ there exists an order-$n$  Steiner triple
 system which can be partitioned into hyperedge-disjoint perfect matchings
 (a \emph{Kirkman triple system}). Alon, Kim and Spencer \cite{AKS97}
 proved that every Steiner triple system has an almost-perfect matching
 covering all but $o\left(\sqrt{n}\log^{3/2}n\right)$ vertices, and
 Bryant and Horsley \cite{BH15} proved that for infinitely many $n\equiv3\mod6$
-there exist Steiner triple systems with no perfect matching.
+there exist Steiner triple systems with no perfect matching. As an
+application of our new method, we prove that if $n\equiv3\mod6$ (that
+is, if $3\mid n$ and an order-$n$ Steiner triple system exists)
+then almost all order-$n$ Steiner triple systems have many perfect
+matchings. 
 \begin{thm}
 \label{thm:PM-in-STS}Let $n\equiv3\mod6$ and let $\randS$ be a
 uniformly random order-$n$ Steiner triple system. Then a.a.s. $\randS$
@@ -442,22 +444,23 @@ contains
 \]
 perfect matchings.
 \end{thm}
-We remark that if $3\nmid n$ (that is, if $n\equiv1\mod6$) then
-obviously no order-$n$ Steiner triple system can have a perfect matching,
-but exactly the same proof can be used to show that there is a matching
-covering all but one vertex.
+We remark that if $n\equiv1\mod6$ then obviously no order-$n$ Steiner
+triple system can have a perfect matching, but exactly the same proof
+can be used to show that in a random order-$n$ Steiner triple system
+there is a.a.s. a matching covering all but one vertex.
 
-We prove \ref{thm:PM-in-STS} in \ref{sec:absorbers} using our new
-method combined with the so-called \emph{absorbing method}, which
-was introduced as a general method by R\"odl, Ruci\'nski and Szemer\'edi
-\cite{RRS09} (though the basic idea had been used earlier, for example
-by Krivelevich \cite{Kri97}). Basically, we prove the a.a.s. existence
-of certain small substructures that allow us to complete an almost-perfect
-matching into a perfect one.
+We prove \ref{thm:PM-in-STS} using our new method combined with the
+so-called \emph{absorbing method}, which was introduced as a general
+method by R\"odl, Ruci\'nski and Szemer\'edi \cite{RRS09} (though
+the basic idea had been used earlier, for example by Krivelevich \cite{Kri97}).
+Basically, we prove the a.a.s. existence of certain small substructures
+that allow us to complete an almost-perfect matching into a perfect
+one.
 
 Up to the error term, a random Steiner triple system actually has
 the maximum possible number of perfect matchings: we also prove the
-following upper bound.
+following upper bound using the so-called \emph{entropy method} due
+to Radhakrishnan \cite{Rad97}.
 \begin{thm}
 \label{thm:maximum-PMs}Any Steiner triple system has at most
 \[
@@ -465,8 +468,6 @@ following upper bound.
 \]
 perfect matchings.
 \end{thm}
-We give a short proof of \ref{thm:maximum-PMs} in \ref{sec:max-num-matchings},
-using the so-called \emph{entropy method} due to Radhakrishnan \cite{Rad97}.
 
 \subsection{Latin squares}
 
@@ -474,7 +475,7 @@ An order-$n$ Latin square is usually defined as an $n\times n$ array
 of the numbers between 1 and $n$ (we call these \emph{symbols}),
 such that each row and column contains each symbol exactly once. As
 mentioned earlier, this is equivalent to a 3-uniform hypergraph whose
-triples comprise a triangle-decomposition of the edges of the complete
+hyperedges comprise a triangle-decomposition of the edges of the complete
 tripartite graph $K_{n,n,n}$ (the three parts correspond to the rows,
 columns and symbols, so a triangle $\left(i,j,k\right)$ corresponds
 to putting the symbol $k$ in the cell $\left(i,j\right)$). A perfect
@@ -482,17 +483,26 @@ matching in a Latin square is called a \emph{transversal }and the
 property of containing a transversal is of great interest. In particular,
 the famous Ryser-Brualdi-Stein conjecture speculates that every odd-order
 Latin square has a transversal, and every even-order Latin square
-has a partial transversal (matching) of size $n-1$. See the survey
-of Wanless \cite{Wan11} for more information.
+has a partial transversal of size $n-1$. See the survey of Wanless
+\cite{Wan11} for more information.
 
-We are quite confident that our methods can be adapted to the setting
-of Latin squares. The main obstacle is that Keevash's completion results
-have not yet been adapted to Latin squares. We believe such an adaptation
-should be quite straightforward, but it would be well outside the
-scope of this paper to include the details here. Modulo a Keevash-type
-completion result we can prove the following theorem, answering a
-question of Glebov and Luria \cite{GL16} and proving that the Ryser-Brualdi-Stein
-conjecture holds for almost all Latin squares.
+The counterpart of \ref{thm:maximum-PMs} for Latin squares, that
+a Latin square can have at most $\left(\left(1+o\left(1\right)\right)n/e^{2}\right)^{n}$
+transversals, was first proved by Taranenko \cite{Tar15}. Glebov
+and Luria \cite{GL16} gave a simpler entropy-based proof of the same
+fact and asked whether the counterpart of \ref{thm:PM-in-STS} holds:
+do almost all Latin squares have essentially the maximum possible
+number of transversals?
+
+We are confident that our methods are applicable to the setting of
+Latin squares, but the main obstacle is that Keevash's completion
+results have not yet been adapted to this setting. Although we believe
+such an adaptation should be quite straightforward, it would be well
+outside the scope of this paper to include the details here. Modulo
+a Keevash-type completion result for Latin squares we can prove the
+following theorem, answering Glebov and Luria's question and proving
+that the Ryser-Brualdi-Stein conjecture holds for almost all Latin
+squares.
 \begin{sol}
 \label{thm:latin}Let $\randL$ be a uniformly random order-$n$ Latin
 square. Then a.a.s. $\randL$ contains
@@ -501,27 +511,23 @@ square. Then a.a.s. $\randL$ contains
 \]
 transversals.
 \end{sol}
-We note that the counterpart of \ref{thm:maximum-PMs} for Latin squares
-(that a Latin square can have at most $\left(\left(1+o\left(1\right)\right)n/e^{2}\right)^{n}$
-transversals) was first proved by Taranenko \cite{Tar15}. In \ref{sec:latin}
-we outline how the proof of \ref{thm:PM-in-STS} can be adapted to
-prove \ref{thm:latin}, conditional on a Keevash-type completion result.
 
 \subsection{Structure of the paper}
 
 The structure of this paper is as follows. In \ref{sec:outline} we
-explain our method for studying random Steiner triple systems. In
-\ref{sec:absorbers} we define absorbers and prove \ref{thm:PM-in-STS},
-in \ref{sec:max-num-matchings} we prove \ref{thm:maximum-PMs}, and
+explain our method for comparing random Steiner triple systems with
+the triangle removal process. In \ref{sec:absorbers} we use the theory
+from \ref{sec:outline} and the absorbing method to prove \ref{thm:PM-in-STS}.
+In \ref{sec:max-num-matchings} we prove \ref{thm:maximum-PMs}, and
 in \ref{sec:latin} we sketch how \ref{thm:latin} may be proved.
 In \ref{sec:concluding} we have some concluding remarks, including
 a long list of open problems. Finally, we have two appendices; in
-\ref{sec:keevash} we provide a straightforward but necessary adaptation
-of Keevash's proof of \ref{eq:num-STS}, to estimate the number of
-completions of a partial Steiner triple system, and in \ref{sec:Random-triangle-removal}
-we have a very simple analysis of the triangle removal process.
+\ref{sec:keevash} we prove a straightforward but necessary generalization
+of \ref{eq:num-STS}, estimating the number of completions of a partial
+Steiner triple system, and in \ref{sec:Random-triangle-removal} we
+have a very simple analysis of the triangle removal process.
 
-\subsection{Acknowledgements}
+\subsection{Acknowledgments}
 
 The author would like to thank Asaf Ferber and Benny Sudakov for very
 helpful discussions about random designs and the intricacies of the
@@ -534,12 +540,8 @@ removal process}
 In this section we describe our method for comparing random Steiner
 triple systems with the outcome of the triangle removal process. Let
 $N={n \choose 2}/3=\left(1+o\left(1\right)\right)n^{2}/6$ be the
-number of hyperedges in a Steiner triple system. We also assume throughout
+number of hyperedges in a Steiner triple system. We assume throughout
 this section that $n$ is 1 or 3 mod 6.
-
-We will shortly state a general theorem for comparing Steiner triple
-systems with the triangle removal processes, but first we need several
-definitions.
 \begin{defn}[partial systems]
 A \emph{partial Steiner triple system} (or \emph{partial system}
 for short) is a $3$-uniform hypergraph on $\range n$ in which every
@@ -548,27 +550,27 @@ be the set of partial systems with $m$ hyperedges. We will also want
 to consider partial systems equipped with an ordering on their hyperedges.
 Let $\ord$ be the set of ordered Steiner triple systems, and let
 $\ordm m$ be the set of ordered partial systems with $m$ hyperedges.
-For $S\in\ordm m$ and $i\le m$, let $S_{i}$ be the partial system
-consisting of the first $i$ hyperedges of $S$. For a (possibly ordered)
-partial system $S$, let $G\left(S\right)$ be the graph with an edge
-for every pair of vertices which does not\emph{ }appear in any hyperedge
-of $S$. So, if $S$ has $m$ hyperedges, then $G\left(S\right)$
-has ${n \choose 2}-3m$ edges.
+For $S\in\ordm m$ and $i\le m$, let $S_{i}$ be the ordered partial
+system consisting of just the first $i$ hyperedges of $S$. For a
+(possibly ordered) partial system $S$, let $G\left(S\right)$ be
+the graph with an edge for every pair of vertices which does not\emph{
+}appear in any hyperedge of $S$. So, if $S$ has $m$ hyperedges,
+then $G\left(S\right)$ has ${n \choose 2}-3m$ edges.
 \end{defn}
 %
 \begin{defn}[quasirandomness]
 For a graph $G$ with $m$ edges, let $d\left(G\right)=m/{n \choose 2}$
 denote its density. We say $G$ is \emph{$\left(\varepsilon,h\right)$-quasirandom}
 if for every set $A$ of at most $h$ vertices, we have $\left|\bigcap_{w\in A}N_{G}\left(w\right)\right|=\left(1\pm\varepsilon\right)d\left(G\right)^{\left|A\right|}n$.
-(The notation $f=1\pm\varepsilon$ means $1-\varepsilon\le f\le1+\varepsilon$).
-Let $\cSm{\varepsilon,h}m\subseteq\Sm m$ be the set of partial systems
-$S\in\Sm m$ such that $G\left(S\right)$ is $\left(\varepsilon,h\right)$-quasirandom,
-and let $\cordm{\varepsilon,h}m\subseteq\ordm m$ be the set of ordered
-partial systems $S\in\ordm m$ such that $S_{i}\in\cSm{\varepsilon,h}i$
+(Following \cite{Kee15}, the notation $f=1\pm\varepsilon$ means
+$1-\varepsilon\le f\le1+\varepsilon$). Let $\cSm{\varepsilon,h}m\subseteq\Sm m$
+be the set of partial systems $S\in\Sm m$ such that $G\left(S\right)$
+is $\left(\varepsilon,h\right)$-quasirandom, and let $\cordm{\varepsilon,h}m\subseteq\ordm m$
+be the set of ordered partial systems $S\in\ordm m$ such that $S_{i}\in\cSm{\varepsilon,h}i$
 for each $i\le m$.
 \end{defn}
 %
-\begin{defn}[the triangle removal processs]
+\begin{defn}[the triangle removal process]
 The triangle removal process is defined as follows. Start with the
 complete graph $K_{n}$ and iteratively delete a triangle chosen uniformly
 at random from all triangles in the remaining graph. If we continue
@@ -578,13 +580,13 @@ possible that the process aborts (because there are no triangles left)
 before $m$ steps, in which case we say it returns the value ``$*$''.
 We denote by $\rg nm$ the resulting distribution on $\ordm m\cup\left\{ *\right\} $.
 \end{defn}
-Now, our general theorem is as follows.
+Now, we can state a general theorem comparing random Steiner triple
+systems to the triangle removal process.
 \begin{thm}
-\label{lem:triangle-removal-transfer}There is $h_{0}\in\NN$ such
-that for fixed $h\ge h_{0}$ and sufficiently small $a$ there is
-$b\left(a\right)>0$ such that the following holds. Fix $\alpha\in\left(0,1\right)$,
-let $\mathcal{P}\subseteq\ordm{\alpha N}$ be a property of ordered
-partial systems, let $\mathcal{Q}\supseteq\cordm{n^{-a},h}{\alpha N}$,
+\label{lem:triangle-removal-transfer}Fixing sufficiently large $h\in\NN$
+and sufficiently small $a>0$, there is $b=b\left(a\right)>0$ such
+that the following holds. Fix $\alpha\in\left(0,1\right)$, let $\mathcal{P}\subseteq\ordm{\alpha N}$
+be a property of ordered partial systems, let $\mathcal{Q}\supseteq\cordm{n^{-a},h}{\alpha N}$,
 let $\randS\in\ord$ be uniformly random and let $\randS'\in\rg n{\alpha N}$.
 If
 \[
@@ -613,15 +615,18 @@ can be used for $\alpha$ non-constant}
 
 The proof of \ref{lem:triangle-removal-transfer} follows from a sequence
 of several lemmas. The most important is the following: we can use
-Keevash's methods to estimate the number of ways to complete any $S\in\cordm{\varepsilon,h}{\alpha N}$,
-and show that it does not vary too much between choices of $S$.
+Keevash's methods to estimate the number of ways to complete a partial
+system $S$, and show that it does not vary too much between choices
+of $S$.
 \begin{lem}
-\label{prop:num-extensions}There is $h\in\NN$ such that for any
-fixed $a>0$, there is $b=b\left(a\right)>0$ such that the following
-holds. For any fixed $\alpha\in\left(0,1\right)$, any $\varepsilon\le n^{-a}$,
+\label{prop:num-extensions}For an ordered partial system $S\in\ordm m$,
+let $\ext S\subseteq\ord$ be the set of ordered Steiner triple systems
+$S^{*}$ such that $S_{m}^{*}=S$. Fixing sufficiently large $h\in\NN$
+and any $a>0$, there is $b=b\left(a\right)>0$ such that the following
+holds. For any fixed $\alpha\in\left(0,1\right)$, any $\varepsilon=\varepsilon\left(n\right)\le n^{-a}$
 and any $S,S'\in\cordm{\varepsilon,h}{\alpha N}$,
 \[
-\frac{\left|\ext S\right|}{\left|\ext{S'}\right|}\le\exp\left(n^{2-b}\right).
+\frac{\left|\ext S\right|}{\left|\ext{S'}\right|}\le\exp\left(O\left(n^{2-b}\right)\right).
 \]
 \end{lem}
 \ref{prop:num-extensions} can be proved with only very slight adaptations
@@ -655,8 +660,10 @@ is roughly equally likely to be produced by the triangle removal process,
 so that $\RR\left(n,\alpha N\right)$ approximates the uniform distribution
 on $S\in\cordm{\varepsilon,h}{\alpha N}$. It is proved in \ref{sec:greedy-random-approx-uniform}.
 \begin{lem}
-\label{lem:greedy-random-approx-uniform}For any $a>0$ and $\alpha\in\left[0,1\right]$,
-and for $S,S'\in\cordm{n^{-a},2}{\alpha N}$ and $\randS\in\rg n{\alpha N}$,
+\label{lem:greedy-random-approx-uniform}The following holds for any
+fixed $a>0$ and $\alpha\in\left[0,1\right]$. Let $\varepsilon=n^{-a}$,
+let $S,S'\in\cordm{\varepsilon,2}{\alpha N}$ and let $\randS\in\rg n{\alpha N}$.
+Then
 \[
 \frac{\Pr\left(\randS=S\right)}{\Pr\left(\randS=S'\right)}\le\exp\left(O\left(n^{2-a}\right)\right).
 \]
@@ -665,15 +672,15 @@ We can finally combine everything to prove \ref{lem:triangle-removal-transfer}.
 \begin{proof}[Proof of \ref{lem:triangle-removal-transfer}]
 We have
 \begin{align*}
-\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right) & \le\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\cond\randS_{\alpha N}\in\cordm{n^{-a},h}{\alpha N}\right)+\Pr\left(\randS_{\alpha N}\notin\cordm{n^{-a},h}{\alpha N}\right)\\
- & \le\exp\left(O\left(n^{2-c}\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{n^{-a},h}{\alpha N}\right)+\exp\left(-\Omega\left(n^{1-2a}\right)\right),
+\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right) & \le\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\cond\randS_{\alpha N}\in\cordm{\varepsilon,h}{\alpha N}\right)+\Pr\left(\randS_{\alpha N}\notin\cordm{\varepsilon,h}{\alpha N}\right)\\
+ & \le\exp\left(O\left(n^{2-c}\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)+\exp\left(-\Omega\left(n^{1-2a}\right)\right),
 \end{align*}
 where $c=b\left(a\right)$ in the notation of \ref{prop:num-extensions}.
 But, if $a$ is small enough then \ref{lem:triangle-removal-analysis}
-guarantees that $\Pr\left(\randS'\in\cordm{n^{-a},h}{\alpha N}\right)=1-o\left(1\right)$
+guarantees that $\Pr\left(\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)=1-o\left(1\right)$
 so
 \[
-\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{n^{-a},h}{\alpha N}\right)\le\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)\frac{\Pr\left(\randS'\in\mathcal{Q}\right)}{\Pr\left(\randS'\in\cordm{n^{-a},h}{\alpha N}\right)}=\left(1+o\left(1\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right).
+\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)\le\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)\frac{\Pr\left(\randS'\in\mathcal{Q}\right)}{\Pr\left(\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)}=\left(1+o\left(1\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right).
 \]
 If $b<c$ this completes the proof.
 \end{proof}
@@ -836,8 +843,8 @@ and the triangle removal process with this ordering produces a superset
 of $\randS^{*}$.
 
 Now, let $b$ be $a\,b\left(a,h\right)$ in the notation of \ref{lem:triangle-removal-analysis},
-so that $\Pr\left(S\cup\randS\in\mathcal{Q}\right)=1-o\left(1\right)$.
-We have
+so that $\Pr\left(S\cup\randS\in\mathcal{Q}\right)=1-o\left(1\right)$
+and
 \begin{align*}
 \Pr\left(S\cup\randS\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\right) & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\text{ and }e\left(\randG\right)\le\alpha N\right)\\
  & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right)/\Pr\left(S\cup\randS\in\mathcal{Q}\text{ and }e\left(\randG\right)\le\alpha N\right)\\
@@ -1023,8 +1030,8 @@ perfect matchings.
 \end{lem}
 \begin{proof}
 We can assume $\delta<1/4$, so that we can greedily choose a $\delta n$-vertex
-matching in $V\backslash V'$ containing each of the vertices violating
-the second condition. There are $n'=n-v\left(H\right)-\delta n\ge\left(1-2\delta\right)n$
+matching in $V\backslash V\left(H\right)$ containing each of the
+vertices violating the second condition. There are $n'=n-v\left(H\right)-\delta n\ge\left(1-2\delta\right)n$
 vertices in $V\backslash V\left(H\right)$ remaining unmatched.
 
 Next, repeatedly choose an edge in the remaining unmatched vertices
@@ -1259,11 +1266,11 @@ be the entropy of $\randM$. Let $\randM_{v}$ be the hyperedge of
 $\randM$ containing the vertex $v$, so that the sequence $\left(\randM_{v}\right)_{v\in\range n}$
 determines $\randM$. For any ordering on the vertices of $S$,
 \[
-H\left(M\right)=\sum_{v\in V}H\left(\randM_{v}\cond\randM_{v'}:v'<v\right).
+H\left(\randM\right)=\sum_{v\in V}H\left(\randM_{v}\cond\randM_{v'}:v'<v\right).
 \]
 Now, a sequence $\lambda\in\left[0,1\right]^{n}$ with all $\lambda_{v}$
 distinct induces an ordering on $\range n$, with $v'<v$ when $\lambda_{v'}>\lambda_{v}$.
-Let $\randR_{v}\left(\lambda\right)$ be 1 plus the number of 3-edges
+Let $\randR_{v}\left(\lambda\right)$ be 1 plus the number of hyperedges
 $e\ne\randM_{v}$ such that $\lambda_{v'}<\lambda_{v}$ for all $v'\in\bigcup_{x\in X}\randM_{x}$.
 (So, $\randR_{v}\left(\lambda\right)=1$ if $\lambda_{v'}>\lambda_{v}$
 for some $v'\in\randM_{v}\backslash\left\{ v\right\} $). This is
@@ -1278,24 +1285,24 @@ formally we should condition on $\randl_{e}=\lambda\pm\d\lambda$
 and take limits in what follows, but there are no continuity issues
 so we will ignore this detail). By linearity of expectation, we have
 \[
-R_{v}^{M,\lambda}=\left(\left(n-1\right)/2-1\right)\lambda^{6},
+R_{v}^{M,\lambda}=1+\left(\left(n-1\right)/2-1\right)\lambda^{6},
 \]
 because there are $\left(n-1\right)/2$ edges in $S$ containing $v$,
 and for each such edge $e$ other than $\randM_{v}$ the two non-$v$
-vertices must be matched to different 3-edges in $\randM$ (if they
-were matched to the same edge that edge would intersect $e$ in two
-vertices, violating the defining property of a Steiner triple system).
-By Jensen's inequality,
+vertices are in distinct hyperedges of $\randM$ (if they were in
+the same hyperedge that hyperedge would intersect $e$ in two vertices,
+violating the defining property of a Steiner triple system). By Jensen's
+inequality,
 \[
 \E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v}=\lambda,\,\lambda_{v'}<\lambda_{v}\text{ for all }v'\in\randM_{v}\backslash\left\{ v\right\} \right]\le\log R_{v}^{M,\lambda},
 \]
 and
 \[
-\Pr\left(\lambda_{v'}<\lambda_{v}\text{ for all }v'\in\randM_{v}\backslash\left\{ v\right\} \right)=\lambda^{2}
+\Pr\left(\lambda_{v'}<\lambda_{v}\text{ for all }v'\in\randM_{v}\backslash\left\{ v\right\} \right)=\lambda^{2},
 \]
 so
 \[
-\E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v}=\lambda\right]\le\lambda^{2}\log R_{v}^{M,\lambda}.
+\E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v}=\lambda\right]\le\lambda^{2}\log R_{v}^{M,\lambda}+\left(1-\lambda^{2}\right)\log1=\lambda^{2}\log R_{v}^{M,\lambda}.
 \]
 For any $M\in\mathcal{M}$ we then have
 \begin{align*}
@@ -1315,67 +1322,51 @@ which is equivalent to the theorem statement.
 
 \section{Latin squares\label{sec:latin}}
 
-In this section we briefly sketch how one should adapt the methods
-in this paper to prove \ref{thm:latin}.
+In this section we sketch how one should adapt the methods in this
+paper to prove \ref{thm:latin}.
 
-The main difference from the case of Steiner triple systems is that
-instead of considering triangles in graphs (subgraphs of $K_{n}$),
-we consider triangles in subgraphs of the complete tripartite graph
-$K_{n,n,n}$. In this section we use the notation $V=V_{1}\sqcup V_{2}\sqcup V_{3}$
-for the vertex partition of $K_{n,n,n}$. We say a subgraph $G\subseteq K_{n,n,n}$
+A partial Steiner triple system is a collection of edge-disjoint triangles
+in $K_{n}$, whereas a partial Latin square is a collection of edge-disjoint
+triangles in the complete tripartite graph $K_{n,n,n}$. Let $V=V_{1}\sqcup V_{2}\sqcup V_{3}$
+be the tripartition of $K_{n,n,n}$. We say a subgraph $G\subseteq K_{n,n,n}$
 with $m$ edges between each pair of parts is $\left(\varepsilon,h\right)$-quasirandom
 if for each $i\in\left\{ 1,2,3\right\} $, every set $A\subseteq V\backslash V_{i}$
 with $\left|A\right|\le h$ has $\left(1\pm\varepsilon\right)\left(m/n^{2}\right)^{\left|A\right|}n$
 common neighbours in $V_{i}$. We believe that the following result
-should follow from a slight adaptation of the proof in \cite{Kee15}.
+should follow from a fairly straightforward adaptation of the proof
+in \cite{Kee15}.
 \begin{conjecture}
-There are $h\in\NN$, $\varepsilon_{0},a\in\left(0,1\right)$ and
-$n_{0},\ell\in\NN$ such that if $n\ge n_{0}$, $m/n^{2}\ge n^{-a}$
+\label{conj:keevash-latin}There are $h\in\NN$, $\varepsilon_{0},a\in\left(0,1\right)$
+and $n_{0},\ell\in\NN$ such that if $n\ge n_{0}$, $m/n^{2}\ge n^{-a}$
 and $\varepsilon\le\varepsilon_{0}\left(m/n^{2}\right){}^{\ell}$,
 and $G\subseteq K_{n,n,n}$ is $\left(\varepsilon,h\right)$-quasirandom
 with $m$ edges between each pair of parts, then the edges of $G$
 can be decomposed into triangles.
 \end{conjecture}
-Redefining $\ord$, $\ordm m$ and $\cordm{\varepsilon,h}m$ in the
-obvious way for ordered (partial) Latin squares and redefining $\RR\left(n,m\right)$
-to be the distribution on $\ordm m$ obtained with $m$ steps of the
-triangle removal process starting from $K_{n,n,n}$, we can then prove
-a counterpart to \ref{lem:triangle-removal-transfer} for random Latin
-squares, with virtually the same proof.
-\begin{sol}
-\label{thm:latin-transfer}There is $h_{0}\in\NN$ such that for fixed
-$h\ge h_{0}$ and sufficiently small $a$ there is $b\left(a\right)>0$
-such that the following holds. Fix $\alpha\in\left(0,1\right)$, let
-$\mathcal{P}\subseteq\ordm{\alpha N}$ be a property of ordered partial
-Latin squares, let $\mathcal{Q}\supseteq\cordm{n^{-a},h}{\alpha N}$,
-let $\randS\in\ord$ be uniformly random and let $\randS'\in\rg n{\alpha N}$.
-If
-\[
-\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)<\exp\left(-n^{2-b}\right)
-\]
-then
-\[
-\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right)=\exp\left(-\Omega\left(n^{1-2a}\right)\right).
-\]
-\end{sol}
+With our new notion of quasirandomness and \ref{conj:keevash-latin}
+playing the role of \ref{thm:keevash} we can then prove the obvious
+Latin squares counterpart to \ref{prop:num-extensions}, which allows
+us to prove the Latin squares counterpart to \ref{lem:triangle-removal-transfer}.
+
 Now we outline what should be adapted from the arguments in \ref{sec:absorbers}
 for the Latin squares case. The definition of an absorber can remain
 the same, noting that the hypergraph in \ref{def:absorber} is tripartite
-(if $x,y,z$ are in different parts, then an absorber on $\left(x,y,z\right)$
-can be chosen with each 3-edge having a vertex in each part). The
-definition of a resilient template should be adapted slightly: a resilient
-template is a tripartite hypergraph $H$ with a flexible set $Z$
-satisfying $\left|Z\cap V_{1}\right|=\left|Z\cap V_{2}\right|=\left|Z\cap V_{3}\right|$,
-such that if half the vertices are removed from each $Z\cap V_{i}$
-the remaining hypergraph has a perfect matching. To prove a counterpart
-of \ref{lem:resilient-template} we can just use three copies (one
-for each $V_{i}$) of the construction in the proof of \ref{lem:resilient-template}.
+(and the tripartition can be chosen to have $x,y,z$ in different
+parts). The definition of a resilient template should be adapted slightly:
+a resilient template is a tripartite hypergraph $H$ (with tripartition
+$V\left(H\right)=V_{1}\left(H\right)\sqcup V_{2}\left(H\right)\sqcup V_{3}\left(H\right)$,
+say) with a flexible set $Z$, such that each $Z_{i}=V_{i}\left(H\right)\cap Z$
+has the same size, and such that if half the vertices of each $Z_{i}$
+are removed, then the remaining hypergraph has a perfect matching.
+To prove a counterpart of \ref{lem:resilient-template} we can just
+use three vertex-disjoint  copies of the tripartite hypergraph in
+the proof of \ref{lem:resilient-template} (one copy for each $Z_{i}$).
 The counterpart of \ref{lem:PM-via-absorbers} is as follows (with
 virtually the same proof).
 \begin{lem}
 \label{lem:absorbers-latin}Consider a 3-uniform tripartite hypergraph
-$L\subseteq K_{n,n,n}^{\left(3\right)}$ satisfying the following
-properties for some $\delta=\delta\left(n\right)=o\left(1\right)$
+$L$ (with tripartition $V=V_{1}\sqcup V_{2}\sqcup V_{3}$) satisfying
+the following properties for some $\delta=\delta\left(n\right)=o\left(1\right)$
 and fixed $\beta>0$.
 \begin{enumerate}
 \item There is an absorbing structure $H$ in $L$ with at most $\delta n$
@@ -1394,9 +1385,9 @@ Then $L$ has
 \]
 transversals.
 \end{lem}
-One can then use \ref{lem:absorbers-latin} and \ref{thm:latin-transfer}
-to prove \ref{thm:latin} in basically the same way as the proof of
-\ref{thm:PM-in-STS} in \ref{sec:absorbers-in-TRP}.
+One can then use \ref{lem:absorbers-latin} to prove \ref{thm:latin}
+in basically the same way as the proof of \ref{thm:PM-in-STS} in
+\ref{sec:absorbers-in-TRP}.
 
 \section{Concluding remarks\label{sec:concluding}}
 
@@ -1416,21 +1407,23 @@ require a new idea. For Latin squares, the property of being decomposable
 into transversals is equivalent to the important property of having
 an \emph{orthogonal mate}, which has a long history dating back to
 Euler. More details can be found in \cite{Wan11}.
-\item A $\left(q,r\right)$-Steiner system ($q>r$) is a $q$-uniform hypergraph
-such that every $r$-set of vertices is included in exactly one hyperedge
-(so, a Steiner triple system is a $\left(3,2\right)$-Steiner system).
-We believe that our results should generalize to Steiner systems with
-any combination of parameters, and the main difficulty probably lies
-in coming up with a suitable absorber. Note that a perfect matching
-is actually a $\left(q,1\right)$-Steiner system, so if $r>2$ then
-there is the more general (and much more difficult) question of whether
-$\left(q,r\right)$-Steiner systems typically contain $\left(q,r'\right)$-Steiner
-systems, for all $r'<r$. It might even be true that almost all $\left(q,r\right)$-Steiner
-systems can be ``completely decomposed'' in the sense that they
-can be partitioned into disjoint $\left(q,r-1\right)$-Steiner systems,
-which can be partitioned into $\left(q,r-2\right)$-Steiner systems,
-and so on. A similar phenomenon occurs for regular subgraphs of random
-regular graphs (see \cite[Section~9.5]{JLR00}).
+\item A \emph{$\left(q,r,\lambda\right)$-design} ($q>r$) of order $n$
+is a $q$-uniform hypergraph on the vertex set $\range n$ such that
+every $r$-set of vertices is included in exactly $\lambda$ hyperedges.
+A $\left(q,r\right)$\emph{-Steiner system} is a $\left(q,r,1\right)$-design
+(so, a Steiner triple system is a $\left(3,2,1\right)$-design or
+equivalently a $\left(3,2\right)$-Steiner system, and a $d$-regular
+graph is a $\left(2,1,d\right)$-design). The methods in \ref{sec:outline}
+generalize to $\left(q,r,\lambda\right)$-designs with mainly notational
+changes. Note that a $3$-uniform perfect matching is actually a $\left(3,1\right)$-Steiner
+system, so as a sweeping generalization of \ref{thm:PM-in-STS} we
+might ask whether almost $\left(q,r,\lambda\right)$-designs typically
+contain $\left(q,r',\lambda'\right)$-designs of the same order, for
+all $r'\le r$ and $\lambda'\le\lambda$. We note that in the case
+of regular graphs a much stronger phenomenon occurs: in some sense
+a random $\left(d_{1}+d_{2}\right)$-regular graph is ``the same''
+as a random $d_{1}$-regular graph combined with a random $d_{2}$-regular
+graph (see \cite[Section~9.5]{JLR00}).
 \item Another interesting question about random Steiner triple systems is
 whether they contain Steiner triple subsystems on fewer vertices.
 McKay and Wanless \cite{MW99} proved that almost all Latin squares
@@ -1456,8 +1449,8 @@ is that they have low \emph{discrepancy}, meaning that every sufficiently
 large subset of vertices has about the expected number of edges. In
 \ref{subsec:density} we effectively proved a very weak discrepancy
 bound, but it is not clear how to use our methods to reach anywhere
-near optimal discrepancy. See \cite{LL15} for some conjectures about
-discrepancy of Latin squares and their high-dimensional relatives.
+near optimal discrepancy. See \cite{LL15} for some theorems and conjectures
+about discrepancy of Latin squares.
 \end{itemize}
 \bibliographystyle{amsplain_initials}
 \bibliography{references}
@@ -1771,7 +1764,7 @@ so by linearity of expectation
  & =-\left|A\right|p^{\left|A\right|-1}\left(i\right)n/N+O\left(e\left(i\right)p^{\left|A\right|-1}\left(i\right)/n\right).
 \end{align*}
 Note also that we have the bound $\Delta\randY_{A}\left(i\right)\le2=O\left(1\right)$
-(with probability 1). Also, for fixed $k$ we have
+(with probability 1). Also, for fixed $k$,
 \begin{align*}
 \Delta p^{k}\left(i\right) & =\left(1-\frac{i+1}{N}\right)^{k}-\left(1-\frac{i}{N}\right)^{k}\\
  & =\left(1-\frac{i}{N}\right)^{k}\left(\left(\frac{N-i-1}{N-i}\right)^{k}-1\right)\\
@@ -1780,7 +1773,7 @@ Note also that we have the bound $\Delta\randY_{A}\left(i\right)\le2=O\left(1\ri
  & =-\frac{kp^{k-1}\left(i\right)}{N}\left(1+O\left(\frac{1}{N}p\left(i\right)\right)\right)\\
  & =-\frac{kp^{k-1}\left(i\right)}{N}+o\left(e\left(i\right)p^{k-1}\left(i\right)/N\right),
 \end{align*}
-and with $ep^{k}$denoting the pointwise product $i\mapsto e\left(i\right)p^{k}\left(i\right)$,
+and with $ep^{k}$ denoting the pointwise product $i\mapsto e\left(i\right)p^{k}\left(i\right)$,
 for $C$ much larger than $k$ we have
 \begin{align*}
 \Delta\left(ep^{k}\right)\left(i\right) & =\varepsilon^{c}\Delta p^{k-C}\left(i\right)=-\varepsilon^{c}\Theta\left(Cp^{k-C-1}\left(i\right)/N\right)\\

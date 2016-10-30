@@ -212,7 +212,20 @@ Matthew Kwan
 status open
 
 \begin_layout Plain Layout
-Department of Mathematics, ETH, 8092 Zürich.
+Department of Mathematics, ETH, 8092 Z
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+"
+\end_layout
+
+\end_inset
+
+urich.
  Email: 
 \begin_inset ERT
 status open
@@ -720,8 +733,8 @@ fi}
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\ext}[1]{\mathcal{O}^{\mathrm{ext}}\left(#1\right)}
-{\boldsymbol{\mathcal{O}^{\mathrm{ext}}\left(#1\right)}}
+\newcommand{\ext}[1]{\mathcal{O}^{*}\left(#1\right)}
+{\boldsymbol{\mathcal{O}^{*}\left(#1\right)}}
 \end_inset
 
 
@@ -911,8 +924,15 @@ We show that for any
 \begin_inset Formula $n$
 \end_inset
 
- Steiner triple systems have a perfect matching (also known as a parallel
- class).
+ Steiner triple systems have a perfect matching (also known as a 
+\emph on
+parallel class
+\emph default
+ or 
+\emph on
+resolution class
+\emph default
+).
  In fact, we prove a general upper bound on the number of perfect matchings
  in a Steiner triple system and show that almost all Steiner triple systems
  essentially attain this maximum.
@@ -974,7 +994,7 @@ key "CR99"
 \end_inset
 
  for an introduction to the subject.
- We note that a Steiner triple system is actually nothing more than a triangle-d
+ Observe that a Steiner triple system is actually nothing more than a triangle-d
 ecomposition of the edges of the complete graph 
 \begin_inset Formula $K_{n}$
 \end_inset
@@ -1016,12 +1036,8 @@ key "Bab80"
 
 \end_inset
 
- used this estimate to prove that a 
-\begin_inset Formula $\left(1-o\left(1\right)\right)$
-\end_inset
-
--proportion of Steiner triple systems have trivial automorphism group (equivalen
-tly, a uniformly random order-
+ used this estimate to prove that almost all Steiner triple systems have
+ trivial automorphism group (that is to say, a uniformly random order-
 \begin_inset Formula $n$
 \end_inset
 
@@ -1179,7 +1195,7 @@ key "Kee14"
 
 \end_inset
 
- very recently proved that for a large class of combinatorial designs generalizi
+ very recently proved that for a large class of combinatorial designs generalisi
 ng Steiner triple systems, 
 \begin_inset Quotes eld
 \end_inset
@@ -1256,9 +1272,15 @@ reference "eq:num-STS"
 triangle removal process
 \emph default
 .
- We remark that actually Keevash's lower bound is proved via a randomized
- construction that involves the triangle removal process, so many properties
- that hold a.a.s.
+ We remark that actually Keevash proved 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:num-STS"
+
+\end_inset
+
+ with a randomised construction that involves the triangle removal process,
+ so many properties that hold a.a.s.
  in the triangle removal process trivially hold a.a.s.
  in this random construction.
  Such results have been proved in 
@@ -1279,38 +1301,17 @@ key "LLR15"
 .
  However, the Steiner triple systems obtainable by Keevash's construction
  comprise a negligible proportion of the set of Steiner triple systems,
- so a more delicate approach is required to study a uniformly random Steiner
- triple system.
- We give the details in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:outline"
-
-\end_inset
-
-.
+ and a somewhat more delicate approach is required to study a uniformly
+ random Steiner triple system.
 \end_layout
 
 \begin_layout Standard
-As an application of our new method, we prove that if 
-\begin_inset Formula $3\mid n$
-\end_inset
-
- (that is, if 
-\begin_inset Formula $n\equiv3\mod6$
-\end_inset
-
-) then almost all order-
-\begin_inset Formula $n$
-\end_inset
-
- Steiner triple systems have many 
+A 
 \emph on
-perfect matchings
+perfect matching
 \emph default
-.
- A perfect matching in a hypergraph is a collection of disjoint hyperedges
- partitioning the vertex set.
+ in a hypergraph is a collection of disjoint hyperedges partitioning the
+ vertex set.
  The existence of perfect matchings is one of the most central questions
  in the theory of graphs and hypergraphs; in particular, one of the most
  celebrated recent developments in the field is the Fulkerson-prize-winning
@@ -1326,9 +1327,13 @@ key "JKV08"
 \emph on
  parallel class
 \emph default
+ or 
+\emph on
+resolution class
+\emph default
 , and has particular significance.
- One of the oldest problems in combinatorics, famously solved by Ray-Chaudhuri
- and Wilson 
+ One of the oldest problems in combinatorics, famously solved in the affirmative
+ by Ray-Chaudhuri and Wilson 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RW71"
@@ -1373,6 +1378,24 @@ key "BH15"
 \end_inset
 
  there exist Steiner triple systems with no perfect matching.
+ As an application of our new method, we prove that if 
+\begin_inset Formula $n\equiv3\mod6$
+\end_inset
+
+ (that is, if 
+\begin_inset Formula $3\mid n$
+\end_inset
+
+ and an order-
+\begin_inset Formula $n$
+\end_inset
+
+ Steiner triple system exists) then almost all order-
+\begin_inset Formula $n$
+\end_inset
+
+ Steiner triple systems have many perfect matchings.
+ 
 \end_layout
 
 \begin_layout Theorem
@@ -1413,20 +1436,20 @@ perfect matchings.
 
 \begin_layout Standard
 We remark that if 
-\begin_inset Formula $3\nmid n$
-\end_inset
-
- (that is, if 
 \begin_inset Formula $n\equiv1\mod6$
 \end_inset
 
-) then obviously no order-
+ then obviously no order-
 \begin_inset Formula $n$
 \end_inset
 
  Steiner triple system can have a perfect matching, but exactly the same
- proof can be used to show that there is a matching covering all but one
- vertex.
+ proof can be used to show that in a random order-
+\begin_inset Formula $n$
+\end_inset
+
+ Steiner triple system there is a.a.s.
+ a matching covering all but one vertex.
 \end_layout
 
 \begin_layout Standard
@@ -1434,13 +1457,6 @@ We prove
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:PM-in-STS"
-
-\end_inset
-
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:absorbers"
 
 \end_inset
 
@@ -1511,7 +1527,18 @@ rfect matching into a perfect one.
 \begin_layout Standard
 Up to the error term, a random Steiner triple system actually has the maximum
  possible number of perfect matchings: we also prove the following upper
- bound.
+ bound using the so-called 
+\emph on
+entropy method
+\emph default
+ due to Radhakrishnan 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rad97"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Theorem
@@ -1530,35 +1557,6 @@ Any Steiner triple system has at most
 \end_inset
 
 perfect matchings.
-\end_layout
-
-\begin_layout Standard
-We give a short proof of 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:maximum-PMs"
-
-\end_inset
-
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:max-num-matchings"
-
-\end_inset
-
-, using the so-called 
-\emph on
-entropy method
-\emph default
- due to Radhakrishnan 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rad97"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Subsection
@@ -1584,7 +1582,7 @@ symbols
 \emph default
 ), such that each row and column contains each symbol exactly once.
  As mentioned earlier, this is equivalent to a 3-uniform hypergraph whose
- triples comprise a triangle-decomposition of the edges of the complete
+ hyperedges comprise a triangle-decomposition of the edges of the complete
  tripartite graph 
 \begin_inset Formula $K_{n,n,n}$
 \end_inset
@@ -1610,7 +1608,7 @@ transversal
 and the property of containing a transversal is of great interest.
  In particular, the famous Ryser-Brualdi-Stein conjecture speculates that
  every odd-order Latin square has a transversal, and every even-order Latin
- square has a partial transversal (matching) of size 
+ square has a partial transversal of size 
 \begin_inset Formula $n-1$
 \end_inset
 
@@ -1626,22 +1624,54 @@ key "Wan11"
 \end_layout
 
 \begin_layout Standard
-We are quite confident that our methods can be adapted to the setting of
- Latin squares.
- The main obstacle is that Keevash's completion results have not yet been
- adapted to Latin squares.
- We believe such an adaptation should be quite straightforward, but it would
- be well outside the scope of this paper to include the details here.
- Modulo a Keevash-type completion result we can prove the following theorem,
- answering a question of Glebov and Luria 
+The counterpart of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:maximum-PMs"
+
+\end_inset
+
+ for Latin squares, that a Latin square can have at most 
+\begin_inset Formula $\left(\left(1+o\left(1\right)\right)n/e^{2}\right)^{n}$
+\end_inset
+
+ transversals, was first proved by Taranenko 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Tar15"
+
+\end_inset
+
+.
+ Glebov and Luria 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "GL16"
 
 \end_inset
 
- and proving that the Ryser-Brualdi-Stein conjecture holds for almost all
- Latin squares.
+ gave a simpler entropy-based proof of the same fact and asked whether the
+ counterpart of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:PM-in-STS"
+
+\end_inset
+
+ holds: do almost all Latin squares have essentially the maximum possible
+ number of transversals?
+\end_layout
+
+\begin_layout Standard
+We are confident that our methods are applicable to the setting of Latin
+ squares, but the main obstacle is that Keevash's completion results have
+ not yet been adapted to this setting.
+ Although we believe such an adaptation should be quite straightforward,
+ it would be well outside the scope of this paper to include the details
+ here.
+ Modulo a Keevash-type completion result for Latin squares we can prove
+ the following theorem, answering Glebov and Luria's question and proving
+ that the Ryser-Brualdi-Stein conjecture holds for almost all Latin squares.
 \end_layout
 
 \begin_layout Solution
@@ -1676,50 +1706,6 @@ Let
 transversals.
 \end_layout
 
-\begin_layout Standard
-We note that the counterpart of 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:maximum-PMs"
-
-\end_inset
-
- for Latin squares (that a Latin square can have at most 
-\begin_inset Formula $\left(\left(1+o\left(1\right)\right)n/e^{2}\right)^{n}$
-\end_inset
-
- transversals) was first proved by Taranenko 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Tar15"
-
-\end_inset
-
-.
- In 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:latin"
-
-\end_inset
-
- we outline how the proof of 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:PM-in-STS"
-
-\end_inset
-
- can be adapted to prove 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:latin"
-
-\end_inset
-
-, conditional on a Keevash-type completion result.
-\end_layout
-
 \begin_layout Subsection
 Structure of the paper
 \end_layout
@@ -1733,7 +1719,8 @@ reference "sec:outline"
 
 \end_inset
 
- we explain our method for studying random Steiner triple systems.
+ we explain our method for comparing random Steiner triple systems with
+ the triangle removal process.
  In 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1741,14 +1728,22 @@ reference "sec:absorbers"
 
 \end_inset
 
- we define absorbers and prove 
+ we use the theory from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:outline"
+
+\end_inset
+
+ and the absorbing method to prove 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:PM-in-STS"
 
 \end_inset
 
-, in 
+.
+ In 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:max-num-matchings"
@@ -1792,15 +1787,14 @@ reference "sec:keevash"
 
 \end_inset
 
- we provide a straightforward but necessary adaptation of Keevash's proof
- of 
+ we prove a straightforward but necessary generalization of 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:num-STS"
 
 \end_inset
 
-, to estimate the number of completions of a partial Steiner triple system,
+, estimating the number of completions of a partial Steiner triple system,
  and in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1812,7 +1806,7 @@ reference "sec:Random-triangle-removal"
 \end_layout
 
 \begin_layout Subsection
-Acknowledgements
+Acknowledgments
 \end_layout
 
 \begin_layout Standard
@@ -1840,16 +1834,11 @@ In this section we describe our method for comparing random Steiner triple
 \end_inset
 
  be the number of hyperedges in a Steiner triple system.
- We also assume throughout this section that 
+ We assume throughout this section that 
 \begin_inset Formula $n$
 \end_inset
 
  is 1 or 3 mod 6.
-\end_layout
-
-\begin_layout Standard
-We will shortly state a general theorem for comparing Steiner triple systems
- with the triangle removal processes, but first we need several definitions.
 \end_layout
 
 \begin_layout Definition
@@ -1915,7 +1904,7 @@ partial system
 \begin_inset Formula $S_{i}$
 \end_inset
 
- be the partial system consisting of the first 
+ be the ordered partial system consisting of just the first 
 \begin_inset Formula $i$
 \end_inset
 
@@ -2015,7 +2004,14 @@ For a graph
 \end_inset
 
 .
- (The notation 
+ (Following 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kee15"
+
+\end_inset
+
+, the notation 
 \begin_inset Formula $f=1\pm\varepsilon$
 \end_inset
 
@@ -2071,7 +2067,7 @@ For a graph
 status open
 
 \begin_layout Plain Layout
-the triangle removal processs
+the triangle removal process
 \end_layout
 
 \end_inset
@@ -2123,7 +2119,8 @@ The triangle removal process is defined as follows.
 \end_layout
 
 \begin_layout Standard
-Now, our general theorem is as follows.
+Now, we can state a general theorem comparing random Steiner triple systems
+ to the triangle removal process.
 \end_layout
 
 \begin_layout Theorem
@@ -2133,20 +2130,16 @@ name "lem:triangle-removal-transfer"
 
 \end_inset
 
-There is 
-\begin_inset Formula $h_{0}\in\NN$
-\end_inset
-
- such that for fixed 
-\begin_inset Formula $h\ge h_{0}$
+Fixing sufficiently large 
+\begin_inset Formula $h\in\NN$
 \end_inset
 
  and sufficiently small 
-\begin_inset Formula $a$
+\begin_inset Formula $a>0$
 \end_inset
 
- there is 
-\begin_inset Formula $b\left(a\right)>0$
+, there is 
+\begin_inset Formula $b=b\left(a\right)>0$
 \end_inset
 
  such that the following holds.
@@ -2293,8 +2286,8 @@ reference "lem:triangle-removal-transfer"
 
  follows from a sequence of several lemmas.
  The most important is the following: we can use Keevash's methods to estimate
- the number of ways to complete any 
-\begin_inset Formula $S\in\cordm{\varepsilon,h}{\alpha N}$
+ the number of ways to complete a partial system 
+\begin_inset Formula $S$
 \end_inset
 
 , and show that it does not vary too much between choices of 
@@ -2311,11 +2304,28 @@ name "prop:num-extensions"
 
 \end_inset
 
-There is 
+For an ordered partial system 
+\begin_inset Formula $S\in\ordm m$
+\end_inset
+
+, let 
+\begin_inset Formula $\ext S\subseteq\ord$
+\end_inset
+
+ be the set of ordered Steiner triple systems 
+\begin_inset Formula $S^{*}$
+\end_inset
+
+ such that 
+\begin_inset Formula $S_{m}^{*}=S$
+\end_inset
+
+.
+ Fixing sufficiently large 
 \begin_inset Formula $h\in\NN$
 \end_inset
 
- such that for any fixed 
+ and any 
 \begin_inset Formula $a>0$
 \end_inset
 
@@ -2329,17 +2339,17 @@ There is
 \end_inset
 
 , any 
-\begin_inset Formula $\varepsilon\le n^{-a}$
+\begin_inset Formula $\varepsilon=\varepsilon\left(n\right)\le n^{-a}$
 \end_inset
 
-, and any 
+ and any 
 \begin_inset Formula $S,S'\in\cordm{\varepsilon,h}{\alpha N}$
 \end_inset
 
 ,
 \begin_inset Formula 
 \[
-\frac{\left|\ext S\right|}{\left|\ext{S'}\right|}\le\exp\left(n^{2-b}\right).
+\frac{\left|\ext S\right|}{\left|\ext{S'}\right|}\le\exp\left(O\left(n^{2-b}\right)\right).
 \]
 
 \end_inset
@@ -2525,7 +2535,7 @@ name "lem:greedy-random-approx-uniform"
 
 \end_inset
 
-For any 
+The following holds for any fixed 
 \begin_inset Formula $a>0$
 \end_inset
 
@@ -2533,15 +2543,21 @@ For any
 \begin_inset Formula $\alpha\in\left[0,1\right]$
 \end_inset
 
-, and for 
-\begin_inset Formula $S,S'\in\cordm{n^{-a},2}{\alpha N}$
+.
+ Let 
+\begin_inset Formula $\varepsilon=n^{-a}$
 \end_inset
 
- and 
+, let 
+\begin_inset Formula $S,S'\in\cordm{\varepsilon,2}{\alpha N}$
+\end_inset
+
+ and let 
 \begin_inset Formula $\randS\in\rg n{\alpha N}$
 \end_inset
 
-,
+.
+ Then
 \begin_inset Formula 
 \[
 \frac{\Pr\left(\randS=S\right)}{\Pr\left(\randS=S'\right)}\le\exp\left(O\left(n^{2-a}\right)\right).
@@ -2583,8 +2599,8 @@ reference "lem:triangle-removal-transfer"
 We have
 \begin_inset Formula 
 \begin{align*}
-\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right) & \le\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\cond\randS_{\alpha N}\in\cordm{n^{-a},h}{\alpha N}\right)+\Pr\left(\randS_{\alpha N}\notin\cordm{n^{-a},h}{\alpha N}\right)\\
- & \le\exp\left(O\left(n^{2-c}\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{n^{-a},h}{\alpha N}\right)+\exp\left(-\Omega\left(n^{1-2a}\right)\right),
+\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right) & \le\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\cond\randS_{\alpha N}\in\cordm{\varepsilon,h}{\alpha N}\right)+\Pr\left(\randS_{\alpha N}\notin\cordm{\varepsilon,h}{\alpha N}\right)\\
+ & \le\exp\left(O\left(n^{2-c}\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)+\exp\left(-\Omega\left(n^{1-2a}\right)\right),
 \end{align*}
 
 \end_inset
@@ -2613,13 +2629,13 @@ reference "lem:triangle-removal-analysis"
 \end_inset
 
  guarantees that 
-\begin_inset Formula $\Pr\left(\randS'\in\cordm{n^{-a},h}{\alpha N}\right)=1-o\left(1\right)$
+\begin_inset Formula $\Pr\left(\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)=1-o\left(1\right)$
 \end_inset
 
  so
 \begin_inset Formula 
 \[
-\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{n^{-a},h}{\alpha N}\right)\le\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)\frac{\Pr\left(\randS'\in\mathcal{Q}\right)}{\Pr\left(\randS'\in\cordm{n^{-a},h}{\alpha N}\right)}=\left(1+o\left(1\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right).
+\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)\le\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)\frac{\Pr\left(\randS'\in\mathcal{Q}\right)}{\Pr\left(\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)}=\left(1+o\left(1\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right).
 \]
 
 \end_inset
@@ -3462,8 +3478,7 @@ reference "lem:triangle-removal-analysis"
 \begin_inset Formula $\Pr\left(S\cup\randS\in\mathcal{Q}\right)=1-o\left(1\right)$
 \end_inset
 
-.
- We have
+ and
 \begin_inset Formula 
 \begin{align*}
 \Pr\left(S\cup\randS\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\right) & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\text{ and }e\left(\randG\right)\le\alpha N\right)\\
@@ -4542,7 +4557,7 @@ We can assume
 \end_inset
 
 -vertex matching in 
-\begin_inset Formula $V\backslash V'$
+\begin_inset Formula $V\backslash V\left(H\right)$
 \end_inset
 
  containing each of the vertices violating the second condition.
@@ -5740,7 +5755,7 @@ Let
 ,
 \begin_inset Formula 
 \[
-H\left(M\right)=\sum_{v\in V}H\left(\randM_{v}\cond\randM_{v'}:v'<v\right).
+H\left(\randM\right)=\sum_{v\in V}H\left(\randM_{v}\cond\randM_{v'}:v'<v\right).
 \]
 
 \end_inset
@@ -5770,7 +5785,7 @@ Now, a sequence
 \begin_inset Formula $\randR_{v}\left(\lambda\right)$
 \end_inset
 
- be 1 plus the number of 3-edges 
+ be 1 plus the number of hyperedges 
 \begin_inset Formula $e\ne\randM_{v}$
 \end_inset
 
@@ -5826,7 +5841,7 @@ R_{v}^{M,\lambda}=\E\left[\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v
  By linearity of expectation, we have
 \begin_inset Formula 
 \[
-R_{v}^{M,\lambda}=\left(\left(n-1\right)/2-1\right)\lambda^{6},
+R_{v}^{M,\lambda}=1+\left(\left(n-1\right)/2-1\right)\lambda^{6},
 \]
 
 \end_inset
@@ -5855,11 +5870,11 @@ because there are
 \begin_inset Formula $v$
 \end_inset
 
- vertices must be matched to different 3-edges in 
+ vertices are in distinct hyperedges of 
 \begin_inset Formula $\randM$
 \end_inset
 
- (if they were matched to the same edge that edge would intersect 
+ (if they were in the same hyperedge that hyperedge would intersect 
 \begin_inset Formula $e$
 \end_inset
 
@@ -5875,7 +5890,7 @@ because there are
 and
 \begin_inset Formula 
 \[
-\Pr\left(\lambda_{v'}<\lambda_{v}\text{ for all }v'\in\randM_{v}\backslash\left\{ v\right\} \right)=\lambda^{2}
+\Pr\left(\lambda_{v'}<\lambda_{v}\text{ for all }v'\in\randM_{v}\backslash\left\{ v\right\} \right)=\lambda^{2},
 \]
 
 \end_inset
@@ -5883,7 +5898,7 @@ and
 so
 \begin_inset Formula 
 \[
-\E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v}=\lambda\right]\le\lambda^{2}\log R_{v}^{M,\lambda}.
+\E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v}=\lambda\right]\le\lambda^{2}\log R_{v}^{M,\lambda}+\left(1-\lambda^{2}\right)\log1=\lambda^{2}\log R_{v}^{M,\lambda}.
 \]
 
 \end_inset
@@ -5936,8 +5951,8 @@ name "sec:latin"
 \end_layout
 
 \begin_layout Standard
-In this section we briefly sketch how one should adapt the methods in this
- paper to prove 
+In this section we sketch how one should adapt the methods in this paper
+ to prove 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:latin"
@@ -5948,21 +5963,22 @@ reference "thm:latin"
 \end_layout
 
 \begin_layout Standard
-The main difference from the case of Steiner triple systems is that instead
- of considering triangles in graphs (subgraphs of 
+A partial Steiner triple system is a collection of edge-disjoint triangles
+ in 
 \begin_inset Formula $K_{n}$
 \end_inset
 
-), we consider triangles in subgraphs of the complete tripartite graph 
+, whereas a partial Latin square is a collection of edge-disjoint triangles
+ in the complete tripartite graph 
 \begin_inset Formula $K_{n,n,n}$
 \end_inset
 
 .
- In this section we use the notation 
+ Let 
 \begin_inset Formula $V=V_{1}\sqcup V_{2}\sqcup V_{3}$
 \end_inset
 
- for the vertex partition of 
+ be the tripartition of 
 \begin_inset Formula $K_{n,n,n}$
 \end_inset
 
@@ -6000,8 +6016,8 @@ The main difference from the case of Steiner triple systems is that instead
 \end_inset
 
 .
- We believe that the following result should follow from a slight adaptation
- of the proof in 
+ We believe that the following result should follow from a fairly straightforwar
+d adaptation of the proof in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kee15"
@@ -6012,6 +6028,12 @@ key "Kee15"
 \end_layout
 
 \begin_layout Conjecture
+\begin_inset CommandInset label
+LatexCommand label
+name "conj:keevash-latin"
+
+\end_inset
+
 There are 
 \begin_inset Formula $h\in\NN$
 \end_inset
@@ -6056,106 +6078,35 @@ There are
 \end_layout
 
 \begin_layout Standard
-Redefining 
-\begin_inset Formula $\ord$
+With our new notion of quasirandomness and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "conj:keevash-latin"
+
 \end_inset
 
-, 
-\begin_inset Formula $\ordm m$
+ playing the role of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:keevash"
+
 \end_inset
 
- and 
-\begin_inset Formula $\cordm{\varepsilon,h}m$
+ we can then prove the obvious Latin squares counterpart to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:num-extensions"
+
 \end_inset
 
- in the obvious way for ordered (partial) Latin squares and redefining 
-\begin_inset Formula $\RR\left(n,m\right)$
-\end_inset
-
- to be the distribution on 
-\begin_inset Formula $\ordm m$
-\end_inset
-
- obtained with 
-\begin_inset Formula $m$
-\end_inset
-
- steps of the triangle removal process starting from 
-\begin_inset Formula $K_{n,n,n}$
-\end_inset
-
-, we can then prove a counterpart to 
+, which allows us to prove the Latin squares counterpart to 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:triangle-removal-transfer"
 
 \end_inset
 
- for random Latin squares, with virtually the same proof.
-\end_layout
-
-\begin_layout Solution
-\begin_inset CommandInset label
-LatexCommand label
-name "thm:latin-transfer"
-
-\end_inset
-
-There is 
-\begin_inset Formula $h_{0}\in\NN$
-\end_inset
-
- such that for fixed 
-\begin_inset Formula $h\ge h_{0}$
-\end_inset
-
- and sufficiently small 
-\begin_inset Formula $a$
-\end_inset
-
- there is 
-\begin_inset Formula $b\left(a\right)>0$
-\end_inset
-
- such that the following holds.
- Fix 
-\begin_inset Formula $\alpha\in\left(0,1\right)$
-\end_inset
-
-, let 
-\begin_inset Formula $\mathcal{P}\subseteq\ordm{\alpha N}$
-\end_inset
-
- be a property of ordered partial Latin squares, let 
-\begin_inset Formula $\mathcal{Q}\supseteq\cordm{n^{-a},h}{\alpha N}$
-\end_inset
-
-, let 
-\begin_inset Formula $\randS\in\ord$
-\end_inset
-
- be uniformly random and let 
-\begin_inset Formula $\randS'\in\rg n{\alpha N}$
-\end_inset
-
 .
- If
-\begin_inset Formula 
-\[
-\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)<\exp\left(-n^{2-b}\right)
-\]
-
-\end_inset
-
-then
-\begin_inset Formula 
-\[
-\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right)=\exp\left(-\Omega\left(n^{1-2a}\right)\right).
-\]
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -6175,33 +6126,33 @@ reference "def:absorber"
 
 \end_inset
 
- is tripartite (if 
+ is tripartite (and the tripartition can be chosen to have 
 \begin_inset Formula $x,y,z$
 \end_inset
 
- are in different parts, then an absorber on 
-\begin_inset Formula $\left(x,y,z\right)$
-\end_inset
-
- can be chosen with each 3-edge having a vertex in each part).
+ in different parts).
  The definition of a resilient template should be adapted slightly: a resilient
  template is a tripartite hypergraph 
 \begin_inset Formula $H$
 \end_inset
 
- with a flexible set 
+ (with tripartition 
+\begin_inset Formula $V\left(H\right)=V_{1}\left(H\right)\sqcup V_{2}\left(H\right)\sqcup V_{3}\left(H\right)$
+\end_inset
+
+, say) with a flexible set 
 \begin_inset Formula $Z$
 \end_inset
 
- satisfying 
-\begin_inset Formula $\left|Z\cap V_{1}\right|=\left|Z\cap V_{2}\right|=\left|Z\cap V_{3}\right|$
+, such that each 
+\begin_inset Formula $Z_{i}=V_{i}\left(H\right)\cap Z$
 \end_inset
 
-, such that if half the vertices are removed from each 
-\begin_inset Formula $Z\cap V_{i}$
+ has the same size, and such that if half the vertices of each 
+\begin_inset Formula $Z_{i}$
 \end_inset
 
- the remaining hypergraph has a perfect matching.
+ are removed, then the remaining hypergraph has a perfect matching.
  To prove a counterpart of 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6209,18 +6160,19 @@ reference "lem:resilient-template"
 
 \end_inset
 
- we can just use three copies (one for each 
-\begin_inset Formula $V_{i}$
-\end_inset
-
-) of the construction in the proof of 
+ we can just use three vertex-disjoint  copies of the tripartite hypergraph
+ in the proof of 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:resilient-template"
 
 \end_inset
 
-.
+ (one copy for each 
+\begin_inset Formula $Z_{i}$
+\end_inset
+
+).
  The counterpart of 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6239,10 +6191,14 @@ name "lem:absorbers-latin"
 \end_inset
 
 Consider a 3-uniform tripartite hypergraph 
-\begin_inset Formula $L\subseteq K_{n,n,n}^{\left(3\right)}$
+\begin_inset Formula $L$
 \end_inset
 
- satisfying the following properties for some 
+ (with tripartition 
+\begin_inset Formula $V=V_{1}\sqcup V_{2}\sqcup V_{3}$
+\end_inset
+
+) satisfying the following properties for some 
 \begin_inset Formula $\delta=\delta\left(n\right)=o\left(1\right)$
 \end_inset
 
@@ -6359,13 +6315,6 @@ reference "lem:absorbers-latin"
 
 \end_inset
 
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:latin-transfer"
-
-\end_inset
-
  to prove 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6448,75 +6397,133 @@ key "Wan11"
 
 \begin_layout Itemize
 A 
-\begin_inset Formula $\left(q,r\right)$
+\emph on
+
+\begin_inset Formula $\left(q,r,\lambda\right)$
 \end_inset
 
--Steiner system (
+-design
+\emph default
+ (
 \begin_inset Formula $q>r$
 \end_inset
 
-) is a 
+) of order 
+\begin_inset Formula $n$
+\end_inset
+
+ is a 
 \begin_inset Formula $q$
 \end_inset
 
--uniform hypergraph such that every 
+-uniform hypergraph on the vertex set 
+\begin_inset Formula $\range n$
+\end_inset
+
+ such that every 
 \begin_inset Formula $r$
 \end_inset
 
--set of vertices is included in exactly one hyperedge (so, a Steiner triple
- system is a 
+-set of vertices is included in exactly 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ hyperedges.
+ A 
+\begin_inset Formula $\left(q,r\right)$
+\end_inset
+
+
+\emph on
+-Steiner system
+\emph default
+ is a 
+\begin_inset Formula $\left(q,r,1\right)$
+\end_inset
+
+-design (so, a Steiner triple system is a 
+\begin_inset Formula $\left(3,2,1\right)$
+\end_inset
+
+-design or equivalently a 
 \begin_inset Formula $\left(3,2\right)$
 \end_inset
 
--Steiner system).
- We believe that our results should generalize to Steiner systems with any
- combination of parameters, and the main difficulty probably lies in coming
- up with a suitable absorber.
- Note that a perfect matching is actually a 
-\begin_inset Formula $\left(q,1\right)$
+-Steiner system, and a 
+\begin_inset Formula $d$
 \end_inset
 
--Steiner system, so if 
-\begin_inset Formula $r>2$
+-regular graph is a 
+\begin_inset Formula $\left(2,1,d\right)$
 \end_inset
 
- then there is the more general (and much more difficult) question of whether
- 
-\begin_inset Formula $\left(q,r\right)$
+-design).
+ The methods in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:outline"
+
 \end_inset
 
--Steiner systems typically contain 
-\begin_inset Formula $\left(q,r'\right)$
+ generalize to 
+\begin_inset Formula $\left(q,r,\lambda\right)$
 \end_inset
 
--Steiner systems, for all 
-\begin_inset Formula $r'<r$
+-designs with mainly notational changes.
+ Note that a 
+\begin_inset Formula $3$
+\end_inset
+
+-uniform perfect matching is actually a 
+\begin_inset Formula $\left(3,1\right)$
+\end_inset
+
+-Steiner system, so as a sweeping generalization of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:PM-in-STS"
+
+\end_inset
+
+ we might ask whether almost 
+\begin_inset Formula $\left(q,r,\lambda\right)$
+\end_inset
+
+-designs typically contain 
+\begin_inset Formula $\left(q,r',\lambda'\right)$
+\end_inset
+
+-designs of the same order, for all 
+\begin_inset Formula $r'\le r$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda'\le\lambda$
 \end_inset
 
 .
- It might even be true that almost all 
-\begin_inset Formula $\left(q,r\right)$
+ We note that in the case of regular graphs a much stronger phenomenon occurs:
+ in some sense a random 
+\begin_inset Formula $\left(d_{1}+d_{2}\right)$
 \end_inset
 
--Steiner systems can be 
+-regular graph is 
 \begin_inset Quotes eld
 \end_inset
 
-completely decomposed
+the same
 \begin_inset Quotes erd
 \end_inset
 
- in the sense that they can be partitioned into disjoint 
-\begin_inset Formula $\left(q,r-1\right)$
+ as a random 
+\begin_inset Formula $d_{1}$
 \end_inset
 
--Steiner systems, which can be partitioned into 
-\begin_inset Formula $\left(q,r-2\right)$
+-regular graph combined with a random 
+\begin_inset Formula $d_{2}$
 \end_inset
 
--Steiner systems, and so on.
- A similar phenomenon occurs for regular subgraphs of random regular graphs
- (see 
+-regular graph (see 
 \begin_inset CommandInset citation
 LatexCommand cite
 after "Section~9.5"
@@ -6627,8 +6634,7 @@ key "LL15"
 
 \end_inset
 
- for some conjectures about discrepancy of Latin squares and their high-dimensio
-nal relatives.
+ for some theorems and conjectures about discrepancy of Latin squares.
 \end_layout
 
 \begin_layout Standard
@@ -8085,7 +8091,7 @@ Note also that we have the bound
 \begin_inset Formula $k$
 \end_inset
 
- we have
+,
 \begin_inset Formula 
 \begin{align*}
 \Delta p^{k}\left(i\right) & =\left(1-\frac{i+1}{N}\right)^{k}-\left(1-\frac{i}{N}\right)^{k}\\
@@ -8102,7 +8108,7 @@ and with
 \begin_inset Formula $ep^{k}$
 \end_inset
 
-denoting the pointwise product 
+ denoting the pointwise product 
 \begin_inset Formula $i\mapsto e\left(i\right)p^{k}\left(i\right)$
 \end_inset
 
