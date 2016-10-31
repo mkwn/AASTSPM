@@ -6339,16 +6339,24 @@ Now, a sequence
 \begin_inset Formula $e\ne\randM_{v}$
 \end_inset
 
+ containing 
+\begin_inset Formula $v$
+\end_inset
+
+ in 
+\begin_inset Formula $S$
+\end_inset
+
  such that 
 \begin_inset Formula $\lambda_{v'}<\lambda_{v}$
 \end_inset
 
  for all 
-\begin_inset Formula $v'\in\bigcup_{x\in X}\randM_{x}$
+\begin_inset Formula $v'\in\left(\bigcup_{z\in e}\randM_{z}\right)\backslash\left\{ v\right\} $
 \end_inset
 
 .
- (So, 
+ (In particular, 
 \begin_inset Formula $\randR_{v}\left(\lambda\right)=1$
 \end_inset
 
@@ -6373,15 +6381,52 @@ Now, a sequence
 \begin_inset Formula $\left(\randM_{v'}\,\colon\,\lambda_{v'}>\lambda_{v}\right)$
 \end_inset
 
-, and therefore we have 
-\begin_inset Formula $H\left(\randM_{v}\cond\randM_{v'}:\lambda_{v'}>\lambda_{v}\right)\le\E\left[\randR_{v}\left(\lambda\right)\right]$
+, and therefore 
+\begin_inset Formula $H\left(\randM_{v}\cond\randM_{v'}:\lambda_{v'}>\lambda_{v}\right)\le\E\left[\log\randR_{v}\left(\lambda\right)\right]$
 \end_inset
 
 .
- Let
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\randl=\left(\randl_{v}\right)_{v\in\range n}$
+\end_inset
+
+ be a sequence of independent random variables, where each 
+\begin_inset Formula $\randl_{v}$
+\end_inset
+
+ has the uniform distribution in 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+.
+ (Note that almost surely each 
+\begin_inset Formula $\randl_{v}$
+\end_inset
+
+ is distinct).
+ By linearity of expectation and the tower law, 
 \begin_inset Formula 
 \[
-R_{v}^{M,\lambda}=\E\left[\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v}=\lambda,\,\lambda_{v'}<\lambda_{v}\text{ for all }v'\in\randM_{v}\backslash\left\{ v\right\} \right].
+H\left(\randM\right)=\sum_{v\in\range n}\E\left[\log\randR_{v}\left(\randl\right)\right].
+\]
+
+\end_inset
+
+Now, for any 
+\begin_inset Formula $M\in\mathcal{M}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda\in\left[0,1\right]$
+\end_inset
+
+, let
+\begin_inset Formula 
+\[
+R_{v}^{M,\lambda}=\E\left[\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v}=\lambda,\,\randl_{v'}<\randl_{v}\text{ for all }v'\in\randM_{v}\backslash\left\{ v\right\} \right].
 \]
 
 \end_inset
@@ -6396,15 +6441,7 @@ R_{v}^{M,\lambda}=\E\left[\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v
 
  and take limits in what follows, but there are no continuity issues so
  we will ignore this detail).
- By linearity of expectation, we have
-\begin_inset Formula 
-\[
-R_{v}^{M,\lambda}=1+\left(\left(n-1\right)/2-1\right)\lambda^{6},
-\]
-
-\end_inset
-
-because there are 
+ Note that there are 
 \begin_inset Formula $\left(n-1\right)/2$
 \end_inset
 
@@ -6417,31 +6454,43 @@ because there are
 \end_inset
 
 , and for each such hyperedge 
-\begin_inset Formula $e$
+\begin_inset Formula $e=\left\{ x,y,v\right\} $
 \end_inset
 
  other than 
-\begin_inset Formula $\randM_{v}$
+\begin_inset Formula $M_{v}$
 \end_inset
 
- the two non-
-\begin_inset Formula $v$
+, note that 
+\begin_inset Formula $M_{x}\ne M_{y}$
 \end_inset
 
- vertices are in distinct hyperedges of 
-\begin_inset Formula $\randM$
-\end_inset
-
- (if they were in the same hyperedge then that hyperedge would intersect
- 
+ (because 
 \begin_inset Formula $e$
 \end_inset
 
- in two vertices, violating the defining property of a Steiner triple system).
- By Jensen's inequality,
+ and 
+\begin_inset Formula $M_{x}$
+\end_inset
+
+ are different hyperedges of a Steiner triple system and can therefore intersect
+ in at most one vertex).
+ So, 
+\begin_inset Formula $\left|\left(\bigcup_{z\in e}M_{z}\right)\backslash M_{v}\right|=6$
+\end_inset
+
+ and by linearity of expectation,
 \begin_inset Formula 
 \[
-\E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v}=\lambda,\,\lambda_{v'}<\lambda_{v}\text{ for all }v'\in\randM_{v}\backslash\left\{ v\right\} \right]\le\log R_{v}^{M,\lambda},
+R_{v}^{M,\lambda}=1+\left(\left(n-1\right)/2-1\right)\lambda^{6}.
+\]
+
+\end_inset
+
+By Jensen's inequality,
+\begin_inset Formula 
+\[
+\E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v}=\lambda,\,\randl_{v'}<\randl_{v}\text{ for all }v'\in\randM_{v}\backslash\left\{ v\right\} \right]\le\log R_{v}^{M,\lambda},
 \]
 
 \end_inset
@@ -6449,7 +6498,7 @@ because there are
 and
 \begin_inset Formula 
 \[
-\Pr\left(\lambda_{v'}<\lambda_{v}\text{ for all }v'\in\randM_{v}\backslash\left\{ v\right\} \right)=\lambda^{2},
+\Pr\left(\randl_{v'}<\randl_{v}\text{ for all }v'\in\randM_{v}\backslash\left\{ v\right\} \cond\randl_{v}=\lambda\right)=\lambda^{2},
 \]
 
 \end_inset
@@ -6462,11 +6511,7 @@ so
 
 \end_inset
 
-For any 
-\begin_inset Formula $M\in\mathcal{M}$
-\end_inset
-
- we then have
+It follows that
 \begin_inset Formula 
 \begin{align*}
 \E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M\right] & \le\E\left[\randl_{v}^{2}\log R_{v}^{M,\randl_{i}}\right]\\
@@ -6489,7 +6534,7 @@ using the fact that
 \begin_inset Formula 
 \begin{align*}
 \log\left|\mathcal{M}\right| & \le H\left(\randM\right)\\
- & \le\sum_{i\in\range n}\E\left[\log\randR_{i}\left(\randl\right)\right]\\
+ & \le\sum_{v\in\range n}\E\left[\log\randR_{v}\left(\randl\right)\right]\\
  & \le\frac{n}{3}\left(\log\left(\left(1+o\left(1\right)\right)n/2\right)-2\right),
 \end{align*}
 
@@ -7251,8 +7296,8 @@ Counting completions of Steiner triple systems
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Sext}[1]{\mathcal{S}^{\mathrm{ext}}\left(#1\right)}
-{\boldsymbol{\mathcal{S}^{\mathrm{ext}}\left(#1\right)}}
+\newcommand{\Sext}[1]{\mathcal{S}^{*}\left(#1\right)}
+{\boldsymbol{\mathcal{S}^{*}\left(#1\right)}}
 \end_inset
 
 
@@ -7358,7 +7403,8 @@ For a partial system
 \end_layout
 
 \begin_layout Standard
-First, we can get an upper bound via the method of Linial and Luria 
+First, we can get an upper bound via the entropy method, as used by Linial
+ and Luria 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "LL13"
@@ -7406,15 +7452,15 @@ Let
 \end_inset
 
  be a uniformly random completion of 
-\begin_inset Formula $S$
+\begin_inset Formula $S^{*}$
 \end_inset
 
 .
- Let 
+ We will estimate the entropy 
 \begin_inset Formula $H\left(\randS\right)=\log\left|\Sext{S^{*}}\right|$
 \end_inset
 
- be the entropy of 
+ of 
 \begin_inset Formula $\randS$
 \end_inset
 
@@ -7551,18 +7597,6 @@ Now, a sequence
 \end_layout
 
 \begin_layout Proof
-Now, note that for any 
-\begin_inset Formula $\lambda$
-\end_inset
-
- we have
-\begin_inset Formula 
-\[
-H\left(\randz_{e}\cond\left(\randz_{e'}\,\colon\,\lambda_{e'}>\lambda_{e'}\right)\right)\le\E\left[\log\randR_{e}\left(\lambda\right)\right].
-\]
-
-\end_inset
-
 Let 
 \begin_inset Formula $\randl=\left(\randl_{e}\right)_{e\in\coG}$
 \end_inset
@@ -7630,7 +7664,7 @@ R_{e}^{S,\lambda}=\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}\l
 
 \end_inset
 
-Now, by Jensen's inequality,
+By Jensen's inequality,
 \begin_inset Formula 
 \[
 \E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\right]\le\log R_{e}^{S,\lambda},
@@ -7654,11 +7688,7 @@ so
 
 \end_inset
 
-For any 
-\begin_inset Formula $S\in\Sext{S^{*}}$
-\end_inset
-
-, we then have 
+We then have 
 \begin_inset Formula 
 \begin{align*}
 \E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S\right] & \le\E\left[\lambda^{2}\log R_{e}^{S,\randl_{e}}\right]\\
