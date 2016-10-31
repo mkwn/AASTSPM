@@ -150,7 +150,7 @@
 %caption labels
 \usepackage[labelfont=bf,labelsep=period]{caption}
 
-\usepackage{enumitem}
+\def\labelitemii{\textbullet}
 
 \makeatother
 
@@ -203,7 +203,7 @@
 
 \global\long\def\range#1{\left[#1\right]}
 
-\global\long\def\d{\operatorname{d}}
+\global\long\def\d{\operatorname{d}\!}
 
 \global\long\def\falling#1#2{\left(#1\right)_{#2}}
 
@@ -896,21 +896,21 @@ and the absorbing method. First, we define our absorbers, which are
 small rooted hypergraphs that can contribute to a perfect matching
 in two different ways. We are careful to make the definition in such
 a way that absorbers can be shown to appear in $\rg n{\alpha N}$
-(via $\Gnp n{\alpha/n}$ and \ref{lem:bite-transfer}) with extremely
-high probability.
+with extremely high probability.
 \begin{defn}
 \label{def:absorber}An \emph{absorber} for an ordered triple $\left(x,y,z\right)$
-is a set of edges of the form
+is a set of hyperedges of the form
 \[
 \left\{ \left\{ x,x_{1},x_{2}\right\} ,\left\{ y,y_{1},y_{2}\right\} ,\left\{ z,z_{1},z_{2}\right\} ,\left\{ w_{x},w_{y},w_{z}\right\} ,\left\{ x_{1},y_{2},w_{z}\right\} ,\left\{ y_{1},z_{2},w_{x}\right\} ,\left\{ z_{1},x_{2},w_{y}\right\} \right\} .
 \]
 We call $x,y,z$ the \emph{rooted vertices }and we call the other
-9 vertices the \emph{external vertices}. We say the hyperedges containing
-only external vertices are \emph{external hyperedges}. Note that an
-absorber already has a perfect matching on its 12 vertices (the first
-4 edges; we call this the \emph{covering }matching), but it also has
-a perfect matching on its 9 vertices not including $x,y,z$ (the last
-3 edges; we call this the \emph{non-covering }matching). See \ref{fig:absorber}.
+nine vertices the \emph{external vertices}. Also, we say the three
+hyperedges containing rooted vertices are \emph{rooted hyperedges},
+and the other four hyperedges containing only external vertices are
+\emph{external hyperedges}. Note that an absorber has a perfect matching
+on its full set of 12 vertices (we call this the \emph{covering }matching),
+and it also has a perfect matching on its external vertices (we call
+this the \emph{non-covering }matching). See \ref{fig:absorber}.
 \end{defn}
 \begin{figure}[h]
 \begin{center}
@@ -965,13 +965,13 @@ a perfect matching on its 9 vertices not including $x,y,z$ (the last
 \end{center}
 
 \caption{\label{fig:absorber}An illustration of an absorber for $\left(x,y,z\right)$.
-The light edges are the covering matching and the dark edges are the
-non-covering matching.}
+The light hyperedges are the covering matching and the dark hyperedges
+are the non-covering matching.}
 \end{figure}
 
-Absorbers are the basic building block for a larger structure which
-will eventually allow us to turn an almost-perfect matching into a
-perfect matching. The relative positions of the absorbers in this
+Absorbers are the basic building blocks for a larger structure which
+will eventually allow us to complete an almost-perfect matching into
+a perfect matching. The relative positions of the absorbers in this
 structure will be determined by a ``template'' with a ``resilient
 matching'' property, as follows.
 \begin{lem}
@@ -996,10 +996,11 @@ vertex set $X\sqcup Y\sqcup Z$ (note that $R$ has at most $40\left|X\right|=120n
 edges). Add a set $W$ of $\left|X\right|$ new vertices and put a
 perfect matching between $W$ and $X$, to obtain a $10n$-vertex
 tripartite graph $R'$. Now, define a hypergraph $T$ on the same
-vertex set by putting a hyperedge for each length-2 path in $R'$.
-Note that an edge in $R$ can be uniquely extended to a length-2 path
+vertex set by putting a hyperedge for each 3-vertex path running through
+all three parts of $R'$ (we call such paths \emph{special paths}).
+Note that an edge in $R$ can be uniquely extended to a special path
 in $R'$, so $T$ has at most $120n$ hyperedges. Moreover, a matching
-in $R$ can always be extended to a factor of length-2 paths in $R'$,
+in $R$ can always be extended to a factor of special paths in $R'$,
 so $T$ is a resilient template with flexible set $Z$.
 \end{proof}
 Now we can describe our absorbing structure in its entirety.
@@ -1008,20 +1009,22 @@ An \emph{absorbing structure} is a 3-uniform hypergraph $H$ of the
 following form. Consider a resilient template $T$ and put externally
 vertex-disjoint absorbers on each hyperedge of $T$, introducing 9
 new vertices for each. (Note that the template just describes the
-relative positions of the absorbers, its edges are not actually in
-the absorbing structure).
+relative positions of the absorbers, its hyperedges are not actually
+in the absorbing structure).
 \end{defn}
 Note that an absorbing structure with a flexible set of size $n$
-has $10n+9\times120n=O\left(n\right)$ vertices and at most $7\times120n=O\left(n\right)$
-edges. An absorbing structure has the same crucial property as the
-resilient template that defines it: if we remove half of the vertices
-of the flexible set then the remaining hypergraph has a perfect matching.
-Indeed, after this removal we can find a perfect matching $M$ in
-the template, then we can use the covering matching of the absorber
-on each hyperedge of $M$ and the non-covering matching for the absorber
-on each other hyperedge. The existence of an absorbing structure,
-in addition to some very weak pseudorandomness conditions, allows
-us to find perfect matchings in a Steiner triple system, as follows.
+has at most $10n+9\times120n=O\left(n\right)$ vertices and at most
+$7\times120n=O\left(n\right)$ hyperedges. An absorbing structure
+$H$ has the same crucial property as the resilient template that
+defines it: if we remove half of the vertices of the flexible set
+then what remains of $H$ has a perfect matching. Indeed, after this
+removal we can find a perfect matching $M$ in the template, then
+our perfect matching of $H$ can be comprised of the covering matching
+of the absorber on each hyperedge of $M$ and the non-covering matching
+for the absorber on each other hyperedge of $M$. The existence of
+an absorbing structure, in addition to some very weak pseudorandomness
+conditions, allows us to find perfect matchings in a Steiner triple
+system, as follows.
 \begin{lem}
 \label{lem:PM-via-absorbers}Consider a Steiner triple system $S$
 (with vertex set $V$, $\left|V\right|=n\equiv3\mod6$) satisfying
@@ -1060,10 +1063,10 @@ chosen so far.
 
 Now, let $n'=n-O\left(\delta n\right)$ be the number of vertices
 in $V\backslash V\left(H\right)$ remaining unmatched. We next use
-\ref{cond:density} to repeatedly choose an edge induced by the remaining
-unmatched vertices in $V\backslash V\left(H\right)$ until there are
-only $3\floor{\delta^{3}n}$ such vertices remaining unmatched. (This
-means we are choosing $m=\left(n'-3\floor{\delta^{3}n}\right)/3=n/3-O\left(\delta n\right)$
+\ref{cond:density} to repeatedly choose a hyperedge induced by the
+remaining unmatched vertices in $V\backslash V\left(H\right)$ until
+there are only $3\floor{\delta^{3}n}$ such vertices remaining unmatched.
+(This means we are choosing $m=\left(n'-3\floor{\delta^{3}n}\right)/3=n/3-O\left(\delta n\right)$
 hyperedges). We call this step the \emph{main step}.
 
 Next, we greedily extend our matching to cover the remaining vertices
@@ -1071,11 +1074,13 @@ in $V\backslash V\left(H\right)$. Considering each uncovered $v\in V\backslash V
 in any order, recall that $v\notin U$ so there are at least $6\delta^{3}n$
 hyperedges of $S$ containing $v$ and two vertices of $Z$. We can
 therefore choose such a hyperedge avoiding the (fewer than $2\times3\floor{\delta^{3}n}$)
-vertices in $Z$ used so far, to extend our matching. We can then
-repeatedly apply \ref{cond:density} to the uncovered vertices in
-$Z$ to extend our matching to cover half of $Z$. By the crucial
-property of an absorbing structure, we can find a perfect matching
-on the remaining vertices, completing our perfect matching of $S$.
+vertices in $Z$ used so far, to extend our matching. We have now
+covered all of $V\backslash V\left(H\right)$ and a small portion
+of $Z$; we can repeatedly apply \ref{cond:density} to the uncovered
+vertices in $Z$ to extend our matching to cover half of $Z$. By
+the crucial property of an absorbing structure, we can find a perfect
+matching on the remaining vertices, completing our perfect matching
+of $S$.
 
 Now we analyse the number of ways to perform the above procedure.
 It actually suffices to count the number of ways to make the ordered
@@ -1098,11 +1103,12 @@ and that $\int\log s\d s=s\left(\log s-1\right)$, we have
 \begin{align*}
 \sum_{i=1}^{n'/3}\frac{3}{n'}\log\left(1-3\frac{i}{n'}\right) & =\int_{0}^{1/3-O\left(\delta\right)}3\log\left(1-3t\right)\d t+O\left(\frac{\log n}{n}\right)\\
  & =\int_{O\left(\delta\right)}^{1}\log s\d s+O\left(\frac{\log n}{n}\right)\\
- & =-1-O\left(\delta\log n\right).
+ & =-1-O\left(\delta\log n\right)\\
+ & =-1+o\left(1\right).
 \end{align*}
 So, the expression in \ref{eq:num-matchings} is equal to
 \begin{align*}
-\left(\left(1-\beta\right)\frac{n^{2}}{6}\right)^{n'/3}e^{-n-o\left(n\right)} & =\left(\left(1-\beta+o\left(1\right)\right)\frac{n^{2}}{6e^{3}}\right)^{n/3}.
+\left(\frac{\left(1-\beta\right)\left(n'\right)^{3}}{6n}\right)^{m}e^{-n'-o\left(n'\right)}=\left(\left(1-\beta+O\left(\delta\right)\right)\frac{n^{2}}{6e^{3}}\right)^{n/3}n^{O\left(\delta n\right)} & =\left(\left(1-\beta+o\left(1\right)\right)\frac{n^{2}}{6e^{3}}\right)^{n/3}.
 \end{align*}
 
 This is a lower bound for the number of \emph{ordered} perfect matchings
@@ -1134,13 +1140,14 @@ $Z$. There are then fewer than $6\delta^{4}n^{2}$ hyperedges with
 one vertex in $W$ and two vertices in $Z$. We show that it is extremely
 unlikely that there is a set $W$ with this property.
 
-Let $\randS^{*}\in\GSnp n{\alpha/N}$ be obtained from $\randG\in\Gnp n{\alpha/N}$,
-and consider a set $W$ of $\floor{\delta n}$ vertices outside $Z$.
-Let $\randY$ be the number of hyperedges of $\randS^{*}$ with one
-vertex in $W$ and two vertices in $Z$. That is to say, $\randY$
-is the number of such hyperedges in $\randG$ that are \emph{isolated}
-in the sense that they do not intersect any other hyperedge of $\randG$
-in more than one vertex. There are $\Theta\left(\left(\delta n\right)^{2}n\right)=\Theta\left(\delta^{2}n^{3}\right)$
+We will use \ref{lem:bite-transfer}, so let $\randS^{*}\in\GSnp n{\alpha/N}$
+be obtained from $\randG\in\Gnp n{\alpha/N}$. Consider a set $W$
+of $\floor{\delta n}$ vertices outside $Z$. Let $\randY$ be the
+number of hyperedges of $\randS^{*}$ with one vertex in $W$ and
+two vertices in $Z$. That is to say, $\randY$ is the number of such
+hyperedges in $\randG$ that are \emph{isolated} in the sense that
+they do not intersect any other hyperedge of $\randG$ in more than
+one vertex. There are $\Theta\left(\left(\delta n\right)^{2}n\right)=\Theta\left(\delta^{2}n^{3}\right)$
 possible hyperedges and each is present and isolated with probability
 $\left(\alpha/n\right)\left(1-\alpha/n\right)^{O\left(n\right)}=\Theta\left(n^{-1}\right)$,
 so $\E\randY=\Theta\left(\delta^{2}n^{2}\right)$. Now, adding a hyperedge
@@ -1158,10 +1165,11 @@ holds a.a.s. in a random Steiner triple system.
 \subsubsection{Density in subsets\label{subsec:density}}
 
 Now we deal with \ref{cond:density}. It does not suffice to look
-at just the first $\alpha N$ hyperedges, but the key observation
-is that in a random ordered Steiner triple system, by symmetry the
-first $\alpha N$ hyperedges have the same distribution as the hyperedges
-corresponding to any other choice of $\alpha N$ indices.
+at just the first few hyperedges of a random Steiner triple system
+as in \ref{subsec:degree}, but the key observation is that in a random
+\emph{ordered} Steiner triple system, by symmetry the first $\alpha N$
+hyperedges have the same distribution as the hyperedges corresponding
+to any other choice of $\alpha N$ indices.
 
 With $\randS^{*}$ and $\randG$ as in \ref{subsec:degree}, consider
 a set $W\subseteq V$ with $\left|W\right|\ge3\delta^{3}n$ and redefine
@@ -1180,19 +1188,19 @@ holds a.a.s. in $\randS_{k\alpha N}\backslash\randS_{\left(k-1\right)\alpha N}$
 for each $k\le1/\alpha$. So, a.a.s. every $W$ induces a total of
 $\left(1-O\left(\alpha\right)\right)\left|W\right|^{3}/\left(6n\right)$
 hyperedges in $\randS$. For $\beta$ a large multiple of $\alpha$,
-the third condition in \ref{lem:PM-via-absorbers} is then satisfied.
+\ref{cond:density} of \ref{lem:PM-via-absorbers} is then satisfied.
 
 \subsubsection{\label{subsec:absorbers}Absorbers}
 
 Finally we show how to find an absorbing structure for \ref{cond:absorber},
 which is much more involved. The first step is to show that there
 are many absorbers rooted on every triple of vertices. We cannot hope
-to do this by na\"ively applying \ref{lem:triangle-removal-transfer}
+to do this by na\"ively analysing $\Gnp n{\alpha/n}$ and using \ref{lem:triangle-removal-transfer}
 as in \ref{subsec:degree,subsec:density}, because the probability
-that a vertex is isolated in $\rg n{\alpha N}$ is already too large.
-Instead we must use \ref{lem:triangle-removal-transfer} in its full
-generality, conditioning on the quasirandomness of the first few steps
-of the triangle removal process.
+that a vertex is isolated is already too large. Instead we must use
+\ref{lem:triangle-removal-transfer} in its full generality, conditioning
+on the quasirandomness of the first few steps of the triangle removal
+process.
 
 Let $a$ be small enough for \ref{lem:triangle-removal-transfer},
 and let $\mathcal{Q}=\left\{ S\in\ordm{2\alpha N}:S_{\alpha N}\in\cordm{n^{-a},h}{\alpha N}\right\} \supseteq\cordm{n^{-a},h}{2\alpha N}$.
@@ -1204,19 +1212,21 @@ be obtained from $\randG\in\Gnp S{\alpha/N}$.
 By quasirandomness, every vertex has degree $\left(1\pm n^{-a}\right)\left(1-\alpha\right)n$
 in $G\left(S\right)$, so every vertex is in $\left(1\pm n^{-a}\right)\alpha n/2=\Omega\left(\alpha n\right)$
 hyperedges of $S$. Consider vertices $x,y,z$. Say an \emph{absorber-extension}
-is a collection of 4 hyperedges which forms an absorber on $x,y,z$
-when combined with three hyperedges of $S$ incident to $x,y,z$.
-Let $\randY$ be the maximum size of a hyperedge-disjoint collection
-of absorber-extensions in $\randS^{*}$. That is, it is the maximal
-size of a collection of disjoint isolated absorber-extensions in $\randG$.
-This particular choice of random variable is crucial, and allows us
-to use \ref{thm:bernstein-type}. (The idea comes from a similar random
-variable used by Bollob\'as \cite{Bol88}). Adding a hyperedge to
-$\randG$ can increase the size of a maximal collection of disjoint
-absorber-extensions by at most one, and removing a hyperedge can cause
-at most three absorber-extensions in a maximal disjoint collection
-to become isolated. So, changing the presence of a hyperedge in $\randG$
-can change $\randY$ by at most 3, as in \ref{subsec:degree,subsec:density}.
+is a collection of four hyperedges which can be combined with three
+hyperedges of $S$ incident to $x,y,z$, to form an absorber on $\left(x,y,z\right)$.
+($S$ provides the rooted hyperedges of an absorber, and an absorber-extension
+provides the external hyperedges). Let $\randY$ be the maximum size
+of a hyperedge-disjoint collection of absorber-extensions in $\randS^{*}$;
+equivalently, $\randY$ is the maximal size of a collection of disjoint
+isolated absorber-extensions in $\randG$. This particular choice
+of random variable is crucial, and allows us to use \ref{thm:bernstein-type}.
+(The idea comes from a similar random variable used by Bollob\'as
+\cite{Bol88}). Adding a hyperedge to $\randG$ can increase the size
+of a maximal collection of hyperedge-disjoint absorber-extensions
+by at most one, and removing a hyperedge can cause at most three hyperedge-disjoint
+absorber-extensions to become isolated. So, changing the presence
+of a hyperedge in $\randG$ can change $\randY$ by at most 3, as
+in \ref{subsec:degree,subsec:density}.
 \begin{claim}
 If $h$ is large enough and $\alpha$ is small enough, then $\E\randY=\Omega\left(n^{2}\right)$.
 \end{claim}
@@ -1227,75 +1237,113 @@ absorber-extensions in $\randG$. We can obtain a collection of disjoint
 isolated absorber-extensions by considering the collection of all
 isolated absorber-extensions and deleting one from each intersecting
 pair, so $\randY\ge\randX-\randZ$ and $\E\randY\ge\E\randX-\E\randZ$.
+We first estimate $\E\randX$.
 
-If $h$ is large enough and $\alpha$ is small enough, there are $\Theta\left(\alpha^{3}n^{6}\right)$
+First we show that there are $\Theta\left(\alpha^{3}n^{6}\right)$
 possible absorber-extensions not conflicting with $S$. Indeed, to
 choose such a candidate absorber-extension, first choose three disjoint
 hyperedges $e_{x},e_{y},e_{z}\in E\left(S\right)$ containing $x,y,z$
 respectively (there are $\Theta\left(\left(\alpha n\right)^{3}\right)$
-ways to do this). Then, the number of ways to choose the remaining
-four hyperedges of a candidate absorber-extension is precisely the
-number of copies in $G\left(S\right)$ of a certain graph $F$ rooted
-on the vertices of $e_{x},e_{y},e_{z}$. (Specifically, $F$ is the
-graph obtained by taking the external hyperedges of the hypergraph
-in \ref{def:absorber} and replacing each hyperedge with a triangle
-on its vertex set). Provided $h$ is large enough, by \ref{lem:H-count}
-the number of suitable copies of $F$ is $\left(1-\alpha\right)^{O\left(1\right)}n^{3}=\Theta\left(n^{3}\right)$.
+ways to do this). Then, the number of ways to choose an absorber-extension
+compatible with $e_{x},e_{y},e_{z}$is precisely the number of copies
+in $G\left(S\right)$ of a certain graph $F$ rooted on the vertices
+of $e_{x},e_{y},e_{z}$. (Specifically, $F$ is the graph obtained
+by taking the external hyperedges of the hypergraph in \ref{def:absorber}
+and replacing each hyperedge with a triangle on its vertex set). Provided
+$h$ is large enough, by \ref{lem:H-count} the number of suitable
+copies of $F$ is $\left(1-\alpha\right)^{O\left(1\right)}n^{3}=\Theta\left(n^{3}\right)$.
+(Note that strictly speaking we are over-counting, because it is possible
+that an absorber-extension can contribute to multiple different absorbers,
+but this constant factor will not bother us).
 
-The probability each possible absorber-extension appears and is isolated
-in $\randG$ is 
+The probability that each possible absorber-extension appears and
+is isolated in $\randG$ is 
 \[
-\Theta\left(\left(\alpha/n\right)^{4}\left(1-\alpha/n\right)^{O\left(n\right)}\right)=\Theta\left(\alpha^{4}n^{-4}\right).
+\Theta\left(\left(\alpha/n\right)^{4}\left(1-\alpha/n\right)^{O\left(n\right)}\right)=\Theta\left(\alpha^{4}n^{-4}\right),
 \]
-So, $\E\randX=\Theta\left(\alpha^{7}n^{2}\right)$. Now, there are
-several possibilities for a hyperedge-intersecting pair of distinct
-absorber-extensions.
+so $\E\randX=\Theta\left(\alpha^{7}n^{2}\right)$. Now, we estimate
+$\E\randY$. It will be convenient to consider labelled absorbers
+and absorber-extensions; for the hypergraph in \ref{def:absorber}
+denote the hyperedges (in order) by 
+\[
+e_{x},\,e_{y},\,e_{z},\,e_{*},\,e_{1},\,e_{2},\,e_{3}.
+\]
+There are several possibilities for a hyperedge-intersecting pair
+of distinct absorber-extensions.
 \begin{itemize}
-\item They could intersect in the external hyperedge of the covering matching
-of the absorber. There are $\Theta\left(\left(\alpha n\right)^{6}n^{3}\right)$
-possibilities for such a pair of absorber-extensions, and each occurs
-with probability $\Theta\left(\left(\alpha/n\right)^{7}\right)$,
-so the expected number of such is $\Theta\left(\alpha^{13}n^{2}\right)$.
-\item They could intersect in the external hyperedge of the covering matching
-as above, and also in one hyperedge of the non-covering matching''.
-There are $\Theta\left(\left(\alpha n\right)^{4}n^{3}\right)$ possible
-such pairs, and each occurs with probability $\Theta\left(\left(\alpha/n\right)^{6}\right)$,
-so the expected number of such is $\Theta\left(\alpha^{10}n\right)$.
-\item They could intersect in one hyperedge of the non-covering matching.
-There are $\Theta\left(\left(\alpha n\right)^{4}n^{5}\right)$ possible
-such pairs, and each occurs with probability $\Theta\left(\left(\alpha/n\right)^{7}\right)$,
-so the expected number of such is $\Theta\left(\alpha^{11}n^{2}\right)$.
-\item They could intersect in two hyperedges of the non-covering matching.
-There are $\Theta\left(\left(\alpha n\right)^{3}n^{4}\right)$ possible
-such pairs, and each occurs with probability $\Theta\left(\left(\alpha/n\right)^{6}\right)$,
-so the expected number of such is $\Theta\left(\alpha^{9}n\right)$.
+\item Suppose they intersect in one edge. Each such pair appears with probability
+$O\left(\left(\alpha/n\right)^{7}\right)$.
+\begin{itemize}
+\item Suppose the intersecting edge is $e_{*}$ for one of the absorber-extensions
+(say the second). There are $O\left(\left(\alpha n\right)^{6}n^{3}\right)$
+possibilities for such a pair of absorber-extensions, as follows.
+Choose the first absorber-extension in one of $O\left(\left(\alpha n\right)^{3}n^{3}\right)$
+ways, and choose one of its hyperedges which will intersect with the
+second absorber-extension. Then, the second absorber-extension is
+determined by its choices for $e_{x},e_{y},e_{z}$.
+\item Suppose the intersecting edge is say $e_{1}$ for the second absorber-extension.
+There are $O\left(\left(\alpha n\right)^{4}n^{5}\right)$ possible
+such pairs, as follows. After choosing the first absorber-extension,
+and choosing its hyperedge which will be intersecting, the choices
+for $e_{x}$ and $e_{y}$ for the second absorber-extension are already
+determined (if a suitable choice exists at all), because in $S$ each
+pair of vertices is included in at most one hyperedge. One of the
+vertices of $e_{*}$ is already also determined, so the second absorber-extension
+is determined by a choice of $e_{z}$ and two vertices of $e_{*}$.
 \end{itemize}
-In summary (for small $\alpha$), we have $\E\randZ=O\left(\alpha^{11}n^{2}\right)$,
-so $\E\randY\ge\Theta\left(\alpha^{7}n^{2}\right)-O\left(\alpha^{11}n^{2}\right)=\Theta\left(\alpha^{7}n^{2}\right)$.
+\item Suppose they intersect in two edges. Each such pair appears with probability
+$O\left(\left(\alpha/n\right)^{6}\right)$.
+\begin{itemize}
+\item Suppose the intersecting edges are say $e_{*}$ and $e_{1}$ for the
+second absorber-extension. There are $O\left(\left(\alpha n\right)^{4}n^{3}\right)$
+possibilities for such a pair: after choosing the first absorber-extension
+and its hyperedges which will be intersecting, the second absorber-extension
+is determined by its choice for $e_{z}$.
+\item Suppose the intersecting edges are say $e_{1}$ and $e_{2}$ for the
+second absorber-extension. There are $O\left(\left(\alpha n\right)^{3}n^{4}\right)$
+possibilities for such a pair: after choosing the first absorber-extension
+and its hyperedges which will be intersecting, the second absorber-extension
+is determined by a single undetermined vertex for in $e_{*}$.
+\end{itemize}
+\item Note that choosing three of $e_{1},e_{2},e_{3},e_{*}$ determines
+the other, so there are only $O\left(\left(\alpha n\right)^{3}n^{3}\right)$
+possibilities for a pair of absorber-extensions intersecting in three
+hyperedges. Each such pair appears with probability $O\left(\left(\alpha/n\right)^{5}\right)$.
+\end{itemize}
+In summary (for small $\alpha$), we have 
+\begin{align*}
+\E\randZ & =O\left(\left(\left(\alpha n\right)^{6}n^{3}+\left(\alpha n\right)^{4}n^{5}\right)\left(\alpha/n\right)^{7}+\left(\left(\alpha n\right)^{4}n^{3}+\left(\alpha n\right)^{3}n^{4}\right)\left(\alpha/n\right)^{6}+\left(\alpha n\right)^{3}n^{3}\left(\alpha/n\right)^{5}\right)\\
+ & =O\left(\alpha^{11}n^{2}\right).
+\end{align*}
+So, $\E\randY\ge\Theta\left(\alpha^{7}n^{2}\right)-O\left(\alpha^{11}n^{2}\right)=\Theta\left(\alpha^{7}n^{2}\right)$.
 \end{proof}
 As in \ref{subsec:degree,subsec:density}, \ref{thm:bernstein-type}
 proves that $\randY=\Omega\left(n^{2}\right)$ with probability $1-\exp\left(-\Omega\left(n^{2}\right)\right)$.
 Note that if there are $\Omega\left(n^{2}\right)$ hyperedge-disjoint
 absorber-extensions then there must in fact be $\Omega\left(n\right)$
-externally vertex-disjoint absorber-extensions rooted on $x,y,z$.
-We can find these greedily; each vertex is involved in only $O\left(n\right)$
-hyperedges of $\randS$, so deleting $O\left(1\right)$ vertices can
-delete at most $O\left(n\right)$ hyperedges. By the union bound,
-\ref{lem:bite-transfer} and \ref{lem:triangle-removal-transfer}
-(with $\mathcal{Q}$ as defined above), it follows that in a random
+externally vertex-disjoint absorbers rooted on $x,y,z$. We can find
+these greedily; each vertex is involved in only $O\left(n\right)$
+hyperedges of $\randS$, so removing $O\left(1\right)$ vertices from
+consideration results in at most $O\left(n\right)$ hyperedges being
+removed from consideration. By the union bound, \ref{lem:bite-transfer}
+and \ref{lem:triangle-removal-transfer} (with $\mathcal{Q}$ as defined
+at the beginning of this subsection), it follows that in a random
 Steiner triple system, a.a.s. every triple of vertices has $\Omega\left(n\right)$
 externally vertex-disjoint absorbers.
 
-If a Steiner triple system has this property, then we can greedily
-build our absorbing structure, as follows. Recalling that $\left|Z\right|=3\floor{\delta^{3}n}=O\left(\delta^{3}n\right)$,
+If a Steiner triple system has this property, then we can very straightfowardly
+greedily build an absorbing structure, as follows. Recalling that
+$\left|Z\right|=3\floor{\delta^{3}n}=O\left(\delta^{3}n\right)$,
 choose a resilient template $T$ with $O\left(\delta^{3}n\right)$
 hyperedges, on $O\left(\delta^{3}n\right)$ vertices of $\randS$,
-such that the flexible set is $Z$. Noting that an absorber has $O\left(1\right)$
-non-rooted vertices, we can greedily find an absorber in $\randS$
-on each hyperedge of $H$, in an externally vertex-disjoint fashion.
-The entire absorbing structure then has $O\left(\delta^{3}n\right)\le\delta n$
+such that the flexible set is $Z$. Consider each hyperedge $\left(x,y,z\right)$
+of $H$ in any order, and greedily choose an absorber in $\randS$
+rooted on $\left(x,y,z\right)$, each of whose external vertices is
+disjoint to the template and all absorbers chosen so far. The entire
+absorbing structure then has $O\left(\delta^{3}n\right)\le\delta n$
 vertices. We have proved that \ref{cond:absorber} of \ref{lem:PM-via-absorbers}
-holds a.a.s. in a random Steiner triple system.
+holds a.a.s. in a random Steiner triple system, completing the proof
+of \ref{thm:PM-in-STS}.
 
 \section{An upper bound for the number of perfect matchings\label{sec:max-num-matchings}}
 
@@ -1501,10 +1549,10 @@ of copies of $H$ is likely to be more difficult.
 \item One of the most fundamental properties of random graphs and hypergraphs
 is that they have low \emph{discrepancy}, meaning that every sufficiently
 large subset of vertices has about the expected number of edges. In
-\ref{subsec:density} we effectively proved a very weak discrepancy
-bound, but it is not clear how to use our methods to reach anywhere
-near optimal discrepancy. See \cite{LL15} for some theorems and conjectures
-about discrepancy of Latin squares.
+\ref{subsec:density} we effectively proved a very weak one-sided
+discrepancy bound, but it is not clear how to use our methods to reach
+anywhere near optimal discrepancy. See \cite{LL15} for some theorems
+and conjectures about discrepancy of Latin squares.
 \end{itemize}
 \bibliographystyle{amsplain_initials}
 \bibliography{references}
