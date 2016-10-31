@@ -17,7 +17,8 @@
 \usepackage[nameinlink,capitalise,noabbrev]{cleveref}
 \AtBeginDocument{\renewcommand{\ref}[1]{\cref{#1}}}
 \crefname{appsec}{Appendix}{Appendices}
-\creflabelformat{enumi}{#2textup{#1}#3}
+\crefname{enumi}{condition}{conditions}
+\Crefname{enumi}{Condition}{Conditions}
 
 %\usepackage[parfill]{parskip}
 %\setlength{\parskip}{\bigskipamount}
@@ -1520,8 +1521,15 @@ key "Kri97"
 
 ).
  Basically, we prove the a.a.s.
- existence of certain small substructures that allow us to complete an almost-pe
-rfect matching into a perfect one.
+ existence of certain substructures that are 
+\begin_inset Quotes eld
+\end_inset
+
+flexible
+\begin_inset Quotes erd
+\end_inset
+
+ and allow us to complete an almost-perfect matching into a perfect one.
 \end_layout
 
 \begin_layout Standard
@@ -3376,15 +3384,11 @@ let
 \end_inset
 
  and 
-\begin_inset Formula $S\in\cordm{n^{-a},h}m$
+\begin_inset Formula $S\in\ordm m$
 \end_inset
 
  for some 
 \begin_inset Formula $m\le N-\alpha N$
-\end_inset
-
- and let 
-\begin_inset Formula $\mathcal{Q}=\left\{ S\in\cordm{n^{-b},h}{\alpha N+m}:S_{m}\in\cordm{n^{-a},h}m\right\} \supseteq\cordm{n^{-a},h}{\alpha N+m}$
 \end_inset
 
 .
@@ -3400,7 +3404,7 @@ let
  Then
 \begin_inset Formula 
 \[
-\Pr\left(S\cup\randS\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\right)=O\left(1\right)\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right).
+\Pr\left(S\cup\randS\notin\mathcal{P}\right)=O\left(1\right)\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right).
 \]
 
 \end_inset
@@ -3456,33 +3460,11 @@ Let
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Proof
-Now, let 
-\begin_inset Formula $b$
-\end_inset
-
- be 
-\begin_inset Formula $a\,b\left(a,h\right)$
-\end_inset
-
- in the notation of 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:triangle-removal-analysis"
-
-\end_inset
-
-, so that 
-\begin_inset Formula $\Pr\left(S\cup\randS\in\mathcal{Q}\right)=1-o\left(1\right)$
-\end_inset
-
- and
+ Then,
 \begin_inset Formula 
 \begin{align*}
-\Pr\left(S\cup\randS\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\right) & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\text{ and }e\left(\randG\right)\le\alpha N\right)\\
- & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right)/\Pr\left(S\cup\randS\in\mathcal{Q}\text{ and }e\left(\randG\right)\le\alpha N\right)\\
+\Pr\left(S\cup\randS\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\right) & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\cond e\left(\randG\right)\le\alpha N\right)\\
+ & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right)/\Pr\left(e\left(\randG\right)\le\alpha N\right)\\
  & =\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right)/\Omega\left(1\right).\tag*{\qedhere}
 \end{align*}
 
@@ -3656,17 +3638,40 @@ name "sec:absorbers"
 \end_layout
 
 \begin_layout Standard
-In this section we introduce our absorbers, discuss how they can be used
- to find perfect matchings, and prove that absorbers can be found in the
- partial Steiner triple system produced by the triangle removal process.
- This will culminate in the proof of 
+In this section we prove 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:PM-in-STS"
 
 \end_inset
 
-.
+ using 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+ and the absorbing method.
+ First, we define our absorbers, which are small rooted hypergraphs that
+ can contribute to a perfect matching in two different ways.
+ We are careful to make the definition in such a way that absorbers can
+ be shown to appear in 
+\begin_inset Formula $\rg n{\alpha N}$
+\end_inset
+
+ (via 
+\begin_inset Formula $\Gnp n{\alpha/n}$
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:bite-transfer"
+
+\end_inset
+
+) with extremely high probability.
 \end_layout
 
 \begin_layout Definition
@@ -3687,7 +3692,7 @@ absorber
  is a set of edges of the form
 \begin_inset Formula 
 \[
-\left\{ \left\{ x,x_{1},x_{2}\right\} ,\left\{ y,y_{1},y_{2}\right\} ,\left\{ z,z_{1},z_{2}\right\} ,\left\{ w_{x},w_{y},w_{z}\right\} \right\} \cup\left\{ \left\{ x_{1},y_{2},w_{z}\right\} ,\left\{ y_{1},z_{2},w_{x}\right\} ,\left\{ z_{1},x_{2},w_{y}\right\} \right\} .
+\left\{ \left\{ x,x_{1},x_{2}\right\} ,\left\{ y,y_{1},y_{2}\right\} ,\left\{ z,z_{1},z_{2}\right\} ,\left\{ w_{x},w_{y},w_{z}\right\} ,\left\{ x_{1},y_{2},w_{z}\right\} ,\left\{ y_{1},z_{2},w_{x}\right\} ,\left\{ z_{1},x_{2},w_{y}\right\} \right\} .
 \]
 
 \end_inset
@@ -3698,13 +3703,18 @@ We call
 
  the 
 \emph on
-rooted 
+rooted vertices 
 \emph default
-vertices and we call the other 9 vertices the 
+and we call the other 9 vertices the 
 \emph on
-external 
+external vertices
 \emph default
-vertices.
+.
+ We say the hyperedges containing only external vertices are 
+\emph on
+external hyperedges
+\emph default
+.
  Note that an absorber already has a perfect matching on its 12 vertices
  (the first 4 edges; we call this the 
 \emph on
@@ -4196,8 +4206,10 @@ ng matching.
 \end_layout
 
 \begin_layout Standard
-Now we explain how absorbers are put together.
- The relative positions of the absorbers will be determined by a 
+Absorbers are the basic building block for a larger structure which will
+ eventually allow us to turn an almost-perfect matching into a perfect matching.
+ The relative positions of the absorbers in this structure will be determined
+ by a 
 \begin_inset Quotes eld
 \end_inset
 
@@ -4205,7 +4217,15 @@ template
 \begin_inset Quotes erd
 \end_inset
 
- structure, as follows.
+ with a 
+\begin_inset Quotes eld
+\end_inset
+
+resilient matching
+\begin_inset Quotes erd
+\end_inset
+
+ property, as follows.
 \end_layout
 
 \begin_layout Lemma
@@ -4228,7 +4248,7 @@ For any sufficiently large
 \end_inset
 
  vertices, at most 
-\begin_inset Formula $160n$
+\begin_inset Formula $120n$
 \end_inset
 
  hyperedges and a 
@@ -4256,8 +4276,8 @@ flexible set
 \end_inset
 
 , the resulting hypergraph has a perfect matching.
- We call this 
-\begin_inset Formula $H$
+ We call 
+\begin_inset Formula $T$
 \end_inset
 
  a 
@@ -4298,10 +4318,10 @@ For any sufficiently large
 \end_inset
 
 , there exists a bipartite graph 
-\begin_inset Formula $H$
+\begin_inset Formula $R$
 \end_inset
 
- on vertex classes 
+ with vertex parts 
 \begin_inset Formula $X$
 \end_inset
 
@@ -4309,7 +4329,7 @@ For any sufficiently large
 \begin_inset Formula $Y\sqcup Z$
 \end_inset
 
- with 
+, with 
 \begin_inset Formula $\left|X\right|=3n$
 \end_inset
 
@@ -4346,7 +4366,7 @@ reference "lem:resilient-template"
 \end_inset
 
 Consider the bipartite graph 
-\begin_inset Formula $H$
+\begin_inset Formula $R$
 \end_inset
 
  from 
@@ -4360,7 +4380,15 @@ reference "lem:montgomery"
 \begin_inset Formula $X\sqcup Y\sqcup Z$
 \end_inset
 
-.
+ (note that 
+\begin_inset Formula $R$
+\end_inset
+
+ has at most 
+\begin_inset Formula $40\left|X\right|=120n$
+\end_inset
+
+ edges).
  Add a set 
 \begin_inset Formula $W$
 \end_inset
@@ -4382,20 +4410,51 @@ reference "lem:montgomery"
 \end_inset
 
 -vertex tripartite graph 
-\begin_inset Formula $H'$
+\begin_inset Formula $R'$
 \end_inset
 
 .
- Now, define our resilient template with flexible set 
+ Now, define a hypergraph 
+\begin_inset Formula $T$
+\end_inset
+
+ on the same vertex set by putting a hyperedge for each length-2 path in
+ 
+\begin_inset Formula $R'$
+\end_inset
+
+.
+ Note that an edge in 
+\begin_inset Formula $R$
+\end_inset
+
+ can be uniquely extended to a length-2 path in 
+\begin_inset Formula $R'$
+\end_inset
+
+, so 
+\begin_inset Formula $T$
+\end_inset
+
+ has at most 
+\begin_inset Formula $120n$
+\end_inset
+
+ hyperedges.
+ Moreover, a matching in 
+\begin_inset Formula $R$
+\end_inset
+
+ can always be extended to a factor of length-2 paths in 
+\begin_inset Formula $R'$
+\end_inset
+
+, so 
+\begin_inset Formula $T$
+\end_inset
+
+ is a resilient template with flexible set 
 \begin_inset Formula $Z$
-\end_inset
-
- by putting a hyperedge with the vertices of each of the (at most 
-\begin_inset Formula $160n$
-\end_inset
-
-) paths of length 2 in 
-\begin_inset Formula $H'$
 \end_inset
 
 .
@@ -4410,9 +4469,20 @@ An
 \emph on
 absorbing structure
 \emph default
- is a 3-uniform hypergraph of the following form.
- Consider a resilient template and put externally vertex-disjoint absorbers
- on each edge of the template, introducing 9 new vertices for each.
+ is a 3-uniform hypergraph 
+\begin_inset Formula $H$
+\end_inset
+
+ of the following form.
+ Consider a resilient template 
+\begin_inset Formula $T$
+\end_inset
+
+ and put externally vertex-disjoint absorbers on each hyperedge of 
+\begin_inset Formula $T$
+\end_inset
+
+, introducing 9 new vertices for each.
  (Note that the template just describes the relative positions of the absorbers,
  its edges are not actually in the absorbing structure).
 \end_layout
@@ -4423,15 +4493,30 @@ Note that an absorbing structure with a flexible set of size
 \end_inset
 
  has 
-\begin_inset Formula $10n+9\times160n=O\left(n\right)$
+\begin_inset Formula $10n+9\times120n=O\left(n\right)$
 \end_inset
 
  vertices and at most 
-\begin_inset Formula $7\times160n=O\left(n\right)$
+\begin_inset Formula $7\times120n=O\left(n\right)$
 \end_inset
 
  edges.
- Now, we show how absorbers can be used to find perfect matchings.
+ An absorbing structure has the same crucial property as the resilient template
+ that defines it: if we remove half of the vertices of the flexible set
+ then the remaining hypergraph has a perfect matching.
+ Indeed, after this removal we can find a perfect matching 
+\begin_inset Formula $M$
+\end_inset
+
+ in the template, then we can use the covering matching of the absorber
+ on each hyperedge of 
+\begin_inset Formula $M$
+\end_inset
+
+ and the non-covering matching for the absorber on each other hyperedge.
+ The existence of an absorbing structure, in addition to some very weak
+ pseudorandomness conditions, allows us to find perfect matchings in a Steiner
+ triple system, as follows.
 \end_layout
 
 \begin_layout Lemma
@@ -4453,7 +4538,7 @@ Consider a Steiner triple system
 \begin_inset Formula $\left|V\right|=n\equiv3\mod6$
 \end_inset
 
-) satisfying the following properties for some 
+) satisfying the following conditions for some 
 \begin_inset Formula $\delta=\delta\left(n\right)=o\left(1/\log n\right)$
 \end_inset
 
@@ -4466,6 +4551,12 @@ Consider a Steiner triple system
 
 \begin_deeper
 \begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "cond:absorber"
+
+\end_inset
+
 There is an absorbing structure 
 \begin_inset Formula $H$
 \end_inset
@@ -4490,20 +4581,27 @@ There is an absorbing structure
 \end_layout
 
 \begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "cond:degree"
+
+\end_inset
+
 For at most 
 \begin_inset Formula $\delta n$
 \end_inset
 
  of the vertices 
-\begin_inset Formula $v\in V\backslash V\left(H\right)$
+\begin_inset Formula $v\in V\backslash Z$
 \end_inset
 
 , we have 
-\begin_inset Formula $\left|\left\{ \left\{ x,y\right\} \subseteq Z:\left\{ v,x,y\right\} \in S\right\} \right|<2\delta^{3}n$
+\begin_inset Formula $\left|\left\{ \left\{ x,y\right\} \subseteq Z:\left\{ v,x,y\right\} \in S\right\} \right|<6\delta^{3}n$
 \end_inset
 
 .
- That is to say, few vertices have low degree into the flexible set 
+ That is to say, few vertices have unusually low degree into the flexible
+ set 
 \begin_inset Formula $Z$
 \end_inset
 
@@ -4515,19 +4613,25 @@ For at most
 \end_layout
 
 \begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "cond:density"
+
+\end_inset
+
 Every vertex subset 
 \begin_inset Formula $W\subseteq V$
 \end_inset
 
  with 
-\begin_inset Formula $\left|W\right|\ge\delta^{3}n$
+\begin_inset Formula $\left|W\right|\ge3\delta^{3}n$
 \end_inset
 
  induces at least 
 \begin_inset Formula $\left(1-\beta\right)\left|W\right|^{3}/\left(6n\right)$
 \end_inset
 
- hyperedges
+ hyperedges.
 \end_layout
 
 \end_deeper
@@ -4536,7 +4640,7 @@ Then
 \begin_inset Formula $S$
 \end_inset
 
- has 
+ has
 \begin_inset Formula 
 \begin{equation}
 \left(\frac{n}{2e^{2}}\left(1-\beta-o\left(1\right)\right)\right)^{n/3}\label{eq:count-pm}
@@ -4548,68 +4652,173 @@ perfect matchings.
 \end_layout
 
 \begin_layout Proof
-It is convenient to count 
-\emph on
-ordered
-\emph default
- perfect matchings, and then divide by 
-\begin_inset Formula $\left(n/3\right)!$
-\end_inset
-
-.
- We describe how to build an ordered perfect matching edge-by-edge.
+We first describe a procedure to build a perfect matching, then we count
+ the number of ways to perform this procedure.
 \end_layout
 
 \begin_layout Proof
-In a Steiner triple system every vertex is in 
-\begin_inset Formula $\left(n-1\right)/2$
+Let 
+\begin_inset Formula $U$
 \end_inset
 
- hyperedges, and for small 
-\begin_inset Formula $\delta$
+ be the set of vertices with unusually low degree into 
+\begin_inset Formula $Z$
 \end_inset
 
- most of those hyperedges do not involve a vertex of 
+, as per 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cond:degree"
+
+\end_inset
+
+.
+ The first few hyperedges of our matching will cover 
+\begin_inset Formula $U$
+\end_inset
+
+, and will not use any vertices of 
 \begin_inset Formula $H$
 \end_inset
 
 .
- We can therefore greedily choose a matching of size 
-\begin_inset Formula $\ceil{\delta n}$
+ We can in fact choose these hyperedges one-by-one in a greedy fashion:
+ considering each 
+\begin_inset Formula $v\in U$
 \end_inset
 
- in 
-\begin_inset Formula $V\backslash V\left(H\right)$
+ in any order, note that 
+\begin_inset Formula $v$
 \end_inset
 
- containing each of the vertices violating the second condition.
- There are 
-\begin_inset Formula $n'=n-v\left(H\right)-\ceil{\delta n}=\left(1-O\left(\delta\right)\right)n$
+ is in 
+\begin_inset Formula $\left(n-1\right)/2$
 \end_inset
 
- vertices in 
+ hyperedges of the Steiner triple system 
+\begin_inset Formula $S$
+\end_inset
+
+, and at most 
+\begin_inset Formula $3\left|U\right|+v\left(H\right)=O\left(\delta n\right)=o\left(n\right)$
+\end_inset
+
+ of these hyperedges involve a vertex of 
+\begin_inset Formula $H$
+\end_inset
+
+ or a vertex in the hyperedges chosen so far.
+\end_layout
+
+\begin_layout Proof
+Now, let 
+\begin_inset Formula $n'=n-O\left(\delta n\right)$
+\end_inset
+
+ be the number of vertices in 
 \begin_inset Formula $V\backslash V\left(H\right)$
 \end_inset
 
  remaining unmatched.
-\end_layout
+ We next use 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cond:density"
 
-\begin_layout Proof
-Next, repeatedly choose an edge in the remaining unmatched vertices in 
+\end_inset
+
+ to repeatedly choose an edge induced by the remaining unmatched vertices
+ in 
 \begin_inset Formula $V\backslash V\left(H\right)$
 \end_inset
 
  until there are only 
-\begin_inset Formula $\floor{\delta^{3}n}$
+\begin_inset Formula $3\floor{\delta^{3}n}$
 \end_inset
 
  such vertices remaining unmatched.
- (This means we take a matching with 
-\begin_inset Formula $m=\left(n'-\floor{\delta^{3}n}\right)/3=n/3-O\left(\delta n\right)$
+ (This means we are choosing 
+\begin_inset Formula $m=\left(n'-3\floor{\delta^{3}n}\right)/3=n/3-O\left(\delta n\right)$
 \end_inset
 
- edges).
- The number of ways to make this ordered sequence of choices is at least
+ hyperedges).
+ We call this step the 
+\emph on
+main step
+\emph default
+.
+\end_layout
+
+\begin_layout Proof
+Next, we greedily extend our matching to cover the remaining vertices in
+ 
+\begin_inset Formula $V\backslash V\left(H\right)$
+\end_inset
+
+.
+ Considering each uncovered 
+\begin_inset Formula $v\in V\backslash V\left(H\right)$
+\end_inset
+
+ in any order, recall that 
+\begin_inset Formula $v\notin U$
+\end_inset
+
+ so there are at least 
+\begin_inset Formula $6\delta^{3}n$
+\end_inset
+
+ hyperedges of 
+\begin_inset Formula $S$
+\end_inset
+
+ containing 
+\begin_inset Formula $v$
+\end_inset
+
+ and two vertices of 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ We can therefore choose such a hyperedge avoiding the (fewer than 
+\begin_inset Formula $2\times3\floor{\delta^{3}n}$
+\end_inset
+
+) vertices in 
+\begin_inset Formula $Z$
+\end_inset
+
+ used so far, to extend our matching.
+ We can then repeatedly apply 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cond:density"
+
+\end_inset
+
+ to the uncovered vertices in 
+\begin_inset Formula $Z$
+\end_inset
+
+ to extend our matching to cover half of 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ By the crucial property of an absorbing structure, we can find a perfect
+ matching on the remaining vertices, completing our perfect matching of
+ 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Now we analyse the number of ways to perform the above procedure.
+ It actually suffices to count the number of ways to make the ordered sequence
+ of choices in the main step, which is
 \begin_inset Formula 
 \begin{align}
 \prod_{i=1}^{m}\left(1-\beta\right)\frac{\left(n'-3i\right)^{3}}{6n} & =\left(\frac{1-\beta}{6n}\right)^{m}\exp\left(\sum_{i=1}^{m}\log\left(n'-3i\right)^{3}\right)\label{eq:num-matchings}\\
@@ -4672,68 +4881,35 @@ reference "eq:num-matchings"
 
 \end_inset
 
-Note that this expression divided by 
+
+\end_layout
+
+\begin_layout Proof
+This is a lower bound for the number of 
+\emph on
+ordered
+\emph default
+ perfect matchings in 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ So, we divide by 
 \begin_inset Formula $\left(n/3\right)!=\left(\left(1+o\left(1\right)\right)n/3e\right)^{n/3}$
 \end_inset
 
- gives 
+ to obtain 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:count-pm"
 
 \end_inset
 
-, so it suffices to show that any matching in 
-\begin_inset Formula $V\backslash V\left(H\right)$
-\end_inset
-
- covering all but 
-\begin_inset Formula $\floor{\delta^{3}n}$
-\end_inset
-
- vertices, none of which violate the second condition, can be completed
- to a perfect matching.
-\end_layout
-
-\begin_layout Proof
-By the second condition, for each uncovered 
-\begin_inset Formula $v\in V\backslash V\left(H\right)$
-\end_inset
-
- we can greedily extend our matching with a hyperedge containing 
-\begin_inset Formula $v$
-\end_inset
-
- and two vertices of 
-\begin_inset Formula $Z$
-\end_inset
-
-, disjoint from the hyperedges chosen so far.
- We can then repeatedly apply the third condition to the uncovered vertices
- in 
-\begin_inset Formula $Z$
-\end_inset
-
- to extend our matching to cover half of 
-\begin_inset Formula $Z$
-\end_inset
-
-.
- By the defining property of a resilient template, there is a perfect matching
- in the subgraph of the template induced by the vertices unmatched so far.
- For each hyperedge of this perfect matching, use the covering matching
- of the corresponding absorber; for each other hyperedge in the template
- use the non-covering matching.
- These edges from the absorbers allow us to complete our perfect matching
- of 
-\begin_inset Formula $S$
-\end_inset
-
 .
 \end_layout
 
 \begin_layout Subsection
-Absorbing properties in the triangle removal process
+Absorbing conditions in the triangle removal process
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:absorbers-in-TRP"
@@ -4744,7 +4920,7 @@ name "sec:absorbers-in-TRP"
 \end_layout
 
 \begin_layout Standard
-In this section we prove that the properties in 
+In this section we prove that the conditions in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:PM-via-absorbers"
@@ -4759,23 +4935,7 @@ reference "lem:PM-via-absorbers"
 \begin_inset Formula $\beta$
 \end_inset
 
-) hold in the triangle removal process, conditioned on a certain quasirandomess
- event, with probability 
-\begin_inset Formula $1-\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right)$
-\end_inset
-
-.
- (A tilde above asymptotic nation indicates that polylogarithmic factors
- are being ignored).
- This will allow us to use 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:triangle-removal-transfer"
-
-\end_inset
-
- to deduce that the same is true for a uniformly random Steiner triple system,
- proving 
+) hold in a random Steiner triple system, proving 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:PM-in-STS"
@@ -4783,6 +4943,20 @@ reference "thm:PM-in-STS"
 \end_inset
 
 .
+ We do this using 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+, showing that the same properties hold with probability 
+\begin_inset Formula $1-\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right)$
+\end_inset
+
+ in the triangle removal process.
+ (A tilde over asymptotic notation indicates that polylogarithmic factors
+ are being ignored).
 \end_layout
 
 \begin_layout Standard
@@ -4796,16 +4970,405 @@ Fix a large constant
 \end_inset
 
 .
- We will treat 
-\begin_inset Formula $\alpha$
+ Fix a set 
+\begin_inset Formula $Z$
 \end_inset
 
- as a constant, but asymptotics in this section will be mostly uniform over
- 
-\begin_inset Formula $\alpha$
+ of 
+\begin_inset Formula $3\floor{\delta^{2}n}$
+\end_inset
+
+ vertices (say 
+\begin_inset Formula $Z=\range{3\floor{\delta^{2}n}}$
+\end_inset
+
+); we will eventually find an absorbing structure with 
+\begin_inset Formula $Z$
+\end_inset
+
+ as a flexible set.
+\end_layout
+
+\begin_layout Subsubsection
+High degree into the flexible set
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:degree"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cond:degree"
+
+\end_inset
+
+ is violated, there is a set 
+\begin_inset Formula $W$
+\end_inset
+
+ of 
+\begin_inset Formula $\floor{\delta n}$
+\end_inset
+
+ vertices outside 
+\begin_inset Formula $Z$
+\end_inset
+
+ each with degree less than 
+\begin_inset Formula $6\delta^{3}n$
+\end_inset
+
+ into 
+\begin_inset Formula $Z$
 \end_inset
 
 .
+ There are then fewer than 
+\begin_inset Formula $6\delta^{4}n^{2}$
+\end_inset
+
+ hyperedges with one vertex in 
+\begin_inset Formula $W$
+\end_inset
+
+ and two vertices in 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ We show that it is extremely unlikely that there is a set 
+\begin_inset Formula $W$
+\end_inset
+
+ with this property.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\randS^{*}\in\GSnp n{\alpha/N}$
+\end_inset
+
+ be obtained from 
+\begin_inset Formula $\randG\in\Gnp n{\alpha/N}$
+\end_inset
+
+, and consider a set 
+\begin_inset Formula $W$
+\end_inset
+
+ of 
+\begin_inset Formula $\floor{\delta n}$
+\end_inset
+
+ vertices outside 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\randY$
+\end_inset
+
+ be the number of hyperedges of 
+\begin_inset Formula $\randS^{*}$
+\end_inset
+
+ with one vertex in 
+\begin_inset Formula $W$
+\end_inset
+
+ and two vertices in 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ That is to say, 
+\begin_inset Formula $\randY$
+\end_inset
+
+ is the number of such hyperedges in 
+\begin_inset Formula $\randG$
+\end_inset
+
+ that are 
+\emph on
+isolated
+\emph default
+ in the sense that they do not intersect any other hyperedge of 
+\begin_inset Formula $\randG$
+\end_inset
+
+ in more than one vertex.
+ There are 
+\begin_inset Formula $\Theta\left(\left(\delta n\right)^{2}n\right)=\Theta\left(\delta^{2}n^{3}\right)$
+\end_inset
+
+ possible hyperedges and each is present and isolated with probability 
+\begin_inset Formula $\left(\alpha/n\right)\left(1-\alpha/n\right)^{O\left(n\right)}=\Theta\left(n^{-1}\right)$
+\end_inset
+
+, so 
+\begin_inset Formula $\E\randY=\Theta\left(\delta^{2}n^{2}\right)$
+\end_inset
+
+.
+ Now, adding a hyperedge to 
+\begin_inset Formula $\randG$
+\end_inset
+
+ can increase 
+\begin_inset Formula $\randY$
+\end_inset
+
+ by at most 1, and removing a hyperedge can increase 
+\begin_inset Formula $\randY$
+\end_inset
+
+ by at most 3 (by making three hyperedges isolated).
+ So, by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:bernstein-type"
+
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\Pr\left(\randY\le2\delta^{4}n^{2}\right)\le\Pr\left(\left|\randY-\E\randY\right|\le\Theta\left(\delta^{2}n^{2}\right)\right)\le\exp\left(-\Omega\left(\frac{\left(\delta^{2}n^{2}\right)^{2}}{3^{2}{n \choose 3}\alpha/n+3\delta^{2}n^{2}}\right)\right)=\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right).
+\]
+
+\end_inset
+
+Since there are no more than 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ choices for 
+\begin_inset Formula $W$
+\end_inset
+
+, we can use the union bound, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:bite-transfer"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+ (with 
+\begin_inset Formula $S=\varnothing$
+\end_inset
+
+) to prove that 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cond:degree"
+
+\end_inset
+
+ of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:PM-via-absorbers"
+
+\end_inset
+
+ holds a.a.s.
+ in a random Steiner triple system.
+\end_layout
+
+\begin_layout Subsubsection
+Density in subsets
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:density"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we deal with 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cond:density"
+
+\end_inset
+
+.
+ It does not suffice to look at just the first 
+\begin_inset Formula $\alpha N$
+\end_inset
+
+ hyperedges, but the key observation is that in a random ordered Steiner
+ triple system, by symmetry the first 
+\begin_inset Formula $\alpha N$
+\end_inset
+
+ hyperedges have the same distribution as the hyperedges corresponding to
+ any other choice of 
+\begin_inset Formula $\alpha N$
+\end_inset
+
+ indices.
+\end_layout
+
+\begin_layout Standard
+With 
+\begin_inset Formula $\randS^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $\randG$
+\end_inset
+
+ as in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:degree"
+
+\end_inset
+
+, consider a set 
+\begin_inset Formula $W\subseteq V$
+\end_inset
+
+ with 
+\begin_inset Formula $\left|W\right|\ge3\delta^{3}n$
+\end_inset
+
+ and redefine 
+\begin_inset Formula $\randY$
+\end_inset
+
+ to be the number of hyperedges of 
+\begin_inset Formula $\randS^{*}$
+\end_inset
+
+ included in 
+\begin_inset Formula $W$
+\end_inset
+
+ (which is the number of such hyperedges in 
+\begin_inset Formula $\randG$
+\end_inset
+
+ that are isolated).
+ There are 
+\begin_inset Formula $\left(1+o\left(1\right)\right)\left|W\right|^{3}/6$
+\end_inset
+
+ possible hyperedges, and each is present and isolated in 
+\begin_inset Formula $\randG$
+\end_inset
+
+ with probability 
+\begin_inset Formula $\left(\alpha/n\right)\left(1-\alpha/n\right)^{O\left(n\right)}=\left(\alpha/n\right)\left(1-O\left(\alpha\right)\right)$
+\end_inset
+
+.
+ Reasoning as in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:degree"
+
+\end_inset
+
+, with probability 
+\begin_inset Formula $1-\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right)$
+\end_inset
+
+ we have 
+\begin_inset Formula $\randY\ge\alpha\left(1-O\left(\alpha\right)\right)\left|W\right|^{3}/\left(6n\right)$
+\end_inset
+
+.
+ The union bound, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:bite-transfer"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+ prove that if 
+\begin_inset Formula $\randS$
+\end_inset
+
+ is a random Steiner triple system, then a.a.s.
+ every appropriate subset 
+\begin_inset Formula $W$
+\end_inset
+
+ induces at least 
+\begin_inset Formula $\alpha\left(1-O\left(\alpha\right)\right)\left|W\right|^{3}/\left(6n\right)$
+\end_inset
+
+ hyperedges in 
+\begin_inset Formula $\randS_{\alpha N}$
+\end_inset
+
+.
+ By symmetry this property also holds a.a.s.
+ in 
+\begin_inset Formula $\randS_{k\alpha N}\backslash\randS_{\left(k-1\right)\alpha N}$
+\end_inset
+
+ for each 
+\begin_inset Formula $k\le1/\alpha$
+\end_inset
+
+.
+ So, a.a.s.
+ every 
+\begin_inset Formula $W$
+\end_inset
+
+ induces a total of 
+\begin_inset Formula $\left(1-O\left(\alpha\right)\right)\left|W\right|^{3}/\left(6n\right)$
+\end_inset
+
+ hyperedges in 
+\begin_inset Formula $\randS$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $\beta$
+\end_inset
+
+ a large multiple of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, the third condition in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:PM-via-absorbers"
+
+\end_inset
+
+ is then satisfied.
 \end_layout
 
 \begin_layout Subsubsection
@@ -4819,61 +5382,84 @@ Absorbers
 \end_layout
 
 \begin_layout Standard
-First we find absorbers.
- Note that 
-\begin_inset Formula $K_{n}$
-\end_inset
-
- is 
-\begin_inset Formula $\left(n^{1/2},h\right)$
-\end_inset
-
--quasirandom, and let 
-\begin_inset Formula $a=a\,b\left(1/2,h\right)$
-\end_inset
-
- in the notation of 
+Finally we show how to find an absorbing structure for 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:triangle-removal-analysis"
+reference "cond:absorber"
 
 \end_inset
 
-, so that 
-\begin_inset Formula $\cordm{n^{-a},h}{\alpha N}$
+, which is much more involved.
+ The first step is to show that there are many absorbers rooted on every
+ triple of vertices.
+ We cannot hope to do this by na
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+"
+\end_layout
+
 \end_inset
 
- is nonempty.
- Let 
-\begin_inset Formula $b=b\left(a\right)$
-\end_inset
-
- in the notation of 
+ively applying 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:bite-transfer"
+reference "lem:triangle-removal-transfer"
 
 \end_inset
 
-.
- As in 
+ as in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{subsec:degree,subsec:density}
+\end_layout
+
+\end_inset
+
+, because the probability that a vertex is isolated in 
+\begin_inset Formula $\rg n{\alpha N}$
+\end_inset
+
+ is already too large.
+ Instead we must use 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:bite-transfer"
+reference "lem:triangle-removal-transfer"
 
 \end_inset
 
-, let 
-\begin_inset Formula $\mathcal{Q}=\left\{ S\in\cordm{n^{-b},h}{2\alpha N}:S_{\alpha N}\in\cordm{n^{-a},h}{\alpha N}\right\} \supseteq\cordm{n^{-a},h}{2\alpha N}$
+ in its full generality, conditioning on the quasirandomness of the first
+ few steps of the triangle removal process.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $a$
+\end_inset
+
+ be small enough for 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
+\end_inset
+
+, and let 
+\begin_inset Formula $\mathcal{Q}=\left\{ S\in\ordm{2\alpha N}:S_{\alpha N}\in\cordm{n^{-a},h}{\alpha N}\right\} \supseteq\cordm{n^{-a},h}{2\alpha N}$
 \end_inset
 
 .
  Let 
 \begin_inset Formula $\randS\in\rg n{2\alpha n}$
-\end_inset
-
-, conditioned on the event 
-\begin_inset Formula $\randS\in\mathcal{Q}$
 \end_inset
 
 , and condition on any 
@@ -4913,11 +5499,15 @@ By quasirandomness, every vertex has degree
 \begin_inset Formula $\left(1\pm n^{-a}\right)\left(1-\alpha\right)n$
 \end_inset
 
- 
+ in 
+\begin_inset Formula $G\left(S\right)$
+\end_inset
+
+, so every vertex is in 
 \begin_inset Formula $\left(1\pm n^{-a}\right)\alpha n/2=\Omega\left(\alpha n\right)$
 \end_inset
 
- in 
+ hyperedges of 
 \begin_inset Formula $S$
 \end_inset
 
@@ -4935,7 +5525,7 @@ absorber-extension
 \begin_inset Formula $x,y,z$
 \end_inset
 
- when combined with three edges of 
+ when combined with three hyperedges of 
 \begin_inset Formula $S$
 \end_inset
 
@@ -4948,34 +5538,56 @@ absorber-extension
 \begin_inset Formula $\randY$
 \end_inset
 
- be the maximum size of an edge-disjoint collection of absorber-extensions
+ be the maximum size of a hyperedge-disjoint collection of absorber-extensions
  in 
 \begin_inset Formula $\randS^{*}$
 \end_inset
 
 .
- That is, it is the maximal size of a collection of hyperedge-disjoint isolated
- absorber-extensions in 
+ That is, it is the maximal size of a collection of disjoint isolated absorber-e
+xtensions in 
 \begin_inset Formula $\randG$
 \end_inset
 
-, where we say a subgraph of 
+.
+ This particular choice of random variable is crucial, and allows us to
+ use 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:bernstein-type"
+
+\end_inset
+
+.
+ (The idea comes from a similar random variable used by Bollob
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+s 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bol88"
+
+\end_inset
+
+).
+ Adding a hyperedge to 
 \begin_inset Formula $\randG$
 \end_inset
 
- is 
-\emph on
-isolated
-\emph default
- if none of its hyperedges intersect another hyperedge of 
-\begin_inset Formula $\randG$
-\end_inset
-
- in more than one vertex.
- Now, adding a hyperedge to a hypergraph can invalidate at most three absorber-e
-xtensions in a maximal collection, and removing a hyperedge can remove at
- most one absorber-extension in a maximal collection.
- So, changing the presence of one edge of 
+ can increase the size of a maximal collection of disjoint absorber-extensions
+ by at most one, and removing a hyperedge can cause at most three absorber-exten
+sions in a maximal disjoint collection to become isolated.
+ So, changing the presence of a hyperedge in 
 \begin_inset Formula $\randG$
 \end_inset
 
@@ -4983,31 +5595,44 @@ xtensions in a maximal collection, and removing a hyperedge can remove at
 \begin_inset Formula $\randY$
 \end_inset
 
- by at most 3.
- By 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:bernstein-type"
+ by at most 3, as in 
+\begin_inset ERT
+status open
 
-\end_inset
-
-,
-\begin_inset Formula 
-\begin{equation}
-\Pr\left(\randY\le\E\randY-t\right)\le\exp\left(-\Omega\left(\frac{t^{2}}{3^{2}{n \choose 3}\alpha/n+3t}\right)\right)=\exp\left(-\Omega\left(\frac{t^{2}}{\alpha n^{2}+t}\right)\right).\label{eq:disjoint-absorber-bite-tail}
-\end{equation}
-
-\end_inset
+\begin_layout Plain Layout
 
 
+\backslash
+ref{subsec:degree,subsec:density}
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Claim
+If 
+\begin_inset Formula $h$
+\end_inset
+
+ is large enough and 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is small enough, then 
+\begin_inset Formula $\E\randY=\Theta\left(n^{2}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
 Let 
 \begin_inset Formula $\randX$
 \end_inset
 
- be the number of isolated absorber-extensions in 
+ be the total number of isolated absorber-extensions in 
 \begin_inset Formula $\randG$
 \end_inset
 
@@ -5034,7 +5659,7 @@ Let
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 If 
 \begin_inset Formula $h$
 \end_inset
@@ -5053,75 +5678,94 @@ If
 
 .
  Indeed, to choose such a candidate absorber-extension, first choose three
- hyperedges 
-\begin_inset Formula $e_{x},e_{y},e_{z}$
+ disjoint hyperedges 
+\begin_inset Formula $e_{x},e_{y},e_{z}\in E\left(S\right)$
 \end_inset
 
- incident to 
+ containing 
 \begin_inset Formula $x,y,z$
 \end_inset
 
- (there are 
-\begin_inset Formula $\left(\alpha n\right)^{3}$
+ respectively (there are 
+\begin_inset Formula $\Theta\left(\left(\alpha n\right)^{3}\right)$
 \end_inset
 
  ways to do this).
- Then, consider the graph 
-\begin_inset Formula $H$
+ Then, the number of ways to choose the remaining four hyperedges of a candidate
+ absorber-extension is precisely the number of copies in 
+\begin_inset Formula $G\left(S\right)$
 \end_inset
 
- obtained by removing the three rooted hyperedges of an absorber and replacing
- the remaining hyperedges with triangles.
- The number of ways to complete our candidate absorber-extension is precisely
- the number of copies of 
-\begin_inset Formula $H$
+ of a certain graph 
+\begin_inset Formula $F$
 \end_inset
 
  rooted on the vertices of 
 \begin_inset Formula $e_{x},e_{y},e_{z}$
 \end_inset
 
- in the obvious way, in 
-\begin_inset Formula $G\left(S\right)$
+.
+ (Specifically, 
+\begin_inset Formula $F$
 \end_inset
 
-.
- By 
+ is the graph obtained by taking the external hyperedges of the hypergraph
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:absorber"
+
+\end_inset
+
+ and replacing each hyperedge with a triangle on its vertex set).
+ Provided 
+\begin_inset Formula $h$
+\end_inset
+
+ is large enough, by 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:H-count"
 
 \end_inset
 
- this number is 
+ the number of suitable copies of 
+\begin_inset Formula $F$
+\end_inset
+
+ is 
 \begin_inset Formula $\left(1-\alpha\right)^{O\left(1\right)}n^{3}=\Theta\left(n^{3}\right)$
 \end_inset
 
 .
- The probability each possible absorber-extension occurs and is isolated
+\end_layout
+
+\begin_layout Proof
+The probability each possible absorber-extension appears and is isolated
  in 
 \begin_inset Formula $\randG$
 \end_inset
 
  is 
-\begin_inset Formula $\Theta\left(\left(\alpha/n\right)^{4}\left(1-\alpha/n\right)^{O\left(n\right)}\right)=\Theta\left(\alpha^{4}n^{-4}\right)$
+\begin_inset Formula 
+\[
+\Theta\left(\left(\alpha/n\right)^{4}\left(1-\alpha/n\right)^{O\left(n\right)}\right)=\Theta\left(\alpha^{4}n^{-4}\right).
+\]
+
 \end_inset
 
-.
- So, 
+So, 
 \begin_inset Formula $\E\randX=\Theta\left(\alpha^{7}n^{2}\right)$
 \end_inset
 
 .
+ Now, there are several possibilities for a hyperedge-intersecting pair
+ of distinct absorber-extensions.
 \end_layout
 
-\begin_layout Standard
-Now, there are several possibilities for a hyperedge-intersecting pair of
- distinct absorber-extensions.
-\end_layout
-
+\begin_deeper
 \begin_layout Itemize
-they could intersect in the unrooted hyperedge of the covering matching
+They could intersect in the external hyperedge of the covering matching
  of the absorber.
  There are 
 \begin_inset Formula $\Theta\left(\left(\alpha n\right)^{6}n^{3}\right)$
@@ -5140,7 +5784,7 @@ they could intersect in the unrooted hyperedge of the covering matching
 \end_layout
 
 \begin_layout Itemize
-They could intersect in the unrooted hyperedge of the covering matching
+They could intersect in the external hyperedge of the covering matching
  as above, and also in one hyperedge of the non-covering matching
 \begin_inset Quotes erd
 \end_inset
@@ -5162,7 +5806,7 @@ They could intersect in the unrooted hyperedge of the covering matching
 \end_layout
 
 \begin_layout Itemize
-They could intersect in one edge of the non-covering matching.
+They could intersect in one hyperedge of the non-covering matching.
  There are 
 \begin_inset Formula $\Theta\left(\left(\alpha n\right)^{4}n^{5}\right)$
 \end_inset
@@ -5179,7 +5823,7 @@ They could intersect in one edge of the non-covering matching.
 \end_layout
 
 \begin_layout Itemize
-They could intersect in two edges of the non-covering matching.
+They could intersect in two hyperedges of the non-covering matching.
  There are 
 \begin_inset Formula $\Theta\left(\left(\alpha n\right)^{3}n^{4}\right)$
 \end_inset
@@ -5195,7 +5839,8 @@ They could intersect in two edges of the non-covering matching.
 .
 \end_layout
 
-\begin_layout Standard
+\end_deeper
+\begin_layout Proof
 In summary (for small 
 \begin_inset Formula $\alpha$
 \end_inset
@@ -5205,22 +5850,34 @@ In summary (for small
 \end_inset
 
 , so 
-\begin_inset Formula $\E\randY=\Theta\left(\alpha^{7}n^{2}\right)$
+\begin_inset Formula $\E\randY\ge\Theta\left(\alpha^{7}n^{2}\right)-O\left(\alpha^{11}n^{2}\right)=\Theta\left(\alpha^{7}n^{2}\right)$
 \end_inset
 
 .
- Considering 
-\begin_inset Formula $\alpha$
+\end_layout
+
+\begin_layout Standard
+As in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{subsec:degree,subsec:density}
+\end_layout
+
 \end_inset
 
- as fixed, 
+, 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:disjoint-absorber-bite-tail"
+reference "thm:bernstein-type"
 
 \end_inset
 
- gives 
+ proves that 
 \begin_inset Formula $\randY=\Omega\left(n^{2}\right)$
 \end_inset
 
@@ -5229,24 +5886,25 @@ reference "eq:disjoint-absorber-bite-tail"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Note that if there are 
+ Note that if there are 
 \begin_inset Formula $\Omega\left(n^{2}\right)$
 \end_inset
 
- edge-disjoint absorber-extensions then there must in fact be 
+ hyperedge-disjoint absorber-extensions then there must in fact be 
 \begin_inset Formula $\Omega\left(n\right)$
 \end_inset
 
- vertex-disjoint absorber-extensions.
- We can find these greedily; the degree in 
-\begin_inset Formula $\randS$
+ externally vertex-disjoint absorber-extensions rooted on 
+\begin_inset Formula $x,y,z$
 \end_inset
 
- of each vertex is 
+.
+ We can find these greedily; each vertex is involved in only 
 \begin_inset Formula $O\left(n\right)$
+\end_inset
+
+ hyperedges of 
+\begin_inset Formula $\randS$
 \end_inset
 
 , so deleting 
@@ -5257,50 +5915,50 @@ Note that if there are
 \begin_inset Formula $O\left(n\right)$
 \end_inset
 
- edges.
- By the union bound and 
+ hyperedges.
+ By the union bound, 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:bite-transfer"
 
 \end_inset
 
-, it follows that with probability 
-\begin_inset Formula $1-\exp\left(-\Omega\left(n^{2}\right)\right)$
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-transfer"
+
 \end_inset
 
-, every triple of vertices has 
+ (with 
+\begin_inset Formula $\mathcal{Q}$
+\end_inset
+
+ as defined above), it follows that in a random Steiner triple system, a.a.s.
+ every triple of vertices has 
 \begin_inset Formula $\Omega\left(n\right)$
 \end_inset
 
- externally vertex-disjoint absorbers in 
-\begin_inset Formula $\randS$
-\end_inset
-
-.
+ externally vertex-disjoint absorbers.
 \end_layout
 
 \begin_layout Standard
-If 
-\begin_inset Formula $\randS$
-\end_inset
-
- has this property, then we can greedily build our absorbing structure,
- as follows.
+If a Steiner triple system has this property, then we can greedily build
+ our absorbing structure, as follows.
  Recalling that 
-\begin_inset Formula $\delta=o\left(1\right)$
+\begin_inset Formula $\left|Z\right|=3\floor{\delta^{3}n}=O\left(\delta^{3}n\right)$
 \end_inset
 
 , choose a resilient template 
-\begin_inset Formula $H$
+\begin_inset Formula $T$
 \end_inset
 
  with 
-\begin_inset Formula $O\left(\delta^{2}n\right)$
+\begin_inset Formula $O\left(\delta^{3}n\right)$
 \end_inset
 
  hyperedges, on 
-\begin_inset Formula $O\left(\delta^{2}n\right)$
+\begin_inset Formula $O\left(\delta^{3}n\right)$
 \end_inset
 
  vertices of 
@@ -5308,11 +5966,7 @@ If
 \end_inset
 
 , such that the flexible set is 
-\begin_inset Formula $Z=\range{\delta^{2}n}$
-\end_inset
-
- for some fixed 
-\begin_inset Formula $c>0$
+\begin_inset Formula $Z$
 \end_inset
 
 .
@@ -5324,361 +5978,32 @@ If
 \begin_inset Formula $\randS$
 \end_inset
 
- on each edge of 
+ on each hyperedge of 
 \begin_inset Formula $H$
 \end_inset
 
 , in an externally vertex-disjoint fashion.
  The entire absorbing structure then has 
-\begin_inset Formula $O\left(\delta^{2}n\right)\le\delta n$
+\begin_inset Formula $O\left(\delta^{3}n\right)\le\delta n$
 \end_inset
 
  vertices.
- This proves that the first property of 
+ We have proved that 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cond:absorber"
+
+\end_inset
+
+ of 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:PM-via-absorbers"
 
 \end_inset
 
- holds with probability 
-\begin_inset Formula $1-\exp\left(-\Omega\left(n^{2}\right)\right)$
-\end_inset
-
- in 
-\begin_inset Formula $\randS$
-\end_inset
-
- (conditioned on 
-\begin_inset Formula $\mathcal{Q}$
-\end_inset
-
-), and by 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:triangle-removal-transfer"
-
-\end_inset
-
- it therefore holds a.a.s.
- in a uniformly random Steiner triple system.
- (Actually, what we have proved is slightly stronger, because we can specify
- the location of the flexible set of the absorbing structure).
-\end_layout
-
-\begin_layout Subsubsection
-High degree into the flexible set
-\end_layout
-
-\begin_layout Standard
-Recall that 
-\begin_inset Formula $\delta=1/\log^{2}n=\tilde{\Theta}\left(1\right)$
-\end_inset
-
-.
- With 
-\begin_inset Formula $\randS^{*}\in\GSnp n{\alpha/N}$
-\end_inset
-
- obtained from 
-\begin_inset Formula $\randG\in\Gnp n{\alpha/N}$
-\end_inset
-
-, fix a set 
-\begin_inset Formula $W$
-\end_inset
-
- with 
-\begin_inset Formula $\delta n$
-\end_inset
-
- vertices and let 
-\begin_inset Formula $\randY$
-\end_inset
-
- be the number of edges of 
-\begin_inset Formula $\randS^{*}$
-\end_inset
-
- with one vertex in 
-\begin_inset Formula $W$
-\end_inset
-
- and two vertices in the set 
-\begin_inset Formula $Z=\range{\delta^{2}n}$
-\end_inset
-
-.
- That is, 
-\begin_inset Formula $\randY$
-\end_inset
-
- the number of such edges in 
-\begin_inset Formula $\randG$
-\end_inset
-
- that are 
-\begin_inset Quotes eld
-\end_inset
-
-isolated
-\begin_inset Quotes erd
-\end_inset
-
-.
- There are 
-\begin_inset Formula $\Theta\left(\left(\delta n\right)^{2}n\right)=\Theta\left(n^{3}\log^{-O\left(1\right)}n\right)$
-\end_inset
-
- possible edges and each is present and isolated with probability 
-\begin_inset Formula $\left(\alpha/n\right)\left(1-\alpha/n\right)^{O\left(n\right)}=\Theta\left(n^{-1}\right)$
-\end_inset
-
-, so 
-\begin_inset Formula $\E\randY=\tilde{\Theta}\left(n^{2}\right)$
-\end_inset
-
- and just as in the preceding argument, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:bernstein-type"
-
-\end_inset
-
- shows that for some 
-\begin_inset Formula $\delta$
-\end_inset
-
-, with probability 
-\begin_inset Formula $1-\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right)$
-\end_inset
-
- we have 
-\begin_inset Formula $\randY\ge2\delta^{3}n^{2}/4$
-\end_inset
-
-.
- This is not possible unless there is a vertex 
-\begin_inset Formula $v$
-\end_inset
-
- in 
-\begin_inset Formula $W$
-\end_inset
-
- with degree 
-\begin_inset Formula $2\delta^{3}n$
-\end_inset
-
- in 
-\begin_inset Formula $Z$
-\end_inset
-
-, in 
-\begin_inset Formula $\randS^{*}$
-\end_inset
-
-.
- Since there are fewer than 
-\begin_inset Formula $2^{n}=e^{o\left(n^{2}\right)}$
-\end_inset
-
- choices for 
-\begin_inset Formula $W$
-\end_inset
-
-, the union bound and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:bite-transfer"
-
-\end_inset
-
- prove that with probability 
-\begin_inset Formula $1-\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right)$
-\end_inset
-
- every set 
-\begin_inset Formula $W$
-\end_inset
-
- has such a vertex (and therefore the second condition of 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:PM-via-absorbers"
-
-\end_inset
-
- holds), in an instance of the triangle removal process 
-\begin_inset Formula $\rg n{\alpha N}$
-\end_inset
-
-.
- Applying 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:triangle-removal-transfer"
-
-\end_inset
-
- with 
-\begin_inset Formula $S=\varnothing$
-\end_inset
-
- proves that the same holds a.a.s.
- in a uniformly random Steiner triple system.
-\end_layout
-
-\begin_layout Subsubsection
-Density in subsets
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:density"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Fix a set 
-\begin_inset Formula $W\subseteq V$
-\end_inset
-
- with 
-\begin_inset Formula $\left|W\right|\ge\delta^{3}n$
-\end_inset
-
-.
- With 
-\begin_inset Formula $\randS^{*}$
-\end_inset
-
- and 
-\begin_inset Formula $\randG$
-\end_inset
-
- as in the previous subsection, redefine 
-\begin_inset Formula $\randY$
-\end_inset
-
- to be the number of edges of 
-\begin_inset Formula $\randS^{*}$
-\end_inset
-
- included in 
-\begin_inset Formula $W$
-\end_inset
-
-.
- There are 
-\begin_inset Formula $\left(1+o\left(1\right)\right)\left|W\right|^{3}/6$
-\end_inset
-
- possible edges, and each is present and isolated in 
-\begin_inset Formula $\randG$
-\end_inset
-
- with probability 
-\begin_inset Formula $\left(\alpha/n\right)\left(1-\alpha/n\right)^{O\left(n\right)}=\left(\alpha/n\right)\left(1-O\left(\alpha\right)\right)$
-\end_inset
-
-, so with the same reasoning as in the previous two sections, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:bernstein-type"
-
-\end_inset
-
- shows that with probability 
-\begin_inset Formula $1-\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right)$
-\end_inset
-
- we have 
-\begin_inset Formula $\randY\ge\alpha\left(1-O\left(\alpha\right)\right)\left|W\right|^{3}/\left(6n\right)$
-\end_inset
-
-.
- The union bound and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:bite-transfer"
-
-\end_inset
-
- proves that this holds for any 
-\begin_inset Formula $W$
-\end_inset
-
- with probability 
-\begin_inset Formula $1-\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right)$
-\end_inset
-
-, in an instance of the triangle removal process 
-\begin_inset Formula $\rg n{\alpha N}$
-\end_inset
-
-.
- Therefore by 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:triangle-removal-transfer"
-
-\end_inset
-
- it holds a.a.s.
- in 
-\begin_inset Formula $\randS_{\alpha N}$
-\end_inset
-
- for a uniformly random 
-\begin_inset Formula $\randS\in\S$
-\end_inset
-
-.
- By symmetry, this property also holds a.a.s.
- in 
-\begin_inset Formula $\randS_{k\alpha N}\backslash\randS_{\left(k-1\right)\alpha N}$
-\end_inset
-
- for any 
-\begin_inset Formula $k\le1/\alpha$
-\end_inset
-
- (we impose that 
-\begin_inset Formula $1/\alpha$
-\end_inset
-
- is an integer).
- So the total number of edges in 
-\begin_inset Formula $\randS$
-\end_inset
-
- induced by any 
-\begin_inset Formula $W$
-\end_inset
-
- is 
-\begin_inset Formula $\left(1-O\left(\alpha\right)\right)\left|W\right|^{3}/\left(6n\right)$
-\end_inset
-
-.
- For 
-\begin_inset Formula $\beta$
-\end_inset
-
- a large multiple of 
-\begin_inset Formula $\alpha$
-\end_inset
-
-, the third condition in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:PM-via-absorbers"
-
-\end_inset
-
- is then satisfied.
+ holds a.a.s.
+ in a random Steiner triple system.
 \end_layout
 
 \begin_layout Section
