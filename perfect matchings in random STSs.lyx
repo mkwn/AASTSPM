@@ -5621,7 +5621,7 @@ If
 \end_inset
 
  is small enough, then 
-\begin_inset Formula $\E\randY=\Theta\left(n^{2}\right)$
+\begin_inset Formula $\E\randY=\Omega\left(n^{2}\right)$
 \end_inset
 
 .
@@ -6189,12 +6189,20 @@ Now, a sequence
 \end_inset
 
 ).
- This is an upper bound on the number of possible values for 
+ Note that 
+\begin_inset Formula $\randR_{v}\left(\lambda\right)$
+\end_inset
+
+ is an upper bound on the number of possible values for 
 \begin_inset Formula $\randM_{v}$
 \end_inset
 
  given the information  
 \begin_inset Formula $\left(\randM_{v'}\,\colon\,\lambda_{v'}>\lambda_{v}\right)$
+\end_inset
+
+, and therefore we have 
+\begin_inset Formula $H\left(\randM_{v}\cond\randM_{v'}:\lambda_{v'}>\lambda_{v}\right)\le\E\left[\randR_{v}\left(\lambda\right)\right]$
 \end_inset
 
 .
@@ -6228,7 +6236,7 @@ because there are
 \begin_inset Formula $\left(n-1\right)/2$
 \end_inset
 
- edges in 
+ hyperedges in 
 \begin_inset Formula $S$
 \end_inset
 
@@ -6236,7 +6244,7 @@ because there are
 \begin_inset Formula $v$
 \end_inset
 
-, and for each such edge 
+, and for each such hyperedge 
 \begin_inset Formula $e$
 \end_inset
 
@@ -6252,7 +6260,8 @@ because there are
 \begin_inset Formula $\randM$
 \end_inset
 
- (if they were in the same hyperedge that hyperedge would intersect 
+ (if they were in the same hyperedge then that hyperedge would intersect
+ 
 \begin_inset Formula $e$
 \end_inset
 
@@ -6309,7 +6318,7 @@ using the fact that
 \begin{align*}
 \log\left|\mathcal{M}\right| & \le H\left(\randM\right)\\
  & \le\sum_{i\in\range n}\E\left[\log\randR_{i}\left(\randl\right)\right]\\
- & \le\frac{n}{3}\left(\log\left(\left(1+o\left(1\right)\right)n/2\right)-2\right)
+ & \le\frac{n}{3}\left(\log\left(\left(1+o\left(1\right)\right)n/2\right)-2\right),
 \end{align*}
 
 \end_inset
