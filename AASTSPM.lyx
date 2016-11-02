@@ -1929,20 +1929,7 @@ We also use standard graph theory notation:
 \end_layout
 
 \begin_layout Standard
-Also, for a real number 
-\begin_inset Formula $x$
-\end_inset
-
-, the floor and ceiling functions are denoted 
-\begin_inset Formula $\floor x=\max\left\{ i\in\ZZ:i\le x\right\} $
-\end_inset
-
- and 
-\begin_inset Formula $\ceil x=\min\left\{ i\in\ZZ:i\ge x\right\} $
-\end_inset
-
-.
- For a positive integer 
+For a positive integer 
 \begin_inset Formula $n$
 \end_inset
 
@@ -1955,6 +1942,21 @@ Also, for a real number
 \end_inset
 
 .
+ For a real number 
+\begin_inset Formula $x$
+\end_inset
+
+, the floor and ceiling functions are denoted 
+\begin_inset Formula $\floor x=\max\left\{ i\in\ZZ:i\le x\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\ceil x=\min\left\{ i\in\ZZ:i\ge x\right\} $
+\end_inset
+
+.
+ We will however mostly omit floor and ceiling signs and assume large numbers
+ are integers, wherever divisibility considerations are not important.
  Finally, all logarithms are base 
 \begin_inset Formula $e$
 \end_inset
@@ -5014,7 +5016,7 @@ ordered
 \begin_inset Formula $\left(n/3\right)!=\left(\left(1+o\left(1\right)\right)n/3e\right)^{n/3}$
 \end_inset
 
- to obtain 
+ (using Stirling's approximation) to obtain 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:count-pm"
@@ -7891,7 +7893,7 @@ using the fact that
 \begin{align*}
 \log\,\left|\Sext{S^{*}}\right| & \le H\left(\randS\right)\\
  & \le\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right]\\
- & \le\left(N-\alpha N\right)\frac{1}{3}\left(\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}n\right)-2\right),
+ & \le\left(N-\alpha N\right)\left(\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}n\right)-2\right),
 \end{align*}
 
 \end_inset
@@ -8129,7 +8131,7 @@ reference "prop:H-count"
  So,
 \begin_inset Formula 
 \[
-\Pr\left(\randS=S\right)\le\prod_{i=\alpha N}^{M}\frac{1}{\left(1-O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6}.
+\Pr\left(\randS=S\right)\le\prod_{i=\alpha N}^{M-1}\frac{1}{\left(1-O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6}.
 \]
 
 \end_inset
@@ -8152,8 +8154,8 @@ reference "lem:triangle-removal-analysis"
 so 
 \begin_inset Formula 
 \begin{align*}
-\left|\ord^{*}\right| & \ge\left(1-o\left(1\right)\right)\prod_{i=\alpha N}^{M}\left(1-O\left(n^{-c}\right)\right)\left(1-\frac{i}{N}\right)^{3}n^{3}/6.\\
- & =\left(\left(1-O\left(n^{-c}\right)\right)\frac{n^{3}}{6}\right)^{\left(1-\alpha\right)N}\exp\left(3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right).
+\left|\ord^{*}\right| & \ge\left(1-o\left(1\right)\right)\prod_{i=\alpha N}^{M-1}\left(1-O\left(n^{-c}\right)\right)\left(1-\frac{i}{N}\right)^{3}n^{3}/6.\\
+ & =\left(\left(1-O\left(n^{-c}\right)\right)\frac{n^{3}}{6}\right)^{\left(1-\alpha\right)N}\exp\left(3\sum_{i=\alpha N}^{M-1}\log\left(1-\frac{i}{N}\right)\right).
 \end{align*}
 
 \end_inset
@@ -8161,7 +8163,7 @@ so
 Now, note that 
 \begin_inset Formula 
 \[
-\sum_{i=\alpha N}^{M}\frac{1}{N}\log\left(1-\frac{i+1}{N}\right)\le\int_{\alpha}^{\left(1-\varepsilon\right)}\log\left(1-t\right)\d t\le\sum_{i=\alpha N}^{M}\frac{1}{N}\log\left(1-\frac{i}{N}\right).
+\sum_{i=\alpha N}^{M-1}\frac{1}{N}\log\left(1-\frac{i+1}{N}\right)\le\int_{\alpha}^{\left(1-\varepsilon\right)}\log\left(1-t\right)\d t\le\sum_{i=\alpha N}^{M-1}\frac{1}{N}\log\left(1-\frac{i}{N}\right).
 \]
 
 \end_inset
@@ -8177,14 +8179,14 @@ We compute
 \end_inset
 
 so, noting that 
-\begin_inset Formula $\int\log p\d p=p\left(\log p-1\right)$
+\begin_inset Formula $\int\log s\d s=s\left(\log s-1\right)$
 \end_inset
 
 ,
 \begin_inset Formula 
 \begin{align*}
 3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right) & =3N\int_{\alpha}^{\left(1-\varepsilon\right)}\log\left(1-t\right)\d t+O\left(\log n\right)\\
- & =3N\int_{\varepsilon}^{\left(1-\alpha\right)}\log p\d p+O\left(\log n\right)\\
+ & =3N\int_{\varepsilon}^{\left(1-\alpha\right)}\log s\d s+O\left(\log n\right)\\
  & =3N\left(\left(1-\alpha\right)\left(\log\left(1-\alpha\right)-1\right)-\varepsilon\left(\log\varepsilon-1\right)\right)+O\left(\log n\right),\\
 \exp\left(3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right) & =\left(\left(1+O\left(n^{-c}\log n\right)\right)\frac{1-\alpha}{e}\right)^{3N\left(1-\alpha\right)}.
 \end{align*}
@@ -8233,7 +8235,7 @@ reference "lem:num-extensions"
 
 \end_inset
 
- then immediately follows from 
+ immediately follows from 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:number-of-completions-upper"
@@ -8262,8 +8264,8 @@ Random triangle removal
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\randQ}{\boldsymbol{R}}
-{\boldsymbol{\boldsymbol{R}}}
+\renewcommand{\randQ}{\boldsymbol{Q}}
+{\boldsymbol{\boldsymbol{Q}}}
 \end_inset
 
 
@@ -8426,14 +8428,14 @@ For all
  edges.
  Then a.a.s.
  
-\begin_inset Formula $\randM\ge\left(1-n^{-b}\right)N$
+\begin_inset Formula $\randM\ge\left(1-\varepsilon^{b}\right)N$
 \end_inset
 
  and moreover for each 
-\begin_inset Formula $N-m\le i\le\left(1-\varepsilon^{b}\right)N$
+\begin_inset Formula $m\le i\le\left(1-\varepsilon^{b}\right)N$
 \end_inset
 
-, 
+, the graph 
 \begin_inset Formula $\randG\left(i\right)$
 \end_inset
 
@@ -8753,11 +8755,11 @@ This means
 
 \begin_layout Proof
 Let 
-\begin_inset Formula $N_{A}\left(i\right)=\bigcap_{w\in A}N_{\randG\left(i\right)}\left(w\right)$
+\begin_inset Formula $\randR_{A}\left(i\right)=\bigcap_{w\in A}N_{\randG\left(i\right)}\left(w\right)$
 \end_inset
 
 , so that 
-\begin_inset Formula $\randY_{A}\left(i\right)=\left|N_{A}\left(i\right)\right|$
+\begin_inset Formula $\randY_{A}\left(i\right)=\left|\randR_{A}\left(i\right)\right|$
 \end_inset
 
 .
@@ -8766,7 +8768,7 @@ Let
 \end_inset
 
 , and consider 
-\begin_inset Formula $x\in N_{A}\left(i\right)$
+\begin_inset Formula $x\in\randR_{A}\left(i\right)$
 \end_inset
 
 , for 
@@ -8775,7 +8777,7 @@ Let
 
 .
  The only way we can have 
-\begin_inset Formula $x\notin N_{A}\left(i+1\right)$
+\begin_inset Formula $x\notin\randR_{A}\left(i+1\right)$
 \end_inset
 
  is if we remove a triangle containing an edge 
@@ -8827,7 +8829,7 @@ reference "prop:H-count"
  So,
 \begin_inset Formula 
 \begin{align*}
-\Pr\left(x\notin N_{A}\left(i+1\right)\right) & =\frac{1}{\randQ\left(i\right)}\left(\sum_{w\in A}\left(1\pm O\left(e\left(i\right)\right)\right)p^{2}\left(i\right)n-O\left(1\right)\right)\\
+\Pr\left(x\notin\randR_{A}\left(i+1\right)\right) & =\frac{1}{\randQ\left(i\right)}\left(\sum_{w\in A}\left(1\pm O\left(e\left(i\right)\right)\right)p^{2}\left(i\right)n-O\left(1\right)\right)\\
  & =\left|A\right|\left(1\pm O\left(e\left(i\right)\right)\right)p^{-1}\left(i\right)/N.
 \end{align*}
 
@@ -8838,7 +8840,7 @@ For
 \end_inset
 
  we have 
-\begin_inset Formula $\left|N_{A}\left(i\right)\right|=\left(1\pm e\left(i\right)\right)p^{\left|A\right|}\left(i\right)n$
+\begin_inset Formula $\left|\randR_{A}\left(i\right)\right|=\left(1\pm e\left(i\right)\right)p^{\left|A\right|}\left(i\right)n$
 \end_inset
 
 , so by linearity of expectation
@@ -8859,7 +8861,7 @@ Note also that we have the bound
 \begin_inset Formula $k$
 \end_inset
 
-,
+, we have
 \begin_inset Formula 
 \begin{align*}
 \Delta p^{k}\left(i\right) & =\left(1-\frac{i+1}{N}\right)^{k}-\left(1-\frac{i}{N}\right)^{k}\\
@@ -8973,7 +8975,7 @@ Since
 \begin_inset Formula $\randT\le N$
 \end_inset
 
-, it follows that
+, we also have
 \begin_inset Formula 
 \[
 \sum_{i=0}^{\infty}\E\left[\left(\Delta\randY_{A}^{s}\left(i\right)\right)^{2}\cond\randG\left(i\right)\right]=O\left(N\frac{n}{N}\right)=O\left(n\right).
