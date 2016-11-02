@@ -168,7 +168,7 @@
 
 \begin{document}
 
-\title{Almost all Steiner Triple Systems have perfect matchings}
+\title{Almost all Steiner triple systems have perfect matchings}
 
 \author{Matthew Kwan \thanks{Department of Mathematics, ETH, 8092 Z\"urich. Email: \href{mailto:matthew.kwan@math.ethz.ch} {\nolinkurl{matthew.kwan@math.ethz.ch}}.}}
 
@@ -345,9 +345,9 @@ for example to show that almost all Latin squares have transversals.
 
 A \emph{Steiner triple system} of order $n$ is a collection $S$
 of size-$3$ subsets of $\range n=\left\{ 1,\dots,n\right\} $ (that
-is, a $3$-uniform hypergraph on the vertex set $\range n$), such
-that every pair of vertices is included in exactly one hyperedge of
-$S$. Steiner triple systems are among the most fundamental types
+is, a $3$-uniform \emph{hypergraph} on the vertex set $\range n$),
+such that every pair of vertices is included in exactly one hyperedge
+of $S$. Steiner triple systems are among the most fundamental types
 of combinatorial designs, and have strong connections to a wide range
 of different subjects, ranging from group theory, to finite geometry,
 to experimental design, to the theory of error-correcting codes. See
@@ -413,27 +413,28 @@ have been proved in \cite[Proposition~3.1]{LL15} and \cite{LLR15}.
 However, the Steiner triple systems obtainable by Keevash's construction
 comprise a negligible proportion of the set of Steiner triple systems,
 and a somewhat more delicate approach is required to study a uniformly
-random Steiner triple system.
+random Steiner triple system. We have a general theorem summarizing
+our method, which we state in \ref{sec:outline}.
 
-A \emph{perfect matching} in a hypergraph is a collection of disjoint
-hyperedges partitioning the vertex set. The existence of perfect matchings
-is one of the most central questions in the theory of graphs and hypergraphs;
-in particular, one of the most celebrated recent developments in the
-field is the Fulkerson-prize-winning work of Johansson, Kahn and Vu
-\cite{JKV08} on perfect matchings in random hypergraphs. A perfect
-matching in a Steiner triple system is also called a\emph{ parallel
-class} or \emph{resolution class}, and has particular significance.
-One of the oldest problems in combinatorics, famously solved in the
-affirmative by Ray-Chaudhuri and Wilson \cite{RW71}, asks whether
-for all $n\equiv3\mod6$ there exists an order-$n$  Steiner triple
-system which can be partitioned into hyperedge-disjoint perfect matchings
-(a \emph{Kirkman triple system}). Alon, Kim and Spencer \cite{AKS97}
-proved that every Steiner triple system has an almost-perfect matching
-covering all but $o\left(\sqrt{n}\log^{3/2}n\right)$ vertices, and
-Bryant and Horsley \cite{BH15} proved that for infinitely many $n\equiv3\mod6$
-there exist Steiner triple systems with no perfect matching. As an
-application of our new method, we prove that if $n\equiv3\mod6$ (that
-is, if $3\mid n$ and an order-$n$ Steiner triple system exists)
+A \emph{matching }in a hypergraph is a collection of disjoint edges,
+and a \emph{perfect matching }is a matching covering the vertex set.
+The existence of perfect matchings is one of the most central questions
+in the theory of graphs and hypergraphs; in particular, one of the
+most celebrated recent developments in the field is the Fulkerson-prize-winning
+work of Johansson, Kahn and Vu \cite{JKV08} on perfect matchings
+in random hypergraphs. A perfect matching in a Steiner triple system
+is also called a\emph{ parallel class} or \emph{resolution class},
+and has particular significance. One of the oldest problems in combinatorics,
+famously solved in the affirmative by Ray-Chaudhuri and Wilson \cite{RW71},
+asks whether for all $n\equiv3\mod6$ there exists an order-$n$  Steiner
+triple system which can be partitioned into hyperedge-disjoint perfect
+matchings (a \emph{Kirkman triple system}). Alon, Kim and Spencer
+\cite{AKS97} proved that every Steiner triple system has an almost-perfect
+matching covering all but $o\left(\sqrt{n}\log^{3/2}n\right)$ vertices,
+and Bryant and Horsley \cite{BH15} proved that for infinitely many
+$n\equiv3\mod6$ there exist Steiner triple systems with no perfect
+matching. As an application of our new method, we prove that if $n\equiv3\mod6$
+(that is, if $3\mid n$ and an order-$n$ Steiner triple system exists)
 then almost all order-$n$ Steiner triple systems have many perfect
 matchings. 
 \begin{thm}
@@ -452,8 +453,8 @@ there is a.a.s. a matching covering all but one vertex.
 
 We prove \ref{thm:PM-in-STS} using our new method combined with the
 so-called \emph{absorbing method}, which was introduced as a general
-method by R\"odl, Ruci\'nski and Szemer\'edi \cite{RRS09} (though
-the basic idea had been used earlier, for example by Krivelevich \cite{Kri97}).
+method by R\"odl, Ruci\'nski and Szemer\'edi \cite{RRS09} (the
+basic idea had been used earlier, for example by Krivelevich \cite{Kri97}).
 Basically, we prove the a.a.s. existence of certain substructures
 that are ``flexible'' and allow us to complete an almost-perfect
 matching into a perfect one.
@@ -528,7 +529,28 @@ of \ref{eq:num-STS}, estimating the number of completions of a partial
 Steiner triple system, and in \ref{sec:Random-triangle-removal} we
 have a very simple analysis of the triangle removal process.
 
-\subsection{Acknowledgments}
+\subsection{Notation}
+
+We use standard asymptotic notation throughout. For functions $f=f\left(n\right)$
+and $g=g\left(n\right)$:
+\begin{itemize}
+\item $f=O\left(g\right)$ means there is a constant $C$ such that $\left|f\right|\le C\left|g\right|$,
+\item $f=\Omega\left(g\right)$ means there is a constant $c>0$ such that
+$f\ge c\left|g\right|$,
+\item $f=\Theta\left(g\right)$ means that $f=O\left(g\right)$ and $f=\Theta\left(g\right)$,
+\item $f=o\left(g\right)$ means that $f/g\to0$ as $n\to\infty$.
+\end{itemize}
+We also use standard graph theory notation: $V\left(G\right)$ and
+$E\left(G\right)$ are the sets of vertices and (hyper)edges of a
+(hyper)graph $G$, and $v\left(G\right)$ and $e\left(G\right)$ are
+the cardinalities of these sets.
+
+Also, for a real number $x$, the floor and ceiling functions are
+denoted $\floor x=\max\left\{ i\in\ZZ:i\le x\right\} $ and $\ceil x=\min\left\{ i\in\ZZ:i\ge x\right\} $.
+For a positive integer $n$, we write $\range n$ for the set $\left\{ 1,2,\dots,n\right\} $.
+Finally, all logarithms are base $e$.
+
+\subsection{Acknowledgements}
 
 The author would like to thank Asaf Ferber and Benny Sudakov for very
 helpful discussions about random designs and the intricacies of the
@@ -606,13 +628,6 @@ in \ref{lem:triangle-removal-transfer} can still be useful because
 the probabilities under consideration are so small (it is certainly
 not true that $\Pr\left(\randS'\notin\mathcal{Q}\right)$ is anywhere
 near as small as $\exp\left(-\Omega\left(n^{2}\right)\right)$).
-
-\begin{comment}
-
-\textbf{TODO: work out the dependence on $\alpha$ so \ref{lem:triangle-removal-transfer}
-can be used for $\alpha$ non-constant}
-
-\end{comment}
 
 The proof of \ref{lem:triangle-removal-transfer} follows from a sequence
 of several lemmas. The most important is the following: we can use
@@ -1358,12 +1373,30 @@ of \ref{thm:PM-in-STS}.
 \global\long\def\randQ{\boldsymbol{Q}}
 
 In this section we prove \ref{thm:maximum-PMs}, with the entropy
-method. See \cite{LL13} for a brief introduction to the notion of
-entropy as necessary for proving upper bounds of this type.
-\begin{proof}
+method. For random elements $\randX,\randY$ with supports $\supp\randX$,
+$\supp\randY$, we define the (base-$e$) \emph{entropy }
+\[
+H\left(\randX\right)=-\sum_{x\in\supp\randX}\Pr\left(\randX=x\right)\log\left(\Pr\left(\randX=x\right)\right)
+\]
+and the\emph{ conditional entropy}
+\[
+H\left(\randX\cond\randY\right)=-\sum_{y\in\supp\randY}\Pr\left(\randY=y\right)H\left(\randX\cond\randY=y\right).
+\]
+We will use two basic properties of entropy. First, we always have
+$H\left(\randX\right)\le\log\,\left|\supp\randX\right|$, with equality
+only when $\randX$ has the uniform distribution on its support. Second,
+for any sequence of random elements $\randX_{1},\dots,\randX_{n}$,
+we have
+\[
+H\left(\randX_{1},\dots,\randX_{n}\right)=\sum_{i=1}^{n}H\left(\randX_{i}\cond\randX_{1},\dots,\randX_{i-1}\right).
+\]
+
+See for example \cite{CT12} for an introduction to entropy and proofs
+of the above two facts.
+\begin{proof}[Proof of \ref{thm:maximum-PMs}]
 Let $\mathcal{M}$ be the set of perfect matchings in $S$. Consider
-a uniformly random $\randM\in\mathcal{M}$ and let $H\left(\randM\right)=\log\left|\mathcal{M}\right|$
-be the entropy of $\randM$. Let $\randM_{v}$ be the hyperedge of
+a uniformly random $\randM\in\mathcal{M}$, so that $H\left(\randM\right)=\log\,\left|\mathcal{M}\right|$
+is the entropy of $\randM$. Let $\randM_{v}$ be the hyperedge of
 $\randM$ containing the vertex $v$, so that the sequence $\left(\randM_{v}\right)_{v\in\range n}$
 determines $\randM$. For any ordering on the vertices of $S$,
 \[
@@ -1375,18 +1408,20 @@ Let $\randR_{v}\left(\lambda\right)$ be 1 plus the number of hyperedges
 $e\ne\randM_{v}$ containing $v$ in $S$ such that $\lambda_{v'}<\lambda_{v}$
 for all $v'\in\left(\bigcup_{z\in e}\randM_{z}\right)\backslash\left\{ v\right\} $.
 (In particular, $\randR_{v}\left(\lambda\right)=1$ if $\lambda_{v'}>\lambda_{v}$
-for some $v'\in\randM_{v}\backslash\left\{ v\right\} $). Note that
-$\randR_{v}\left(\lambda\right)$ is an upper bound on the number
-of possible values for $\randM_{v}$ given the information  $\left(\randM_{v'}\,\colon\,\lambda_{v'}>\lambda_{v}\right)$,
-and therefore $H\left(\randM_{v}\cond\randM_{v'}:\lambda_{v'}>\lambda_{v}\right)\le\E\left[\log\randR_{v}\left(\lambda\right)\right]$.
-
+for some $v'\in\randM_{v}\backslash\left\{ v\right\} $, in which
+case $\randM_{v}$ is determined by the information $\left(\randM_{v'}\,\colon\,\lambda_{v'}>\lambda_{v}\right)$).
+Note that $\randR_{v}\left(\lambda\right)$ is an upper bound on $\left|\supp\left(\randM_{v}\cond\randM_{v'}\,\colon\,\lambda_{v'}>\lambda_{v}\right)\right|$,
+and therefore
+\[
+H\left(\randM_{v}\cond\randM_{v'}:\lambda_{v'}>\lambda_{v}\right)\le\E\left[\log\randR_{v}\left(\lambda\right)\right].
+\]
 Let $\randl=\left(\randl_{v}\right)_{v\in\range n}$ be a sequence
 of independent random variables, where each $\randl_{v}$ has the
-uniform distribution in $\left[0,1\right]$. (Note that almost surely
-each $\randl_{v}$ is distinct). By linearity of expectation and the
-tower law, 
+uniform distribution in $\left[0,1\right]$. (With probability 1 each
+$\randl_{v}$ is distinct). By linearity of expectation and the tower
+law, 
 \[
-H\left(\randM\right)=\sum_{v\in\range n}\E\left[\log\randR_{v}\left(\randl\right)\right].
+H\left(\randM\right)\le\sum_{v\in\range n}\E\left[\log\randR_{v}\left(\randl\right)\right].
 \]
 Now, for any $M\in\mathcal{M}$ and $\lambda\in\left[0,1\right]$,
 let
@@ -1396,7 +1431,7 @@ R_{v}^{M,\lambda}=\E\left[\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v
 (Note that $\randl_{v}=\lambda$ occurs with probability zero, so
 formally we should condition on $\randl_{e}=\lambda\pm\d\lambda$
 and take limits in what follows, but there are no continuity issues
-so we will ignore this detail). Note that there are $\left(n-1\right)/2$
+so we will ignore this detail). Now, there are $\left(n-1\right)/2$
 hyperedges in $S$ containing $v$, and for each such hyperedge $e=\left\{ x,y,v\right\} $
 other than $M_{v}$, note that $M_{x}\ne M_{y}$ (because $e$ and
 $M_{x}$ are different hyperedges of a Steiner triple system and can
@@ -1419,14 +1454,14 @@ so
 \]
 It follows that
 \begin{align*}
-\E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M\right] & \le\E\left[\randl_{v}^{2}\log R_{v}^{M,\randl_{i}}\right]\\
- & =\int_{0}^{1}\lambda^{2}\log\left(\left(\left(n-1\right)/2-1\right)\lambda^{6}\right)\d\lambda\\
+\E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M\right] & \le\E\left[\randl_{v}^{2}\log R_{v}^{M,\randl_{v}}\right]\\
+ & =\int_{0}^{1}\lambda^{2}\log\left(1+\left(\left(n-1\right)/2-1\right)\lambda^{6}\right)\d\lambda\\
  & =\frac{1}{3}\left(\log\left(\left(1+o\left(1\right)\right)n/2\right)-2\right),
 \end{align*}
 using the fact that $\int_{0}^{1}\lambda^{A-1}\log\left(C\lambda^{B}\right)\d t=A^{-1}\log C-A^{-2}B$
 for any $A,B,C>0$. We conclude that
 \begin{align*}
-\log\left|\mathcal{M}\right| & \le H\left(\randM\right)\\
+\log\,\left|\mathcal{M}\right| & \le H\left(\randM\right)\\
  & \le\sum_{v\in\range n}\E\left[\log\randR_{v}\left(\randl\right)\right]\\
  & \le\frac{n}{3}\left(\log\left(\left(1+o\left(1\right)\right)n/2\right)-2\right),
 \end{align*}
@@ -1595,8 +1630,8 @@ up to a factor of $e^{n^{2-b}}$ (for some $b$).
 
 First, we can get an upper bound via the entropy method, as used by
 Linial and Luria \cite{LL13}. The reader should refer to that paper
-for more detailed exposition and a brief introduction to the notion
-of entropy.
+for more detailed exposition. Recall the definition of entropy and
+its basic properties from \ref{sec:max-num-matchings}.
 \begin{thm}
 \label{thm:number-of-completions-upper}For any $a>0$, any $\alpha\in\left[0,1\right]$,
 and any $S^{*}\in\cSm{n^{-a},2}{\alpha N}$,
@@ -1606,7 +1641,7 @@ and any $S^{*}\in\cSm{n^{-a},2}{\alpha N}$,
 \end{thm}
 \begin{proof}
 Let $\randS\in\Sext{S^{*}}$ be a uniformly random completion of $S^{*}$.
-We will estimate the entropy $H\left(\randS\right)=\log\left|\Sext{S^{*}}\right|$
+We will estimate the entropy $H\left(\randS\right)=\log\,\left|\Sext{S^{*}}\right|$
 of $\randS$.
 
 Let $\coG=G\left(S^{*}\right)$. For each $e=\left\{ x,y\right\} \in\coG$,
@@ -1620,8 +1655,7 @@ H\left(\randS\right)=\sum_{e\in\coG}H\left(\randz_{e}\cond\left(\randz_{e'}\,\co
 Now, a sequence $\lambda\in\left[0,1\right]^{E\left(\coG\right)}$
 with all $\lambda_{e}$ distinct induces an ordering on the edges
 of $\coG$, with $e'<e$ when $\lambda_{e'}>\lambda_{e}$. Let $\randR_{e}\left(\lambda\right)$
-be an upper bound on the number of possible values for $\randz_{e}$
-given the information $\left(\randz_{e'}\,\colon\,\lambda_{e'}>\lambda_{e}\right)$,
+be an upper bound on $\left|\supp\left(\randz_{e}\cond\randz_{e'}\,\colon\,\lambda_{e'}>\lambda_{e}\right)\right|$
 defined as follows. $\randR_{e}=1$ if $\lambda_{\left\{ x,\randz_{e}\right\} }>\lambda_{e}$
 or $\lambda_{\left\{ y,\randz_{e}\right\} }>\lambda_{e}$ (because
 in this case $\randz_{e}$ is determined), and otherwise $\randR_{e}$
@@ -1633,11 +1667,10 @@ in $\randS$.
 
 Let $\randl=\left(\randl_{e}\right)_{e\in\coG}$ be a sequence of
 independent random variables, where each $\randl_{e}$ has the uniform
-distribution in $\left[0,1\right]$. (Note that almost surely each
-$\randl_{e}$ is distinct). By linearity of expectation and the tower
-law, 
+distribution in $\left[0,1\right]$. By linearity of expectation and
+the tower law, 
 \[
-H\left(\randS\right)=\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right].
+H\left(\randS\right)\le\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right].
 \]
 Next, for any $S\in\Sext{S^{*}}$ and $\lambda\in\left[0,1\right]$,
 let 
@@ -1669,9 +1702,9 @@ We then have
  & =\frac{1}{3}\left(\log\left(\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}n\right)-2\right)
 \end{align*}
 using the fact that $\int_{0}^{1}\lambda^{A-1}\log\left(C\lambda^{B}\right)\d t=A^{-1}\log C-A^{-2}B$
-for any $A,B,C>0$. We conclude 
+for any $A,B,C>0$. We conclude that
 \begin{align*}
-\log\left|\Sext{S^{*}}\right| & \le H\left(\randS\right)\\
+\log\,\left|\Sext{S^{*}}\right| & \le H\left(\randS\right)\\
  & \le\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right]\\
  & \le\left(N-\alpha N\right)\frac{1}{3}\left(\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}n\right)-2\right),
 \end{align*}
@@ -1683,7 +1716,7 @@ For the lower bound, we will count ordered Steiner triple systems.
 for any $a>0$, there is $b=b\left(a\right)$ such that the following
 holds. For any $\alpha\in\left(0,1\right)$ and any $S^{*}\in\cordm{n^{-a},h}{\alpha N}$,
 \[
-\left|\ext{S^{*}}\right|\le\left|\Sext{S^{*}}\right|\le\left(\left(1+O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
+\left|\ext{S^{*}}\right|\ge\left(\left(1+O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
 \]
 \end{thm}
 To prove \ref{thm:number-of-completions-lower} we will need an analysis
@@ -1698,10 +1731,10 @@ can be completed to a Steiner triple system.
 \end{thm}
 \global\long\def\extm#1#2{\mathcal{O}_{#1}^{\mathrm{ext}}\left(#2\right)}
 
-\begin{proof}[Sketch of proof of \ref{thm:number-of-completions-lower}]
+\begin{proof}[Proof of \ref{thm:number-of-completions-lower}]
 Let $h$ be as in \ref{thm:keevash}. Let $c=a\,b\left(a,h\right)$
 in the notation of \ref{lem:triangle-removal-analysis}, let $\varepsilon=n^{-c}$
-and let $M=\left(1-\varepsilon\right)N$. Let $\randS\in\RR\left(S,M-m\right)$
+and let $M=\left(1-\varepsilon\right)N$. Let $\randS\supseteq S$
 be the result of running the triangle removal process on $G\left(S\right)$
 to build a partial system extending $S$, until there are $M$ hyperedges.
 Let $\ord^{*}$ be the set of $M$-hyperedge $\left(\varepsilon,h\right)$-quasirandom
@@ -1729,7 +1762,7 @@ We compute
 \begin{align*}
 \sum_{i=\alpha N}^{M}\left(\log\left(1-\frac{i}{N}\right)-\log\left(1-\frac{i+1}{N}\right)\right) & =\sum_{i=\alpha N}^{M}\log\left(1+\frac{1}{N-\left(i+1\right)}\right)\\
  & \le\sum_{i=\alpha N}^{M}\frac{1}{N-\left(i+1\right)}\\
- & =O\left(\log n\right).
+ & =O\left(\log n\right),
 \end{align*}
 so, noting that $\int\log p\d p=p\left(\log p-1\right)$,
 \begin{align*}

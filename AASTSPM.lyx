@@ -204,7 +204,7 @@ theorems-sec
 \begin_body
 
 \begin_layout Title
-Almost all Steiner Triple Systems have perfect matchings
+Almost all Steiner triple systems have perfect matchings
 \end_layout
 
 \begin_layout Author
@@ -973,7 +973,11 @@ Steiner triple system
 \begin_inset Formula $3$
 \end_inset
 
--uniform hypergraph on the vertex set 
+-uniform 
+\emph on
+hypergraph
+\emph default
+ on the vertex set 
 \begin_inset Formula $\range n$
 \end_inset
 
@@ -1304,15 +1308,26 @@ key "LLR15"
  comprise a negligible proportion of the set of Steiner triple systems,
  and a somewhat more delicate approach is required to study a uniformly
  random Steiner triple system.
+ We have a general theorem summarizing our method, which we state in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:outline"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 A 
 \emph on
-perfect matching
+matching 
 \emph default
- in a hypergraph is a collection of disjoint hyperedges partitioning the
- vertex set.
+in a hypergraph is a collection of disjoint edges, and a 
+\emph on
+perfect matching 
+\emph default
+is a matching covering the vertex set.
  The existence of perfect matchings is one of the most central questions
  in the theory of graphs and hypergraphs; in particular, one of the most
  celebrated recent developments in the field is the Fulkerson-prize-winning
@@ -1511,8 +1526,7 @@ key "RRS09"
 
 \end_inset
 
- (though the basic idea had been used earlier, for example by Krivelevich
- 
+ (the basic idea had been used earlier, for example by Krivelevich 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kri97"
@@ -1814,7 +1828,142 @@ reference "sec:Random-triangle-removal"
 \end_layout
 
 \begin_layout Subsection
-Acknowledgments
+Notation
+\end_layout
+
+\begin_layout Standard
+We use standard asymptotic notation throughout.
+ For functions 
+\begin_inset Formula $f=f\left(n\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $g=g\left(n\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f=O\left(g\right)$
+\end_inset
+
+ means there is a constant 
+\begin_inset Formula $C$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left|f\right|\le C\left|g\right|$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f=\Omega\left(g\right)$
+\end_inset
+
+ means there is a constant 
+\begin_inset Formula $c>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $f\ge c\left|g\right|$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f=\Theta\left(g\right)$
+\end_inset
+
+ means that 
+\begin_inset Formula $f=O\left(g\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $f=\Theta\left(g\right)$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f=o\left(g\right)$
+\end_inset
+
+ means that 
+\begin_inset Formula $f/g\to0$
+\end_inset
+
+ as 
+\begin_inset Formula $n\to\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We also use standard graph theory notation: 
+\begin_inset Formula $V\left(G\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $E\left(G\right)$
+\end_inset
+
+ are the sets of vertices and (hyper)edges of a (hyper)graph 
+\begin_inset Formula $G$
+\end_inset
+
+, and 
+\begin_inset Formula $v\left(G\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $e\left(G\right)$
+\end_inset
+
+ are the cardinalities of these sets.
+\end_layout
+
+\begin_layout Standard
+Also, for a real number 
+\begin_inset Formula $x$
+\end_inset
+
+, the floor and ceiling functions are denoted 
+\begin_inset Formula $\floor x=\max\left\{ i\in\ZZ:i\le x\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\ceil x=\min\left\{ i\in\ZZ:i\ge x\right\} $
+\end_inset
+
+.
+ For a positive integer 
+\begin_inset Formula $n$
+\end_inset
+
+, we write 
+\begin_inset Formula $\range n$
+\end_inset
+
+ for the set 
+\begin_inset Formula $\left\{ 1,2,\dots,n\right\} $
+\end_inset
+
+.
+ Finally, all logarithms are base 
+\begin_inset Formula $e$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Acknowledgements
 \end_layout
 
 \begin_layout Standard
@@ -2229,59 +2378,6 @@ reference "lem:triangle-removal-transfer"
 \end_inset
 
 ).
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{comment}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-TODO: work out the dependence on 
-\begin_inset Formula $\alpha$
-\end_inset
-
- so 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:triangle-removal-transfer"
-
-\end_inset
-
- can be used for 
-\begin_inset Formula $\alpha$
-\end_inset
-
- non-constant
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{comment}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -6243,18 +6339,99 @@ reference "thm:maximum-PMs"
 \end_inset
 
 , with the entropy method.
- See 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "LL13"
+ For random elements 
+\begin_inset Formula $\randX,\randY$
+\end_inset
+
+ with supports 
+\begin_inset Formula $\supp\randX$
+\end_inset
+
+, 
+\begin_inset Formula $\supp\randY$
+\end_inset
+
+, we define the (base-
+\begin_inset Formula $e$
+\end_inset
+
+) 
+\emph on
+entropy 
+\emph default
+
+\begin_inset Formula 
+\[
+H\left(\randX\right)=-\sum_{x\in\supp\randX}\Pr\left(\randX=x\right)\log\left(\Pr\left(\randX=x\right)\right)
+\]
 
 \end_inset
 
- for a brief introduction to the notion of entropy as necessary for proving
- upper bounds of this type.
+and the
+\emph on
+ conditional entropy
+\emph default
+
+\begin_inset Formula 
+\[
+H\left(\randX\cond\randY\right)=-\sum_{y\in\supp\randY}\Pr\left(\randY=y\right)H\left(\randX\cond\randY=y\right).
+\]
+
+\end_inset
+
+We will use two basic properties of entropy.
+ First, we always have 
+\begin_inset Formula $H\left(\randX\right)\le\log\,\left|\supp\randX\right|$
+\end_inset
+
+, with equality only when 
+\begin_inset Formula $\randX$
+\end_inset
+
+ has the uniform distribution on its support.
+ Second, for any sequence of random elements 
+\begin_inset Formula $\randX_{1},\dots,\randX_{n}$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+H\left(\randX_{1},\dots,\randX_{n}\right)=\sum_{i=1}^{n}H\left(\randX_{i}\cond\randX_{1},\dots,\randX_{i-1}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+See for example 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CT12"
+
+\end_inset
+
+ for an introduction to entropy and proofs of the above two facts.
 \end_layout
 
 \begin_layout Proof
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:maximum-PMs"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 Let 
 \begin_inset Formula $\mathcal{M}$
 \end_inset
@@ -6268,11 +6445,11 @@ Let
 \begin_inset Formula $\randM\in\mathcal{M}$
 \end_inset
 
- and let 
-\begin_inset Formula $H\left(\randM\right)=\log\left|\mathcal{M}\right|$
+, so that 
+\begin_inset Formula $H\left(\randM\right)=\log\,\left|\mathcal{M}\right|$
 \end_inset
 
- be the entropy of 
+ is the entropy of 
 \begin_inset Formula $\randM$
 \end_inset
 
@@ -6368,27 +6545,31 @@ Now, a sequence
 \begin_inset Formula $v'\in\randM_{v}\backslash\left\{ v\right\} $
 \end_inset
 
+, in which case 
+\begin_inset Formula $\randM_{v}$
+\end_inset
+
+ is determined by the information 
+\begin_inset Formula $\left(\randM_{v'}\,\colon\,\lambda_{v'}>\lambda_{v}\right)$
+\end_inset
+
 ).
  Note that 
 \begin_inset Formula $\randR_{v}\left(\lambda\right)$
 \end_inset
 
- is an upper bound on the number of possible values for 
-\begin_inset Formula $\randM_{v}$
+ is an upper bound on 
+\begin_inset Formula $\left|\supp\left(\randM_{v}\cond\randM_{v'}\,\colon\,\lambda_{v'}>\lambda_{v}\right)\right|$
 \end_inset
 
- given the information  
-\begin_inset Formula $\left(\randM_{v'}\,\colon\,\lambda_{v'}>\lambda_{v}\right)$
+, and therefore
+\begin_inset Formula 
+\[
+H\left(\randM_{v}\cond\randM_{v'}:\lambda_{v'}>\lambda_{v}\right)\le\E\left[\log\randR_{v}\left(\lambda\right)\right].
+\]
+
 \end_inset
 
-, and therefore 
-\begin_inset Formula $H\left(\randM_{v}\cond\randM_{v'}:\lambda_{v'}>\lambda_{v}\right)\le\E\left[\log\randR_{v}\left(\lambda\right)\right]$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Proof
 Let 
 \begin_inset Formula $\randl=\left(\randl_{v}\right)_{v\in\range n}$
 \end_inset
@@ -6402,7 +6583,7 @@ Let
 \end_inset
 
 .
- (Note that almost surely each 
+ (With probability 1 each 
 \begin_inset Formula $\randl_{v}$
 \end_inset
 
@@ -6410,7 +6591,7 @@ Let
  By linearity of expectation and the tower law, 
 \begin_inset Formula 
 \[
-H\left(\randM\right)=\sum_{v\in\range n}\E\left[\log\randR_{v}\left(\randl\right)\right].
+H\left(\randM\right)\le\sum_{v\in\range n}\E\left[\log\randR_{v}\left(\randl\right)\right].
 \]
 
 \end_inset
@@ -6441,7 +6622,7 @@ R_{v}^{M,\lambda}=\E\left[\randR_{v}\left(\randl\right)\cond\randM=M,\,\randl_{v
 
  and take limits in what follows, but there are no continuity issues so
  we will ignore this detail).
- Note that there are 
+ Now, there are 
 \begin_inset Formula $\left(n-1\right)/2$
 \end_inset
 
@@ -6514,8 +6695,8 @@ so
 It follows that
 \begin_inset Formula 
 \begin{align*}
-\E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M\right] & \le\E\left[\randl_{v}^{2}\log R_{v}^{M,\randl_{i}}\right]\\
- & =\int_{0}^{1}\lambda^{2}\log\left(\left(\left(n-1\right)/2-1\right)\lambda^{6}\right)\d\lambda\\
+\E\left[\log\randR_{v}\left(\randl\right)\cond\randM=M\right] & \le\E\left[\randl_{v}^{2}\log R_{v}^{M,\randl_{v}}\right]\\
+ & =\int_{0}^{1}\lambda^{2}\log\left(1+\left(\left(n-1\right)/2-1\right)\lambda^{6}\right)\d\lambda\\
  & =\frac{1}{3}\left(\log\left(\left(1+o\left(1\right)\right)n/2\right)-2\right),
 \end{align*}
 
@@ -6533,7 +6714,7 @@ using the fact that
  We conclude that
 \begin_inset Formula 
 \begin{align*}
-\log\left|\mathcal{M}\right| & \le H\left(\randM\right)\\
+\log\,\left|\mathcal{M}\right| & \le H\left(\randM\right)\\
  & \le\sum_{v\in\range n}\E\left[\log\randR_{v}\left(\randl\right)\right]\\
  & \le\frac{n}{3}\left(\log\left(\left(1+o\left(1\right)\right)n/2\right)-2\right),
 \end{align*}
@@ -7412,8 +7593,15 @@ key "LL13"
 \end_inset
 
 .
- The reader should refer to that paper for more detailed exposition and
- a brief introduction to the notion of entropy.
+ The reader should refer to that paper for more detailed exposition.
+ Recall the definition of entropy and its basic properties from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:max-num-matchings"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Theorem
@@ -7457,7 +7645,7 @@ Let
 
 .
  We will estimate the entropy 
-\begin_inset Formula $H\left(\randS\right)=\log\left|\Sext{S^{*}}\right|$
+\begin_inset Formula $H\left(\randS\right)=\log\,\left|\Sext{S^{*}}\right|$
 \end_inset
 
  of 
@@ -7536,15 +7724,11 @@ Now, a sequence
 \begin_inset Formula $\randR_{e}\left(\lambda\right)$
 \end_inset
 
- be an upper bound on the number of possible values for 
-\begin_inset Formula $\randz_{e}$
+ be an upper bound on 
+\begin_inset Formula $\left|\supp\left(\randz_{e}\cond\randz_{e'}\,\colon\,\lambda_{e'}>\lambda_{e}\right)\right|$
 \end_inset
 
- given the information 
-\begin_inset Formula $\left(\randz_{e'}\,\colon\,\lambda_{e'}>\lambda_{e}\right)$
-\end_inset
-
-, defined as follows.
+ defined as follows.
  
 \begin_inset Formula $\randR_{e}=1$
 \end_inset
@@ -7610,15 +7794,10 @@ Let
 \end_inset
 
 .
- (Note that almost surely each 
-\begin_inset Formula $\randl_{e}$
-\end_inset
-
- is distinct).
  By linearity of expectation and the tower law, 
 \begin_inset Formula 
 \[
-H\left(\randS\right)=\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right].
+H\left(\randS\right)\le\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right].
 \]
 
 \end_inset
@@ -7707,10 +7886,10 @@ using the fact that
 \end_inset
 
 .
- We conclude 
+ We conclude that
 \begin_inset Formula 
 \begin{align*}
-\log\left|\Sext{S^{*}}\right| & \le H\left(\randS\right)\\
+\log\,\left|\Sext{S^{*}}\right| & \le H\left(\randS\right)\\
  & \le\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right]\\
  & \le\left(N-\alpha N\right)\frac{1}{3}\left(\log\left(\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}n\right)-2\right),
 \end{align*}
@@ -7755,7 +7934,7 @@ There is
 ,
 \begin_inset Formula 
 \[
-\left|\ext{S^{*}}\right|\le\left|\Sext{S^{*}}\right|\le\left(\left(1+O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
+\left|\ext{S^{*}}\right|\ge\left(\left(1+O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
 \]
 
 \end_inset
@@ -7845,7 +8024,7 @@ There are
 status open
 
 \begin_layout Plain Layout
-Sketch of proof of 
+Proof of 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:number-of-completions-lower"
@@ -7890,7 +8069,7 @@ reference "lem:triangle-removal-analysis"
 
 .
  Let 
-\begin_inset Formula $\randS\in\RR\left(S,M-m\right)$
+\begin_inset Formula $\randS\supseteq S$
 \end_inset
 
  be the result of running the triangle removal process on 
@@ -7992,7 +8171,7 @@ We compute
 \begin{align*}
 \sum_{i=\alpha N}^{M}\left(\log\left(1-\frac{i}{N}\right)-\log\left(1-\frac{i+1}{N}\right)\right) & =\sum_{i=\alpha N}^{M}\log\left(1+\frac{1}{N-\left(i+1\right)}\right)\\
  & \le\sum_{i=\alpha N}^{M}\frac{1}{N-\left(i+1\right)}\\
- & =O\left(\log n\right).
+ & =O\left(\log n\right),
 \end{align*}
 
 \end_inset
