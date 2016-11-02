@@ -1311,7 +1311,7 @@ key "LLR15"
  We have a general theorem summarizing our method, which we state in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:outline"
+reference "sec:random-STS"
 
 \end_inset
 
@@ -1737,7 +1737,7 @@ The structure of this paper is as follows.
  In 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:outline"
+reference "sec:random-STS"
 
 \end_inset
 
@@ -1753,7 +1753,7 @@ reference "sec:absorbers"
  we use the theory from 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:outline"
+reference "sec:random-STS"
 
 \end_inset
 
@@ -1805,7 +1805,7 @@ reference "sec:concluding"
  Finally, we have two appendices; in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:keevash"
+reference "sec:completion-count"
 
 \end_inset
 
@@ -1820,7 +1820,7 @@ reference "eq:num-STS"
  and in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Random-triangle-removal"
+reference "sec:random-triangle-removal"
 
 \end_inset
 
@@ -1976,7 +1976,7 @@ The author would like to thank Asaf Ferber and Benny Sudakov for very helpful
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:outline"
+name "sec:random-STS"
 
 \end_inset
 
@@ -2344,7 +2344,7 @@ then
 Note that (as we prove in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Random-triangle-removal"
+reference "sec:random-triangle-removal"
 
 \end_inset
 
@@ -2404,7 +2404,7 @@ reference "lem:triangle-removal-transfer"
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
-name "prop:num-extensions"
+name "lem:num-extensions"
 
 \end_inset
 
@@ -2464,7 +2464,7 @@ For an ordered partial system
 \begin_layout Standard
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prop:num-extensions"
+reference "lem:num-extensions"
 
 \end_inset
 
@@ -2486,7 +2486,7 @@ key "Kee15"
  The details are in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:keevash"
+reference "sec:completion-count"
 
 \end_inset
 
@@ -2494,7 +2494,7 @@ reference "sec:keevash"
  The point of 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prop:num-extensions"
+reference "lem:num-extensions"
 
 \end_inset
 
@@ -2533,7 +2533,7 @@ The next step is to show that the event
  We prove the following lemma in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:random-is-typical"
+reference "sec:randomly-ordered"
 
 \end_inset
 
@@ -2716,7 +2716,7 @@ where
  in the notation of 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prop:num-extensions"
+reference "lem:num-extensions"
 
 \end_inset
 
@@ -2755,7 +2755,7 @@ If
 In 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:random-is-typical"
+reference "sec:randomly-ordered"
 
 \end_inset
 
@@ -2802,7 +2802,7 @@ reference "lem:triangle-removal-transfer"
 Randomly ordered Steiner triple systems
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:random-is-typical"
+name "sec:randomly-ordered"
 
 \end_inset
 
@@ -3078,7 +3078,7 @@ om hypergraphs, which we will use at several points in the paper.
 \begin_layout Proposition
 \begin_inset CommandInset label
 LatexCommand label
-name "lem:H-count"
+name "prop:H-count"
 
 \end_inset
 
@@ -3265,7 +3265,7 @@ triangles, by
 -quasirandomness and 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:H-count"
+reference "prop:H-count"
 
 \end_inset
 
@@ -5874,7 +5874,7 @@ reference "def:absorber"
  is large enough, by 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:H-count"
+reference "prop:H-count"
 
 \end_inset
 
@@ -6880,7 +6880,7 @@ reference "thm:keevash"
  we can then prove the obvious Latin squares counterpart to 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prop:num-extensions"
+reference "lem:num-extensions"
 
 \end_inset
 
@@ -7246,7 +7246,7 @@ A
  The methods in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:outline"
+reference "sec:random-STS"
 
 \end_inset
 
@@ -7459,7 +7459,7 @@ crefalias{section}{appsec}
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:keevash"
+name "sec:completion-count"
 
 \end_inset
 
@@ -7515,7 +7515,7 @@ Counting completions of Steiner triple systems
 In this section we prove 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prop:num-extensions"
+reference "lem:num-extensions"
 
 \end_inset
 
@@ -7539,7 +7539,7 @@ key "Kee15"
  As in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:outline"
+reference "sec:random-STS"
 
 \end_inset
 
@@ -7953,7 +7953,7 @@ reference "thm:number-of-completions-lower"
  we will need an analysis of the triangle removal process (see 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Random-triangle-removal"
+reference "sec:random-triangle-removal"
 
 \end_inset
 
@@ -8109,7 +8109,7 @@ reference "lem:triangle-removal-analysis"
  By 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:H-count"
+reference "prop:H-count"
 
 \end_inset
 
@@ -8229,7 +8229,7 @@ reference "thm:keevash"
 \begin_layout Standard
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prop:num-extensions"
+reference "lem:num-extensions"
 
 \end_inset
 
@@ -8253,7 +8253,7 @@ reference "thm:number-of-completions-lower"
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Random-triangle-removal"
+name "sec:random-triangle-removal"
 
 \end_inset
 
@@ -8312,7 +8312,7 @@ In this section we give a very simple analysis of the triangle removal process.
  As in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:outline"
+reference "sec:random-STS"
 
 \end_inset
 
@@ -8331,7 +8331,7 @@ reference "sec:outline"
 As introduced in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:outline"
+reference "sec:random-STS"
 
 \end_inset
 
@@ -8716,7 +8716,7 @@ reference "lem:triangle-removal-analysis"
  then by 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:H-count"
+reference "prop:H-count"
 
 \end_inset
 
@@ -8806,7 +8806,7 @@ Let
  by 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:H-count"
+reference "prop:H-count"
 
 \end_inset
 

@@ -414,7 +414,7 @@ However, the Steiner triple systems obtainable by Keevash's construction
 comprise a negligible proportion of the set of Steiner triple systems,
 and a somewhat more delicate approach is required to study a uniformly
 random Steiner triple system. We have a general theorem summarizing
-our method, which we state in \ref{sec:outline}.
+our method, which we state in \ref{sec:random-STS}.
 
 A \emph{matching }in a hypergraph is a collection of disjoint edges,
 and a \emph{perfect matching }is a matching covering the vertex set.
@@ -516,18 +516,18 @@ transversals.
 
 \subsection{Structure of the paper}
 
-The structure of this paper is as follows. In \ref{sec:outline} we
-explain our method for comparing random Steiner triple systems with
-the triangle removal process. In \ref{sec:absorbers} we use the theory
-from \ref{sec:outline} and the absorbing method to prove \ref{thm:PM-in-STS}.
-In \ref{sec:max-num-matchings} we prove \ref{thm:maximum-PMs}, and
-in \ref{sec:latin} we sketch how \ref{thm:latin} may be proved.
-In \ref{sec:concluding} we have some concluding remarks, including
-a long list of open problems. Finally, we have two appendices; in
-\ref{sec:keevash} we prove a straightforward but necessary generalization
-of \ref{eq:num-STS}, estimating the number of completions of a partial
-Steiner triple system, and in \ref{sec:Random-triangle-removal} we
-have a very simple analysis of the triangle removal process.
+The structure of this paper is as follows. In \ref{sec:random-STS}
+we explain our method for comparing random Steiner triple systems
+with the triangle removal process. In \ref{sec:absorbers} we use
+the theory from \ref{sec:random-STS} and the absorbing method to
+prove \ref{thm:PM-in-STS}. In \ref{sec:max-num-matchings} we prove
+\ref{thm:maximum-PMs}, and in \ref{sec:latin} we sketch how \ref{thm:latin}
+may be proved. In \ref{sec:concluding} we have some concluding remarks,
+including a long list of open problems. Finally, we have two appendices;
+in \ref{sec:completion-count} we prove a straightforward but necessary
+generalization of \ref{eq:num-STS}, estimating the number of completions
+of a partial Steiner triple system, and in \ref{sec:random-triangle-removal}
+we have a very simple analysis of the triangle removal process.
 
 \subsection{Notation}
 
@@ -557,7 +557,7 @@ helpful discussions about random designs and the intricacies of the
 absorbing method. Asaf and Benny could both have deservedly been coauthors
 on this paper, but graciously declined the opportunity.
 
-\section{\label{sec:outline}Random Steiner triple systems via the triangle
+\section{\label{sec:random-STS}Random Steiner triple systems via the triangle
 removal process}
 
 In this section we describe our method for comparing random Steiner
@@ -620,7 +620,7 @@ then
 \Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right)\le\exp\left(-\Omega\left(n^{1-2a}\right)\right).
 \]
 \end{thm}
-Note that (as we prove in \ref{sec:Random-triangle-removal}), the
+Note that (as we prove in \ref{sec:random-triangle-removal}), the
 triangle removal process is likely to produce quasirandom graphs;
 that is, $\Pr\left(\randS'\in\mathcal{Q}\right)=1-o\left(1\right)$.
 However, as we will see in \ref{subsec:absorbers}, the conditioning
@@ -635,7 +635,7 @@ Keevash's methods to estimate the number of ways to complete a partial
 system $S$, and show that it does not vary too much between choices
 of $S$.
 \begin{lem}
-\label{prop:num-extensions}For an ordered partial system $S\in\ordm m$,
+\label{lem:num-extensions}For an ordered partial system $S\in\ordm m$,
 let $\ext S\subseteq\ord$ be the set of ordered Steiner triple systems
 $S^{*}$ such that $S_{m}^{*}=S$. Fixing sufficiently large $h\in\NN$
 and any $a>0$, there is $b=b\left(a\right)>0$ such that the following
@@ -645,10 +645,10 @@ and any $S,S'\in\cordm{\varepsilon,h}{\alpha N}$,
 \frac{\left|\ext S\right|}{\left|\ext{S'}\right|}\le\exp\left(O\left(n^{2-b}\right)\right).
 \]
 \end{lem}
-\ref{prop:num-extensions} can be proved with only very slight adaptations
+\ref{lem:num-extensions} can be proved with only very slight adaptations
 to the proof of \ref{eq:num-STS} in \cite{Kee15}. The details are
-in \ref{sec:keevash}. The point of \ref{prop:num-extensions} is
-that if we can prove some property holds with extremely high probability
+in \ref{sec:completion-count}. The point of \ref{lem:num-extensions}
+is that if we can prove some property holds with extremely high probability
 (say $1-\exp\left(-\Omega\left(n^{2}\right)\right)$) in a uniformly
 random $\randS\in\cordm{\varepsilon,h}{\alpha N}$, then it also holds
 with essentially the same probability in $\randS_{\alpha N}$, for
@@ -657,7 +657,7 @@ a uniformly random $\randS\in\ord$ conditioned on the event $\randS_{\alpha N}\i
 The next step is to show that the event $\randS_{\alpha N}\in\cordm{\varepsilon,h}{\alpha N}$
 is very likely. In fact, this event occurs a.a.s. for a random ordering
 of any given Steiner triple system. We prove the following lemma in
-\ref{sec:random-is-typical}.
+\ref{sec:randomly-ordered}.
 \begin{lem}
 \label{lem:random-is-typical}The following holds for any fixed $h\in\NN$,
 $\alpha\in\left(0,1\right)$ and $a\in\left(0,1/2\right)$. Let $\varepsilon=n^{-a}$,
@@ -691,7 +691,7 @@ We have
 \Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right) & \le\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\cond\randS_{\alpha N}\in\cordm{\varepsilon,h}{\alpha N}\right)+\Pr\left(\randS_{\alpha N}\notin\cordm{\varepsilon,h}{\alpha N}\right)\\
  & \le\exp\left(O\left(n^{2-c}\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)+\exp\left(-\Omega\left(n^{1-2a}\right)\right),
 \end{align*}
-where $c=b\left(a\right)$ in the notation of \ref{prop:num-extensions}.
+where $c=b\left(a\right)$ in the notation of \ref{lem:num-extensions}.
 But, if $a$ is small enough then \ref{lem:triangle-removal-analysis}
 guarantees that $\Pr\left(\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)=1-o\left(1\right)$
 so
@@ -700,12 +700,12 @@ so
 \]
 If $b<c$ this completes the proof.
 \end{proof}
-In \ref{sec:random-is-typical} we prove \ref{lem:random-is-typical}
+In \ref{sec:randomly-ordered} we prove \ref{lem:random-is-typical}
 and in \ref{sec:greedy-random-approx-uniform} we prove \ref{lem:greedy-random-approx-uniform}.
 Also, in \ref{lem:bite-transfer} we prove some lemmas which are useful
 tools for applying \ref{lem:triangle-removal-transfer} in practice.
 
-\subsection{Randomly ordered Steiner triple systems\label{sec:random-is-typical}}
+\subsection{Randomly ordered Steiner triple systems\label{sec:randomly-ordered}}
 
 In this subsection we prove \ref{lem:random-is-typical}.
 \begin{proof}
@@ -758,8 +758,8 @@ We first make a simple observation about small subgraph statistics
 in quasirandom hypergraphs, which we will use at several points in
 the paper.
 \begin{prop}
-\label{lem:H-count}Let $H$ be a fixed graph with an identified vertex
-subset $U$, and let $\left|\operatorname{Aut}\left(H,U\right)\right|$
+\label{prop:H-count}Let $H$ be a fixed graph with an identified
+vertex subset $U$, and let $\left|\operatorname{Aut}\left(H,U\right)\right|$
 be the number of automorphisms of $H$ fixing $U$. Let $G$ be an
 $\left(\varepsilon,v\left(H\right)-1\right)$-quasirandom graph on
 $n$ vertices, and let $F$ be a copy of the induced graph $H\left[U\right]$
@@ -796,7 +796,7 @@ Each $G\left(S_{i}\right)$ has
 \[
 \left(1\pm O\left(n^{-a}\right)\right)\left(1-\frac{i}{N}\right)^{3}\frac{n^{3}}{6}
 \]
-triangles, by $\left(n^{-a},2\right)$-quasirandomness and \ref{lem:H-count}.
+triangles, by $\left(n^{-a},2\right)$-quasirandomness and \ref{prop:H-count}.
 We therefore have
 \[
 \Pr\left(\randS=S\right)=\prod_{i=0}^{\alpha N-1}\frac{1}{\left(1\pm O\left(n^{-a}\right)\right)\left(1-i/N\right)^{3}n^{3}/6},
@@ -1265,7 +1265,7 @@ in $G\left(S\right)$ of a certain graph $F$ rooted on the vertices
 of $e_{x},e_{y},e_{z}$. (Specifically, $F$ is the graph obtained
 by taking the external hyperedges of the hypergraph in \ref{def:absorber}
 and replacing each hyperedge with a triangle on its vertex set). Provided
-$h$ is large enough, by \ref{lem:H-count} the number of suitable
+$h$ is large enough, by \ref{prop:H-count} the number of suitable
 copies of $F$ is $\left(1-\alpha\right)^{O\left(1\right)}n^{3}=\Theta\left(n^{3}\right)$.
 (Note that strictly speaking we are over-counting, because it is possible
 that an absorber-extension can contribute to multiple different absorbers,
@@ -1493,7 +1493,7 @@ can be decomposed into triangles.
 \end{conjecture}
 With our new notion of quasirandomness and \ref{conj:keevash-latin}
 playing the role of \ref{thm:keevash} we can then prove the obvious
-Latin squares counterpart to \ref{prop:num-extensions}, which allows
+Latin squares counterpart to \ref{lem:num-extensions}, which allows
 us to prove the Latin squares counterpart to \ref{lem:triangle-removal-transfer}.
 
 Now we outline what should be adapted from the arguments in \ref{sec:absorbers}
@@ -1561,7 +1561,7 @@ every $r$-set of vertices is included in exactly $\lambda$ hyperedges.
 A $\left(q,r\right)$\emph{-Steiner system} is a $\left(q,r,1\right)$-design
 (so, a Steiner triple system is a $\left(3,2,1\right)$-design or
 equivalently a $\left(3,2\right)$-Steiner system, and a $d$-regular
-graph is a $\left(2,1,d\right)$-design). The methods in \ref{sec:outline}
+graph is a $\left(2,1,d\right)$-design). The methods in \ref{sec:random-STS}
 generalize to $\left(q,r,\lambda\right)$-designs with mainly notational
 changes. Note that a $3$-uniform perfect matching is actually a $\left(3,1\right)$-Steiner
 system, so as a sweeping generalization of \ref{thm:PM-in-STS} we
@@ -1606,7 +1606,8 @@ and conjectures about discrepancy of Latin squares.
 \begin{appendices}
 \crefalias{section}{appsec}
 
-\section{\label{sec:keevash}Counting completions of Steiner triple systems}
+\section{\label{sec:completion-count}Counting completions of Steiner triple
+systems}
 
 \global\long\def\coG{G}
 
@@ -1618,9 +1619,9 @@ and conjectures about discrepancy of Latin squares.
 
 \global\long\def\randR{\boldsymbol{R}}
 
-In this section we prove \ref{prop:num-extensions}. This is accomplished
+In this section we prove \ref{lem:num-extensions}. This is accomplished
 with minor adaptations of proofs by Linial and Luria \cite{LL13}
-and Keevash \cite{Kee15}. As in \ref{sec:outline}, let $N={n \choose 2}/3$
+and Keevash \cite{Kee15}. As in \ref{sec:random-STS}, let $N={n \choose 2}/3$
 and assume that $n$ is 1 or 3 mod 6.
 
 For a partial system $S\in\S_{\alpha N}^{n^{-a}}$, let $\Sext S$
@@ -1720,7 +1721,7 @@ holds. For any $\alpha\in\left(0,1\right)$ and any $S^{*}\in\cordm{n^{-a},h}{\al
 \]
 \end{thm}
 To prove \ref{thm:number-of-completions-lower} we will need an analysis
-of the triangle removal process (see \ref{sec:Random-triangle-removal})
+of the triangle removal process (see \ref{sec:random-triangle-removal})
 and the following immediate consequence of \cite[Theorem~2.1]{Kee15}.
 \begin{thm}
 \label{thm:keevash}There are $h\in\NN$, $\varepsilon_{0},a\in\left(0,1\right)$
@@ -1739,7 +1740,7 @@ be the result of running the triangle removal process on $G\left(S\right)$
 to build a partial system extending $S$, until there are $M$ hyperedges.
 Let $\ord^{*}$ be the set of $M$-hyperedge $\left(\varepsilon,h\right)$-quasirandom
 ordered partial systems $S\in\cordm{\varepsilon,h}M$ extending $S$.
-By \ref{lem:H-count}, for each $S\in\ord^{*}$, the number of triangles
+By \ref{prop:H-count}, for each $S\in\ord^{*}$, the number of triangles
 in each $G\left(S_{i}\right)$ is $\left(1\pm O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6$
 by quasirandomness. So,
 \[
@@ -1781,10 +1782,10 @@ By \ref{thm:keevash} (assuming $b$ is small enough) it follows that
 \left|\ext{S^{*}}\right|\ge\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!.\tag*{\qedhere}
 \]
 \end{proof}
-\ref{prop:num-extensions} then immediately follows from \ref{thm:number-of-completions-upper}
+\ref{lem:num-extensions} then immediately follows from \ref{thm:number-of-completions-upper}
 and \ref{thm:number-of-completions-lower}.
 
-\section{\label{sec:Random-triangle-removal}Random triangle removal}
+\section{\label{sec:random-triangle-removal}Random triangle removal}
 
 \global\long\def\randQ{\boldsymbol{R}}
 
@@ -1799,10 +1800,10 @@ and \ref{thm:number-of-completions-lower}.
 In this section we give a very simple analysis of the triangle removal
 process. The analysis here is rather crude and quite standard, but
 we could not find an existing source for precisely the result we need.
-As in \ref{sec:outline}, let $N={n \choose 2}/3$ and assume that
+As in \ref{sec:random-STS}, let $N={n \choose 2}/3$ and assume that
 $n$ is 1 or 3 mod 6.
 
-As introduced in \ref{sec:outline}, the triangle removal process
+As introduced in \ref{sec:random-STS}, the triangle removal process
 is defined as follows. We start with a graph $G$ with say $N-3m$
 edges, then iteratively delete (the edges of) a triangle chosen uniformly
 at random from all triangles in the remaining graph. Let 
@@ -1878,7 +1879,7 @@ and the union bound to show that a.a.s. each $\randY_{A}^{s}$ only
 takes negative values.
 
 To see that this suffices to prove \ref{lem:triangle-removal-analysis},
-note that if $i<\randT$ then by \ref{lem:H-count} the number of
+note that if $i<\randT$ then by \ref{prop:H-count} the number of
 triangles in $\randG\left(i\right)$ is
 \[
 \randQ\left(i\right)=\left(1\pm O\left(e\left(i\right)\right)\right)p^{3}\left(i\right)n^{3}/6>0.
@@ -1894,7 +1895,7 @@ The only way we can have $x\notin N_{A}\left(i+1\right)$ is if we
 remove a triangle containing an edge $\left\{ x,w\right\} $ for some
 $w\in A$. Now, for each $w\in A$, the number of triangles in $\randG\left(i\right)$
 containing the edge $\left\{ x,v\right\} $ is $\left(1\pm O\left(e\left(i\right)\right)\right)p^{2}\left(i\right)n$
-by \ref{lem:H-count}. The number of triangles containing $x$ and
+by \ref{prop:H-count}. The number of triangles containing $x$ and
 more than one vertex of $A$ is $O\left(1\right)$. So,
 \begin{align*}
 \Pr\left(x\notin N_{A}\left(i+1\right)\right) & =\frac{1}{\randQ\left(i\right)}\left(\sum_{w\in A}\left(1\pm O\left(e\left(i\right)\right)\right)p^{2}\left(i\right)n-O\left(1\right)\right)\\
