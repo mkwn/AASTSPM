@@ -63,7 +63,7 @@
 \theoremstyle{definition}
 \newtheorem{myrem}[mythm]{\protect\remarkname}
 \renewenvironment{rem}{\begin{myrem}}{\end{myrem}}
-\theoremstyle{remark}
+\theoremstyle{plain}
 \newtheorem{myclaim}[mythm]{\protect\claimname}
 \renewenvironment{claim}{\begin{myclaim}}{\end{myclaim}}
 \theoremstyle{plain}
@@ -970,12 +970,12 @@ Steiner triple system
 \end_inset
 
  (that is, a 
+\emph on
+
 \begin_inset Formula $3$
 \end_inset
 
--uniform 
-\emph on
-hypergraph
+-uniform hypergraph
 \emph default
  on the vertex set 
 \begin_inset Formula $\range n$
@@ -1308,14 +1308,14 @@ key "LLR15"
  comprise a negligible proportion of the set of Steiner triple systems,
  and a somewhat more delicate approach is required to study a uniformly
  random Steiner triple system.
- We have a general theorem summarizing our method, which we state in 
+ In 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:random-STS"
 
 \end_inset
 
-.
+ we state a general theorem summarizing our method.
 \end_layout
 
 \begin_layout Standard
@@ -1327,7 +1327,7 @@ in a hypergraph is a collection of disjoint edges, and a
 \emph on
 perfect matching 
 \emph default
-is a matching covering the vertex set.
+is a matching covering the entire vertex set.
  The existence of perfect matchings is one of the most central questions
  in the theory of graphs and hypergraphs; in particular, one of the most
  celebrated recent developments in the field is the Fulkerson-prize-winning
@@ -1549,18 +1549,7 @@ flexible
 \begin_layout Standard
 Up to the error term, a random Steiner triple system actually has the maximum
  possible number of perfect matchings: we also prove the following upper
- bound using the so-called 
-\emph on
-entropy method
-\emph default
- due to Radhakrishnan 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rad97"
-
-\end_inset
-
-.
+ bound.
 \end_layout
 
 \begin_layout Theorem
@@ -1579,6 +1568,36 @@ Any Steiner triple system has at most
 \end_inset
 
 perfect matchings.
+\end_layout
+
+\begin_layout Standard
+The proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:maximum-PMs"
+
+\end_inset
+
+ is quite short, and uses the notion of 
+\emph on
+entropy
+\emph default
+.
+ This particular type of argument was introduced by Radhakrishnan 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rad97"
+
+\end_inset
+
+ and further developed by Linial and Luria 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LL13"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -1926,6 +1945,35 @@ We also use standard graph theory notation:
 \end_inset
 
  are the cardinalities of these sets.
+ The subgraph of 
+\begin_inset Formula $G$
+\end_inset
+
+ induced by a vertex subset 
+\begin_inset Formula $U$
+\end_inset
+
+ is denoted 
+\begin_inset Formula $G\left[U\right]$
+\end_inset
+
+, the degree of a vertex 
+\begin_inset Formula $v$
+\end_inset
+
+ is denoted 
+\begin_inset Formula $d_{G}\left(v\right)$
+\end_inset
+
+, and the subgraph obtained by deleting 
+\begin_inset Formula $v$
+\end_inset
+
+ is denoted 
+\begin_inset Formula $G-v$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1957,7 +2005,7 @@ For a positive integer
 .
  We will however mostly omit floor and ceiling signs and assume large numbers
  are integers, wherever divisibility considerations are not important.
- Finally, all logarithms are base 
+ Finally, all logarithms are in base 
 \begin_inset Formula $e$
 \end_inset
 
@@ -2279,7 +2327,7 @@ The triangle removal process is defined as follows.
 
 \begin_layout Standard
 Now, we can state a general theorem comparing random Steiner triple systems
- to the triangle removal process.
+ with the triangle removal process.
 \end_layout
 
 \begin_layout Theorem
@@ -2391,8 +2439,8 @@ reference "lem:triangle-removal-transfer"
 \end_inset
 
  follows from a sequence of several lemmas.
- The most important is the following: we can use Keevash's methods to estimate
- the number of ways to complete a partial system 
+ The most important is the following: we can estimate the number of ways
+ to complete a partial system 
 \begin_inset Formula $S$
 \end_inset
 
@@ -2470,21 +2518,21 @@ reference "lem:num-extensions"
 
 \end_inset
 
- can be proved with only very slight adaptations to the proof of 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:num-STS"
-
-\end_inset
-
- in 
+ can be proved with slight adaptations to proofs of Keevash 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kee15"
 
 \end_inset
 
-.
+ and Linial and Luria 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LL13"
+
+\end_inset
+
+ giving lower and upper bounds on the total number of Steiner triple systems.
  The details are in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2493,7 +2541,10 @@ reference "sec:completion-count"
 \end_inset
 
 .
- The point of 
+\end_layout
+
+\begin_layout Standard
+The point of 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:num-extensions"
@@ -2522,10 +2573,7 @@ reference "lem:num-extensions"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-The next step is to show that the event 
+ The next step is to show that the event 
 \begin_inset Formula $\randS_{\alpha N}\in\cordm{\varepsilon,h}{\alpha N}$
 \end_inset
 
@@ -2584,7 +2632,20 @@ The following holds for any fixed
 \end_layout
 
 \begin_layout Standard
-Therefore, if we can prove a property holds with extremely high probability
+The upshot of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{lem:num-extensions,lem:random-is-typical}
+\end_layout
+
+\end_inset
+
+ is that if we can prove a property holds with extremely high probability
  in a uniformly random 
 \begin_inset Formula $\randS\in\cordm{\varepsilon,h}{\alpha N}$
 \end_inset
@@ -2602,7 +2663,7 @@ Therefore, if we can prove a property holds with extremely high probability
 \begin_inset Formula $\alpha N$
 \end_inset
 
- edges of a uniformly random 
+ hyperedges of a uniformly random 
 \begin_inset Formula $\randS\in\ord$
 \end_inset
 
@@ -2620,7 +2681,7 @@ Next, the following lemma says that each
 \end_inset
 
  approximates the uniform distribution on 
-\begin_inset Formula $S\in\cordm{\varepsilon,h}{\alpha N}$
+\begin_inset Formula $\cordm{\varepsilon,h}{\alpha N}$
 \end_inset
 
 .
@@ -2741,7 +2802,7 @@ reference "lem:triangle-removal-analysis"
  so
 \begin_inset Formula 
 \[
-\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)\le\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)\frac{\Pr\left(\randS'\in\mathcal{Q}\right)}{\Pr\left(\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)}=\left(1+o\left(1\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right).
+\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)\le\frac{\Pr\left(\randS'\notin\mathcal{P}\text{ and }\randS'\in\mathcal{Q}\right)}{\Pr\left(\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)}\le\left(1+o\left(1\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right).
 \]
 
 \end_inset
@@ -2750,7 +2811,11 @@ If
 \begin_inset Formula $b<c$
 \end_inset
 
- this completes the proof.
+ (and 
+\begin_inset Formula $2-b\ge1-2a$
+\end_inset
+
+) this completes the proof.
 \end_layout
 
 \begin_layout Standard
@@ -2786,7 +2851,7 @@ reference "lem:greedy-random-approx-uniform"
  Also, in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:bite-transfer"
+reference "sec:nibble-TRP-coupling"
 
 \end_inset
 
@@ -2823,7 +2888,7 @@ reference "lem:random-is-typical"
 \end_layout
 
 \begin_layout Proof
-Fix 
+Consider 
 \begin_inset Formula $m\le\alpha N$
 \end_inset
 
@@ -2872,7 +2937,7 @@ Fix
  It suffices to prove
 \begin_inset Formula 
 \begin{align}
-\left|\bigcap_{w\in A}N_{\randG'}\left(w\right)\right| & =\left(1+O\left(n^{-a}\right)\right)\left(1-\frac{m}{N}\right)^{\left|A\right|}n,\label{eq:degree-random-binomial}
+\left|\bigcap_{w\in A}N_{\randG'}\left(w\right)\right| & =\left(1\pm n^{-a}\right)\left(1-\frac{m}{N}\right)^{\left|A\right|}n,\label{eq:degree-random-binomial}
 \end{align}
 
 \end_inset
@@ -2899,7 +2964,17 @@ key "JLR00"
 \begin_inset Formula $\randS_{m}$
 \end_inset
 
-, and then we can apply the union bound over all 
+ (thereby replacing 
+\begin_inset Formula $\randG'$
+\end_inset
+
+ with 
+\begin_inset Formula $G\left(\randS_{m}\right)$
+\end_inset
+
+).
+ We would then be able to finish the proof by applying the union bound over
+ all 
 \begin_inset Formula $m\le\alpha N$
 \end_inset
 
@@ -3033,14 +3108,14 @@ key "JLR00"
 ),
 \begin_inset Formula 
 \begin{align*}
-\Pr\left(\left|\randN-\left(1-\frac{m}{N}\right)^{\left|A\right|}n\right|>n^{-a}\left(1-\frac{m}{N}\right)^{\left|A\right|}n\right) & \le\exp\left(-\Omega\left(\frac{\left(n^{-a}\left(1-\alpha\right)^{h}n\right)^{2}}{n}\right)\right)\\
+\Pr\left(\left|\randN-\left(1-\frac{m}{N}\right)^{\left|A\right|}n\right|>n^{-a}\left(1-\frac{m}{N}\right)^{\left|A\right|}n-\left|U\right|\right) & \le\exp\left(-\Omega\left(\frac{\left(n^{-a}\left(1-\alpha\right)^{h}n\right)^{2}}{n}\right)\right)\\
  & =\exp\left(-\Omega\left(n^{1-2a}\right)\right).
 \end{align*}
 
 \end_inset
 
 Finally, we recall that 
-\begin_inset Formula $\left|\left(\bigcap_{x\in X}N_{\randG'}\left(x\right)\right)\right|=\randN+O\left(1\right)$
+\begin_inset Formula $\left|\left(\bigcap_{x\in X}N_{\randG'}\left(x\right)\right)\right|=\randN\pm\left|U\right|$
 \end_inset
 
 , which completes the proof of 
@@ -3146,7 +3221,11 @@ Let
 
 \end_inset
 
-In particular, the number of copies of 
+In particular, taking 
+\begin_inset Formula $U=\varnothing$
+\end_inset
+
+, the number of copies of 
 \begin_inset Formula $H$
 \end_inset
 
@@ -3196,7 +3275,7 @@ We prove this by induction on the number of vertices in
 \end_inset
 
 , which is trivial.
- Fix a vertex 
+ Suppose there is a vertex 
 \begin_inset Formula $v\in V\left(H\right)\backslash U$
 \end_inset
 
@@ -3222,7 +3301,7 @@ embeddings of
 \end_inset
 
 -quasirandomness, there are 
-\begin_inset Formula $\left(1\pm\varepsilon\right)\left(1-\frac{i}{N}\right)^{d_{H}\left(v\right)}n$
+\begin_inset Formula $\left(1\pm\varepsilon\right)\left(1-i/N\right)^{d_{H}\left(v\right)}n$
 \end_inset
 
  ways to choose a vertex of 
@@ -3464,19 +3543,6 @@ let
 \end_inset
 
 .
- For fixed 
-\begin_inset Formula $h\ge2$
-\end_inset
-
- and 
-\begin_inset Formula $a\in\left(0,1\right)$
-\end_inset
-
- there is 
-\begin_inset Formula $b\left(a,h\right)>0$
-\end_inset
-
- such that the following holds.
  Fix 
 \begin_inset Formula $\alpha\in\left(0,1\right)$
 \end_inset
@@ -3502,12 +3568,24 @@ let
  Then
 \begin_inset Formula 
 \[
-\Pr\left(S\cup\randS\notin\mathcal{P}\right)=O\left(1\right)\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right).
+\Pr\left(S\cup\randS\notin\mathcal{P}\right)=O\left(1\right)\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right),
 \]
 
 \end_inset
 
+where 
+\begin_inset Formula $S\cup S'$
+\end_inset
 
+ denotes the concatenation of ordered Steiner triple systems 
+\begin_inset Formula $S$
+\end_inset
+
+ and 
+\begin_inset Formula $S'$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Proof
@@ -3520,17 +3598,17 @@ Let
 \end_inset
 
 .
- Note that conditioning on the number of edges in 
+ Note that conditioning on the number of hyperedges in 
 \begin_inset Formula $\randG$
 \end_inset
 
-, its edges comprise a uniformly random subset of its size, of the set of
- all possible edges.
+, its hyperedges comprise a uniformly random subset of its size, of the
+ set of all possible hyperedges.
  With probability 
 \begin_inset Formula $\Omega\left(1\right)$
 \end_inset
 
- the number of edges in 
+ the number of hyperedges in 
 \begin_inset Formula $\randG$
 \end_inset
 
@@ -3552,13 +3630,13 @@ Let
 \end_inset
 
  can be viewed as the first few elements of a random ordering of the set
- of all possible edges, and the triangle removal process with this ordering
- produces a superset of 
+ of all possible hyperedges, and the triangle removal process with this
+ ordering produces a superset of 
 \begin_inset Formula $\randS^{*}$
 \end_inset
 
 .
- Then,
+ It follows that
 \begin_inset Formula 
 \begin{align*}
 \Pr\left(S\cup\randS\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\right) & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\cond e\left(\randG\right)\le\alpha N\right)\\
@@ -3611,7 +3689,7 @@ Let
 
 .
  Let 
-\begin_inset Formula $f\left(\boldsymbol{\omega}\right)$
+\begin_inset Formula $f:\left\{ 0,1\right\} ^{n}\to\RR$
 \end_inset
 
  satisfy the Lipschitz condition 
@@ -4597,9 +4675,12 @@ Note that an absorbing structure with a flexible set of size
 \begin_inset Formula $H$
 \end_inset
 
- has the same crucial property as the resilient template that defines it:
- if we remove half of the vertices of the flexible set then what remains
- of 
+ has the same crucial property as the resilient template 
+\begin_inset Formula $T$
+\end_inset
+
+ that defines it: if we remove half of the vertices of the flexible set
+ then what remains of 
 \begin_inset Formula $H$
 \end_inset
 
@@ -4608,7 +4689,11 @@ Note that an absorbing structure with a flexible set of size
 \begin_inset Formula $M$
 \end_inset
 
- in the template, then our perfect matching of 
+ of 
+\begin_inset Formula $T$
+\end_inset
+
+, then our perfect matching of 
 \begin_inset Formula $H$
 \end_inset
 
@@ -4619,7 +4704,7 @@ Note that an absorbing structure with a flexible set of size
 
  and the non-covering matching for the absorber on each other hyperedge
  of 
-\begin_inset Formula $M$
+\begin_inset Formula $T$
 \end_inset
 
 .
@@ -4705,7 +4790,7 @@ For at most
 \end_inset
 
 , we have 
-\begin_inset Formula $\left|\left\{ \left\{ x,y\right\} \subseteq Z:\left\{ v,x,y\right\} \in S\right\} \right|<6\delta^{3}n$
+\begin_inset Formula $\left|\left\{ \left\{ x,y\right\} \subseteq Z:\left\{ v,x,y\right\} \in E\left(S\right)\right\} \right|<6\delta^{3}n$
 \end_inset
 
 .
@@ -4761,8 +4846,12 @@ perfect matchings.
 \end_layout
 
 \begin_layout Proof
-We first describe a procedure to build a perfect matching, then we count
- the number of ways to perform this procedure.
+We first describe a procedure to build a perfect matching (provided 
+\begin_inset Formula $n$
+\end_inset
+
+ is sufficiently large), then we count the number of ways to perform this
+ procedure.
 \end_layout
 
 \begin_layout Proof
@@ -4935,7 +5024,7 @@ reference "cond:density"
 \begin_layout Proof
 Now we analyse the number of ways to perform the above procedure.
  It actually suffices to count the number of ways to make the ordered sequence
- of choices in the main step, which is
+ of choices in the main step, which is at least
 \begin_inset Formula 
 \begin{align}
 \prod_{i=1}^{m}\left(1-\beta\right)\frac{\left(n'-3i\right)^{3}}{6n} & =\left(\frac{\left(1-\beta\right)\left(n'\right)^{3}}{6n}\right)^{m}\exp\left(\sum_{i=1}^{m}3\log\left(1-3\frac{i}{n'}\right)\right)\label{eq:num-matchings}\\
@@ -4959,10 +5048,6 @@ Now, noting that
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
 So, the expression in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4973,7 +5058,7 @@ reference "eq:num-matchings"
  is equal to
 \begin_inset Formula 
 \begin{align*}
-\left(\left(1-\beta+O\left(\delta\right)\right)\frac{n^{2}}{6}\right)^{n/3}n^{O\left(\delta n\right)}e^{-n'-o\left(n'\right)} & =\left(\left(1-\beta+o\left(1\right)\right)\frac{n^{2}}{6e^{3}}\right)^{n/3}.
+\left(\left(1-\beta+O\left(\delta\right)\right)\frac{n^{2}}{6}\right)^{n/3}n^{O\left(\delta n\right)}e^{-n-o\left(n\right)} & =\left(\left(1-\beta+o\left(1\right)\right)\frac{n^{2}}{6e^{3}}\right)^{n/3}.
 \end{align*}
 
 \end_inset
@@ -5062,7 +5147,7 @@ Fix a large constant
 \begin_inset Formula $h\in\NN$
 \end_inset
 
- (we will see later exactly how large it should be), and consider arbitrarily
+ (we will see later exactly how large it should be), and fix arbitrarily
  small 
 \begin_inset Formula $\alpha>0$
 \end_inset
@@ -5316,8 +5401,8 @@ reference "cond:density"
 \end_inset
 
 .
- It does not suffice to look at just the first few hyperedges of a random
- Steiner triple system as in 
+ It is not immediately clear that one can consider just the first few hyperedges
+ of a random Steiner triple system as in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:degree"
@@ -5823,7 +5908,7 @@ First we show that there are
 \begin_inset Formula $e_{x},e_{y},e_{z}$
 \end_inset
 
-is precisely the number of copies in 
+ is precisely the number of copies in 
 \begin_inset Formula $G\left(S\right)$
 \end_inset
 
@@ -5906,7 +5991,14 @@ reference "def:absorber"
 
 \end_inset
 
- denote the hyperedges (in order) by 
+ denote its hyperedges (in the same order as in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:absorber"
+
+\end_inset
+
+) by 
 \begin_inset Formula 
 \[
 e_{x},\,e_{y},\,e_{z},\,e_{*},\,e_{1},\,e_{2},\,e_{3}.
@@ -5920,7 +6012,7 @@ There are several possibilities for a hyperedge-intersecting pair of distinct
 
 \begin_deeper
 \begin_layout Itemize
-Suppose they intersect in one edge.
+Suppose they intersect in one hyperedge.
  Each such pair appears with probability 
 \begin_inset Formula $O\left(\left(\alpha/n\right)^{7}\right)$
 \end_inset
@@ -5930,7 +6022,7 @@ Suppose they intersect in one edge.
 
 \begin_deeper
 \begin_layout Itemize
-Suppose the intersecting edge is 
+Suppose the intersecting hyperedge is 
 \begin_inset Formula $e_{*}$
 \end_inset
 
@@ -5954,7 +6046,7 @@ Suppose the intersecting edge is
 \end_layout
 
 \begin_layout Itemize
-Suppose the intersecting edge is say 
+Suppose the intersecting hyperedge is say 
 \begin_inset Formula $e_{1}$
 \end_inset
 
@@ -5997,7 +6089,7 @@ Suppose the intersecting edge is say
 
 \end_deeper
 \begin_layout Itemize
-Suppose they intersect in two edges.
+Suppose they intersect in two hyperedge.
  Each such pair appears with probability 
 \begin_inset Formula $O\left(\left(\alpha/n\right)^{6}\right)$
 \end_inset
@@ -6007,7 +6099,7 @@ Suppose they intersect in two edges.
 
 \begin_deeper
 \begin_layout Itemize
-Suppose the intersecting edges are say 
+Suppose the intersecting hyperedges are say 
 \begin_inset Formula $e_{*}$
 \end_inset
 
@@ -6030,7 +6122,7 @@ Suppose the intersecting edges are say
 \end_layout
 
 \begin_layout Itemize
-Suppose the intersecting edges are say 
+Suppose the intersecting hyperedges are say 
 \begin_inset Formula $e_{1}$
 \end_inset
 
@@ -6045,7 +6137,7 @@ Suppose the intersecting edges are say
 
  possibilities for such a pair: after choosing the first absorber-extension
  and its hyperedges which will be intersecting, the second absorber-extension
- is determined by a single undetermined vertex for in 
+ is determined by a single vertex for 
 \begin_inset Formula $e_{*}$
 \end_inset
 
@@ -6356,7 +6448,7 @@ and the
 
 \begin_inset Formula 
 \[
-H\left(\randX\cond\randY\right)=-\sum_{y\in\supp\randY}\Pr\left(\randY=y\right)H\left(\randX\cond\randY=y\right).
+H\left(\randX\cond\randY\right)=\sum_{y\in\supp\randY}\Pr\left(\randY=y\right)H\left(\randX\cond\randY=y\right).
 \]
 
 \end_inset
@@ -6394,7 +6486,8 @@ key "CT12"
 
 \end_inset
 
- for an introduction to entropy and proofs of the above two facts.
+ for an introduction to the notion of entropy and proofs of the above two
+ facts.
 \end_layout
 
 \begin_layout Proof
@@ -6463,9 +6556,9 @@ Let
 
 ,
 \begin_inset Formula 
-\[
-H\left(\randM\right)=\sum_{v\in V}H\left(\randM_{v}\cond\randM_{v'}:v'<v\right).
-\]
+\begin{equation}
+H\left(\randM\right)=\sum_{v\in V}H\left(\randM_{v}\cond\randM_{v'}:v'<v\right).\label{eq:entropy-1}
+\end{equation}
 
 \end_inset
 
@@ -6546,9 +6639,9 @@ Now, a sequence
 
 , and therefore
 \begin_inset Formula 
-\[
-H\left(\randM_{v}\cond\randM_{v'}:\lambda_{v'}>\lambda_{v}\right)\le\E\left[\log\randR_{v}\left(\lambda\right)\right].
-\]
+\begin{equation}
+H\left(\randM_{v}\cond\randM_{v'}:\lambda_{v'}>\lambda_{v}\right)\le\E\left[\log\randR_{v}\left(\lambda\right)\right].\label{eq:entropy-2}
+\end{equation}
 
 \end_inset
 
@@ -6570,7 +6663,21 @@ Let
 \end_inset
 
  is distinct).
- By linearity of expectation and the tower law, 
+ By linearity of expectation and the tower law, it follows from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:entropy-1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:entropy-2"
+
+\end_inset
+
+ that
 \begin_inset Formula 
 \[
 H\left(\randM\right)\le\sum_{v\in\range n}\E\left[\log\randR_{v}\left(\randl\right)\right].
@@ -6696,7 +6803,7 @@ using the fact that
  We conclude that
 \begin_inset Formula 
 \begin{align*}
-\log\,\left|\mathcal{M}\right| & \le H\left(\randM\right)\\
+\log\,\left|\mathcal{M}\right| & =H\left(\randM\right)\\
  & \le\sum_{v\in\range n}\E\left[\log\randR_{v}\left(\randl\right)\right]\\
  & \le\frac{n}{3}\left(\log\left(\left(1+o\left(1\right)\right)n/2\right)-2\right),
 \end{align*}
@@ -6957,7 +7064,11 @@ name "lem:absorbers-latin"
 
 \end_inset
 
-Consider a Latin square hypergraph 
+Consider an order-
+\begin_inset Formula $n$
+\end_inset
+
+ Latin square 
 \begin_inset Formula $L$
 \end_inset
 
@@ -7015,7 +7126,7 @@ For at most
 \end_inset
 
 , we have 
-\begin_inset Formula $\left|\left\{ \left(x,y\right)\in V_{2}\times V_{3}:\left(v,x,y\right)\in L\right\} \right|<3\delta^{3}n$
+\begin_inset Formula $\left|\left\{ \left(x,y\right)\in V_{2}\times V_{3}:\left(v,x,y\right)\in E\left(L\right)\right\} \right|<3\delta^{3}n$
 \end_inset
 
 , and similarly most 
@@ -7270,7 +7381,7 @@ reference "thm:PM-in-STS"
 
 .
  We note that in the case of regular graphs a much stronger phenomenon occurs:
- in some sense a random 
+ there is a sense in which a random 
 \begin_inset Formula $\left(d_{1}+d_{2}\right)$
 \end_inset
 
@@ -7340,7 +7451,7 @@ We could ask more generally about containment and enumeration of subgraphs.
 \begin_inset Formula $H$
 \end_inset
 
- whose every subgraph has more vertices than edges, appears a.a.s.
+ whose every subgraph has more vertices than hyperedges, appears a.a.s.
  in a random Steiner triple system? Can we show that moreover the number
  of copies of 
 \begin_inset Formula $H$
@@ -7355,7 +7466,7 @@ We could ask more generally about containment and enumeration of subgraphs.
 \begin_inset Formula $H$
 \end_inset
 
- has at least 2 more vertices than edges, but due to the 
+ has at least 2 more vertices than hyperedges, but due to the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -7384,7 +7495,7 @@ One of the most fundamental properties of random graphs and hypergraphs
 discrepancy
 \emph default
 , meaning that every sufficiently large subset of vertices has about the
- expected number of edges.
+ expected number of (hyper)edges.
  In 
 \begin_inset CommandInset ref
 LatexCommand ref
