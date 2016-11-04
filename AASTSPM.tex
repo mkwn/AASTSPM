@@ -1,4 +1,4 @@
-%% LyX 2.2.2 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.2.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[11pt,english]{article}
 \renewcommand{\rmdefault}{cmr}
@@ -486,10 +486,13 @@ columns and symbols, so a triangle $\left(i,j,k\right)$ corresponds
 to putting the symbol $k$ in the cell $\left(i,j\right)$). A perfect
 matching in a Latin square is called a \emph{transversal }and the
 property of containing a transversal is of great interest. In particular,
-the famous Ryser-Brualdi-Stein conjecture speculates that every odd-order
-Latin square has a transversal, and every even-order Latin square
-has a partial transversal of size $n-1$. See the survey of Wanless
-\cite{Wan11} for more information.
+the famous Ryser-Brualdi-Stein conjecture (see \cite{BR91,Ste75})
+speculates that every odd-order Latin square has a transversal, and
+every even-order Latin square has a partial transversal of size $n-1$.
+Although this conjecture remains wide open, there have been many partial
+results and generalizations; see for example \cite{ES91,CW05,HS08,AB09,Pok16}.
+See \cite{Wan11} for an introduction to the subject of Latin transversals,
+and \cite{DK15} for an introduction to Latin squares in general.
 
 The counterpart of \ref{thm:maximum-PMs} for Latin squares, that
 a Latin square can have at most $\left(\left(1+o\left(1\right)\right)n/e^{2}\right)^{n}$
@@ -1378,8 +1381,8 @@ of \ref{thm:PM-in-STS}.
 
 \global\long\def\randQ{\boldsymbol{Q}}
 
-In this section we prove \ref{thm:maximum-PMs}, with the entropy
-method. For random elements $\randX,\randY$ with supports $\supp\randX$,
+In this section we prove \ref{thm:maximum-PMs}, with the \emph{entropy
+method}. For random elements $\randX,\randY$ with supports $\supp\randX$,
 $\supp\randY$, we define the (base-$e$) \emph{entropy }
 \[
 H\left(\randX\right)=-\sum_{x\in\supp\randX}\Pr\left(\randX=x\right)\log\left(\Pr\left(\randX=x\right)\right)
@@ -1803,11 +1806,13 @@ and \ref{thm:number-of-completions-lower}.
 
 \global\long\def\randZ{\boldsymbol{Z}}
 
-In this section we give a very simple analysis of the triangle removal
-process. The analysis here is rather crude and quite standard, but
-we could not find an existing source for precisely the result we need.
-As in \ref{sec:random-STS}, let $N={n \choose 2}/3$ and assume that
-$n$ is 1 or 3 mod 6.
+In this section we give a very simple (and rather crude) analysis
+of the triangle removal process, starting from a quasirandom graph.
+The triangle removal process starting from the complete graph has
+already been thoroughly analysed; see in particular the precise analysis
+by Bohman, Frieze and Lubetzky  \cite{BFL15} and their simplified
+analysis in \cite{BFL10}. As in \ref{sec:random-STS}, let $N={n \choose 2}/3$
+and assume that $n$ is 1 or 3 mod 6.
 
 As introduced in \ref{sec:random-STS}, the triangle removal process
 is defined as follows. We start with a graph $G$ with say $N-3m$

@@ -1647,21 +1647,43 @@ symbols
 transversal 
 \emph default
 and the property of containing a transversal is of great interest.
- In particular, the famous Ryser-Brualdi-Stein conjecture speculates that
- every odd-order Latin square has a transversal, and every even-order Latin
- square has a partial transversal of size 
+ In particular, the famous Ryser-Brualdi-Stein conjecture (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "BR91,Ste75"
+
+\end_inset
+
+) speculates that every odd-order Latin square has a transversal, and every
+ even-order Latin square has a partial transversal of size 
 \begin_inset Formula $n-1$
 \end_inset
 
 .
- See the survey of Wanless 
+ Although this conjecture remains wide open, there have been many partial
+ results and generalizations; see for example 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ES91,CW05,HS08,AB09,Pok16"
+
+\end_inset
+
+.
+ See 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Wan11"
 
 \end_inset
 
- for more information.
+ for an introduction to the subject of Latin transversals, and 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DK15"
+
+\end_inset
+
+ for an introduction to Latin squares in general.
 \end_layout
 
 \begin_layout Standard
@@ -6412,7 +6434,11 @@ reference "thm:maximum-PMs"
 
 \end_inset
 
-, with the entropy method.
+, with the 
+\emph on
+entropy method
+\emph default
+.
  For random elements 
 \begin_inset Formula $\randX,\randY$
 \end_inset
@@ -8399,9 +8425,25 @@ Random triangle removal
 \end_layout
 
 \begin_layout Standard
-In this section we give a very simple analysis of the triangle removal process.
- The analysis here is rather crude and quite standard, but we could not
- find an existing source for precisely the result we need.
+In this section we give a very simple (and rather crude) analysis of the
+ triangle removal process, starting from a quasirandom graph.
+ The triangle removal process starting from the complete graph has already
+ been thoroughly analysed; see in particular the precise analysis by Bohman,
+ Frieze and Lubetzky  
+\begin_inset CommandInset citation
+LatexCommand cite
+key "BFL15"
+
+\end_inset
+
+ and their simplified analysis in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "BFL10"
+
+\end_inset
+
+.
  As in 
 \begin_inset CommandInset ref
 LatexCommand ref
