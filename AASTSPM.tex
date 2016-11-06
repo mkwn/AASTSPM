@@ -1226,7 +1226,10 @@ on the quasirandomness of the first few steps of the triangle removal
 process.
 
 Let $a$ be small enough for \ref{lem:triangle-removal-transfer},
-and let $\mathcal{Q}=\left\{ S\in\ordm{2\alpha N}:S_{\alpha N}\in\cordm{n^{-a},h}{\alpha N}\right\} \supseteq\cordm{n^{-a},h}{2\alpha N}$.
+and let 
+\[
+\mathcal{Q}=\left\{ S\in\ordm{2\alpha N}:S_{\alpha N}\in\cordm{n^{-a},h}{\alpha N}\right\} \supseteq\cordm{n^{-a},h}{2\alpha N}.
+\]
 Let $\randS\in\rg n{2\alpha n}$, and condition on any $\randS_{\alpha N}=S\in\cordm{n^{-a},h}{\alpha N}$.
 We will use \ref{lem:bite-transfer} to analyse $\randS\backslash\randS_{\alpha N}\in\rg S{\alpha N}$
 via $\GSnp S{\alpha/N}$. So, let $\randS^{*}\in\GSnp S{\alpha/N}$
@@ -1640,7 +1643,7 @@ and Keevash \cite{Kee15}. As in \ref{sec:random-STS}, let $N={n \choose 2}/3$
 and assume that $n$ is 1 or 3 mod 6.
 
 For a partial system $S\in\S_{\alpha N}^{n^{-a}}$, let $\Sext S$
-be the number of Steiner triple systems that contain $S$. We want
+be the number of Steiner triple systems that include $S$. We want
 to determine $\left|\ext S\right|=\left(N-\alpha N\right)!\left|\Sext S\right|$
 up to a factor of $e^{n^{2-b}}$ (for some $b$).
 
@@ -1716,7 +1719,7 @@ We then have
 \begin{align*}
 \E\left[\log\randR_{e}\left(\randl\right)\cond\randS^{*}=S^{*}\right] & \le\E\left[\lambda^{2}\log R_{e}^{S^{*},\randl_{e}}\right]\\
  & =\int_{0}^{1}\lambda^{2}\log\left(1+\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}\lambda^{6}n\right)\d\lambda\\
- & =\frac{1}{3}\left(\log\left(\left(1-\alpha\right)^{2}n\right)-2\right)+O\left(n^{-a}+n^{-1/2}\right)
+ & =\frac{1}{3}\left(\log\left(\left(1-\alpha\right)^{2}n\right)-2\right)+O\left(n^{-a}+n^{-1/2}\right),
 \end{align*}
 using \ref{eq:complicated-integral}. We conclude that
 \begin{align*}
@@ -1749,27 +1752,37 @@ can be completed to a Steiner triple system.
 \global\long\def\extm#1#2{\mathcal{O}_{#1}^{\mathrm{ext}}\left(#2\right)}
 
 \begin{proof}[Proof of \ref{thm:number-of-completions-lower}]
-Let $h\ge2$ be as in \ref{thm:keevash}. Let $c=a\,b\left(a,h\right)$
-in the notation of \ref{lem:triangle-removal-analysis}, let $\varepsilon=n^{-c}$
-and let $M=\left(1-\varepsilon\right)N$. Let $\randS^{*}\supseteq S$
+Let $h\ge2$, $\ell$, $\varepsilon_{0}$ be as in \ref{thm:keevash}.
+Let $c>0$ be smaller than $a\,b\left(a,h\right)$ in the notation
+of \ref{lem:triangle-removal-analysis}, and smaller than the ``$a$''
+in \ref{thm:keevash}. Let $\varepsilon=n^{-c/\ell}/\varepsilon_{0}$
+and $M=\left(1-\varepsilon\right)N$. Let $\randS^{*}\in\ordm M\cup\left\{ *\right\} $
 be the result of running the triangle removal process on $G\left(S\right)$
 to build a partial system extending $S$, until there are $M$ hyperedges.
 Let $\ord^{*}$ be the set of $M$-hyperedge $\left(\varepsilon,h\right)$-quasirandom
 ordered partial systems $S^{*}\in\cordm{\varepsilon,h}M$ extending
-$S$. By \ref{prop:H-count}, for each $S^{*}\in\ord^{*}$, the number
-of triangles in each $G\left(S_{i}^{*}\right)$ is $\left(1\pm O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6$
-by quasirandomness. So,
+$S$. The choice of $c$ ensures that by \ref{lem:triangle-removal-analysis}
+we a.a.s. have $\randS^{*}\in\ord^{*}$, and by \ref{thm:keevash}
+each $S^{*}\in\ord^{*}$ can be completed to an ordered Steiner triple
+system.
+
+Now, by \ref{prop:H-count} and quasirandomness, for each $S^{*}\in\ord^{*}$,
+the number of triangles in each $G\left(S_{i}^{*}\right)$ is 
+\[
+\left(1\pm O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6,
+\]
+so
 \[
 \Pr\left(\randS^{*}=S^{*}\right)\le\prod_{i=\alpha N}^{M-1}\frac{1}{\left(1-O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6}.
 \]
-By \ref{lem:triangle-removal-analysis} we have 
+As discussed, we have
 \[
 \sum_{S^{*}\in\ord^{*}}\Pr\left(\randS^{*}=S^{*}\right)=1-o\left(1\right),
 \]
 so 
 \begin{align*}
 \left|\ord^{*}\right| & \ge\left(1-o\left(1\right)\right)\prod_{i=\alpha N}^{M-1}\left(1-O\left(n^{-c}\right)\right)\left(1-\frac{i}{N}\right)^{3}n^{3}/6.\\
- & =\left(\left(1-O\left(n^{-c}\right)\right)\frac{n^{3}}{6}\right)^{\left(1-\alpha\right)N}\exp\left(3N\sum_{i=\alpha N}^{M-1}\frac{1}{N}\log\left(1-\frac{i}{N}\right)\right).
+ & =\left(\left(1-O\left(n^{-c}\right)\right)\frac{n^{3}}{6}\right)^{\left(1-\alpha\right)N}\exp\left(3\sum_{i=\alpha N}^{M-1}\log\left(1-\frac{i}{N}\right)\right).
 \end{align*}
 Now, note that 
 \[
@@ -1786,17 +1799,15 @@ so, noting that $\int\log s\d s=s\left(\log s-1\right)$,
 3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right) & =3N\int_{\alpha}^{\left(1-\varepsilon\right)}\log\left(1-t\right)\d t+O\left(\log n\right)\\
  & =3N\int_{\varepsilon}^{\left(1-\alpha\right)}\log s\d s+O\left(\log n\right)\\
  & =3N\left(\left(1-\alpha\right)\left(\log\left(1-\alpha\right)-1\right)-\varepsilon\left(\log\varepsilon-1\right)\right)+O\left(\log n\right),\\
-\exp\left(3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right) & =\left(\left(1+O\left(n^{-c}\log n\right)\right)\frac{1-\alpha}{e}\right)^{3N\left(1-\alpha\right)}.
+\exp\left(3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right) & =\left(\left(1+O\left(n^{-c/\ell}\log n\right)\right)\frac{1-\alpha}{e}\right)^{3N\left(1-\alpha\right)}.
 \end{align*}
-For $b<c$, it follows that
+For $b<c/\ell$, it follows that
 \begin{align*}
 \left|\ord^{*}\right| & \ge\left(\left(1-O\left(n^{-b}\right)\right)\frac{n^{3}\left(1-\alpha\right)^{3}}{6e^{3}}\right)^{\left(1-\alpha\right)N}\\
- & =\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!
+ & =\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!.
 \end{align*}
-By \ref{thm:keevash} (assuming $b$ is small enough) it follows that
-\[
-\left|\ext S\right|\ge\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!.\tag*{\qedhere}
-\]
+Recalling that each $S^{*}\in\ord^{*}$ can be completed, the desired
+result follows.
 \end{proof}
 Now, it is extremely straightforward to prove \ref{lem:num-extensions}.
 \begin{proof}
@@ -1891,7 +1902,7 @@ for $i\le N\left(1-\varepsilon^{b}\right)$. This means that if the
 conditions
 \begin{align*}
 \randY_{A}\left(i\right) & \ge p^{\left|A\right|}\left(i\right)n\left(1+e\left(i\right)\right),\\
-\randY_{A}\left(i\right) & \le p^{\left|A\right|}\left(i\right)n\left(1-e\left(i\right)\right)
+\randY_{A}\left(i\right) & \le p^{\left|A\right|}\left(i\right)n\left(1-e\left(i\right)\right),
 \end{align*}
 are satisfied for all $A$, then $\randG\left(i\right)$ is $\left(e\left(i\right),h\right)$-quasirandom
 (therefore $\left(\varepsilon^{b},h\right)$-quasirandom).
@@ -1947,14 +1958,14 @@ Note also that we have the bound $\Delta\randY_{A}\left(i\right)\le2=O\left(1\ri
  & =\left(1-\frac{i}{N}\right)^{k}\left(\left(\frac{N-i-1}{N-i}\right)^{k}-1\right)\\
  & =p^{k}\left(i\right)\left(\left(1-\frac{1}{N-i}\right)^{k}-1\right)\\
  & =p^{k}\left(i\right)\left(-\frac{k}{N-i}+O\left(\frac{1}{\left(N-i\right)^{2}}\right)\right)\\
- & =-\frac{kp^{k-1}\left(i\right)}{N}\left(1+O\left(\frac{1}{N}p\left(i\right)\right)\right)\\
- & =-\frac{kp^{k-1}\left(i\right)}{N}+o\left(e\left(i\right)p^{k-1}\left(i\right)/N\right),
+ & =-\frac{kp^{k-1}\left(i\right)}{N}\left(1+O\left(\frac{p\left(i\right)}{N}\right)\right)\\
+ & =-\frac{kp^{k-1}\left(i\right)}{N}+o\left(\frac{e\left(i\right)p^{k-1}\left(i\right)}{N}\right),
 \end{align*}
 and with $ep^{k}$ denoting the pointwise product $i\mapsto e\left(i\right)p^{k}\left(i\right)$,
-for $C$ much larger than $k$ we have
+we have
 \begin{align*}
-\Delta\left(ep^{k}\right)\left(i\right) & =\varepsilon^{c}\Delta p^{k-C}\left(i\right)=-\varepsilon^{c}\Theta\left(Cp^{k-C-1}\left(i\right)/N\right)\\
- & =\Theta\left(Ce\left(i\right)p^{k-1}\left(i\right)/N\right).
+\Delta\left(ep^{k}\right)\left(i\right) & =\varepsilon^{c}\Delta p^{k-C}\left(i\right)=\varepsilon^{c}\Theta\left(\frac{\left(C-k\right)p^{k-C-1}\left(i\right)}{N}\right)\\
+ & =\Theta\left(\frac{\left(C-k\right)e\left(i\right)p^{k-1}\left(i\right)}{N}\right).
 \end{align*}
 For large $C$ it follows that
 \begin{align*}
@@ -1975,11 +1986,11 @@ we immediately have $\left|\Delta\randY_{A}^{s}\left(i\right)\right|=O\left(1\ri
 Noting in addition that $\E\left[\Delta\randY_{A}\left(i\right)\cond\randG\left(i\right)\right]=O\left(1/n\right)$,
 we have
 \begin{align*}
-\E\left[\left(\Delta\randY_{A}^{s}\left(i\right)\right)^{2}\cond\randG\left(i\right)\right] & =O\left(\E\left[\Delta\randY_{A}^{s}\left(i\right)\cond\randG\left(i\right)\right]\right)=O\left(\frac{n}{N}\right).
+\E\left[\left(\Delta\randY_{A}^{s}\left(i\right)\right)^{2}\cond\randG\left(i\right)\right] & =O\left(\E\left[\Delta\randY_{A}^{s}\left(i\right)\cond\randG\left(i\right)\right]\right)=O\left(\frac{1}{n}\right).
 \end{align*}
 Since $\randT\le N$, we also have
 \[
-\sum_{i=0}^{\infty}\E\left[\left(\Delta\randY_{A}^{s}\left(i\right)\right)^{2}\cond\randG\left(i\right)\right]=O\left(N\frac{n}{N}\right)=O\left(n\right).
+\sum_{i=0}^{\infty}\E\left[\left(\Delta\randY_{A}^{s}\left(i\right)\right)^{2}\cond\randG\left(i\right)\right]=O\left(\frac{N}{n}\right)=O\left(n\right).
 \]
 Provided $c<1$ (and recalling that $\varepsilon<1/2$), applying
 \ref{lem:freedman} with $t=e\left(m\right)p^{\left|A\right|}\left(m\right)n-\varepsilon p^{\left|A\right|}\left(m\right)n=\Omega\left(n\varepsilon^{c}\right)$

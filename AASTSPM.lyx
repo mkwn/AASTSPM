@@ -5681,11 +5681,14 @@ reference "lem:triangle-removal-transfer"
 \end_inset
 
 , and let 
-\begin_inset Formula $\mathcal{Q}=\left\{ S\in\ordm{2\alpha N}:S_{\alpha N}\in\cordm{n^{-a},h}{\alpha N}\right\} \supseteq\cordm{n^{-a},h}{2\alpha N}$
+\begin_inset Formula 
+\[
+\mathcal{Q}=\left\{ S\in\ordm{2\alpha N}:S_{\alpha N}\in\cordm{n^{-a},h}{\alpha N}\right\} \supseteq\cordm{n^{-a},h}{2\alpha N}.
+\]
+
 \end_inset
 
-.
- Let 
+Let 
 \begin_inset Formula $\randS\in\rg n{2\alpha n}$
 \end_inset
 
@@ -7696,7 +7699,7 @@ For a partial system
 \begin_inset Formula $\Sext S$
 \end_inset
 
- be the number of Steiner triple systems that contain 
+ be the number of Steiner triple systems that include 
 \begin_inset Formula $S$
 \end_inset
 
@@ -8013,7 +8016,7 @@ We then have
 \begin{align*}
 \E\left[\log\randR_{e}\left(\randl\right)\cond\randS^{*}=S^{*}\right] & \le\E\left[\lambda^{2}\log R_{e}^{S^{*},\randl_{e}}\right]\\
  & =\int_{0}^{1}\lambda^{2}\log\left(1+\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}\lambda^{6}n\right)\d\lambda\\
- & =\frac{1}{3}\left(\log\left(\left(1-\alpha\right)^{2}n\right)-2\right)+O\left(n^{-a}+n^{-1/2}\right)
+ & =\frac{1}{3}\left(\log\left(\left(1-\alpha\right)^{2}n\right)-2\right)+O\left(n^{-a}+n^{-1/2}\right),
 \end{align*}
 
 \end_inset
@@ -8180,6 +8183,14 @@ Let
 \begin_inset Formula $h\ge2$
 \end_inset
 
+, 
+\begin_inset Formula $\ell$
+\end_inset
+
+, 
+\begin_inset Formula $\varepsilon_{0}$
+\end_inset
+
  be as in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -8189,7 +8200,11 @@ reference "thm:keevash"
 
 .
  Let 
-\begin_inset Formula $c=a\,b\left(a,h\right)$
+\begin_inset Formula $c>0$
+\end_inset
+
+ be smaller than 
+\begin_inset Formula $a\,b\left(a,h\right)$
 \end_inset
 
  in the notation of 
@@ -8199,17 +8214,37 @@ reference "lem:triangle-removal-analysis"
 
 \end_inset
 
-, let 
-\begin_inset Formula $\varepsilon=n^{-c}$
+, and smaller than the 
+\begin_inset Quotes eld
 \end_inset
 
- and let 
+
+\begin_inset Formula $a$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:keevash"
+
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\varepsilon=n^{-c/\ell}/\varepsilon_{0}$
+\end_inset
+
+ and 
 \begin_inset Formula $M=\left(1-\varepsilon\right)N$
 \end_inset
 
 .
  Let 
-\begin_inset Formula $\randS^{*}\supseteq S$
+\begin_inset Formula $\randS^{*}\in\ordm M\cup\left\{ *\right\} $
 \end_inset
 
  be the result of running the triangle removal process on 
@@ -8246,14 +8281,45 @@ reference "lem:triangle-removal-analysis"
 \end_inset
 
 .
- By 
+ The choice of 
+\begin_inset Formula $c$
+\end_inset
+
+ ensures that by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:triangle-removal-analysis"
+
+\end_inset
+
+ we a.a.s.
+ have 
+\begin_inset Formula $\randS^{*}\in\ord^{*}$
+\end_inset
+
+, and by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:keevash"
+
+\end_inset
+
+ each 
+\begin_inset Formula $S^{*}\in\ord^{*}$
+\end_inset
+
+ can be completed to an ordered Steiner triple system.
+\end_layout
+
+\begin_layout Proof
+Now, by 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prop:H-count"
 
 \end_inset
 
-, for each 
+ and quasirandomness, for each 
 \begin_inset Formula $S^{*}\in\ord^{*}$
 \end_inset
 
@@ -8262,11 +8328,14 @@ reference "prop:H-count"
 \end_inset
 
  is 
-\begin_inset Formula $\left(1\pm O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6$
+\begin_inset Formula 
+\[
+\left(1\pm O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6,
+\]
+
 \end_inset
 
- by quasirandomness.
- So,
+so
 \begin_inset Formula 
 \[
 \Pr\left(\randS^{*}=S^{*}\right)\le\prod_{i=\alpha N}^{M-1}\frac{1}{\left(1-O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6}.
@@ -8274,14 +8343,7 @@ reference "prop:H-count"
 
 \end_inset
 
-By 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:triangle-removal-analysis"
-
-\end_inset
-
- we have 
+As discussed, we have
 \begin_inset Formula 
 \[
 \sum_{S^{*}\in\ord^{*}}\Pr\left(\randS^{*}=S^{*}\right)=1-o\left(1\right),
@@ -8293,7 +8355,7 @@ so
 \begin_inset Formula 
 \begin{align*}
 \left|\ord^{*}\right| & \ge\left(1-o\left(1\right)\right)\prod_{i=\alpha N}^{M-1}\left(1-O\left(n^{-c}\right)\right)\left(1-\frac{i}{N}\right)^{3}n^{3}/6.\\
- & =\left(\left(1-O\left(n^{-c}\right)\right)\frac{n^{3}}{6}\right)^{\left(1-\alpha\right)N}\exp\left(3N\sum_{i=\alpha N}^{M-1}\frac{1}{N}\log\left(1-\frac{i}{N}\right)\right).
+ & =\left(\left(1-O\left(n^{-c}\right)\right)\frac{n^{3}}{6}\right)^{\left(1-\alpha\right)N}\exp\left(3\sum_{i=\alpha N}^{M-1}\log\left(1-\frac{i}{N}\right)\right).
 \end{align*}
 
 \end_inset
@@ -8326,44 +8388,29 @@ so, noting that
 3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right) & =3N\int_{\alpha}^{\left(1-\varepsilon\right)}\log\left(1-t\right)\d t+O\left(\log n\right)\\
  & =3N\int_{\varepsilon}^{\left(1-\alpha\right)}\log s\d s+O\left(\log n\right)\\
  & =3N\left(\left(1-\alpha\right)\left(\log\left(1-\alpha\right)-1\right)-\varepsilon\left(\log\varepsilon-1\right)\right)+O\left(\log n\right),\\
-\exp\left(3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right) & =\left(\left(1+O\left(n^{-c}\log n\right)\right)\frac{1-\alpha}{e}\right)^{3N\left(1-\alpha\right)}.
+\exp\left(3\sum_{i=\alpha N}^{M}\log\left(1-\frac{i}{N}\right)\right) & =\left(\left(1+O\left(n^{-c/\ell}\log n\right)\right)\frac{1-\alpha}{e}\right)^{3N\left(1-\alpha\right)}.
 \end{align*}
 
 \end_inset
 
 For 
-\begin_inset Formula $b<c$
+\begin_inset Formula $b<c/\ell$
 \end_inset
 
 , it follows that
 \begin_inset Formula 
 \begin{align*}
 \left|\ord^{*}\right| & \ge\left(\left(1-O\left(n^{-b}\right)\right)\frac{n^{3}\left(1-\alpha\right)^{3}}{6e^{3}}\right)^{\left(1-\alpha\right)N}\\
- & =\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!
+ & =\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!.
 \end{align*}
 
 \end_inset
 
-By 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:keevash"
-
+Recalling that each 
+\begin_inset Formula $S^{*}\in\ord^{*}$
 \end_inset
 
- (assuming 
-\begin_inset Formula $b$
-\end_inset
-
- is small enough) it follows that
-\begin_inset Formula 
-\[
-\left|\ext S\right|\ge\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!.\tag*{\qedhere}
-\]
-
-\end_inset
-
-
+ can be completed, the desired result follows.
 \end_layout
 
 \begin_layout Standard
@@ -8819,7 +8866,7 @@ Fix some large
 \begin_inset Formula 
 \begin{align*}
 \randY_{A}\left(i\right) & \ge p^{\left|A\right|}\left(i\right)n\left(1+e\left(i\right)\right),\\
-\randY_{A}\left(i\right) & \le p^{\left|A\right|}\left(i\right)n\left(1-e\left(i\right)\right)
+\randY_{A}\left(i\right) & \le p^{\left|A\right|}\left(i\right)n\left(1-e\left(i\right)\right),
 \end{align*}
 
 \end_inset
@@ -9067,8 +9114,8 @@ Note also that we have the bound
  & =\left(1-\frac{i}{N}\right)^{k}\left(\left(\frac{N-i-1}{N-i}\right)^{k}-1\right)\\
  & =p^{k}\left(i\right)\left(\left(1-\frac{1}{N-i}\right)^{k}-1\right)\\
  & =p^{k}\left(i\right)\left(-\frac{k}{N-i}+O\left(\frac{1}{\left(N-i\right)^{2}}\right)\right)\\
- & =-\frac{kp^{k-1}\left(i\right)}{N}\left(1+O\left(\frac{1}{N}p\left(i\right)\right)\right)\\
- & =-\frac{kp^{k-1}\left(i\right)}{N}+o\left(e\left(i\right)p^{k-1}\left(i\right)/N\right),
+ & =-\frac{kp^{k-1}\left(i\right)}{N}\left(1+O\left(\frac{p\left(i\right)}{N}\right)\right)\\
+ & =-\frac{kp^{k-1}\left(i\right)}{N}+o\left(\frac{e\left(i\right)p^{k-1}\left(i\right)}{N}\right),
 \end{align*}
 
 \end_inset
@@ -9081,19 +9128,11 @@ and with
 \begin_inset Formula $i\mapsto e\left(i\right)p^{k}\left(i\right)$
 \end_inset
 
-, for 
-\begin_inset Formula $C$
-\end_inset
-
- much larger than 
-\begin_inset Formula $k$
-\end_inset
-
- we have
+, we have
 \begin_inset Formula 
 \begin{align*}
-\Delta\left(ep^{k}\right)\left(i\right) & =\varepsilon^{c}\Delta p^{k-C}\left(i\right)=-\varepsilon^{c}\Theta\left(Cp^{k-C-1}\left(i\right)/N\right)\\
- & =\Theta\left(Ce\left(i\right)p^{k-1}\left(i\right)/N\right).
+\Delta\left(ep^{k}\right)\left(i\right) & =\varepsilon^{c}\Delta p^{k-C}\left(i\right)=\varepsilon^{c}\Theta\left(\frac{\left(C-k\right)p^{k-C-1}\left(i\right)}{N}\right)\\
+ & =\Theta\left(\frac{\left(C-k\right)e\left(i\right)p^{k-1}\left(i\right)}{N}\right).
 \end{align*}
 
 \end_inset
@@ -9165,7 +9204,7 @@ for
 , we have
 \begin_inset Formula 
 \begin{align*}
-\E\left[\left(\Delta\randY_{A}^{s}\left(i\right)\right)^{2}\cond\randG\left(i\right)\right] & =O\left(\E\left[\Delta\randY_{A}^{s}\left(i\right)\cond\randG\left(i\right)\right]\right)=O\left(\frac{n}{N}\right).
+\E\left[\left(\Delta\randY_{A}^{s}\left(i\right)\right)^{2}\cond\randG\left(i\right)\right] & =O\left(\E\left[\Delta\randY_{A}^{s}\left(i\right)\cond\randG\left(i\right)\right]\right)=O\left(\frac{1}{n}\right).
 \end{align*}
 
 \end_inset
@@ -9177,7 +9216,7 @@ Since
 , we also have
 \begin_inset Formula 
 \[
-\sum_{i=0}^{\infty}\E\left[\left(\Delta\randY_{A}^{s}\left(i\right)\right)^{2}\cond\randG\left(i\right)\right]=O\left(N\frac{n}{N}\right)=O\left(n\right).
+\sum_{i=0}^{\infty}\E\left[\left(\Delta\randY_{A}^{s}\left(i\right)\right)^{2}\cond\randG\left(i\right)\right]=O\left(\frac{N}{n}\right)=O\left(n\right).
 \]
 
 \end_inset
