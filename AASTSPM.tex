@@ -382,7 +382,7 @@ Steiner triple system, Cameron \cite{Cam02} designed a Markov chain
 on Steiner triple systems, but he was not able to determine whether
 this chain was connected.
 
-In a huge breakthrough that will surely revolutionize design theory,
+In a huge breakthrough that will surely revolutionise design theory,
 Keevash \cite{Kee14} very recently proved that for a large class
 of combinatorial designs generalising Steiner triple systems, ``partial''
 designs satisfying a certain ``quasirandomness'' condition can be
@@ -414,25 +414,27 @@ However, the Steiner triple systems obtainable by Keevash's construction
 comprise a negligible proportion of the set of Steiner triple systems,
 and a somewhat more delicate approach is required to study a uniformly
 random Steiner triple system. In \ref{sec:random-STS} we state a
-general theorem summarizing our method.
+general theorem summarising our method.
 
 A \emph{matching }in a hypergraph is a collection of disjoint edges,
 and a \emph{perfect matching }is a matching covering the entire vertex
 set. The existence of perfect matchings is one of the most central
 questions in the theory of graphs and hypergraphs; in particular,
-one of the most celebrated recent developments in the field is the
+some of the most important recent developments in the field are the
 Fulkerson-prize-winning work of Johansson, Kahn and Vu \cite{JKV08}
-on perfect matchings in random hypergraphs. A perfect matching in
-a Steiner triple system is also called a\emph{ parallel class} or
-\emph{resolution class}, and has particular significance. One of the
-oldest problems in combinatorics, famously solved in the affirmative
-by Ray-Chaudhuri and Wilson \cite{RW71}, asks whether for all $n\equiv3\mod6$
-there exists an order-$n$  Steiner triple system which can be partitioned
-into hyperedge-disjoint perfect matchings (a \emph{Kirkman triple
-system}). Alon, Kim and Spencer \cite{AKS97} proved that every Steiner
-triple system has an almost-perfect matching covering all but $o\left(\sqrt{n}\log^{3/2}n\right)$
-vertices, and Bryant and Horsley \cite{BH15} proved that for infinitely
-many $n\equiv3\mod6$ there exist Steiner triple systems with no perfect
+on perfect matchings in random hypergraphs, and the structural theory
+of Keevash and Mycroft \cite{KM15} characterising when dense hypergraphs
+have perfect matchings. A perfect matching in a Steiner triple system
+is also called a\emph{ parallel class} or \emph{resolution class},
+and has particular significance. One of the oldest problems in combinatorics,
+famously solved in the affirmative by Ray-Chaudhuri and Wilson \cite{RW71},
+asks whether for all $n\equiv3\mod6$ there exists an order-$n$  Steiner
+triple system which can be partitioned into hyperedge-disjoint perfect
+matchings (a \emph{Kirkman triple system}). Alon, Kim and Spencer
+\cite{AKS97} proved that every Steiner triple system has an almost-perfect
+matching covering all but $o\left(\sqrt{n}\log^{3/2}n\right)$ vertices,
+and Bryant and Horsley \cite{BH15} proved that for infinitely many
+$n\equiv3\mod6$ there exist Steiner triple systems with no perfect
 matching. As an application of our new method, we prove that if $n\equiv3\mod6$
 (that is, if $3\mid n$ and an order-$n$ Steiner triple system exists)
 then almost all order-$n$ Steiner triple systems have many perfect
@@ -1119,7 +1121,7 @@ It actually suffices to count the number of ways to make the ordered
 sequence of choices in the main step, which is at least
 \begin{align}
 \prod_{i=1}^{m}\left(1-\beta\right)\frac{\left(n'-3i\right)^{3}}{6n} & =\left(\frac{\left(1-\beta\right)\left(n'\right)^{3}}{6n}\right)^{m}\exp\left(\sum_{i=1}^{m}3\log\left(1-3\frac{i}{n'}\right)\right)\label{eq:num-matchings}\\
- & =\left(\left(1-\beta+O\left(\delta\right)\right)\frac{n^{2}}{6}\right)^{n/3}n^{O\left(\delta n\right)}\exp\left(n'\sum_{i=1}^{m}\frac{3}{n'}\log\left(1-3\frac{i}{n'}\right)\right).
+ & =\left(\left(1-\beta+O\left(\delta\right)\right)\frac{n^{2}}{6}\right)^{n/3}n^{O\left(\delta n\right)}\exp\left(n'\sum_{i=1}^{m}\frac{3}{n'}\log\left(1-3\frac{i}{n'}\right)\right).\nonumber 
 \end{align}
 Now, noting that $\int\log s\d s=s\left(\log s-1\right)$, we have
 the Riemann sum approximation
@@ -1580,7 +1582,7 @@ A $\left(q,r\right)$\emph{-Steiner system} is a $\left(q,r,1\right)$-design
 (so, a Steiner triple system is a $\left(3,2,1\right)$-design or
 equivalently a $\left(3,2\right)$-Steiner system, and a $d$-regular
 graph is a $\left(2,1,d\right)$-design). The methods in \ref{sec:random-STS}
-generalize to $\left(q,r,\lambda\right)$-designs with mainly notational
+generalise to $\left(q,r,\lambda\right)$-designs with mainly notational
 changes. Note that a $3$-uniform perfect matching is actually a $\left(3,1\right)$-Steiner
 system, so as a sweeping generalization of \ref{thm:PM-in-STS} we
 might ask whether almost $\left(q,r,\lambda\right)$-designs typically

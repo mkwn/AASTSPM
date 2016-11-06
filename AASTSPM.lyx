@@ -1192,7 +1192,7 @@ key "Cam02"
 \end_layout
 
 \begin_layout Standard
-In a huge breakthrough that will surely revolutionize design theory, Keevash
+In a huge breakthrough that will surely revolutionise design theory, Keevash
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1315,7 +1315,7 @@ reference "sec:random-STS"
 
 \end_inset
 
- we state a general theorem summarizing our method.
+ we state a general theorem summarising our method.
 \end_layout
 
 \begin_layout Standard
@@ -1329,8 +1329,8 @@ perfect matching
 \emph default
 is a matching covering the entire vertex set.
  The existence of perfect matchings is one of the most central questions
- in the theory of graphs and hypergraphs; in particular, one of the most
- celebrated recent developments in the field is the Fulkerson-prize-winning
+ in the theory of graphs and hypergraphs; in particular, some of the most
+ important recent developments in the field are the Fulkerson-prize-winning
  work of Johansson, Kahn and Vu 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1338,7 +1338,15 @@ key "JKV08"
 
 \end_inset
 
- on perfect matchings in random hypergraphs.
+ on perfect matchings in random hypergraphs, and the structural theory of
+ Keevash and Mycroft 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KM15"
+
+\end_inset
+
+ characterising when dense hypergraphs have perfect matchings.
  A perfect matching in a Steiner triple system is also called a
 \emph on
  parallel class
@@ -5050,7 +5058,7 @@ Now we analyse the number of ways to perform the above procedure.
 \begin_inset Formula 
 \begin{align}
 \prod_{i=1}^{m}\left(1-\beta\right)\frac{\left(n'-3i\right)^{3}}{6n} & =\left(\frac{\left(1-\beta\right)\left(n'\right)^{3}}{6n}\right)^{m}\exp\left(\sum_{i=1}^{m}3\log\left(1-3\frac{i}{n'}\right)\right)\label{eq:num-matchings}\\
- & =\left(\left(1-\beta+O\left(\delta\right)\right)\frac{n^{2}}{6}\right)^{n/3}n^{O\left(\delta n\right)}\exp\left(n'\sum_{i=1}^{m}\frac{3}{n'}\log\left(1-3\frac{i}{n'}\right)\right).
+ & =\left(\left(1-\beta+O\left(\delta\right)\right)\frac{n^{2}}{6}\right)^{n/3}n^{O\left(\delta n\right)}\exp\left(n'\sum_{i=1}^{m}\frac{3}{n'}\log\left(1-3\frac{i}{n'}\right)\right).\nonumber 
 \end{align}
 
 \end_inset
@@ -7386,7 +7394,7 @@ reference "sec:random-STS"
 
 \end_inset
 
- generalize to 
+ generalise to 
 \begin_inset Formula $\left(q,r,\lambda\right)$
 \end_inset
 
