@@ -1650,23 +1650,23 @@ for more detailed exposition. Recall the definition of entropy and
 its basic properties from \ref{sec:max-num-matchings}.
 \begin{thm}
 \label{thm:number-of-completions-upper}For any $a>0$, any $\alpha\in\left[0,1\right]$,
-and any $S^{*}\in\cSm{n^{-a},2}{\alpha N}$,
+and any $S\in\cSm{n^{-a},2}{\alpha N}$,
 \[
-\left|\Sext{S^{*}}\right|\le\left(\left(1+O\left(n^{-a}+n^{-1/2}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}.
+\left|\Sext S\right|\le\left(\left(1+O\left(n^{-a}+n^{-1/2}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}.
 \]
 \end{thm}
 \begin{proof}
-Let $\randS\in\Sext{S^{*}}$ be a uniformly random completion of $S^{*}$.
-We will estimate the entropy $H\left(\randS\right)=\log\,\left|\Sext{S^{*}}\right|$
-of $\randS$.
+Let $\randS^{*}\in\Sext S$ be a uniformly random completion of $S$.
+We will estimate the entropy $H\left(\randS^{*}\right)=\log\,\left|\Sext S\right|$
+of $\randS^{*}$.
 
-Let $\coG=G\left(S^{*}\right)$. For each $e=\left\{ x,y\right\} \in\coG$,
+Let $\coG=G\left(S\right)$. For each $e=\left\{ x,y\right\} \in\coG$,
 let $\left\{ x,y,\randz_{e}\right\} $ be the hyperedge that includes
-$e$ in $\randS$. So, the sequence $\left(\randz_{e}\right)_{e\in\coG}$
-determines $\randS$. For any ordering on the edges of $\coG$, we
-have
+$e$ in $\randS^{*}$. So, the sequence $\left(\randz_{e}\right)_{e\in\coG}$
+determines $\randS^{*}$. For any ordering on the edges of $\coG$,
+we have
 \[
-H\left(\randS\right)=\sum_{e\in\coG}H\left(\randz_{e}\cond\left(\randz_{e'}\,\colon\,e'<e\right)\right).
+H\left(\randS^{*}\right)=\sum_{e\in\coG}H\left(\randz_{e}\cond\left(\randz_{e'}\,\colon\,e'<e\right)\right).
 \]
 Now, a sequence $\lambda\in\left[0,1\right]^{E\left(\coG\right)}$
 with all $\lambda_{e}$ distinct induces an ordering on the edges
@@ -1679,30 +1679,30 @@ is 1 plus the number of vertices $v\notin\left\{ x,y,\randz_{e}\right\} $
 such that $\left\{ x,v\right\} ,\left\{ y,v\right\} \in\coG$ and
 $\lambda_{e'}<\lambda_{e}$ for each of the 6 edges $e'\in\coG$ included
 in the hyperedges that include $\left\{ x,v\right\} $ and $\left\{ y,v\right\} $
-in $\randS$.
+in $\randS^{*}$.
 
 Let $\randl=\left(\randl_{e}\right)_{e\in\coG}$ be a sequence of
 independent random variables, where each $\randl_{e}$ has the uniform
 distribution in $\left[0,1\right]$. By linearity of expectation and
 the tower law, 
 \[
-H\left(\randS\right)\le\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right].
+H\left(\randS^{*}\right)\le\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right].
 \]
-Next, for any $S\in\Sext{S^{*}}$ and $\lambda\in\left[0,1\right]$,
+Next, for any $S^{*}\in\Sext S$ and $\lambda\in\left[0,1\right]$,
 let 
 \[
-R_{e}^{S,\lambda}=\E\left[\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\right].
+R_{e}^{S^{*},\lambda}=\E\left[\randR_{e}\left(\randl\right)\cond\randS^{*}=S^{*},\,\randl_{e}=\lambda,\,\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\right].
 \]
 Now, in $\coG$, by $\left(n^{-a},2\right)$-quasirandomness $x$
 and $y$ have $\left(1\pm O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}n$
 common neighbours other than $\randz_{e}$. By the discussion above,
 and linearity of expectation, we have 
 \[
-R_{e}^{S,\lambda}=1+\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}\lambda^{6}n.
+R_{e}^{S^{*},\lambda}=1+\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}\lambda^{6}n.
 \]
 By Jensen's inequality,
 \[
-\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\right]\le\log R_{e}^{S,\lambda},
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS^{*}=S^{*},\,\randl_{e}=\lambda,\,\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\right]\le\log R_{e}^{S^{*},\lambda},
 \]
 and 
 \[
@@ -1710,17 +1710,17 @@ and
 \]
 so
 \[
-\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda\right]\le\lambda^{2}\log R_{e}^{S,\lambda}+\left(1-\lambda^{2}\right)\log1=\lambda^{2}\log R_{e}^{S,\lambda}.
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS^{*}=S^{*},\,\randl_{e}=\lambda\right]\le\lambda^{2}\log R_{e}^{S^{*},\lambda}+\left(1-\lambda^{2}\right)\log1=\lambda^{2}\log R_{e}^{S^{*},\lambda}.
 \]
 We then have 
 \begin{align*}
-\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S\right] & \le\E\left[\lambda^{2}\log R_{e}^{S,\randl_{e}}\right]\\
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS^{*}=S^{*}\right] & \le\E\left[\lambda^{2}\log R_{e}^{S^{*},\randl_{e}}\right]\\
  & =\int_{0}^{1}\lambda^{2}\log\left(1+\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}\lambda^{6}n\right)\d\lambda\\
  & =\frac{1}{3}\left(\log\left(\left(1-\alpha\right)^{2}n\right)-2\right)+O\left(n^{-a}+n^{-1/2}\right)
 \end{align*}
 using \ref{eq:complicated-integral}. We conclude that
 \begin{align*}
-\log\,\left|\Sext{S^{*}}\right| & \le H\left(\randS\right)\\
+\log\,\left|\Sext S\right| & \le H\left(\randS^{*}\right)\\
  & \le\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right]\\
  & \le\left(N-\alpha N\right)\left(\log\left(\left(1-\alpha\right)^{2}n\right)-2+O\left(n^{-a}+n^{-1/2}\right)\right),
 \end{align*}
@@ -1728,11 +1728,12 @@ which is equivalent to the theorem statement.
 \end{proof}
 For the lower bound, we will count ordered Steiner triple systems.
 \begin{thm}
-\label{thm:number-of-completions-lower}There is $h\in\NN$ such that
-for any $a>0$, there is $b=b\left(a\right)$ such that the following
-holds. For any $\alpha\in\left(0,1\right)$ and any $S^{*}\in\cordm{n^{-a},h}{\alpha N}$,
+\label{thm:number-of-completions-lower}Fixing sufficiently large
+$h\in\NN$ and any $a>0$, there is $b=b\left(a\right)>0$ such that
+the following holds. For any $\alpha\in\left(0,1\right)$ and any
+$S\in\cordm{n^{-a},h}{\alpha N}$,
 \[
-\left|\ext{S^{*}}\right|\ge\left(\left(1+O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
+\left|\ext S\right|\ge\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
 \]
 \end{thm}
 To prove \ref{thm:number-of-completions-lower} we will need an analysis
@@ -1750,20 +1751,20 @@ can be completed to a Steiner triple system.
 \begin{proof}[Proof of \ref{thm:number-of-completions-lower}]
 Let $h\ge2$ be as in \ref{thm:keevash}. Let $c=a\,b\left(a,h\right)$
 in the notation of \ref{lem:triangle-removal-analysis}, let $\varepsilon=n^{-c}$
-and let $M=\left(1-\varepsilon\right)N$. Let $\randS\supseteq S$
+and let $M=\left(1-\varepsilon\right)N$. Let $\randS^{*}\supseteq S$
 be the result of running the triangle removal process on $G\left(S\right)$
 to build a partial system extending $S$, until there are $M$ hyperedges.
 Let $\ord^{*}$ be the set of $M$-hyperedge $\left(\varepsilon,h\right)$-quasirandom
-ordered partial systems $S\in\cordm{\varepsilon,h}M$ extending $S$.
-By \ref{prop:H-count}, for each $S\in\ord^{*}$, the number of triangles
-in each $G\left(S_{i}\right)$ is $\left(1\pm O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6$
+ordered partial systems $S^{*}\in\cordm{\varepsilon,h}M$ extending
+$S$. By \ref{prop:H-count}, for each $S^{*}\in\ord^{*}$, the number
+of triangles in each $G\left(S_{i}^{*}\right)$ is $\left(1\pm O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6$
 by quasirandomness. So,
 \[
-\Pr\left(\randS=S\right)\le\prod_{i=\alpha N}^{M-1}\frac{1}{\left(1-O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6}.
+\Pr\left(\randS^{*}=S^{*}\right)\le\prod_{i=\alpha N}^{M-1}\frac{1}{\left(1-O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6}.
 \]
 By \ref{lem:triangle-removal-analysis} we have 
 \[
-\sum_{S\in\ord^{*}}\Pr\left(\randS=S\right)=1-o\left(1\right),
+\sum_{S^{*}\in\ord^{*}}\Pr\left(\randS^{*}=S^{*}\right)=1-o\left(1\right),
 \]
 so 
 \begin{align*}
@@ -1794,11 +1795,25 @@ For $b<c$, it follows that
 \end{align*}
 By \ref{thm:keevash} (assuming $b$ is small enough) it follows that
 \[
-\left|\ext{S^{*}}\right|\ge\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!.\tag*{\qedhere}
+\left|\ext S\right|\ge\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!.\tag*{\qedhere}
 \]
 \end{proof}
-\ref{lem:num-extensions} immediately follows from \ref{thm:number-of-completions-upper}
-and \ref{thm:number-of-completions-lower}.
+Now, it is extremely straightforward to prove \ref{lem:num-extensions}.
+\begin{proof}
+Let $b\le\min\left\{ a,1/2\right\} $ and $h\ge2$ satisfy \ref{thm:number-of-completions-lower}.
+By \ref{thm:number-of-completions-upper} we have 
+\[
+\left|\ext S\right|\le\left|\Sext S\right|\left(N-\alpha N\right)!\le\left(\left(1+O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!,
+\]
+and by \ref{thm:number-of-completions-lower} we have
+\[
+\left|\ext{S'}\right|\ge\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
+\]
+Dividing these bounds gives
+\[
+\frac{\left|\ext S\right|}{\left|\ext{S'}\right|}\le\left(1-O\left(n^{-b}\right)\right)^{N\left(1-\alpha\right)}\le\exp\left(O\left(n^{2-b}\right)\right).\tag*{\qedhere}
+\]
+\end{proof}
 
 \section{\label{sec:random-triangle-removal}Random triangle removal}
 

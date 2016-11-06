@@ -7753,13 +7753,13 @@ For any
 \end_inset
 
 , and any 
-\begin_inset Formula $S^{*}\in\cSm{n^{-a},2}{\alpha N}$
+\begin_inset Formula $S\in\cSm{n^{-a},2}{\alpha N}$
 \end_inset
 
 ,
 \begin_inset Formula 
 \[
-\left|\Sext{S^{*}}\right|\le\left(\left(1+O\left(n^{-a}+n^{-1/2}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}.
+\left|\Sext S\right|\le\left(\left(1+O\left(n^{-a}+n^{-1/2}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}.
 \]
 
 \end_inset
@@ -7769,20 +7769,20 @@ For any
 
 \begin_layout Proof
 Let 
-\begin_inset Formula $\randS\in\Sext{S^{*}}$
+\begin_inset Formula $\randS^{*}\in\Sext S$
 \end_inset
 
  be a uniformly random completion of 
-\begin_inset Formula $S^{*}$
+\begin_inset Formula $S$
 \end_inset
 
 .
  We will estimate the entropy 
-\begin_inset Formula $H\left(\randS\right)=\log\,\left|\Sext{S^{*}}\right|$
+\begin_inset Formula $H\left(\randS^{*}\right)=\log\,\left|\Sext S\right|$
 \end_inset
 
  of 
-\begin_inset Formula $\randS$
+\begin_inset Formula $\randS^{*}$
 \end_inset
 
 .
@@ -7790,7 +7790,7 @@ Let
 
 \begin_layout Proof
 Let 
-\begin_inset Formula $\coG=G\left(S^{*}\right)$
+\begin_inset Formula $\coG=G\left(S\right)$
 \end_inset
 
 .
@@ -7807,7 +7807,7 @@ Let
 \end_inset
 
  in 
-\begin_inset Formula $\randS$
+\begin_inset Formula $\randS^{*}$
 \end_inset
 
 .
@@ -7816,7 +7816,7 @@ Let
 \end_inset
 
  determines 
-\begin_inset Formula $\randS$
+\begin_inset Formula $\randS^{*}$
 \end_inset
 
 .
@@ -7827,7 +7827,7 @@ Let
 , we have
 \begin_inset Formula 
 \[
-H\left(\randS\right)=\sum_{e\in\coG}H\left(\randz_{e}\cond\left(\randz_{e'}\,\colon\,e'<e\right)\right).
+H\left(\randS^{*}\right)=\sum_{e\in\coG}H\left(\randz_{e}\cond\left(\randz_{e'}\,\colon\,e'<e\right)\right).
 \]
 
 \end_inset
@@ -7907,7 +7907,7 @@ Now, a sequence
 \end_inset
 
  in 
-\begin_inset Formula $\randS$
+\begin_inset Formula $\randS^{*}$
 \end_inset
 
 .
@@ -7930,13 +7930,13 @@ Let
  By linearity of expectation and the tower law, 
 \begin_inset Formula 
 \[
-H\left(\randS\right)\le\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right].
+H\left(\randS^{*}\right)\le\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right].
 \]
 
 \end_inset
 
 Next, for any 
-\begin_inset Formula $S\in\Sext{S^{*}}$
+\begin_inset Formula $S^{*}\in\Sext S$
 \end_inset
 
  and 
@@ -7946,7 +7946,7 @@ Next, for any
 , let 
 \begin_inset Formula 
 \[
-R_{e}^{S,\lambda}=\E\left[\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\right].
+R_{e}^{S^{*},\lambda}=\E\left[\randR_{e}\left(\randl\right)\cond\randS^{*}=S^{*},\,\randl_{e}=\lambda,\,\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\right].
 \]
 
 \end_inset
@@ -7979,7 +7979,7 @@ Now, in
  By the discussion above, and linearity of expectation, we have 
 \begin_inset Formula 
 \[
-R_{e}^{S,\lambda}=1+\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}\lambda^{6}n.
+R_{e}^{S^{*},\lambda}=1+\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}\lambda^{6}n.
 \]
 
 \end_inset
@@ -7987,7 +7987,7 @@ R_{e}^{S,\lambda}=1+\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}
 By Jensen's inequality,
 \begin_inset Formula 
 \[
-\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda,\,\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\right]\le\log R_{e}^{S,\lambda},
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS^{*}=S^{*},\,\randl_{e}=\lambda,\,\randl_{\left\{ x,\randz_{e}\right\} },\randl_{\left\{ y,\randz_{e}\right\} }<\randl_{e}\right]\le\log R_{e}^{S^{*},\lambda},
 \]
 
 \end_inset
@@ -8003,7 +8003,7 @@ and
 so
 \begin_inset Formula 
 \[
-\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S,\,\randl_{e}=\lambda\right]\le\lambda^{2}\log R_{e}^{S,\lambda}+\left(1-\lambda^{2}\right)\log1=\lambda^{2}\log R_{e}^{S,\lambda}.
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS^{*}=S^{*},\,\randl_{e}=\lambda\right]\le\lambda^{2}\log R_{e}^{S^{*},\lambda}+\left(1-\lambda^{2}\right)\log1=\lambda^{2}\log R_{e}^{S^{*},\lambda}.
 \]
 
 \end_inset
@@ -8011,7 +8011,7 @@ so
 We then have 
 \begin_inset Formula 
 \begin{align*}
-\E\left[\log\randR_{e}\left(\randl\right)\cond\randS=S\right] & \le\E\left[\lambda^{2}\log R_{e}^{S,\randl_{e}}\right]\\
+\E\left[\log\randR_{e}\left(\randl\right)\cond\randS^{*}=S^{*}\right] & \le\E\left[\lambda^{2}\log R_{e}^{S^{*},\randl_{e}}\right]\\
  & =\int_{0}^{1}\lambda^{2}\log\left(1+\left(1+O\left(n^{-a}\right)\right)\left(1-\alpha\right)^{2}\lambda^{6}n\right)\d\lambda\\
  & =\frac{1}{3}\left(\log\left(\left(1-\alpha\right)^{2}n\right)-2\right)+O\left(n^{-a}+n^{-1/2}\right)
 \end{align*}
@@ -8029,7 +8029,7 @@ reference "eq:complicated-integral"
  We conclude that
 \begin_inset Formula 
 \begin{align*}
-\log\,\left|\Sext{S^{*}}\right| & \le H\left(\randS\right)\\
+\log\,\left|\Sext S\right| & \le H\left(\randS^{*}\right)\\
  & \le\sum_{e\in\coG}\E\left[\log\randR_{e}\left(\randl\right)\right]\\
  & \le\left(N-\alpha N\right)\left(\log\left(\left(1-\alpha\right)^{2}n\right)-2+O\left(n^{-a}+n^{-1/2}\right)\right),
 \end{align*}
@@ -8050,16 +8050,16 @@ name "thm:number-of-completions-lower"
 
 \end_inset
 
-There is 
+Fixing sufficiently large 
 \begin_inset Formula $h\in\NN$
 \end_inset
 
- such that for any 
+ and any 
 \begin_inset Formula $a>0$
 \end_inset
 
 , there is 
-\begin_inset Formula $b=b\left(a\right)$
+\begin_inset Formula $b=b\left(a\right)>0$
 \end_inset
 
  such that the following holds.
@@ -8068,13 +8068,13 @@ There is
 \end_inset
 
  and any 
-\begin_inset Formula $S^{*}\in\cordm{n^{-a},h}{\alpha N}$
+\begin_inset Formula $S\in\cordm{n^{-a},h}{\alpha N}$
 \end_inset
 
 ,
 \begin_inset Formula 
 \[
-\left|\ext{S^{*}}\right|\ge\left(\left(1+O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
+\left|\ext S\right|\ge\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
 \]
 
 \end_inset
@@ -8209,7 +8209,7 @@ reference "lem:triangle-removal-analysis"
 
 .
  Let 
-\begin_inset Formula $\randS\supseteq S$
+\begin_inset Formula $\randS^{*}\supseteq S$
 \end_inset
 
  be the result of running the triangle removal process on 
@@ -8238,7 +8238,7 @@ reference "lem:triangle-removal-analysis"
 \end_inset
 
 -quasirandom ordered partial systems 
-\begin_inset Formula $S\in\cordm{\varepsilon,h}M$
+\begin_inset Formula $S^{*}\in\cordm{\varepsilon,h}M$
 \end_inset
 
  extending 
@@ -8254,11 +8254,11 @@ reference "prop:H-count"
 \end_inset
 
 , for each 
-\begin_inset Formula $S\in\ord^{*}$
+\begin_inset Formula $S^{*}\in\ord^{*}$
 \end_inset
 
 , the number of triangles in each 
-\begin_inset Formula $G\left(S_{i}\right)$
+\begin_inset Formula $G\left(S_{i}^{*}\right)$
 \end_inset
 
  is 
@@ -8269,7 +8269,7 @@ reference "prop:H-count"
  So,
 \begin_inset Formula 
 \[
-\Pr\left(\randS=S\right)\le\prod_{i=\alpha N}^{M-1}\frac{1}{\left(1-O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6}.
+\Pr\left(\randS^{*}=S^{*}\right)\le\prod_{i=\alpha N}^{M-1}\frac{1}{\left(1-O\left(n^{-c}\right)\right)\left(1-i/N\right)^{3}n^{3}/6}.
 \]
 
 \end_inset
@@ -8284,7 +8284,7 @@ reference "lem:triangle-removal-analysis"
  we have 
 \begin_inset Formula 
 \[
-\sum_{S\in\ord^{*}}\Pr\left(\randS=S\right)=1-o\left(1\right),
+\sum_{S^{*}\in\ord^{*}}\Pr\left(\randS^{*}=S^{*}\right)=1-o\left(1\right),
 \]
 
 \end_inset
@@ -8358,7 +8358,7 @@ reference "thm:keevash"
  is small enough) it follows that
 \begin_inset Formula 
 \[
-\left|\ext{S^{*}}\right|\ge\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!.\tag*{\qedhere}
+\left|\ext S\right|\ge\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{\left(1-\alpha\right)N}\left(N-\alpha N\right)!.\tag*{\qedhere}
 \]
 
 \end_inset
@@ -8367,20 +8367,26 @@ reference "thm:keevash"
 \end_layout
 
 \begin_layout Standard
+Now, it is extremely straightforward to prove 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:num-extensions"
 
 \end_inset
 
- immediately follows from 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:number-of-completions-upper"
+.
+\end_layout
 
+\begin_layout Proof
+Let 
+\begin_inset Formula $b\le\min\left\{ a,1/2\right\} $
 \end_inset
 
  and 
+\begin_inset Formula $h\ge2$
+\end_inset
+
+ satisfy 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:number-of-completions-lower"
@@ -8388,6 +8394,45 @@ reference "thm:number-of-completions-lower"
 \end_inset
 
 .
+ By 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:number-of-completions-upper"
+
+\end_inset
+
+ we have 
+\begin_inset Formula 
+\[
+\left|\ext S\right|\le\left|\Sext S\right|\left(N-\alpha N\right)!\le\left(\left(1+O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!,
+\]
+
+\end_inset
+
+and by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:number-of-completions-lower"
+
+\end_inset
+
+ we have
+\begin_inset Formula 
+\[
+\left|\ext{S'}\right|\ge\left(\left(1-O\left(n^{-b}\right)\right)\left(\frac{1-\alpha}{e}\right)^{2}n\right)^{N\left(1-\alpha\right)}\left(N-\alpha N\right)!.
+\]
+
+\end_inset
+
+Dividing these bounds gives
+\begin_inset Formula 
+\[
+\frac{\left|\ext S\right|}{\left|\ext{S'}\right|}\le\left(1-O\left(n^{-b}\right)\right)^{N\left(1-\alpha\right)}\le\exp\left(O\left(n^{2-b}\right)\right).\tag*{\qedhere}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
