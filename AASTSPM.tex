@@ -1,4 +1,4 @@
-%% LyX 2.2.2 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.2.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[11pt,english]{article}
 \renewcommand{\rmdefault}{cmr}
@@ -382,14 +382,13 @@ Steiner triple system, Cameron \cite{Cam02} designed a Markov chain
 on Steiner triple systems, but he was not able to determine whether
 this chain was connected.
 
-In a huge breakthrough that will surely revolutionise design theory,
-Keevash \cite{Kee14} very recently proved that for a large class
-of combinatorial designs generalising Steiner triple systems, ``partial''
-designs satisfying a certain ``quasirandomness'' condition can be
-completed into designs. Shortly afterwards \cite{Kee15}, he showed
-that his results could be used for approximate enumeration; in particular,
-matching an upper bound due to Linial and Luria \cite{LL13} he proved
-that there are
+In a recent breakthrough, Keevash \cite{Kee14} proved that for a
+large class of combinatorial designs generalising Steiner triple systems,
+``partial'' designs satisfying a certain ``quasirandomness'' condition
+can be completed into designs. Shortly afterwards \cite{Kee15}, he
+showed that his results could be used for approximate enumeration;
+in particular, matching an upper bound due to Linial and Luria \cite{LL13}
+he proved that there are
 \begin{equation}
 \left(n/e^{2}+o\left(n\right)\right)^{n^{2}/6}\label{eq:num-STS}
 \end{equation}
@@ -421,22 +420,25 @@ and a \emph{perfect matching }is a matching covering the entire vertex
 set. The existence of perfect matchings is one of the most central
 questions in the theory of graphs and hypergraphs; in particular,
 some of the most important recent developments in the field are the
-Fulkerson-prize-winning work of Johansson, Kahn and Vu \cite{JKV08}
-on perfect matchings in random hypergraphs, and the structural theory
-of Keevash and Mycroft \cite{KM15} characterising when dense hypergraphs
-have perfect matchings. A perfect matching in a Steiner triple system
-is also called a\emph{ parallel class} or \emph{resolution class},
-and has particular significance. One of the oldest problems in combinatorics,
-famously solved in the affirmative by Ray-Chaudhuri and Wilson \cite{RW71},
-asks whether for all $n\equiv3\mod6$ there exists an order-$n$  Steiner
-triple system which can be partitioned into hyperedge-disjoint perfect
-matchings (a \emph{Kirkman triple system}). Alon, Kim and Spencer
-\cite{AKS97} proved that every Steiner triple system has an almost-perfect
-matching covering all but $o\left(\sqrt{n}\log^{3/2}n\right)$ vertices,
-and Bryant and Horsley \cite{BH15} proved that for infinitely many
-$n\equiv3\mod6$ there exist Steiner triple systems with no perfect
-matching. As an application of our new method, we prove that if $n\equiv3\mod6$
-(that is, if $3\mid n$ and an order-$n$ Steiner triple system exists)
+work of Johansson, Kahn and Vu \cite{JKV08} on perfect matchings
+in random hypergraphs, and the theory of Keevash and Mycroft \cite{KM15}
+characterising when dense hypergraphs have perfect matchings. We should
+also mention the ``nibble'' method of R\"odl \cite{Rod85} for
+finding almost-perfect hypergraph matchings, which has had a significant
+influence throughout combinatorics in the last 30 years. A perfect
+matching in a Steiner triple system is also called a\emph{ parallel
+class} or \emph{resolution class}, and has particular significance.
+One of the oldest problems in combinatorics, famously solved in the
+affirmative by Ray-Chaudhuri and Wilson \cite{RW71}, asks whether
+for all $n\equiv3\mod6$ there exists an order-$n$  Steiner triple
+system which can be partitioned into hyperedge-disjoint perfect matchings
+(a \emph{Kirkman triple system}). Alon, Kim and Spencer \cite{AKS97}
+proved that every Steiner triple system has an almost-perfect matching
+covering all but $o\left(\sqrt{n}\log^{3/2}n\right)$ vertices, and
+Bryant and Horsley \cite{BH15} proved that for infinitely many $n\equiv3\mod6$
+there exist Steiner triple systems with no perfect matching. As an
+application of our new method, we prove that if $n\equiv3\mod6$ (that
+is, if $3\mid n$ and an order-$n$ Steiner triple system exists)
 then almost all order-$n$ Steiner triple systems have many perfect
 matchings. 
 \begin{thm}
@@ -474,7 +476,7 @@ perfect matchings.
 The proof of \ref{thm:maximum-PMs} is quite short, and uses the notion
 of \emph{entropy}. This particular type of argument was introduced
 by Radhakrishnan \cite{Rad97} and further developed by Linial and
-Luria \cite{LL13}.
+Luria \cite{LL13}, among others.
 
 \subsection{Latin squares}
 
@@ -488,13 +490,13 @@ columns and symbols, so a triangle $\left(i,j,k\right)$ corresponds
 to putting the symbol $k$ in the cell $\left(i,j\right)$). A perfect
 matching in a Latin square is called a \emph{transversal }and the
 property of containing a transversal is of great interest. In particular,
-the famous Ryser-Brualdi-Stein conjecture (see \cite{BR91,Ste75})
-speculates that every odd-order Latin square has a transversal, and
-every even-order Latin square has a partial transversal of size $n-1$.
-Although this conjecture remains wide open, there have been many partial
-results and generalizations; see for example \cite{ES91,CW05,HS08,AB09,Pok16}.
-See \cite{Wan11} for an introduction to the subject of Latin transversals,
-and \cite{DK15} for an introduction to Latin squares in general.
+the famous Ryser-Brualdi-Stein conjecture speculates that every odd-order
+Latin square has a transversal, and every even-order Latin square
+has a partial transversal of size $n-1$. Although this conjecture
+remains wide open, there have been many partial results and generalizations;
+see for example \cite{ES91,CW05,HS08,AB09,Pok16}. See \cite{Wan11}
+for an introduction to the subject of Latin transversals, and \cite{DK15}
+for an introduction to Latin squares in general.
 
 The counterpart of \ref{thm:maximum-PMs} for Latin squares, that
 a Latin square can have at most $\left(\left(1+o\left(1\right)\right)n/e^{2}\right)^{n}$
@@ -546,7 +548,9 @@ and $g=g\left(n\right)$:
 \item $f=\Omega\left(g\right)$ means there is a constant $c>0$ such that
 $f\ge c\left|g\right|$,
 \item $f=\Theta\left(g\right)$ means that $f=O\left(g\right)$ and $f=\Theta\left(g\right)$,
-\item $f=o\left(g\right)$ means that $f/g\to0$ as $n\to\infty$.
+\item $f=o\left(g\right)$ means that $f/g\to0$ as $n\to\infty$. To say
+that a.a.s. $f=o\left(g\right)$ means that for any $\varepsilon>0$,
+a.a.s. $f/g<\varepsilon$.
 \end{itemize}
 We also use standard graph theory notation: $V\left(G\right)$ and
 $E\left(G\right)$ are the sets of vertices and (hyper)edges of a
@@ -622,8 +626,9 @@ systems with the triangle removal process.
 \label{lem:triangle-removal-transfer}Fixing sufficiently large $h\in\NN$
 and sufficiently small $a>0$, there is $b=b\left(a\right)>0$ such
 that the following holds. Fix $\alpha\in\left(0,1\right)$, let $\mathcal{P}\subseteq\ordm{\alpha N}$
-be a property of ordered partial systems, let $\mathcal{Q}\supseteq\cordm{n^{-a},h}{\alpha N}$,
-let $\randS\in\ord$ be uniformly random and let $\randS'\in\rg n{\alpha N}$.
+be a property of ordered partial systems, let $\varepsilon=n^{-a}$,
+ let $\mathcal{Q}\supseteq\cordm{\varepsilon,h}{\alpha N}$, let $\randS\in\ord$
+be a uniformly random ordered Steiner triple system and let $\randS'\in\rg n{\alpha N}$.
 If
 \[
 \Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right)\le\exp\left(-n^{2-b}\right)
@@ -691,9 +696,9 @@ so that $\RR\left(n,\alpha N\right)$ approximates the uniform distribution
 on $\cordm{\varepsilon,h}{\alpha N}$. It is proved in \ref{sec:greedy-random-approx-uniform}.
 \begin{lem}
 \label{lem:greedy-random-approx-uniform}The following holds for any
-fixed $a>0$ and $\alpha\in\left[0,1\right]$. Let $\varepsilon=n^{-a}$,
-let $S,S'\in\cordm{\varepsilon,2}{\alpha N}$ and let $\randS\in\rg n{\alpha N}$.
-Then
+fixed $a\in\left(0,2\right)$ and $\alpha\in\left[0,1\right]$. Let
+$\varepsilon=n^{-a}$, let $S,S'\in\cordm{\varepsilon,2}{\alpha N}$
+and let $\randS\in\rg n{\alpha N}$. Then
 \[
 \frac{\Pr\left(\randS=S\right)}{\Pr\left(\randS=S'\right)}\le\exp\left(O\left(n^{2-a}\right)\right).
 \]
@@ -703,7 +708,7 @@ We can finally combine everything to prove \ref{lem:triangle-removal-transfer}.
 We have
 \begin{align*}
 \Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right) & \le\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\cond\randS_{\alpha N}\in\cordm{\varepsilon,h}{\alpha N}\right)+\Pr\left(\randS_{\alpha N}\notin\cordm{\varepsilon,h}{\alpha N}\right)\\
- & \le\exp\left(O\left(n^{2-c}\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)+\exp\left(-\Omega\left(n^{1-2a}\right)\right),
+ & \le\exp\left(O\left(n^{2-c}\right)\right)\exp\left(O\left(n^{2-a}\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)+\exp\left(-\Omega\left(n^{1-2a}\right)\right),
 \end{align*}
 where $c=b\left(a\right)$ in the notation of \ref{lem:num-extensions}.
 But, if $a$ is small enough then \ref{lem:triangle-removal-analysis}
@@ -712,7 +717,12 @@ so
 \[
 \Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)\le\frac{\Pr\left(\randS'\notin\mathcal{P}\text{ and }\randS'\in\mathcal{Q}\right)}{\Pr\left(\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)}\le\left(1+o\left(1\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\mathcal{Q}\right).
 \]
-If $b<c$ (and $2-b\ge1-2a$) this completes the proof.
+Choosing $b$ such that $b<\min\left\{ c,a\right\} $ and $2-b\ge1-2a$,
+we then have
+\[
+\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right)\le\exp\left(-\Omega\left(n^{1-2a}\right)\right)
+\]
+as desired.
 \end{proof}
 In \ref{sec:randomly-ordered} we prove \ref{lem:random-is-typical}
 and in \ref{sec:greedy-random-approx-uniform} we prove \ref{lem:greedy-random-approx-uniform}.
@@ -849,8 +859,7 @@ starting from $G\left(S\right)$.
 \end{defn}
 Note that ${n \choose 3}/n=\left(1+o\left(1\right)\right)N$. For
 small $\alpha>0$, we can view $\GSnp S{\alpha/n}$ as a ``bite''
-of a ``nibbling'' process (see for example \cite[Section~4.7]{AS04}),
-that should be similar to $\rg S{\alpha N}$.
+of a ``nibbling'' process, that should be similar to $\rg S{\alpha N}$.
 \begin{lem}
 \label{lem:bite-transfer}let $\mathcal{P}$ be a property of unordered
 partial systems that is monotone increasing in the sense that $S\in\mathcal{P}$
@@ -867,15 +876,16 @@ systems $S$ and $S'$.
 Let $\randS^{*}\in\GSnp S{\alpha/n}$ be obtained from $\randG\in\Gnp S{\alpha/n}$.
 Note that conditioning on the number of hyperedges in $\randG$, its
 hyperedges comprise a uniformly random subset of its size, of the
-set of all possible hyperedges. With probability $\Omega\left(1\right)$
-the number of hyperedges in $\randG$ is at most ${n \choose 3}\alpha/n\le\alpha N$,
-in which case $\randS^{*}$ can be coupled as a subset of $\randS$.
-Indeed, a random ordering of $\randG$ can be viewed as the first
-few elements of a random ordering of the set of all possible hyperedges,
-and the triangle removal process with this ordering produces a superset
-of $\randS^{*}$. It follows that
+set of all hyperedges not conflicting with $S$. With probability
+$\Omega\left(1\right)$ the number of hyperedges in $\randG$ is at
+most its median ${n \choose 3}\alpha/n\le\alpha N$, in which case
+$\randS^{*}$ can be coupled as a subset of $\randS$. Indeed, a random
+ordering of $\randG$ can be viewed as the first few elements of a
+random ordering of the set of all possible hyperedges, and the triangle
+removal process with this ordering produces a superset of $\randS^{*}$.
+It follows that
 \begin{align*}
-\Pr\left(S\cup\randS\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\right) & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\cond e\left(\randG\right)\le\alpha N\right)\\
+\Pr\left(S\cup\randS\notin\mathcal{P}\right) & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\cond e\left(\randG\right)\le\alpha N\right)\\
  & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right)/\Pr\left(e\left(\randG\right)\le\alpha N\right)\\
  & =\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right)/\Omega\left(1\right).\tag*{\qedhere}
 \end{align*}
@@ -1025,16 +1035,17 @@ resulting bipartite graph has a perfect matching.
 \end{lem}
 \begin{proof}[Proof of \ref{lem:resilient-template}]
 Consider the bipartite graph $R$ from \ref{lem:montgomery} on the
-vertex set $X\sqcup Y\sqcup Z$ (note that $R$ has at most $40\left|X\right|=120n$
-edges). Add a set $W$ of $\left|X\right|$ new vertices and put a
-perfect matching between $W$ and $X$, to obtain a $10n$-vertex
-tripartite graph $R'$. Now, define a hypergraph $T$ on the same
-vertex set by putting a hyperedge for each 3-vertex path running through
-all three parts of $R'$ (we call such paths \emph{special paths}).
-Note that an edge in $R$ can be uniquely extended to a special path
-in $R'$, so $T$ has at most $120n$ hyperedges. Moreover, a matching
-in $R$ can always be extended to a factor of special paths in $R'$,
-so $T$ is a resilient template with flexible set $Z$.
+vertex set $X\sqcup\left(Y\sqcup Z\right)$ (note that $R$ has at
+most $40\left|X\right|=120n$ edges). Add a set $W$ of $\left|X\right|$
+new vertices and put a perfect matching between $W$ and $X$, to
+obtain a $10n$-vertex tripartite graph $R'$. Now, define a hypergraph
+$T$ on the same vertex set by putting a hyperedge for each 3-vertex
+path running through all three parts of $R'$ (we call such paths
+\emph{special paths}). Note that an edge in $R$ can be uniquely extended
+to a special path in $R'$, so $T$ has at most $120n$ hyperedges.
+Moreover, a matching in $R$ can always be extended to a factor of
+special paths in $R'$, so $T$ is a resilient template with flexible
+set $Z$.
 \end{proof}
 Now we can describe our absorbing structure in its entirety.
 \begin{defn}
@@ -1068,10 +1079,10 @@ and fixed $\beta>0$.
 with at most $\delta n$ vertices and a flexible set $Z$ of size
 $3\floor{\delta^{2}n}$.
 \item \label{cond:degree}For at most $\delta n$ of the vertices $v\in V\backslash Z$,
-we have $\left|\left\{ \left\{ x,y\right\} \subseteq Z:\left\{ v,x,y\right\} \in E\left(S\right)\right\} \right|<6\delta^{3}n$.
+we have $\left|\left\{ \left\{ x,y\right\} \subseteq Z:\left\{ v,x,y\right\} \in E\left(S\right)\right\} \right|<6\delta^{5}n$.
 That is to say, few vertices have unusually low degree into the flexible
 set $Z$, in $S$.
-\item \label{cond:density}Every vertex subset $W\subseteq V$ with $\left|W\right|\ge3\delta^{3}n$
+\item \label{cond:density}Every vertex subset $W\subseteq V$ with $\left|W\right|\ge3\delta^{5}n$
 induces at least $\left(1-\beta\right)\left|W\right|^{3}/\left(6n\right)$
 hyperedges.
 \end{enumerate}
@@ -1099,15 +1110,15 @@ Now, let $n'=n-O\left(\delta n\right)$ be the number of vertices
 in $V\backslash V\left(H\right)$ remaining unmatched. We next use
 \ref{cond:density} to repeatedly choose a hyperedge induced by the
 remaining unmatched vertices in $V\backslash V\left(H\right)$ until
-there are only $3\floor{\delta^{3}n}$ such vertices remaining unmatched.
-(This means we are choosing $m=\left(n'-3\floor{\delta^{3}n}\right)/3=n/3-O\left(\delta n\right)$
+there are only $3\floor{\delta^{5}n}$ such vertices remaining unmatched.
+(This means we are choosing $m=\left(n'-3\floor{\delta^{5}n}\right)/3=n/3-O\left(\delta n\right)$
 hyperedges). We call this step the \emph{main step}.
 
 Next, we greedily extend our matching to cover the remaining vertices
 in $V\backslash V\left(H\right)$. Considering each uncovered $v\in V\backslash V\left(H\right)$
 in any order, recall that $v\notin U$ so there are at least $6\delta^{3}n$
 hyperedges of $S$ containing $v$ and two vertices of $Z$. We can
-therefore choose such a hyperedge avoiding the (fewer than $2\times3\floor{\delta^{3}n}$)
+therefore choose such a hyperedge avoiding the (fewer than $2\times3\floor{\delta^{5}n}$)
 vertices in $Z$ used so far, to extend our matching. We have now
 covered all of $V\backslash V\left(H\right)$ and a small portion
 of $Z$; we can repeatedly apply \ref{cond:density} to the uncovered
@@ -1160,8 +1171,8 @@ set.
 \subsubsection{High degree into the flexible set\label{subsec:degree}}
 
 If \ref{cond:degree} is violated, there is a set $W$ of $\floor{\delta n}$
-vertices outside $Z$ each with degree less than $6\delta^{3}n$ into
-$Z$. There are then fewer than $6\delta^{4}n^{2}$ hyperedges with
+vertices outside $Z$ each with degree less than $6\delta^{5}n$ into
+$Z$. There are then fewer than $6\delta^{6}n^{2}$ hyperedges with
 one vertex in $W$ and two vertices in $Z$. We show that it is extremely
 unlikely that there is a set $W$ with this property.
 
@@ -1172,15 +1183,15 @@ number of hyperedges of $\randS^{*}$ with one vertex in $W$ and
 two vertices in $Z$. That is to say, $\randY$ is the number of such
 hyperedges in $\randG$ that are \emph{isolated} in the sense that
 they do not intersect any other hyperedge of $\randG$ in more than
-one vertex. There are $\Theta\left(\left(\delta n\right)^{2}n\right)=\Theta\left(\delta^{2}n^{3}\right)$
+one vertex. There are $\Theta\left(\left(\delta n\right)\left(\delta^{2}n\right)^{2}\right)=\Theta\left(\delta^{5}n^{3}\right)$
 possible hyperedges and each is present and isolated with probability
 $\left(\alpha/n\right)\left(1-\alpha/n\right)^{O\left(n\right)}=\Theta\left(n^{-1}\right)$,
-so $\E\randY=\Theta\left(\delta^{2}n^{2}\right)$. Now, adding a hyperedge
+so $\E\randY=\Theta\left(\delta^{5}n^{2}\right)$. Now, adding a hyperedge
 to $\randG$ can increase $\randY$ by at most 1, and removing a hyperedge
 can increase $\randY$ by at most 3 (by making three hyperedges isolated).
 So, by \ref{thm:bernstein-type},
 \[
-\Pr\left(\randY\le2\delta^{4}n^{2}\right)\le\Pr\left(\left|\randY-\E\randY\right|\le\Theta\left(\delta^{2}n^{2}\right)\right)\le\exp\left(-\Omega\left(\frac{\left(\delta^{2}n^{2}\right)^{2}}{3^{2}{n \choose 3}\alpha/n+3\delta^{2}n^{2}}\right)\right)=\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right).
+\Pr\left(\randY\le2\delta^{6}n^{2}\right)\le\Pr\left(\left|\randY-\E\randY\right|\le\Theta\left(\delta^{5}n^{2}\right)\right)\le\exp\left(-\Omega\left(\frac{\left(\delta^{5}n^{2}\right)^{2}}{3^{2}{n \choose 3}\alpha/n+3\delta^{5}n^{2}}\right)\right)=\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right).
 \]
 Since there are no more than $2^{n}$ choices for $W$, we can use
 the union bound, \ref{lem:bite-transfer} and \ref{lem:triangle-removal-transfer}
@@ -1197,7 +1208,7 @@ the first $\alpha N$ hyperedges have the same distribution as the
 hyperedges corresponding to any other choice of $\alpha N$ indices.
 
 With $\randS^{*}$ and $\randG$ as in \ref{subsec:degree}, consider
-a set $W\subseteq V$ with $\left|W\right|\ge3\delta^{3}n$ and redefine
+a set $W\subseteq V$ with $\left|W\right|\ge3\delta^{5}n$ and redefine
 $\randY$ to be the number of hyperedges of $\randS^{*}$ included
 in $W$ (which is the number of such hyperedges in $\randG$ that
 are isolated). There are $\left(1+o\left(1\right)\right)\left|W\right|^{3}/6$
@@ -1362,14 +1373,14 @@ externally vertex-disjoint absorbers.
 
 If a Steiner triple system has this property, then we can very straightfowardly
 greedily build an absorbing structure, as follows. Recalling that
-$\left|Z\right|=3\floor{\delta^{3}n}=O\left(\delta^{3}n\right)$,
-choose a resilient template $T$ with $O\left(\delta^{3}n\right)$
-hyperedges, on $O\left(\delta^{3}n\right)$ vertices of $\randS$,
+$\left|Z\right|=3\floor{\delta^{2}n}=O\left(\delta^{2}n\right)$,
+choose a resilient template $T$ with $O\left(\delta^{2}n\right)$
+hyperedges, on $O\left(\delta^{2}n\right)$ vertices of $\randS$,
 such that the flexible set is $Z$. Consider each hyperedge $\left(x,y,z\right)$
-of $H$ in any order, and greedily choose an absorber in $\randS$
+of $T$ in any order, and greedily choose an absorber in $\randS$
 rooted on $\left(x,y,z\right)$, each of whose external vertices is
 disjoint to the template and all absorbers chosen so far. The entire
-absorbing structure then has $O\left(\delta^{3}n\right)\le\delta n$
+absorbing structure then has $O\left(\delta^{2}n\right)\le\delta n$
 vertices. We have proved that \ref{cond:absorber} of \ref{lem:PM-via-absorbers}
 holds a.a.s. in a random Steiner triple system, completing the proof
 of \ref{thm:PM-in-STS}.
@@ -1538,12 +1549,11 @@ the following properties for some $\delta=\delta\left(n\right)=o\left(1/\log n\r
 and fixed $\beta>0$.
 \begin{enumerate}
 \item There is an absorbing structure $H$ in $L$ with at most $\delta n$
-vertices and a flexible set $Z$ intersecting each $V_{i}$ in $\delta^{2}n$
-vertices.
-\item For at most $\delta n$ of the vertices $v\in V_{1}$, we have $\left|\left\{ \left(x,y\right)\in V_{2}\times V_{3}:\left(v,x,y\right)\in E\left(L\right)\right\} \right|<3\delta^{3}n$,
-and similarly most $v\in V_{2}$ and $v\in V_{3}$ have high degree
-into $V_{1}\times V_{3}$ and $V_{1}\times V_{2}$ respectively.
-\item For any choice of $W_{i}\subseteq V_{i}$ such that each $\left|W_{i}\right|\ge\delta^{3}n$,
+vertices and a flexible set $Z$ such that each $Z_{i}=V_{i}\cap Z=\delta^{2}n$.
+\item For at most $\delta n$ of the vertices $v\in V_{1}$, we have $\left|\left\{ \left(x,y\right)\in Z_{2}\times Z_{3}:\left(v,x,y\right)\in E\left(L\right)\right\} \right|<3\delta^{5}n$,
+and similarly few $v\in V_{2}$ and $v\in V_{3}$ have unusually low
+degree into $Z_{1}\times Z_{3}$ and $Z_{1}\times Z_{2}$ respectively.
+\item For any choice of $W_{i}\subseteq V_{i}$ such that each $\left|W_{i}\right|\ge\delta^{5}n$,
 there are at least $\left(1-\beta\right)\left|W_{1}\right|\left|W_{2}\right|\left|W_{3}\right|/n$
 hyperedges in $W_{1}\times W_{2}\times W_{3}$.
 \end{enumerate}
@@ -1600,7 +1610,7 @@ have many small Latin subsquares, but it was conjectured by Quackenbush
 subsystems. It seems unlikely that the methods in this paper will
 be able to prove or disprove this conjecture without substantial new
 ideas. Actually, by consideration of the random 3-graph $\Gnp n{1/n}$
-we suspect the expected number of 7-vertex Steiner triple systems
+we suspect the expected number of 7-vertex Steiner triple subsystems
 (Fano planes) in a random Steiner triple system is $\Theta\left(1\right)$,
 and that the distribution of this number is asymptotically Poisson.
 \item We could ask more generally about containment and enumeration of subgraphs.
@@ -1760,8 +1770,10 @@ of \ref{lem:triangle-removal-analysis}, and smaller than the ``$a$''
 in \ref{thm:keevash}. Let $\varepsilon=n^{-c/\ell}/\varepsilon_{0}$
 and $M=\left(1-\varepsilon\right)N$. Let $\randS^{*}\in\ordm M\cup\left\{ *\right\} $
 be the result of running the triangle removal process on $G\left(S\right)$
-to build a partial system extending $S$, until there are $M$ hyperedges.
-Let $\ord^{*}$ be the set of $M$-hyperedge $\left(\varepsilon,h\right)$-quasirandom
+to build a partial system extending $S$, until there are $M$ hyperedges
+(that is, $\randS^{*}=S\cup\randS$ where $\randS\in\RR\left(S,M-\alpha N\right)$
+in the notation of \ref{sec:nibble-TRP-coupling}). Let $\ord^{*}$
+be the set of $M$-hyperedge $\left(\varepsilon,h\right)$-quasirandom
 ordered partial systems $S^{*}\in\cordm{\varepsilon,h}M$ extending
 $S$. The choice of $c$ ensures that by \ref{lem:triangle-removal-analysis}
 we a.a.s. have $\randS^{*}\in\ord^{*}$, and by \ref{thm:keevash}
@@ -1783,7 +1795,7 @@ As discussed, we have
 \]
 so 
 \begin{align*}
-\left|\ord^{*}\right| & \ge\left(1-o\left(1\right)\right)\prod_{i=\alpha N}^{M-1}\left(1-O\left(n^{-c}\right)\right)\left(1-\frac{i}{N}\right)^{3}n^{3}/6.\\
+\left|\ord^{*}\right| & \ge\left(1-o\left(1\right)\right)\prod_{i=\alpha N}^{M-1}\left(1-O\left(n^{-c}\right)\right)\left(1-\frac{i}{N}\right)^{3}\frac{n^{3}}{6}\\
  & =\left(\left(1-O\left(n^{-c}\right)\right)\frac{n^{3}}{6}\right)^{\left(1-\alpha\right)N}\exp\left(3\sum_{i=\alpha N}^{M-1}\log\left(1-\frac{i}{N}\right)\right).
 \end{align*}
 Now, note that 
@@ -1868,7 +1880,7 @@ and unlikely to freeze until nearly all edges are gone.
 \label{lem:triangle-removal-analysis}For all $h\ge2$ and $a>0$
 there is $b\left(a,h\right)>0$ such that the following holds. Let
 $n^{-a}\le\varepsilon<1/2$ and suppose $G$ is a $\left(\varepsilon,h\right)$-quasirandom
-graph with $N-3m=N-3\alpha N$ edges. Then a.a.s. $\randM\ge\left(1-\varepsilon^{b}\right)N$
+graph with $N-3m$ edges. Then a.a.s. $\randM\ge\left(1-\varepsilon^{b}\right)N$
 and moreover for each $m\le i\le\left(1-\varepsilon^{b}\right)N$,
 the graph $\randG\left(i\right)$ is $\left(\varepsilon^{b},h\right)$-quasirandom.
 \end{thm}
@@ -1885,8 +1897,8 @@ in a variable $X$.
 \begin{lem}
 \label{lem:freedman}Let $\randX\left(0\right),\randX\left(1\right),\dots$
 be a supermartingale with respect to a filtration $\left(\mathcal{F}_{i}\right)$.
-Suppose that $\Delta\randX\left(i\right)\le K$ for all $i$, and
-let $V\left(i\right)=\sum_{j=0}^{i-1}\E\left[\left(\Delta\randX\left(j\right)\right)^{2}\cond\mathcal{F}_{j}\right]$.
+Suppose that $\left|\Delta\randX\left(i\right)\right|\le K$ for all
+$i$, and let $V\left(i\right)=\sum_{j=0}^{i-1}\E\left[\left(\Delta\randX\left(j\right)\right)^{2}\cond\mathcal{F}_{j}\right]$.
 Then for any $t,v>0$,
 \[
 \Pr\left(\randX\left(i\right)\ge\randX\left(0\right)+t\mbox{ and }V\left(i\right)\le v\mbox{ for some }i\right)\le\exp\left(-\frac{t^{2}}{2\left(v+Kt\right)}\right).

@@ -1192,16 +1192,15 @@ key "Cam02"
 \end_layout
 
 \begin_layout Standard
-In a huge breakthrough that will surely revolutionise design theory, Keevash
- 
+In a recent breakthrough, Keevash 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kee14"
 
 \end_inset
 
- very recently proved that for a large class of combinatorial designs generalisi
-ng Steiner triple systems, 
+ proved that for a large class of combinatorial designs generalising Steiner
+ triple systems, 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1330,16 +1329,16 @@ perfect matching
 is a matching covering the entire vertex set.
  The existence of perfect matchings is one of the most central questions
  in the theory of graphs and hypergraphs; in particular, some of the most
- important recent developments in the field are the Fulkerson-prize-winning
- work of Johansson, Kahn and Vu 
+ important recent developments in the field are the work of Johansson, Kahn
+ and Vu 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "JKV08"
 
 \end_inset
 
- on perfect matchings in random hypergraphs, and the structural theory of
- Keevash and Mycroft 
+ on perfect matchings in random hypergraphs, and the theory of Keevash and
+ Mycroft 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "KM15"
@@ -1347,6 +1346,36 @@ key "KM15"
 \end_inset
 
  characterising when dense hypergraphs have perfect matchings.
+ We should also mention the 
+\begin_inset Quotes eld
+\end_inset
+
+nibble
+\begin_inset Quotes erd
+\end_inset
+
+ method of R
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+"
+\end_layout
+
+\end_inset
+
+odl 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rod85"
+
+\end_inset
+
+ for finding almost-perfect hypergraph matchings, which has had a significant
+ influence throughout combinatorics in the last 30 years.
  A perfect matching in a Steiner triple system is also called a
 \emph on
  parallel class
@@ -1605,7 +1634,7 @@ key "LL13"
 
 \end_inset
 
-.
+, among others.
 \end_layout
 
 \begin_layout Subsection
@@ -1655,15 +1684,9 @@ symbols
 transversal 
 \emph default
 and the property of containing a transversal is of great interest.
- In particular, the famous Ryser-Brualdi-Stein conjecture (see 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "BR91,Ste75"
-
-\end_inset
-
-) speculates that every odd-order Latin square has a transversal, and every
- even-order Latin square has a partial transversal of size 
+ In particular, the famous Ryser-Brualdi-Stein conjecture speculates that
+ every odd-order Latin square has a transversal, and every even-order Latin
+ square has a partial transversal of size 
 \begin_inset Formula $n-1$
 \end_inset
 
@@ -1948,6 +1971,21 @@ We use standard asymptotic notation throughout.
 
  as 
 \begin_inset Formula $n\to\infty$
+\end_inset
+
+.
+ To say that a.a.s.
+ 
+\begin_inset Formula $f=o\left(g\right)$
+\end_inset
+
+ means that for any 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, a.a.s.
+ 
+\begin_inset Formula $f/g<\varepsilon$
 \end_inset
 
 .
@@ -2389,14 +2427,18 @@ Fixing sufficiently large
 \end_inset
 
  be a property of ordered partial systems, let 
-\begin_inset Formula $\mathcal{Q}\supseteq\cordm{n^{-a},h}{\alpha N}$
+\begin_inset Formula $\varepsilon=n^{-a}$
+\end_inset
+
+,  let 
+\begin_inset Formula $\mathcal{Q}\supseteq\cordm{\varepsilon,h}{\alpha N}$
 \end_inset
 
 , let 
 \begin_inset Formula $\randS\in\ord$
 \end_inset
 
- be uniformly random and let 
+ be a uniformly random ordered Steiner triple system and let 
 \begin_inset Formula $\randS'\in\rg n{\alpha N}$
 \end_inset
 
@@ -2733,7 +2775,7 @@ name "lem:greedy-random-approx-uniform"
 \end_inset
 
 The following holds for any fixed 
-\begin_inset Formula $a>0$
+\begin_inset Formula $a\in\left(0,2\right)$
 \end_inset
 
  and 
@@ -2797,7 +2839,7 @@ We have
 \begin_inset Formula 
 \begin{align*}
 \Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right) & \le\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\cond\randS_{\alpha N}\in\cordm{\varepsilon,h}{\alpha N}\right)+\Pr\left(\randS_{\alpha N}\notin\cordm{\varepsilon,h}{\alpha N}\right)\\
- & \le\exp\left(O\left(n^{2-c}\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)+\exp\left(-\Omega\left(n^{1-2a}\right)\right),
+ & \le\exp\left(O\left(n^{2-c}\right)\right)\exp\left(O\left(n^{2-a}\right)\right)\Pr\left(\randS'\notin\mathcal{P}\cond\randS'\in\cordm{\varepsilon,h}{\alpha N}\right)+\exp\left(-\Omega\left(n^{1-2a}\right)\right),
 \end{align*}
 
 \end_inset
@@ -2837,15 +2879,27 @@ reference "lem:triangle-removal-analysis"
 
 \end_inset
 
-If 
-\begin_inset Formula $b<c$
+Choosing 
+\begin_inset Formula $b$
 \end_inset
 
- (and 
+ such that 
+\begin_inset Formula $b<\min\left\{ c,a\right\} $
+\end_inset
+
+ and 
 \begin_inset Formula $2-b\ge1-2a$
 \end_inset
 
-) this completes the proof.
+, we then have
+\begin_inset Formula 
+\[
+\Pr\left(\randS_{\alpha N}\notin\mathcal{P}\right)\le\exp\left(-\Omega\left(n^{1-2a}\right)\right)
+\]
+
+\end_inset
+
+as desired.
 \end_layout
 
 \begin_layout Standard
@@ -3533,15 +3587,7 @@ nibbling
 \begin_inset Quotes erd
 \end_inset
 
- process (see for example 
-\begin_inset CommandInset citation
-LatexCommand cite
-after "Section~4.7"
-key "AS04"
-
-\end_inset
-
-), that should be similar to 
+ process, that should be similar to 
 \begin_inset Formula $\rg S{\alpha N}$
 \end_inset
 
@@ -3633,7 +3679,11 @@ Let
 \end_inset
 
 , its hyperedges comprise a uniformly random subset of its size, of the
- set of all possible hyperedges.
+ set of all hyperedges not conflicting with 
+\begin_inset Formula $S$
+\end_inset
+
+.
  With probability 
 \begin_inset Formula $\Omega\left(1\right)$
 \end_inset
@@ -3642,7 +3692,7 @@ Let
 \begin_inset Formula $\randG$
 \end_inset
 
- is at most 
+ is at most its median 
 \begin_inset Formula ${n \choose 3}\alpha/n\le\alpha N$
 \end_inset
 
@@ -3669,7 +3719,7 @@ Let
  It follows that
 \begin_inset Formula 
 \begin{align*}
-\Pr\left(S\cup\randS\notin\mathcal{P}\cond S\cup\randS\in\mathcal{Q}\right) & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\cond e\left(\randG\right)\le\alpha N\right)\\
+\Pr\left(S\cup\randS\notin\mathcal{P}\right) & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\cond e\left(\randG\right)\le\alpha N\right)\\
  & \le\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right)/\Pr\left(e\left(\randG\right)\le\alpha N\right)\\
  & =\Pr\left(S\cup\randS^{*}\notin\mathcal{P}\right)/\Omega\left(1\right).\tag*{\qedhere}
 \end{align*}
@@ -4573,7 +4623,7 @@ reference "lem:montgomery"
 \end_inset
 
  on the vertex set 
-\begin_inset Formula $X\sqcup Y\sqcup Z$
+\begin_inset Formula $X\sqcup\left(Y\sqcup Z\right)$
 \end_inset
 
  (note that 
@@ -4820,7 +4870,7 @@ For at most
 \end_inset
 
 , we have 
-\begin_inset Formula $\left|\left\{ \left\{ x,y\right\} \subseteq Z:\left\{ v,x,y\right\} \in E\left(S\right)\right\} \right|<6\delta^{3}n$
+\begin_inset Formula $\left|\left\{ \left\{ x,y\right\} \subseteq Z:\left\{ v,x,y\right\} \in E\left(S\right)\right\} \right|<6\delta^{5}n$
 \end_inset
 
 .
@@ -4848,7 +4898,7 @@ Every vertex subset
 \end_inset
 
  with 
-\begin_inset Formula $\left|W\right|\ge3\delta^{3}n$
+\begin_inset Formula $\left|W\right|\ge3\delta^{5}n$
 \end_inset
 
  induces at least 
@@ -4961,12 +5011,12 @@ reference "cond:density"
 \end_inset
 
  until there are only 
-\begin_inset Formula $3\floor{\delta^{3}n}$
+\begin_inset Formula $3\floor{\delta^{5}n}$
 \end_inset
 
  such vertices remaining unmatched.
  (This means we are choosing 
-\begin_inset Formula $m=\left(n'-3\floor{\delta^{3}n}\right)/3=n/3-O\left(\delta n\right)$
+\begin_inset Formula $m=\left(n'-3\floor{\delta^{5}n}\right)/3=n/3-O\left(\delta n\right)$
 \end_inset
 
  hyperedges).
@@ -5010,7 +5060,7 @@ Next, we greedily extend our matching to cover the remaining vertices in
 
 .
  We can therefore choose such a hyperedge avoiding the (fewer than 
-\begin_inset Formula $2\times3\floor{\delta^{3}n}$
+\begin_inset Formula $2\times3\floor{\delta^{5}n}$
 \end_inset
 
 ) vertices in 
@@ -5234,7 +5284,7 @@ reference "cond:degree"
 \end_inset
 
  each with degree less than 
-\begin_inset Formula $6\delta^{3}n$
+\begin_inset Formula $6\delta^{5}n$
 \end_inset
 
  into 
@@ -5243,7 +5293,7 @@ reference "cond:degree"
 
 .
  There are then fewer than 
-\begin_inset Formula $6\delta^{4}n^{2}$
+\begin_inset Formula $6\delta^{6}n^{2}$
 \end_inset
 
  hyperedges with one vertex in 
@@ -5327,7 +5377,7 @@ isolated
 
  in more than one vertex.
  There are 
-\begin_inset Formula $\Theta\left(\left(\delta n\right)^{2}n\right)=\Theta\left(\delta^{2}n^{3}\right)$
+\begin_inset Formula $\Theta\left(\left(\delta n\right)\left(\delta^{2}n\right)^{2}\right)=\Theta\left(\delta^{5}n^{3}\right)$
 \end_inset
 
  possible hyperedges and each is present and isolated with probability 
@@ -5335,7 +5385,7 @@ isolated
 \end_inset
 
 , so 
-\begin_inset Formula $\E\randY=\Theta\left(\delta^{2}n^{2}\right)$
+\begin_inset Formula $\E\randY=\Theta\left(\delta^{5}n^{2}\right)$
 \end_inset
 
 .
@@ -5362,7 +5412,7 @@ reference "thm:bernstein-type"
 ,
 \begin_inset Formula 
 \[
-\Pr\left(\randY\le2\delta^{4}n^{2}\right)\le\Pr\left(\left|\randY-\E\randY\right|\le\Theta\left(\delta^{2}n^{2}\right)\right)\le\exp\left(-\Omega\left(\frac{\left(\delta^{2}n^{2}\right)^{2}}{3^{2}{n \choose 3}\alpha/n+3\delta^{2}n^{2}}\right)\right)=\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right).
+\Pr\left(\randY\le2\delta^{6}n^{2}\right)\le\Pr\left(\left|\randY-\E\randY\right|\le\Theta\left(\delta^{5}n^{2}\right)\right)\le\exp\left(-\Omega\left(\frac{\left(\delta^{5}n^{2}\right)^{2}}{3^{2}{n \choose 3}\alpha/n+3\delta^{5}n^{2}}\right)\right)=\exp\left(-\tilde{\Omega}\left(n^{2}\right)\right).
 \]
 
 \end_inset
@@ -5476,7 +5526,7 @@ reference "subsec:degree"
 \end_inset
 
  with 
-\begin_inset Formula $\left|W\right|\ge3\delta^{3}n$
+\begin_inset Formula $\left|W\right|\ge3\delta^{5}n$
 \end_inset
 
  and redefine 
@@ -6309,7 +6359,7 @@ reference "lem:triangle-removal-transfer"
 If a Steiner triple system has this property, then we can very straightfowardly
  greedily build an absorbing structure, as follows.
  Recalling that 
-\begin_inset Formula $\left|Z\right|=3\floor{\delta^{3}n}=O\left(\delta^{3}n\right)$
+\begin_inset Formula $\left|Z\right|=3\floor{\delta^{2}n}=O\left(\delta^{2}n\right)$
 \end_inset
 
 , choose a resilient template 
@@ -6317,11 +6367,11 @@ If a Steiner triple system has this property, then we can very straightfowardly
 \end_inset
 
  with 
-\begin_inset Formula $O\left(\delta^{3}n\right)$
+\begin_inset Formula $O\left(\delta^{2}n\right)$
 \end_inset
 
  hyperedges, on 
-\begin_inset Formula $O\left(\delta^{3}n\right)$
+\begin_inset Formula $O\left(\delta^{2}n\right)$
 \end_inset
 
  vertices of 
@@ -6338,7 +6388,7 @@ If a Steiner triple system has this property, then we can very straightfowardly
 \end_inset
 
  of 
-\begin_inset Formula $H$
+\begin_inset Formula $T$
 \end_inset
 
  in any order, and greedily choose an absorber in 
@@ -6352,7 +6402,7 @@ If a Steiner triple system has this property, then we can very straightfowardly
 , each of whose external vertices is disjoint to the template and all absorbers
  chosen so far.
  The entire absorbing structure then has 
-\begin_inset Formula $O\left(\delta^{3}n\right)\le\delta n$
+\begin_inset Formula $O\left(\delta^{2}n\right)\le\delta n$
 \end_inset
 
  vertices.
@@ -7156,15 +7206,11 @@ There is an absorbing structure
 \begin_inset Formula $Z$
 \end_inset
 
- intersecting each 
-\begin_inset Formula $V_{i}$
+ such that each 
+\begin_inset Formula $Z_{i}=V_{i}\cap Z=\delta^{2}n$
 \end_inset
 
- in 
-\begin_inset Formula $\delta^{2}n$
-\end_inset
-
- vertices.
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -7177,10 +7223,10 @@ For at most
 \end_inset
 
 , we have 
-\begin_inset Formula $\left|\left\{ \left(x,y\right)\in V_{2}\times V_{3}:\left(v,x,y\right)\in E\left(L\right)\right\} \right|<3\delta^{3}n$
+\begin_inset Formula $\left|\left\{ \left(x,y\right)\in Z_{2}\times Z_{3}:\left(v,x,y\right)\in E\left(L\right)\right\} \right|<3\delta^{5}n$
 \end_inset
 
-, and similarly most 
+, and similarly few 
 \begin_inset Formula $v\in V_{2}$
 \end_inset
 
@@ -7188,12 +7234,12 @@ For at most
 \begin_inset Formula $v\in V_{3}$
 \end_inset
 
- have high degree into 
-\begin_inset Formula $V_{1}\times V_{3}$
+ have unusually low degree into 
+\begin_inset Formula $Z_{1}\times Z_{3}$
 \end_inset
 
  and 
-\begin_inset Formula $V_{1}\times V_{2}$
+\begin_inset Formula $Z_{1}\times Z_{2}$
 \end_inset
 
  respectively.
@@ -7205,7 +7251,7 @@ For any choice of
 \end_inset
 
  such that each 
-\begin_inset Formula $\left|W_{i}\right|\ge\delta^{3}n$
+\begin_inset Formula $\left|W_{i}\right|\ge\delta^{5}n$
 \end_inset
 
 , there are at least 
@@ -7488,7 +7534,7 @@ key "Qua80"
 \begin_inset Formula $\Gnp n{1/n}$
 \end_inset
 
- we suspect the expected number of 7-vertex Steiner triple systems (Fano
+ we suspect the expected number of 7-vertex Steiner triple subsystems (Fano
  planes) in a random Steiner triple system is 
 \begin_inset Formula $\Theta\left(1\right)$
 \end_inset
@@ -8267,7 +8313,22 @@ reference "thm:keevash"
 \begin_inset Formula $M$
 \end_inset
 
- hyperedges.
+ hyperedges (that is, 
+\begin_inset Formula $\randS^{*}=S\cup\randS$
+\end_inset
+
+ where 
+\begin_inset Formula $\randS\in\RR\left(S,M-\alpha N\right)$
+\end_inset
+
+ in the notation of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:nibble-TRP-coupling"
+
+\end_inset
+
+).
  Let 
 \begin_inset Formula $\ord^{*}$
 \end_inset
@@ -8362,7 +8423,7 @@ As discussed, we have
 so 
 \begin_inset Formula 
 \begin{align*}
-\left|\ord^{*}\right| & \ge\left(1-o\left(1\right)\right)\prod_{i=\alpha N}^{M-1}\left(1-O\left(n^{-c}\right)\right)\left(1-\frac{i}{N}\right)^{3}n^{3}/6.\\
+\left|\ord^{*}\right| & \ge\left(1-o\left(1\right)\right)\prod_{i=\alpha N}^{M-1}\left(1-O\left(n^{-c}\right)\right)\left(1-\frac{i}{N}\right)^{3}\frac{n^{3}}{6}\\
  & =\left(\left(1-O\left(n^{-c}\right)\right)\frac{n^{3}}{6}\right)^{\left(1-\alpha\right)N}\exp\left(3\sum_{i=\alpha N}^{M-1}\log\left(1-\frac{i}{N}\right)\right).
 \end{align*}
 
@@ -8676,7 +8737,7 @@ For all
 \end_inset
 
 -quasirandom graph with 
-\begin_inset Formula $N-3m=N-3\alpha N$
+\begin_inset Formula $N-3m$
 \end_inset
 
  edges.
@@ -8771,7 +8832,7 @@ Let
 
 .
  Suppose that 
-\begin_inset Formula $\Delta\randX\left(i\right)\le K$
+\begin_inset Formula $\left|\Delta\randX\left(i\right)\right|\le K$
 \end_inset
 
  for all 
