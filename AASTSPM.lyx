@@ -2087,8 +2087,6 @@ Acknowledgements
 \begin_layout Standard
 The author would like to thank Asaf Ferber and Benny Sudakov for very helpful
  discussions about random designs and the intricacies of the absorbing method.
- Asaf and Benny could both have deservedly been coauthors on this paper,
- but graciously declined the opportunity.
 \end_layout
 
 \begin_layout Section
@@ -7519,8 +7517,15 @@ key "MW99"
 
 \end_inset
 
- proved that almost all Latin squares have many small Latin subsquares,
- but it was conjectured by Quackenbush 
+ proved that almost all Latin squares have many small Latin subsquares (see
+ also 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KS16"
+
+\end_inset
+
+), but it was conjectured by Quackenbush 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Qua80"
