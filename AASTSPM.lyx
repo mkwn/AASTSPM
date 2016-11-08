@@ -1725,7 +1725,7 @@ reference "thm:maximum-PMs"
 
 \end_inset
 
- for Latin squares, that a Latin square can have at most 
+ for Latin squares, that a Latin square can have no more than 
 \begin_inset Formula $\left(\left(1+o\left(1\right)\right)n/e^{2}\right)^{n}$
 \end_inset
 
@@ -9044,7 +9044,7 @@ reference "prop:H-count"
  is
 \begin_inset Formula 
 \[
-\randQ\left(i\right)=\left(1\pm O\left(e\left(i\right)\right)\right)p^{3}\left(i\right)n^{3}/6>0.
+\randQ\left(i\right)=\left(1\pm O\left(e\left(i\right)\right)\right)\frac{p^{3}\left(i\right)n^{3}}{6}>0.
 \]
 
 \end_inset
@@ -9145,7 +9145,7 @@ reference "prop:H-count"
 \begin_inset Formula 
 \begin{align*}
 \Pr\left(x\notin\randR_{A}\left(i+1\right)\right) & =\frac{1}{\randQ\left(i\right)}\left(\sum_{w\in A}\left(1\pm O\left(e\left(i\right)\right)\right)p^{2}\left(i\right)n-O\left(1\right)\right)\\
- & =\left|A\right|\left(1\pm O\left(e\left(i\right)\right)\right)p^{-1}\left(i\right)/N.
+ & =\left(1\pm O\left(e\left(i\right)\right)\right)\frac{\left|A\right|}{p\left(i\right)N}.
 \end{align*}
 
 \end_inset
@@ -9161,8 +9161,8 @@ For
 , so by linearity of expectation
 \begin_inset Formula 
 \begin{align*}
-\E\left[\Delta\randY_{A}\left(i\right)\cond\randG\left(i\right)\right] & =-\left|A\right|\left(1\pm O\left(e\left(i\right)\right)\right)p^{\left|A\right|-1}\left(i\right)n/N\\
- & =-\left|A\right|p^{\left|A\right|-1}\left(i\right)n/N+O\left(e\left(i\right)p^{\left|A\right|-1}\left(i\right)/n\right).
+\E\left[\Delta\randY_{A}\left(i\right)\cond\randG\left(i\right)\right] & =-\left(1\pm O\left(e\left(i\right)\right)\right)\frac{\left|A\right|p^{\left|A\right|-1}\left(i\right)n}{N}\\
+ & =-\frac{\left|A\right|p^{\left|A\right|-1}\left(i\right)n}{N}+O\left(\frac{e\left(i\right)p^{\left|A\right|-1}\left(i\right)}{n}\right).
 \end{align*}
 
 \end_inset
@@ -9183,8 +9183,8 @@ Note also that we have the bound
  & =\left(1-\frac{i}{N}\right)^{k}\left(\left(\frac{N-i-1}{N-i}\right)^{k}-1\right)\\
  & =p^{k}\left(i\right)\left(\left(1-\frac{1}{N-i}\right)^{k}-1\right)\\
  & =p^{k}\left(i\right)\left(-\frac{k}{N-i}+O\left(\frac{1}{\left(N-i\right)^{2}}\right)\right)\\
- & =-\frac{kp^{k-1}\left(i\right)}{N}\left(1+O\left(\frac{p\left(i\right)}{N}\right)\right)\\
- & =-\frac{kp^{k-1}\left(i\right)}{N}+o\left(\frac{e\left(i\right)p^{k-1}\left(i\right)}{N}\right),
+ & =-\frac{kp^{k-1}\left(i\right)}{N}\left(1+O\left(\frac{p\left(i\right)}{n^{2}}\right)\right)\\
+ & =-\frac{kp^{k-1}\left(i\right)}{N}+o\left(\frac{e\left(i\right)p^{k-1}\left(i\right)}{n^{2}}\right),
 \end{align*}
 
 \end_inset
@@ -9197,11 +9197,12 @@ and with
 \begin_inset Formula $i\mapsto e\left(i\right)p^{k}\left(i\right)$
 \end_inset
 
-, we have
+, we then have
 \begin_inset Formula 
 \begin{align*}
-\Delta\left(ep^{k}\right)\left(i\right) & =\varepsilon^{c}\Delta p^{k-C}\left(i\right)=\varepsilon^{c}\Theta\left(\frac{\left(C-k\right)p^{k-C-1}\left(i\right)}{N}\right)\\
- & =\Theta\left(\frac{\left(C-k\right)e\left(i\right)p^{k-1}\left(i\right)}{N}\right).
+\Delta\left(ep^{k}\right)\left(i\right) & =\varepsilon^{c}\Delta p^{k-C}\left(i\right)\\
+ & =\varepsilon^{c}\Theta\left(\frac{\left(C-k\right)p^{k-C-1}\left(i\right)}{N}\right)\\
+ & =\Theta\left(\frac{\left(C-k\right)e\left(i\right)p^{k-1}\left(i\right)}{n^{2}}\right).
 \end{align*}
 
 \end_inset

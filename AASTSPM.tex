@@ -499,7 +499,7 @@ for an introduction to the subject of Latin transversals, and \cite{DK15}
 for an introduction to Latin squares in general.
 
 The counterpart of \ref{thm:maximum-PMs} for Latin squares, that
-a Latin square can have at most $\left(\left(1+o\left(1\right)\right)n/e^{2}\right)^{n}$
+a Latin square can have no more than $\left(\left(1+o\left(1\right)\right)n/e^{2}\right)^{n}$
 transversals, was first proved by Taranenko \cite{Tar15}. Glebov
 and Luria \cite{GL16} gave a simpler entropy-based proof of the same
 fact and asked whether the counterpart of \ref{thm:PM-in-STS} holds:
@@ -1939,7 +1939,7 @@ To see that this suffices to prove \ref{lem:triangle-removal-analysis},
 note that if $i<\randT$ then by \ref{prop:H-count} the number of
 triangles in $\randG\left(i\right)$ is
 \[
-\randQ\left(i\right)=\left(1\pm O\left(e\left(i\right)\right)\right)p^{3}\left(i\right)n^{3}/6>0.
+\randQ\left(i\right)=\left(1\pm O\left(e\left(i\right)\right)\right)\frac{p^{3}\left(i\right)n^{3}}{6}>0.
 \]
 This means $\randT\le\randM$, so the event that each $\randY_{A}^{s}$
 only takes negative values contains the event that each $\randG\left(i\right)$
@@ -1957,13 +1957,13 @@ by \ref{prop:H-count}. The number of triangles containing $x$ and
 more than one vertex of $A$ is $O\left(1\right)$. So,
 \begin{align*}
 \Pr\left(x\notin\randR_{A}\left(i+1\right)\right) & =\frac{1}{\randQ\left(i\right)}\left(\sum_{w\in A}\left(1\pm O\left(e\left(i\right)\right)\right)p^{2}\left(i\right)n-O\left(1\right)\right)\\
- & =\left|A\right|\left(1\pm O\left(e\left(i\right)\right)\right)p^{-1}\left(i\right)/N.
+ & =\left(1\pm O\left(e\left(i\right)\right)\right)\frac{\left|A\right|}{p\left(i\right)N}.
 \end{align*}
 For $i<\randT$ we have $\left|\randR_{A}\left(i\right)\right|=\left(1\pm e\left(i\right)\right)p^{\left|A\right|}\left(i\right)n$,
 so by linearity of expectation
 \begin{align*}
-\E\left[\Delta\randY_{A}\left(i\right)\cond\randG\left(i\right)\right] & =-\left|A\right|\left(1\pm O\left(e\left(i\right)\right)\right)p^{\left|A\right|-1}\left(i\right)n/N\\
- & =-\left|A\right|p^{\left|A\right|-1}\left(i\right)n/N+O\left(e\left(i\right)p^{\left|A\right|-1}\left(i\right)/n\right).
+\E\left[\Delta\randY_{A}\left(i\right)\cond\randG\left(i\right)\right] & =-\left(1\pm O\left(e\left(i\right)\right)\right)\frac{\left|A\right|p^{\left|A\right|-1}\left(i\right)n}{N}\\
+ & =-\frac{\left|A\right|p^{\left|A\right|-1}\left(i\right)n}{N}+O\left(\frac{e\left(i\right)p^{\left|A\right|-1}\left(i\right)}{n}\right).
 \end{align*}
 Note also that we have the bound $\Delta\randY_{A}\left(i\right)\le2=O\left(1\right)$
 (with probability 1). Also, for fixed $k$, we have
@@ -1972,14 +1972,15 @@ Note also that we have the bound $\Delta\randY_{A}\left(i\right)\le2=O\left(1\ri
  & =\left(1-\frac{i}{N}\right)^{k}\left(\left(\frac{N-i-1}{N-i}\right)^{k}-1\right)\\
  & =p^{k}\left(i\right)\left(\left(1-\frac{1}{N-i}\right)^{k}-1\right)\\
  & =p^{k}\left(i\right)\left(-\frac{k}{N-i}+O\left(\frac{1}{\left(N-i\right)^{2}}\right)\right)\\
- & =-\frac{kp^{k-1}\left(i\right)}{N}\left(1+O\left(\frac{p\left(i\right)}{N}\right)\right)\\
- & =-\frac{kp^{k-1}\left(i\right)}{N}+o\left(\frac{e\left(i\right)p^{k-1}\left(i\right)}{N}\right),
+ & =-\frac{kp^{k-1}\left(i\right)}{N}\left(1+O\left(\frac{p\left(i\right)}{n^{2}}\right)\right)\\
+ & =-\frac{kp^{k-1}\left(i\right)}{N}+o\left(\frac{e\left(i\right)p^{k-1}\left(i\right)}{n^{2}}\right),
 \end{align*}
 and with $ep^{k}$ denoting the pointwise product $i\mapsto e\left(i\right)p^{k}\left(i\right)$,
-we have
+we then have
 \begin{align*}
-\Delta\left(ep^{k}\right)\left(i\right) & =\varepsilon^{c}\Delta p^{k-C}\left(i\right)=\varepsilon^{c}\Theta\left(\frac{\left(C-k\right)p^{k-C-1}\left(i\right)}{N}\right)\\
- & =\Theta\left(\frac{\left(C-k\right)e\left(i\right)p^{k-1}\left(i\right)}{N}\right).
+\Delta\left(ep^{k}\right)\left(i\right) & =\varepsilon^{c}\Delta p^{k-C}\left(i\right)\\
+ & =\varepsilon^{c}\Theta\left(\frac{\left(C-k\right)p^{k-C-1}\left(i\right)}{N}\right)\\
+ & =\Theta\left(\frac{\left(C-k\right)e\left(i\right)p^{k-1}\left(i\right)}{n^{2}}\right).
 \end{align*}
 For large $C$ it follows that
 \begin{align*}
